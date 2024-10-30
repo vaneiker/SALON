@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="salon_connection" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_ActualizarCliente">
+      <Parameter Name="ClienteID" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ActualizarMovimientoFinanciero">
+      <Parameter Name="MovimientoID" Mode="In" Type="Int32" />
+      <Parameter Name="Tipo" Mode="In" Type="String" />
+      <Parameter Name="Monto" Mode="In" Type="Decimal" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="UsuarioID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ActualizarProductoServicio">
+      <Parameter Name="ProductoServicioID" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Precio" Mode="In" Type="Decimal" />
+      <Parameter Name="Tipo" Mode="In" Type="String" />
+      <Parameter Name="Stock" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ActualizarProveedor">
+      <Parameter Name="ProveedorID" Mode="In" Type="Int32" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ActualizarUsuario">
+      <Parameter Name="UsuarioID" Mode="In" Type="Int32" />
+      <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+      <Parameter Name="Contraseña" Mode="In" Type="String" />
+      <Parameter Name="Rol" Mode="In" Type="String" />
+      <Parameter Name="Activo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ActualizarVenta">
+      <Parameter Name="VentaID" Mode="In" Type="Int32" />
+      <Parameter Name="ClienteID" Mode="In" Type="Int32" />
+      <Parameter Name="UsuarioID" Mode="In" Type="Int32" />
+      <Parameter Name="MetodoPago" Mode="In" Type="String" />
+      <Parameter Name="Total" Mode="In" Type="Decimal" />
+      <Parameter Name="Comentarios" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_EliminarCliente">
+      <Parameter Name="ClienteID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_EliminarMovimientoFinanciero">
+      <Parameter Name="MovimientoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_EliminarProductoServicio">
+      <Parameter Name="ProductoServicioID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_EliminarProveedor">
+      <Parameter Name="ProveedorID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_EliminarUsuario">
+      <Parameter Name="UsuarioID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_EliminarVenta">
+      <Parameter Name="VentaID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InsertarCliente">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InsertarMovimientoFinanciero">
+      <Parameter Name="Tipo" Mode="In" Type="String" />
+      <Parameter Name="Monto" Mode="In" Type="Decimal" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="UsuarioID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InsertarProductoServicio">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Precio" Mode="In" Type="Decimal" />
+      <Parameter Name="Tipo" Mode="In" Type="String" />
+      <Parameter Name="Stock" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InsertarProveedor">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Telefono" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Direccion" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InsertarUsuario">
+      <Parameter Name="NombreUsuario" Mode="In" Type="String" />
+      <Parameter Name="Contraseña" Mode="In" Type="String" />
+      <Parameter Name="Rol" Mode="In" Type="String" />
+      <Parameter Name="Activo" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InsertarVenta">
+      <Parameter Name="ClienteID" Mode="In" Type="Int32" />
+      <Parameter Name="UsuarioID" Mode="In" Type="Int32" />
+      <Parameter Name="MetodoPago" Mode="In" Type="String" />
+      <Parameter Name="Total" Mode="In" Type="Decimal" />
+      <Parameter Name="Comentarios" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ObtenerClientes" ReturnType="Collection(SalonModel.SP_ObtenerClientes_Result)" />
+    <FunctionImport Name="SP_ObtenerMovimientosFinancieros" ReturnType="Collection(SalonModel.SP_ObtenerMovimientosFinancieros_Result)" />
+    <FunctionImport Name="SP_ObtenerProductosServicios" ReturnType="Collection(SalonModel.SP_ObtenerProductosServicios_Result)" />
+    <FunctionImport Name="SP_ObtenerProveedores" ReturnType="Collection(SalonModel.SP_ObtenerProveedores_Result)" />
+    <FunctionImport Name="SP_ObtenerUsuarios" ReturnType="Collection(SalonModel.SP_ObtenerUsuarios_Result)" />
+    <FunctionImport Name="SP_ObtenerVentas" ReturnType="Collection(SalonModel.SP_ObtenerVentas_Result)" />
+  </EntityContainer>
+  <ComplexType Name="SP_ObtenerClientes_Result">
+    <Property Type="Int32" Name="ClienteID" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Cedula" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Celular" Nullable="true" MaxLength="15" />
+    <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Activo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_ObtenerMovimientosFinancieros_Result">
+    <Property Type="Int32" Name="MovimientoID" Nullable="false" />
+    <Property Type="String" Name="Tipo" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="FechaMovimiento" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Monto" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="255" />
+    <Property Type="Int32" Name="UsuarioID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_ObtenerProductosServicios_Result">
+    <Property Type="Int32" Name="ProductoServicioID" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="Precio" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="Tipo" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="Stock" Nullable="true" />
+    <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SP_ObtenerProveedores_Result">
+    <Property Type="Int32" Name="ProveedorID" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Cedula" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Celular" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Telefono" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Direccion" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="SP_ObtenerUsuarios_Result">
+    <Property Type="Int32" Name="UsuarioID" Nullable="false" />
+    <Property Type="String" Name="NombreUsuario" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Contraseña" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Rol" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="FechaRegistro" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Activo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_ObtenerVentas_Result">
+    <Property Type="Int32" Name="VentaID" Nullable="false" />
+    <Property Type="Int32" Name="ClienteID" Nullable="true" />
+    <Property Type="Int32" Name="UsuarioID" Nullable="true" />
+    <Property Type="DateTime" Name="FechaVenta" Nullable="true" Precision="23" />
+    <Property Type="String" Name="MetodoPago" Nullable="true" MaxLength="20" />
+    <Property Type="Decimal" Name="Total" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="String" Name="Comentarios" Nullable="true" MaxLength="255" />
+  </ComplexType>
+</Schema>

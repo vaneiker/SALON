@@ -1,0 +1,13 @@
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\bin\Debug\BLL.dll
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\bin\Debug\BLL.pdb
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\bin\Debug\ENTITY.dll
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\bin\Debug\ENTITY.pdb
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.Up2Date
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.dll
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.pdb
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\bin\Debug\DAL.dll
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\bin\Debug\EntityFramework.dll
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\bin\Debug\DAL.pdb
+C:\AppEiker\SALON\SistemaGestionSalon\BLL\bin\Debug\DAL.dll.config

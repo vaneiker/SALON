@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SalonModelStoreContainer" CdmEntityContainer="salon_connection">
+    <FunctionImportMapping FunctionImportName="SP_ActualizarCliente" FunctionName="SalonModel.Store.SP_ActualizarCliente" />
+    <FunctionImportMapping FunctionImportName="SP_ActualizarMovimientoFinanciero" FunctionName="SalonModel.Store.SP_ActualizarMovimientoFinanciero" />
+    <FunctionImportMapping FunctionImportName="SP_ActualizarProductoServicio" FunctionName="SalonModel.Store.SP_ActualizarProductoServicio" />
+    <FunctionImportMapping FunctionImportName="SP_ActualizarProveedor" FunctionName="SalonModel.Store.SP_ActualizarProveedor" />
+    <FunctionImportMapping FunctionImportName="SP_ActualizarUsuario" FunctionName="SalonModel.Store.SP_ActualizarUsuario" />
+    <FunctionImportMapping FunctionImportName="SP_ActualizarVenta" FunctionName="SalonModel.Store.SP_ActualizarVenta" />
+    <FunctionImportMapping FunctionImportName="SP_EliminarCliente" FunctionName="SalonModel.Store.SP_EliminarCliente" />
+    <FunctionImportMapping FunctionImportName="SP_EliminarMovimientoFinanciero" FunctionName="SalonModel.Store.SP_EliminarMovimientoFinanciero" />
+    <FunctionImportMapping FunctionImportName="SP_EliminarProductoServicio" FunctionName="SalonModel.Store.SP_EliminarProductoServicio" />
+    <FunctionImportMapping FunctionImportName="SP_EliminarProveedor" FunctionName="SalonModel.Store.SP_EliminarProveedor" />
+    <FunctionImportMapping FunctionImportName="SP_EliminarUsuario" FunctionName="SalonModel.Store.SP_EliminarUsuario" />
+    <FunctionImportMapping FunctionImportName="SP_EliminarVenta" FunctionName="SalonModel.Store.SP_EliminarVenta" />
+    <FunctionImportMapping FunctionImportName="SP_InsertarCliente" FunctionName="SalonModel.Store.SP_InsertarCliente" />
+    <FunctionImportMapping FunctionImportName="SP_InsertarMovimientoFinanciero" FunctionName="SalonModel.Store.SP_InsertarMovimientoFinanciero" />
+    <FunctionImportMapping FunctionImportName="SP_InsertarProductoServicio" FunctionName="SalonModel.Store.SP_InsertarProductoServicio" />
+    <FunctionImportMapping FunctionImportName="SP_InsertarProveedor" FunctionName="SalonModel.Store.SP_InsertarProveedor" />
+    <FunctionImportMapping FunctionImportName="SP_InsertarUsuario" FunctionName="SalonModel.Store.SP_InsertarUsuario" />
+    <FunctionImportMapping FunctionImportName="SP_InsertarVenta" FunctionName="SalonModel.Store.SP_InsertarVenta" />
+    <FunctionImportMapping FunctionImportName="SP_ObtenerClientes" FunctionName="SalonModel.Store.SP_ObtenerClientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SalonModel.SP_ObtenerClientes_Result">
+          <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ObtenerMovimientosFinancieros" FunctionName="SalonModel.Store.SP_ObtenerMovimientosFinancieros">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SalonModel.SP_ObtenerMovimientosFinancieros_Result">
+          <ScalarProperty Name="MovimientoID" ColumnName="MovimientoID" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="FechaMovimiento" ColumnName="FechaMovimiento" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ObtenerProductosServicios" FunctionName="SalonModel.Store.SP_ObtenerProductosServicios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SalonModel.SP_ObtenerProductosServicios_Result">
+          <ScalarProperty Name="ProductoServicioID" ColumnName="ProductoServicioID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ObtenerProveedores" FunctionName="SalonModel.Store.SP_ObtenerProveedores">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SalonModel.SP_ObtenerProveedores_Result">
+          <ScalarProperty Name="ProveedorID" ColumnName="ProveedorID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ObtenerUsuarios" FunctionName="SalonModel.Store.SP_ObtenerUsuarios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SalonModel.SP_ObtenerUsuarios_Result">
+          <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ObtenerVentas" FunctionName="SalonModel.Store.SP_ObtenerVentas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SalonModel.SP_ObtenerVentas_Result">
+          <ScalarProperty Name="VentaID" ColumnName="VentaID" />
+          <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+          <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+          <ScalarProperty Name="FechaVenta" ColumnName="FechaVenta" />
+          <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B03FFB1-8550-437D-BA67-3AA850E7B854}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UI_UX_Dashboard_P1</RootNamespace>
+    <AssemblyName>UI UX Dashboard P1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Custom\AppEnun.cs" />
+    <Compile Include="Seccion.cs" />
+    <Compile Include="UI\Dasboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dasboard.Designer.cs">
+      <DependentUpon>Dasboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistroUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegistroUsuario.Designer.cs">
+      <DependentUpon>RegistroUsuario.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\Dasboard.resx">
+      <DependentUpon>Dasboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegistroUsuario.resx">
+      <DependentUpon>RegistroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="icon\btn_ingresar_log1.psd" />
+    <None Include="icon\Manual Programación Lógica.pdf" />
+    <None Include="icon\SistemaFacturacion.application" />
+    <None Include="icon\Thumbs.db" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BLL\BLL.csproj">
+      <Project>{b6a460e4-0649-4371-be04-7162a1dc6bb8}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ENTITY\ENTITY.csproj">
+      <Project>{20bb4b31-1ccc-49f6-bcb5-815cf15ac1e4}</Project>
+      <Name>ENTITY</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.5.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon\1459982766_malecostume.png" />
+    <Content Include="icon\1462226097_7.png" />
+    <Content Include="icon\1463613750_finance-10.png" />
+    <Content Include="icon\1463948534_23.png" />
+    <Content Include="icon\1463948599_document_graph.png" />
+    <Content Include="icon\1463948616_document.png" />
+    <Content Include="icon\1463948652_exit.png" />
+    <Content Include="icon\1464123397_Add-Male-User.png" />
+    <Content Include="icon\1464123509_Add-Male-User.png" />
+    <Content Include="icon\1464123645_floppy_disk_save.png" />
+    <Content Include="icon\1464125492_Find.png" />
+    <Content Include="icon\1464125518_Find.png" />
+    <Content Include="icon\1464125557_Search.png" />
+    <Content Include="icon\1464125576_Search.png" />
+    <Content Include="icon\1464125641_Delete.png" />
+    <Content Include="icon\1464125670_Check.png" />
+    <Content Include="icon\1464125692_Log Out.png" />
+    <Content Include="icon\1464125726_edit-clear.png" />
+    <Content Include="icon\1464144780_calculator.png" />
+    <Content Include="icon\1464204216_pen_stroke_sketch_doodle_lineart_212.png" />
+    <Content Include="icon\16\add-window-grid-symbol.png" />
+    <Content Include="icon\16\browsershares2017.png" />
+    <Content Include="icon\16\caret-down.png" />
+    <Content Include="icon\16\chart-rotation-demo.png" />
+    <Content Include="icon\16\checked-button %281%29.png" />
+    <Content Include="icon\16\checked-button.png" />
+    <Content Include="icon\16\clip.png" />
+    <Content Include="icon\16\close-cross %281%29.png" />
+    <Content Include="icon\16\close-cross.png" />
+    <Content Include="icon\16\contents-of-highsofts-we.png" />
+    <Content Include="icon\16\dashboard.png" />
+    <Content Include="icon\16\drop-down-arrow.png" />
+    <Content Include="icon\16\form.png" />
+    <Content Include="icon\16\home-icon-silhouette.png" />
+    <Content Include="icon\16\line-chart.png" />
+    <Content Include="icon\16\list.png" />
+    <Content Include="icon\16\monthly-average-temperat.png" />
+    <Content Include="icon\16\musica-searcher.png" />
+    <Content Include="icon\16\new.png" />
+    <Content Include="icon\16\photo.png" />
+    <Content Include="icon\16\refresh %281%29.png" />
+    <Content Include="icon\16\refresh.png" />
+    <Content Include="icon\16\settings-work-tool %281%29.png" />
+    <Content Include="icon\16\spreadsheet-cell-row.png" />
+    <Content Include="icon\16\square %281%29.png" />
+    <Content Include="icon\16\square %282%29.png" />
+    <Content Include="icon\16\switch %281%29.png" />
+    <Content Include="icon\16\website.png" />
+    <Content Include="icon\16\writing.png" />
+    <Content Include="icon\32\settings-work-tool %282%29.png" />
+    <Content Include="icon\4098757.gif" />
+    <Content Include="icon\512\add-documents.png" />
+    <Content Include="icon\512\list %281%29.png" />
+    <Content Include="icon\512\login.png" />
+    <Content Include="icon\512\logout.png" />
+    <Content Include="icon\512\play-symbol %281%29.png" />
+    <Content Include="icon\512\play-symbol.png" />
+    <Content Include="icon\512\settings %281%29.png" />
+    <Content Include="icon\512\settings-work-tool.png" />
+    <Content Include="icon\512\statistics.png" />
+    <Content Include="icon\512\text-document.png" />
+    <Content Include="icon\684488.jpg" />
+    <Content Include="icon\9e84e075585f2bd99892ff4f1cfd9b77.jpg" />
+    <Content Include="icon\about-us.png" />
+    <Content Include="icon\accept.png" />
+    <Content Include="icon\add_female_user.png" />
+    <Content Include="icon\add_image.png" />
+    <Content Include="icon\administrative_tools_15497.png" />
+    <Content Include="icon\attach_image.png" />
+    <Content Include="icon\basketball.png" />
+    <Content Include="icon\book_search.png" />
+    <Content Include="icon\btn_cerrar.png" />
+    <Content Include="icon\btn_ingresar.png" />
+    <Content Include="icon\btn_ingresar2_log1.png" />
+    <Content Include="icon\btn_ingresar_log1.png" />
+    <Content Include="icon\btn_min.png" />
+    <Content Include="icon\buscador.png" />
+    <Content Include="icon\Buscar.png" />
+    <Content Include="icon\CategoriaImg.jpg" />
+    <Content Include="icon\chat.png" />
+    <Content Include="icon\chocolate-munecos-receta.jpg" />
+    <Content Include="icon\combination-chart.png" />
+    <Content Include="icon\configure_user_16726.png" />
+    <Content Include="icon\contact.png" />
+    <Content Include="icon\cronometro.png" />
+    <Content Include="icon\cronometro2.png" />
+    <Content Include="icon\databaseprocess_basededatos_12922.png" />
+    <Content Include="icon\delete.png" />
+    <Content Include="icon\delete1.png" />
+    <Content Include="icon\descarga.jpg" />
+    <Content Include="icon\editar.png" />
+    <Content Include="icon\eliminar.png" />
+    <Content Include="icon\estadisticas.jpg" />
+    <Content Include="icon\estadisticas2.png" />
+    <Content Include="icon\facebook.png" />
+    <Content Include="icon\faq_question_help_15622.png" />
+    <Content Include="icon\female_male_users.png" />
+    <Content Include="icon\Fondo.png" />
+    <Content Include="icon\fondo_login2.jpg" />
+    <Content Include="icon\foto_candado.jpg" />
+    <Content Include="icon\gadget.png" />
+    <Content Include="icon\gmail.png" />
+    <Content Include="icon\grafik\about-usd.png" />
+    <Content Include="icon\grafik\browser-market-shares-in.png" />
+    <Content Include="icon\graph.png" />
+    <Content Include="icon\help.png" />
+    <Content Include="icon\home.png" />
+    <Content Include="icon\ICONOFIN.png" />
+    <Content Include="icon\ic_attach_money.ico" />
+    <Content Include="icon\if_agt_utilities_17828.png" />
+    <Content Include="icon\if_hwbrowser_24031 %281%29.png" />
+    <Content Include="icon\image.png" />
+    <Content Include="icon\images %281%29.jpg" />
+    <Content Include="icon\images %282%29.jpg" />
+    <Content Include="icon\images %283%29.jpg" />
+    <Content Include="icon\images %284%29.jpg" />
+    <Content Include="icon\images %285%29.jpg" />
+    <Content Include="icon\images %286%29.jpg" />
+    <Content Include="icon\images.jpg" />
+    <Content Include="icon\instagram.png" />
+    <Content Include="icon\itinerario.png" />
+    <Content Include="icon\key.png" />
+    <Content Include="icon\login1.png" />
+    <Content Include="icon\login2.png" />
+    <Content Include="icon\loguito2.jpg" />
+    <Content Include="icon\man.png" />
+    <Content Include="icon\marca de agua.png" />
+    <Content Include="icon\menu-button-of-three-horizontal-lines.png" />
+    <Content Include="icon\notification %281%29.png" />
+    <Content Include="icon\package_warning.png" />
+    <Content Include="icon\paly.png" />
+    <Content Include="icon\perfiles-de-usuario.png" />
+    <Content Include="icon\producto8-u945.png" />
+    <Content Include="icon\reglas.jpg" />
+    <Content Include="icon\reglas2.jpg" />
+    <Content Include="icon\reglas3.jpg" />
+    <Content Include="icon\ruler.png" />
+    <Content Include="icon\ruler_pencil.png" />
+    <Content Include="icon\save.png" />
+    <Content Include="icon\settings-gears.png" />
+    <Content Include="icon\settings_icon-icons.com_72415 %281%29.png" />
+    <Content Include="icon\settings_icon-icons.com_72415.png" />
+    <Content Include="icon\shutdown.png" />
+    <Content Include="icon\shut_down.png" />
+    <Content Include="icon\souffl1.jpg" />
+    <Content Include="icon\stats.png" />
+    <Content Include="icon\user.png" />
+    <Content Include="icon\whatsapp.png" />
+    <Content Include="icon\youtube.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

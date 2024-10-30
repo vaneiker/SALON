@@ -1,0 +1,22 @@
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard.csproj.AssemblyReference.cache
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI UX Dashboard P1.exe
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI UX Dashboard P1.pdb
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\UI UX Dashboard P1.exe.config
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\UI UX Dashboard P1.exe
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\UI UX Dashboard P1.pdb
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.Properties.Resources.resources
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard.csproj.GenerateResource.cache
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard.csproj.CoreCompileInputs.cache
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.Dasboard.resources
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\DAL.dll
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\ENTITY.dll
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\EntityFramework.dll
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\DAL.pdb
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\DAL.dll.config
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\ENTITY.pdb
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Da.D4B73DB5.Up2Date
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.UI.Login.resources
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\BLL.dll
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\BLL.pdb
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\EntityFramework.SqlServer.dll
+C:\AppEiker\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.UI.FrmRegistroUsuario.resources

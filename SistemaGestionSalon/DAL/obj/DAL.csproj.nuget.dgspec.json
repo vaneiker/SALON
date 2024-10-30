@@ -1,0 +1,87 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\AppEiker\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj": {}
+  },
+  "projects": {
+    "C:\\AppEiker\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj",
+        "projectName": "DAL",
+        "projectPath": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\pveneiker\\.nuget\\packages\\",
+        "outputPath": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\pveneiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\AppEiker\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj": {
+                "projectPath": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj"
+              }
+            }
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-arm64": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\AppEiker\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj",
+        "projectName": "ENTITY",
+        "projectPath": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}
