@@ -10,10 +10,11 @@ namespace UI_UX_Dashboard_P1
 {
     public class Seccion
     {
-        public string Rol { get; set; }
+        public int? Rol { get; set; }
         public int? UsuarioID { get; set; }
         public string Nombre { get; set; }
-        public string Usuario { get; set; }
+        public string Usuario { get; set; } 
+        public string RolName { get; set; }
 
         private static Seccion _user = null;
         private Seccion() { }

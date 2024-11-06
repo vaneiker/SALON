@@ -1,0 +1,29 @@
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\UI UX Dashboard P1.exe.config
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\UI UX Dashboard P1.exe
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\UI UX Dashboard P1.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\EntityFramework.SqlServer.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\EntityFramework.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\BLL.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\ENTITY.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\DAL.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\BLL.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\ENTITY.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\DAL.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Release\DAL.dll.config
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard.csproj.AssemblyReference.cache
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard_P1.Dasboard.resources
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard_P1.Properties.Resources.resources
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard_P1.UI.FrmAlmacen.resources
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard_P1.UI.FrmCaja.resources
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard_P1.UI.FrmGestionFinanciera.resources
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard_P1.UI.FrmSecretaria.resources
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard_P1.UI.Login.resources
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard_P1.UI.FrmRegistroUsuario.resources
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard_P1.UI.UseControl.UC_Cliente.resources
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard_P1.UI.UseControl.UC_Dashboard.resources
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard.csproj.GenerateResource.cache
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard.csproj.CoreCompileInputs.cache
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Da.D4B73DB5.Up2Date
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI UX Dashboard P1.exe
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI UX Dashboard P1.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Release\UI_UX_Dashboard_P1.Modal.ModalForm.resources

@@ -36,26 +36,27 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnInicio = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnInicio = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.bindingSource_Usuarios = new System.Windows.Forms.BindingSource(this.components);
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox_rol = new System.Windows.Forms.ComboBox();
             this.LblNombre = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.comboBox_rol = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.UsuarioID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RolName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UltimoInicioSesion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
@@ -76,7 +77,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(993, 41);
+            this.panel1.Size = new System.Drawing.Size(1009, 41);
             this.panel1.TabIndex = 1;
             // 
             // button4
@@ -137,6 +138,17 @@
             this.panel2.TabIndex = 2;
             this.panel2.TabStop = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(11, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnInicio
             // 
             this.btnInicio.FlatAppearance.BorderSize = 0;
@@ -152,18 +164,6 @@
             this.btnInicio.UseVisualStyleBackColor = true;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(11, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -172,11 +172,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BtnEditar,
+            this.Rol,
             this.btnEliminar,
             this.UsuarioID,
             this.Nombre,
             this.TxtUsuario,
-            this.Rol,
+            this.RolName,
             this.FechaRegistro,
             this.UltimoInicioSesion});
             this.dataGridView1.DataSource = this.bindingSource_Usuarios;
@@ -232,6 +233,53 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(969, 163);
             this.panel11.TabIndex = 25;
+            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(39, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 20);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Selecione el rol:";
+            // 
+            // comboBox_rol
+            // 
+            this.comboBox_rol.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_rol.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox_rol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboBox_rol.FormattingEnabled = true;
+            this.comboBox_rol.Location = new System.Drawing.Point(165, 20);
+            this.comboBox_rol.Name = "comboBox_rol";
+            this.comboBox_rol.Size = new System.Drawing.Size(313, 28);
+            this.comboBox_rol.TabIndex = 26;
+            // 
+            // LblNombre
+            // 
+            this.LblNombre.AutoSize = true;
+            this.LblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNombre.Location = new System.Drawing.Point(5, 58);
+            this.LblNombre.Name = "LblNombre";
+            this.LblNombre.Size = new System.Drawing.Size(160, 20);
+            this.LblNombre.TabIndex = 25;
+            this.LblNombre.Text = "Nombre Colaborador:";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.White;
+            this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
+            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnActualizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
+            this.btnActualizar.FlatAppearance.BorderSize = 10;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Location = new System.Drawing.Point(908, 6);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(58, 57);
+            this.btnActualizar.TabIndex = 13;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // button14
             // 
@@ -263,58 +311,6 @@
             this.button13.UseVisualStyleBackColor = false;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
-            // LblNombre
-            // 
-            this.LblNombre.AutoSize = true;
-            this.LblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblNombre.Location = new System.Drawing.Point(5, 58);
-            this.LblNombre.Name = "LblNombre";
-            this.LblNombre.Size = new System.Drawing.Size(160, 20);
-            this.LblNombre.TabIndex = 25;
-            this.LblNombre.Text = "Nombre Colaborador:";
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.BackColor = System.Drawing.Color.White;
-            this.btnActualizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnActualizar.BackgroundImage")));
-            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnActualizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
-            this.btnActualizar.FlatAppearance.BorderSize = 10;
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizar.Location = new System.Drawing.Point(908, 6);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(58, 57);
-            this.btnActualizar.TabIndex = 13;
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // comboBox_rol
-            // 
-            this.comboBox_rol.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox_rol.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox_rol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.comboBox_rol.FormattingEnabled = true;
-            this.comboBox_rol.Items.AddRange(new object[] {
-            "SELECIONE",
-            "Administrador",
-            "Almacén",
-            "Cajera",
-            "Secretaria"});
-            this.comboBox_rol.Location = new System.Drawing.Point(165, 20);
-            this.comboBox_rol.Name = "comboBox_rol";
-            this.comboBox_rol.Size = new System.Drawing.Size(313, 28);
-            this.comboBox_rol.TabIndex = 26;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 20);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Selecione el rol:";
-            // 
             // BtnEditar
             // 
             this.BtnEditar.HeaderText = "Editar";
@@ -326,6 +322,14 @@
             this.BtnEditar.ToolTipText = "Editar";
             this.BtnEditar.UseColumnTextForButtonValue = true;
             this.BtnEditar.Width = 50;
+            // 
+            // Rol
+            // 
+            this.Rol.DataPropertyName = "Rol";
+            this.Rol.HeaderText = "Rol";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            this.Rol.Visible = false;
             // 
             // btnEliminar
             // 
@@ -362,12 +366,12 @@
             this.TxtUsuario.ToolTipText = "Usuario";
             this.TxtUsuario.Width = 150;
             // 
-            // Rol
+            // RolName
             // 
-            this.Rol.DataPropertyName = "Rol";
-            this.Rol.HeaderText = "Roll";
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
+            this.RolName.DataPropertyName = "RolName";
+            this.RolName.HeaderText = "Nombre Roll";
+            this.RolName.Name = "RolName";
+            this.RolName.ReadOnly = true;
             // 
             // FechaRegistro
             // 
@@ -390,7 +394,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(993, 612);
+            this.ClientSize = new System.Drawing.Size(1009, 615);
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
@@ -438,11 +442,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox_rol;
         private System.Windows.Forms.DataGridViewButtonColumn BtnEditar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
         private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn TxtUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RolName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
         private System.Windows.Forms.DataGridViewTextBoxColumn UltimoInicioSesion;
     }

@@ -12,7 +12,7 @@ namespace UI_UX_Dashboard_P1.UI
     {
         private UsuarioAdmin Admin = new UsuarioAdmin();
         private Usuarios usuario = new Usuarios();
-
+        private DropDownListAdmin DropDown = new DropDownListAdmin();
         private int id { get; set; } = 0;
         public FrmRegistroUsuario()
         {
@@ -26,11 +26,28 @@ namespace UI_UX_Dashboard_P1.UI
             this.Close();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        public void CargarCombox()
         {
+            try
+            {
+                var result = DropDown.DropDownList("RolesGetDropDownList").Select(x=>new Usuarios()
+                {
+                    Rol=int.Parse(x.CODE),
+                    RolName=x.MSJ
+                }).ToArray();
+                comboBox_rol.DataSource = result;
+                comboBox_rol.DisplayMember = "RolName";
+                comboBox_rol.ValueMember = "Rol";
+                comboBox_rol.Text = "---Selecionar---";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar el listado de roles", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
         }
-
         private void button14_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
@@ -57,19 +74,19 @@ namespace UI_UX_Dashboard_P1.UI
         }
 
         private void GuardarUsuario()
-        { 
+        {
             usuario.UsuarioID = id;
-            usuario.Contrasena = "12345";
-            usuario.Usuario = Tools.GenerarNombreUsuario(txtNombre.Text);
-            usuario.Nombre=txtNombre.Text;
-            usuario.Rol=comboBox_rol.Text; 
+            usuario.Contrasena = Tools.Encrypt_Query("12345");
+            usuario.Usuario = Tools.GenerarNombreUsuario(txtNombre.Text).ToUpper();
+            usuario.Nombre = txtNombre.Text;
+            usuario.Rol = int.Parse(comboBox_rol.SelectedValue.ToString());
             Admin.AddUpdateUsuario(usuario);
             CargarDataGrid();
         }
         private void CargarDataGrid()
         {
-            comboBox_rol.SelectedIndex = 0;
-            txtNombre.Text =string.Empty;
+            CargarCombox();
+            txtNombre.Text = string.Empty;
             var data = Admin.ObtenerUsuarioAdmin();
             bindingSource_Usuarios.DataSource = data;
             this.id = 0;
@@ -83,6 +100,7 @@ namespace UI_UX_Dashboard_P1.UI
         private void FrmRegistroUsuario_Load(object sender, EventArgs e)
         {
             CargarDataGrid();
+            CargarCombox();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -95,9 +113,10 @@ namespace UI_UX_Dashboard_P1.UI
                 this.id = int.Parse(fila.Cells["UsuarioID"].Value.ToString());
                 switch (e.ColumnIndex)
                 {
-                    case 0: 
-                        comboBox_rol.SelectedItem = fila.Cells["Rol"].Value.ToString();
-                        txtNombre.Text = fila.Cells["Nombre"].Value.ToString(); 
+                    case 0:
+                        
+                        comboBox_rol.Text = fila.Cells["RolName"].Value.ToString();                         
+                        txtNombre.Text = fila.Cells["Nombre"].Value.ToString();
                         break;
                     //case 1:  // Columna "Editar"
                     //    comboBox_rol.SelectedItem = fila.Cells["Rol"].Value.ToString(); // Cargar el rol en el ComboBox
@@ -128,9 +147,8 @@ namespace UI_UX_Dashboard_P1.UI
                 // Aplica el filtro sobre la lista de datos
                 var filtro = data.Where(x =>
                                x.Nombre.ToLower().Contains(TxtBuscar.Text.ToLower()) ||
-                               x.Usuario.ToLower().Contains(TxtBuscar.Text.ToLower()) ||
-                               x.Rol.ToLower().Contains(TxtBuscar.Text.ToLower())
-                           ).ToList(); // Convierte a lista
+                               x.Usuario.ToLower().Contains(TxtBuscar.Text.ToLower())
+                               ).ToList(); // Convierte a lista
 
                 // Verifica si el filtro devolvió resultados
                 if (filtro.Count > 0)
@@ -144,6 +162,11 @@ namespace UI_UX_Dashboard_P1.UI
                     CargarDataGrid();
                 }
             }
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

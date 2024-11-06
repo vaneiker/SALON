@@ -37,18 +37,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAlmacen = new System.Windows.Forms.Button();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.btnCobros = new System.Windows.Forms.Button();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnSecretariado = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.BtnGestionFinanciera = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnAdminUsers = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -103,14 +103,15 @@
             this.timer_panel = new System.Windows.Forms.Timer(this.components);
             this.LblFecha = new System.Windows.Forms.Label();
             this.LblReloj = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -211,18 +212,19 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.btnAlmacen);
+            this.panel2.Controls.Add(this.pictureBox19);
+            this.panel2.Controls.Add(this.btnCobros);
+            this.panel2.Controls.Add(this.pictureBox18);
             this.panel2.Controls.Add(this.btnLogout);
             this.panel2.Controls.Add(this.pictureBox7);
-            this.panel2.Controls.Add(this.button10);
-            this.panel2.Controls.Add(this.pictureBox6);
-            this.panel2.Controls.Add(this.button9);
+            this.panel2.Controls.Add(this.btnSecretariado);
             this.panel2.Controls.Add(this.pictureBox5);
-            this.panel2.Controls.Add(this.button8);
+            this.panel2.Controls.Add(this.BtnGestionFinanciera);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.btnAdminUsers);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -231,6 +233,60 @@
             this.panel2.Size = new System.Drawing.Size(215, 694);
             this.panel2.TabIndex = 1;
             // 
+            // btnAlmacen
+            // 
+            this.btnAlmacen.AutoSize = true;
+            this.btnAlmacen.FlatAppearance.BorderSize = 0;
+            this.btnAlmacen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlmacen.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnAlmacen.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAlmacen.Location = new System.Drawing.Point(42, 138);
+            this.btnAlmacen.Name = "btnAlmacen";
+            this.btnAlmacen.Size = new System.Drawing.Size(155, 30);
+            this.btnAlmacen.TabIndex = 17;
+            this.btnAlmacen.Text = "Gestión Almacen";
+            this.btnAlmacen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlmacen.UseVisualStyleBackColor = true;
+            this.btnAlmacen.Click += new System.EventHandler(this.btnAlmacen_Click);
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
+            this.pictureBox19.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox19.InitialImage")));
+            this.pictureBox19.Location = new System.Drawing.Point(12, 142);
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox19.TabIndex = 16;
+            this.pictureBox19.TabStop = false;
+            // 
+            // btnCobros
+            // 
+            this.btnCobros.AutoSize = true;
+            this.btnCobros.FlatAppearance.BorderSize = 0;
+            this.btnCobros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCobros.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCobros.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCobros.Location = new System.Drawing.Point(42, 96);
+            this.btnCobros.Name = "btnCobros";
+            this.btnCobros.Size = new System.Drawing.Size(155, 30);
+            this.btnCobros.TabIndex = 15;
+            this.btnCobros.Text = "Gestión Cobros";
+            this.btnCobros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCobros.UseVisualStyleBackColor = true;
+            this.btnCobros.Click += new System.EventHandler(this.btnCobros_Click);
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
+            this.pictureBox18.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox18.InitialImage")));
+            this.pictureBox18.Location = new System.Drawing.Point(12, 100);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox18.TabIndex = 14;
+            this.pictureBox18.TabStop = false;
+            // 
             // btnLogout
             // 
             this.btnLogout.AutoSize = true;
@@ -238,11 +294,11 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnLogout.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLogout.Location = new System.Drawing.Point(42, 288);
+            this.btnLogout.Location = new System.Drawing.Point(43, 260);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(155, 30);
             this.btnLogout.TabIndex = 13;
-            this.btnLogout.Text = "Logout";
+            this.btnLogout.Text = "Salir de sistema";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -251,85 +307,61 @@
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.InitialImage")));
-            this.pictureBox7.Location = new System.Drawing.Point(12, 289);
+            this.pictureBox7.Location = new System.Drawing.Point(14, 263);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(24, 24);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 12;
             this.pictureBox7.TabStop = false;
             // 
-            // button10
+            // btnSecretariado
             // 
-            this.button10.AutoSize = true;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button10.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button10.Location = new System.Drawing.Point(42, 240);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(155, 30);
-            this.button10.TabIndex = 11;
-            this.button10.Text = "About";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
-            this.pictureBox6.Location = new System.Drawing.Point(12, 241);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 10;
-            this.pictureBox6.TabStop = false;
-            // 
-            // button9
-            // 
-            this.button9.AutoSize = true;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button9.Location = new System.Drawing.Point(42, 194);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(155, 30);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "Settings";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnSecretariado.AutoSize = true;
+            this.btnSecretariado.FlatAppearance.BorderSize = 0;
+            this.btnSecretariado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSecretariado.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSecretariado.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSecretariado.Location = new System.Drawing.Point(42, 60);
+            this.btnSecretariado.Name = "btnSecretariado";
+            this.btnSecretariado.Size = new System.Drawing.Size(157, 30);
+            this.btnSecretariado.TabIndex = 9;
+            this.btnSecretariado.Text = "Gestión Secretariado";
+            this.btnSecretariado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSecretariado.UseVisualStyleBackColor = true;
+            this.btnSecretariado.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(12, 195);
+            this.pictureBox5.Location = new System.Drawing.Point(12, 61);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(24, 24);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 8;
             this.pictureBox5.TabStop = false;
             // 
-            // button8
+            // BtnGestionFinanciera
             // 
-            this.button8.AutoSize = true;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button8.Location = new System.Drawing.Point(42, 147);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(155, 30);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "Report";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.UseVisualStyleBackColor = true;
+            this.BtnGestionFinanciera.AutoSize = true;
+            this.BtnGestionFinanciera.FlatAppearance.BorderSize = 0;
+            this.BtnGestionFinanciera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGestionFinanciera.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.BtnGestionFinanciera.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.BtnGestionFinanciera.Location = new System.Drawing.Point(42, 179);
+            this.BtnGestionFinanciera.Name = "BtnGestionFinanciera";
+            this.BtnGestionFinanciera.Size = new System.Drawing.Size(155, 30);
+            this.BtnGestionFinanciera.TabIndex = 7;
+            this.BtnGestionFinanciera.Text = "Gestión Financiera";
+            this.BtnGestionFinanciera.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGestionFinanciera.UseVisualStyleBackColor = true;
+            this.BtnGestionFinanciera.Click += new System.EventHandler(this.BtnGestionFinanciera_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(12, 151);
+            this.pictureBox4.Location = new System.Drawing.Point(12, 183);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(24, 24);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -342,7 +374,7 @@
             this.btnAdminUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdminUsers.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnAdminUsers.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAdminUsers.Location = new System.Drawing.Point(42, 102);
+            this.btnAdminUsers.Location = new System.Drawing.Point(44, 224);
             this.btnAdminUsers.Name = "btnAdminUsers";
             this.btnAdminUsers.Size = new System.Drawing.Size(155, 24);
             this.btnAdminUsers.TabIndex = 5;
@@ -355,37 +387,12 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(12, 102);
+            this.pictureBox3.Location = new System.Drawing.Point(14, 224);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
-            // 
-            // button6
-            // 
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button6.Location = new System.Drawing.Point(42, 60);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(155, 24);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Chart";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(12, 60);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
             // 
             // button5
             // 
@@ -1009,6 +1016,22 @@
             this.LblReloj.TabIndex = 15;
             this.LblReloj.Text = "2:00:00 PM";
             // 
+            // button6
+            // 
+            this.button6.AutoSize = true;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.button6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button6.Location = new System.Drawing.Point(30, 332);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(155, 30);
+            this.button6.TabIndex = 18;
+            this.button6.Text = "Salir de sistema";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Dasboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1039,12 +1062,12 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1095,16 +1118,12 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnSecretariado;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button BtnGestionFinanciera;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnAdminUsers;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox8;
@@ -1154,6 +1173,11 @@
         private System.Windows.Forms.Timer timer_panel;
         private System.Windows.Forms.Label LblFecha;
         private System.Windows.Forms.Label LblReloj;
+        private System.Windows.Forms.Button btnAlmacen;
+        private System.Windows.Forms.PictureBox pictureBox19;
+        private System.Windows.Forms.Button btnCobros;
+        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.Button button6;
     }
 }
 

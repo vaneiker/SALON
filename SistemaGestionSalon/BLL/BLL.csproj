@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\ClienteAdmin.cs" />
+    <Compile Include="Admin\DropDownListAdmin.cs" />
     <Compile Include="Admin\UsuarioAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools.cs" />

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M1tDv/DzlAU=",
+  "dgSpecHash": "YH/7AF+Etu8=",
   "success": true,
-  "projectFilePath": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj",
+  "projectFilePath": "C:\\AppEiker\\SALON\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pveneiker\\.nuget\\packages\\entityframework\\6.5.1\\entityframework.6.5.1.nupkg.sha512"
   ],

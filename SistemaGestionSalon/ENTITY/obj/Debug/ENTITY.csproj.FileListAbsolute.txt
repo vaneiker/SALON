@@ -4,3 +4,9 @@ C:\AppEiker\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.csproj.AssemblyRef
 C:\AppEiker\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.csproj.CoreCompileInputs.cache
 C:\AppEiker\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.dll
 C:\AppEiker\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\bin\Debug\ENTITY.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\bin\Debug\ENTITY.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.csproj.AssemblyReference.cache
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.csproj.CoreCompileInputs.cache
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.pdb

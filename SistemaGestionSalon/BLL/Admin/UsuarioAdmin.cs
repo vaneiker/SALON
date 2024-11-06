@@ -43,6 +43,10 @@ namespace BLL.Admin
             }
             return result;
         }
+        public void CambiarClave(int? UserId=0,string user = "")
+        {
+            db.CambiarClave(UserId, user);
+        }
         public Usuarios AddUpdateUsuario(Usuarios p)
         {
             Usuarios result = new Usuarios();

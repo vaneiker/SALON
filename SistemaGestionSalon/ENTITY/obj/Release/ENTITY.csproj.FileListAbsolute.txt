@@ -1,0 +1,6 @@
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\bin\Release\ENTITY.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\bin\Release\ENTITY.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\obj\Release\ENTITY.csproj.AssemblyReference.cache
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\obj\Release\ENTITY.csproj.CoreCompileInputs.cache
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\obj\Release\ENTITY.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\ENTITY\obj\Release\ENTITY.pdb

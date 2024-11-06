@@ -1,0 +1,12 @@
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\bin\Release\DAL.dll.config
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\bin\Release\DAL.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\bin\Release\DAL.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\bin\Release\EntityFramework.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\bin\Release\ENTITY.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\bin\Release\ENTITY.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\obj\Release\DAL.csproj.AssemblyReference.cache
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\obj\Release\DAL.csproj.Up2Date
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\obj\Release\DAL.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\obj\Release\DAL.pdb

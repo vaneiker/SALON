@@ -1,0 +1,13 @@
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\bin\Release\BLL.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\bin\Release\BLL.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\bin\Release\DAL.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\bin\Release\ENTITY.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\bin\Release\EntityFramework.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\bin\Release\DAL.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\bin\Release\DAL.dll.config
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\bin\Release\ENTITY.pdb
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\obj\Release\BLL.csproj.AssemblyReference.cache
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\obj\Release\BLL.csproj.CoreCompileInputs.cache
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\obj\Release\BLL.csproj.Up2Date
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\obj\Release\BLL.dll
+C:\AppEiker\SALON\SALON\SistemaGestionSalon\BLL\obj\Release\BLL.pdb
