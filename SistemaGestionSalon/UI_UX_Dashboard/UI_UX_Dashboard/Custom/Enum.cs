@@ -13,5 +13,11 @@ namespace UI_UX_Dashboard_P1.Custom
         Caja     = 3,
         Secretariada = 4,
         Finanzas = 5,
-    } 
+    }
+
+    enum DropDownList
+    {
+        PorcientoPrecioManual,
+        Proveedores
+    }
 }

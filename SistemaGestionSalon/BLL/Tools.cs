@@ -303,5 +303,11 @@ namespace BLL
             return nombreUsuario;
         }
 
+        public static string GenerarCodigoProducto(int? contadorDiario)
+        {
+            string fecha = DateTime.Now.ToString("yyyyMMdd"); // formato: 20241108 
+            string secuencia = contadorDiario.Value.ToString("D3"); // 001, 002, etc. 
+            return $"{fecha}{secuencia}";
+        } 
     }
 }

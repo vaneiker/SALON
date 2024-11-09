@@ -16,7 +16,7 @@ namespace UI_UX_Dashboard_P1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI.Login());
+            Application.Run(new UI.ProductoServiciosForm());
         }
     }
 }

@@ -56,5 +56,11 @@ namespace UI_UX_Dashboard_P1.UI
             ClientesForm form = new ClientesForm(); 
             form.ShowDialog();
         }
+
+        private void button_Proveedor_Click(object sender, EventArgs e)
+        {
+            ProveedorForm form = new ProveedorForm();
+            form.ShowDialog();
+        }
     }
 }

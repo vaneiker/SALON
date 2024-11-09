@@ -103,7 +103,6 @@
             this.timer_panel = new System.Windows.Forms.Timer(this.components);
             this.LblFecha = new System.Windows.Forms.Label();
             this.LblReloj = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
@@ -212,7 +211,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.btnAlmacen);
             this.panel2.Controls.Add(this.pictureBox19);
             this.panel2.Controls.Add(this.btnCobros);
@@ -1016,22 +1014,6 @@
             this.LblReloj.TabIndex = 15;
             this.LblReloj.Text = "2:00:00 PM";
             // 
-            // button6
-            // 
-            this.button6.AutoSize = true;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button6.Location = new System.Drawing.Point(30, 332);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(155, 30);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "Salir de sistema";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // Dasboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1177,7 +1159,6 @@
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.Button btnCobros;
         private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.Button button6;
     }
 }
 

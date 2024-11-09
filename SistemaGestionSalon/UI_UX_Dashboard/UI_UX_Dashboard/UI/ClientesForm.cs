@@ -1,13 +1,8 @@
 ﻿using BLL.Admin;
 using ENTITY.Entitis;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI_UX_Dashboard_P1.UI
@@ -15,12 +10,7 @@ namespace UI_UX_Dashboard_P1.UI
     public partial class ClientesForm : Form
     {
         private ClienteAdmin db = new ClienteAdmin();
-        private int pageSize = 10;
-        private int currentPage = 1;
-        private int totalRecords;
-        private int totalPages;
-        private List<Clientes> allClientes;  // Lista completa de clientes
-        private List<Clientes> filteredClientes; // Lista de clientes filtrados
+
 
         public ClientesForm()
         {
@@ -33,9 +23,21 @@ namespace UI_UX_Dashboard_P1.UI
 
         public void CargaInicial()
         {
-            allClientes = db.GetClientes().ToList(); // Carga la lista completa al inicio
-            CargarClientesPaginados(allClientes); // Carga inicial de todos los clientes
-            Limpiar();
+
+            try
+            {
+                var result = db.GetClientes().ToArray();
+                bindingSource_Clientes.List.Clear();
+                bindingSource_Clientes.DataSource = result;
+                label_cantidad_registro.Text = $"Registro encontrados: {result.Count().ToString()}";
+                Limpiar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar el listado de clientes {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -55,7 +57,7 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 MessageBox.Show($"Favor indicar un conctacto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            } 
+            }
 
             var pcliente = new Clientes()
             {
@@ -76,10 +78,32 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 MessageBox.Show($"Error al guardar el cliente {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            } 
+            }
         }
 
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            var filtro = db.GetClientes().ToArray()
+                .Where(x => x.Nombre.ToLower().Contains(txtBuscador.Text.ToLower()) ||
+                            x.Telefono == txtBuscador.Text)
+                .ToList();
 
+            if (filtro.Count > 0)
+            {
+                label_cantidad_registro.Text = $"Registro encontrados: {filtro.Count().ToString()}";
+                bindingSource_Clientes.List.Clear();
+                bindingSource_Clientes.DataSource = filtro;
+            }
+            else
+            {
+                CargaInicial();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void Limpiar()
         {
             txtCodigo.Text = "0";
@@ -113,209 +137,27 @@ namespace UI_UX_Dashboard_P1.UI
                         dateTimePicker_fecha_nacimiento.Value = DateTime.Parse(fila.Cells["FechaNacimiento"].Value.ToString());
 
                         break;
-                        ////case 1:  // Columna "Editar"
-                        ////    comboBox_rol.SelectedItem = fila.Cells["Rol"].Value.ToString(); // Cargar el rol en el ComboBox
-                        ////    MessageBox.Show($"Editar usuario: {nombreUsuario}");
-                        ////    break;
-                        //case 1:  // Columna "Borrar"
-                        //    //if (MessageBox.Show($"¿Borrar usuario {nombreUsuario}?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        //    //{
-
-                        //    //}
-                        //    break;
+                    ////case 1:  // Columna "Editar"
+                    ////    comboBox_rol.SelectedItem = fila.Cells["Rol"].Value.ToString(); // Cargar el rol en el ComboBox
+                    ////    MessageBox.Show($"Editar usuario: {nombreUsuario}");
+                    ////    break;
+                    case 1:  // Columna "Borrar"
+                        if (MessageBox.Show($"¿Desea Borrar el Cliente {txtnombre.Text = fila.Cells["Nombre"].Value.ToString()}?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                db.SetInactivarClientes(int.Parse(fila.Cells["ClienteID"].Value.ToString()));
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Error al borrar el cliente: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                        break;
                 }
             }
         }
 
-
-
-
-        private void CargarClientesPaginados(List<Clientes> clientes)
-        {
-            totalRecords = clientes.Count;
-            totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
-
-            // Obtener el subconjunto de clientes para la página actual
-            var paginatedData = clientes
-                .Skip((currentPage - 1) * pageSize)
-                .Take(pageSize)
-                .ToList();
-
-            bindingSource_Clientes.DataSource = paginatedData;
-            ActualizarEstadoBotones();
-        }
-
-        private void ActualizarEstadoBotones()
-        {
-            btnPrimero.Enabled = currentPage > 1;
-            btnAtras.Enabled = currentPage > 1;
-            btnSiguiente.Enabled = currentPage < totalPages;
-            btnUltimo.Enabled = currentPage < totalPages;
-
-            // Actualizar el texto del label con la página actual
-            label_cantidad_registro.Text = $"Página {currentPage} de {totalPages}";
-        }
-
-
-        private void btnPrimero_Click(object sender, EventArgs e)
-        {
-            currentPage = 1;
-            CargarClientesPaginados(filteredClientes);
-        }
-
-
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            if (currentPage > 1)
-            {
-                currentPage--;
-                CargarClientesPaginados(filteredClientes);
-            }
-        }
-
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            if (currentPage < totalPages)
-            {
-                currentPage++;
-                CargarClientesPaginados(filteredClientes);
-            }
-        }
-
-        private void btnUltimo_Click(object sender, EventArgs e)
-        {
-            currentPage = totalPages;
-            CargarClientesPaginados(filteredClientes);
-        }
-        private void txtBuscador_TextChanged(object sender, EventArgs e)
-        {
-            var filtro = allClientes
-                .Where(x => x.Nombre.ToLower().Contains(txtBuscador.Text.ToLower()) ||
-                            x.Telefono == txtBuscador.Text)
-                .ToList();
-
-            currentPage = 1; // Reiniciar a la primera página al hacer una búsqueda
-
-            if (filtro.Count > 0)
-            {
-                filteredClientes = filtro;
-                CargarClientesPaginados(filteredClientes);
-            }
-            else
-            {
-                filteredClientes = allClientes;
-                CargarClientesPaginados(allClientes);
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        } 
-
-
-        //public void GetClientes(int pageSize = 10, int currentPage = 1)
-        //{
-        //    try
-        //    {
-        //        var data = db.GetClientes();
-
-        //        if (data != null)
-        //        {
-        //            // Paginación: saltar los registros de las páginas anteriores y tomar los del tamaño de la página
-        //            var paginatedData = data
-        //                .Skip((currentPage - 1) * pageSize)
-        //                .Take(pageSize)
-        //                .ToList();
-
-        //            // Cargar los datos paginados en el BindingSource
-        //            label_cantidad_registro.Text = paginatedData.Count.ToString();
-        //            bindingSource_Clientes.DataSource = paginatedData;
-        //        }
-        //        else
-        //        {
-        //            bindingSource_Clientes.DataSource = null;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString());
-        //    }
-        //}
-
-        //private void txtBuscador_TextChanged(object sender, EventArgs e)
-        //{
-        //    var data = db.GetClientes();
-
-        //    if (data != null)
-        //    {
-        //        var filtro = data.Where(x =>
-        //                       x.Nombre.ToLower().Contains(txtBuscador.Text.ToLower()) ||
-        //                       x.Telefono == txtBuscador.Text
-        //                       ).ToList();
-
-        //        if (filtro.Count > 0)
-        //        {
-        //            bindingSource_Clientes.Clear();
-        //            bindingSource_Clientes.DataSource = filtro;
-        //            label_cantidad_registro.Text = $"Página {currentPage} de {totalPages}";
-
-        //        }
-        //        else
-        //        {
-        //            CargarClientesPaginados();
-        //        }
-        //    }
-        //}
-
-        //private void CargarClientesPaginados()
-        //{
-        //    var data = db.GetClientes();
-        //    totalRecords = data?.Count() ?? 0;
-        //    totalPages = (int)Math.Ceiling((double)totalRecords / pageSize);
-
-        //    GetClientes(pageSize, currentPage);
-        //    ActualizarEstadoBotones();
-        //}
-
-        //private void ActualizarEstadoBotones()
-        //{
-        //    btnPrimero.Enabled = currentPage > 1;
-        //    btnAtras.Enabled = currentPage > 1;
-        //    btnSiguiente.Enabled = currentPage < totalPages;
-        //    btnUltimo.Enabled = currentPage < totalPages;
-        //    label_cantidad_registro.Text = $"Página {currentPage} de {totalPages}";
-        //}
-
-        //private void btnPrimero_Click(object sender, EventArgs e)
-        //{
-        //    currentPage = 1;
-        //    CargarClientesPaginados();
-        //}
-
-        //private void btnAtras_Click(object sender, EventArgs e)
-        //{
-        //    if (currentPage > 1)
-        //    {
-        //        currentPage--;
-        //        CargarClientesPaginados();
-        //    }
-        //}
-
-        //private void btnSiguiente_Click(object sender, EventArgs e)
-        //{
-        //    if (currentPage < totalPages)
-        //    {
-        //        currentPage++;
-        //        CargarClientesPaginados();
-        //    }
-        //}
-
-        //private void btnUltimo_Click(object sender, EventArgs e)
-        //{
-        //    currentPage = totalPages;
-        //    CargarClientesPaginados();
-
-        //}
     }
 }

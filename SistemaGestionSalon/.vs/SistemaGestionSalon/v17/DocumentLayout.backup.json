@@ -1,30 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\",
+  "WorkspaceRootPath": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\registrousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\registrousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\.net\\git\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\productoserviciosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\productoserviciosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\registrousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\registrousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\productoserviciosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\productoserviciosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64B3B93A-C907-4146-91AD-ADD6FA2676FC}|DAL\\DAL.csproj|c:\\appeiker\\salon\\sistemagestionsalon\\dal\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64B3B93A-C907-4146-91AD-ADD6FA2676FC}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6A460E4-0649-4371-BE04-7162A1DC6BB8}|BLL\\BLL.csproj|c:\\appeiker\\salon\\sistemagestionsalon\\bll\\admin\\usuarioadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6A460E4-0649-4371-BE04-7162A1DC6BB8}|BLL\\BLL.csproj|solutionrelative:bll\\admin\\usuarioadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{64B3B93A-C907-4146-91AD-ADD6FA2676FC}|DAL\\DAL.csproj|C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\dal\\repository\\productoserviciosintentarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64B3B93A-C907-4146-91AD-ADD6FA2676FC}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\productoserviciosintentarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,83 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UsuarioAdmin.cs",
-              "DocumentMoniker": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\BLL\\Admin\\UsuarioAdmin.cs",
-              "RelativeDocumentMoniker": "BLL\\Admin\\UsuarioAdmin.cs",
-              "ToolTip": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\BLL\\Admin\\UsuarioAdmin.cs",
-              "RelativeToolTip": "BLL\\Admin\\UsuarioAdmin.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAADwvzsAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T00:01:17.637Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\Login.cs",
-              "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\Login.cs",
-              "ToolTip": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\Login.cs",
-              "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\Login.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAcwBYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T23:51:11.799Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Login.cs [Design]",
-              "DocumentMoniker": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\Login.cs",
-              "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\Login.cs",
-              "ToolTip": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\Login.cs [Design]",
-              "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\Login.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T23:51:10.502Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UsuarioRepository.cs",
-              "DocumentMoniker": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\DAL\\Repository\\UsuarioRepository.cs",
-              "RelativeDocumentMoniker": "DAL\\Repository\\UsuarioRepository.cs",
-              "ToolTip": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\DAL\\Repository\\UsuarioRepository.cs",
-              "RelativeToolTip": "DAL\\Repository\\UsuarioRepository.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAiwC8AAAALAAAAAAAAAA==",
+              "Title": "ProductoServiciosIntentarios.cs",
+              "DocumentMoniker": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\DAL\\Repository\\ProductoServiciosIntentarios.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\ProductoServiciosIntentarios.cs",
+              "ToolTip": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\DAL\\Repository\\ProductoServiciosIntentarios.cs",
+              "RelativeToolTip": "DAL\\Repository\\ProductoServiciosIntentarios.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwCAAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T23:38:45.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T19:39:02.533Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RegistroUsuario.cs",
-              "DocumentMoniker": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\RegistroUsuario.cs",
-              "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\RegistroUsuario.cs",
-              "ToolTip": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\RegistroUsuario.cs",
-              "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\RegistroUsuario.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAArwEoAAAAYAAAAAAAAAA==",
+              "Title": "ProductoServiciosForm.cs",
+              "DocumentMoniker": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "ToolTip": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAAAA4BAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T23:24:13.473Z",
+              "WhenOpened": "2024-11-09T19:29:31.037Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RegistroUsuario.cs [Design]",
-              "DocumentMoniker": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\RegistroUsuario.cs",
-              "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\RegistroUsuario.cs",
-              "ToolTip": "C:\\AppEiker\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\RegistroUsuario.cs [Design]",
-              "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\RegistroUsuario.cs [Design]",
+              "Title": "ProductoServiciosForm.cs [Design]",
+              "DocumentMoniker": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "ToolTip": "C:\\AppEiker\\.Net\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T21:40:29.924Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-09T19:29:29.867Z"
             }
           ]
         }

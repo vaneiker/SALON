@@ -44,6 +44,8 @@
     <Compile Include="Base.cs" />
     <Compile Include="Entitis\Clientes.cs" />
     <Compile Include="Entitis\Configuration.cs" />
+    <Compile Include="Entitis\ProductoServiciosInventarios.cs" />
+    <Compile Include="Entitis\Proveedores.cs" />
     <Compile Include="Entitis\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

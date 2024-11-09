@@ -52,7 +52,7 @@ namespace UI_UX_Dashboard_P1.UI
                         FrmCaja caja = new FrmCaja();
                         FrmAlmacen almacen = new FrmAlmacen();
                         Dasboard principal = new Dasboard();
-
+                        
 
                         Seccion seccion = Seccion.Instance;
                         seccion.UsuarioID = user.UsuarioID;

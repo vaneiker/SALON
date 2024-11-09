@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sVObig7W8R4=",
+  "dgSpecHash": "xeVDVhxA+F8=",
   "success": true,
-  "projectFilePath": "C:\\AppEiker\\SALON\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj",
+  "projectFilePath": "C:\\AppEiker\\.Net\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pveneiker\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512"
   ],

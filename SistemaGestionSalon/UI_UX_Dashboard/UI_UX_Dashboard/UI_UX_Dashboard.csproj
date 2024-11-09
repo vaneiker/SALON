@@ -110,12 +110,25 @@
     <Compile Include="UI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ProductoServiciosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ProductoServiciosForm.Designer.cs">
+      <DependentUpon>ProductoServiciosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProveedorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ProveedorForm.Designer.cs">
+      <DependentUpon>ProveedorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\RegistroUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\RegistroUsuario.Designer.cs">
       <DependentUpon>RegistroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ProductoServiciosInventariosViewModel.cs" />
     <EmbeddedResource Include="UI\ClientesForm.resx">
       <DependentUpon>ClientesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +159,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProductoServiciosForm.resx">
+      <DependentUpon>ProductoServiciosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ProveedorForm.resx">
+      <DependentUpon>ProveedorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegistroUsuario.resx">
       <DependentUpon>RegistroUsuario.cs</DependentUpon>

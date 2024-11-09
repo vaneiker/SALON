@@ -30,10 +30,10 @@ namespace UI_UX_Dashboard_P1.UI
         {
             try
             {
-                var result = DropDown.DropDownList("RolesGetDropDownList").Select(x=>new Usuarios()
+                var result = DropDown.DropDownList("RolesGetDropDownList").Select(x => new Usuarios()
                 {
-                    Rol=int.Parse(x.CODE),
-                    RolName=x.MSJ
+                    Rol = int.Parse(x.CODE),
+                    RolName = x.MSJ
                 }).ToArray();
                 comboBox_rol.DataSource = result;
                 comboBox_rol.DisplayMember = "RolName";
@@ -70,7 +70,7 @@ namespace UI_UX_Dashboard_P1.UI
 
         private void button13_Click(object sender, EventArgs e)
         {
-            limpiar();
+           this.Close();
         }
 
         private void GuardarUsuario()
@@ -114,8 +114,8 @@ namespace UI_UX_Dashboard_P1.UI
                 switch (e.ColumnIndex)
                 {
                     case 0:
-                        
-                        comboBox_rol.Text = fila.Cells["RolName"].Value.ToString();                         
+
+                        comboBox_rol.Text = fila.Cells["RolName"].Value.ToString();
                         txtNombre.Text = fila.Cells["Nombre"].Value.ToString();
                         break;
                     //case 1:  // Columna "Editar"
@@ -125,8 +125,16 @@ namespace UI_UX_Dashboard_P1.UI
                     case 1:  // Columna "Borrar"
                         if (MessageBox.Show($"¿Borrar usuario {nombreUsuario}?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            Admin.eliminarUsuario(this.id);
-                            CargarDataGrid();
+                            try
+                            {
+                                Admin.eliminarUsuario(this.id);
+                                CargarDataGrid();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Error al intentar borrar el usuario {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
                         }
                         break;
                 }
@@ -134,8 +142,7 @@ namespace UI_UX_Dashboard_P1.UI
         }
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
-        {
-
+        { 
 
             var data = Admin.ObtenerUsuarioAdmin();
 

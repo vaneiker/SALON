@@ -51,8 +51,8 @@
             this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UsuarioID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxtUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -172,8 +172,8 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BtnEditar,
-            this.Rol,
             this.btnEliminar,
+            this.Rol,
             this.UsuarioID,
             this.Nombre,
             this.TxtUsuario,
@@ -323,14 +323,6 @@
             this.BtnEditar.UseColumnTextForButtonValue = true;
             this.BtnEditar.Width = 50;
             // 
-            // Rol
-            // 
-            this.Rol.DataPropertyName = "Rol";
-            this.Rol.HeaderText = "Rol";
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
-            this.Rol.Visible = false;
-            // 
             // btnEliminar
             // 
             this.btnEliminar.HeaderText = "Borrar";
@@ -340,6 +332,14 @@
             this.btnEliminar.ToolTipText = "Borrar";
             this.btnEliminar.UseColumnTextForButtonValue = true;
             this.btnEliminar.Width = 50;
+            // 
+            // Rol
+            // 
+            this.Rol.DataPropertyName = "Rol";
+            this.Rol.HeaderText = "Rol";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            this.Rol.Visible = false;
             // 
             // UsuarioID
             // 
@@ -442,8 +442,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox_rol;
         private System.Windows.Forms.DataGridViewButtonColumn BtnEditar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
         private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
         private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn TxtUsuario;

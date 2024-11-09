@@ -22,5 +22,9 @@ namespace BLL.Admin
         {
              db.CrearActualizarCliente(C);
         }
+        public void SetInactivarClientes(int? C)
+        {
+             db.InactivarClientes(C);
+        }
     }
 }

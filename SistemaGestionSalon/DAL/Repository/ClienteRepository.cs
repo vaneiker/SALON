@@ -37,5 +37,14 @@ namespace DAL.Repository
                   new SqlParameter("@Email", c.Email)).ToList();
             }
         }
+
+        public void InactivarClientes(int? ClienteID = 0)
+        {
+            using (var dbo = new salon_connection())
+            {
+                IEnumerable<Clientes> RetornarValue = dbo.Database.SqlQuery<Clientes>("EXEC [Salon].SP_SET_DESACTIVAR_Clientes @ClienteID",
+                  new SqlParameter("@ClienteID", ClienteID)).ToList();
+            }
+        }
     }
 }

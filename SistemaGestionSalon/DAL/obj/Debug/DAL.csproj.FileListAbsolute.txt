@@ -22,3 +22,15 @@ C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.csproj.CoreCompile
 C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.csproj.Up2Date
 C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.dll
 C:\AppEiker\SALON\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.pdb
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\bin\Debug\DAL.dll.config
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\bin\Debug\DAL.dll
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\bin\Debug\DAL.pdb
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\bin\Debug\EntityFramework.dll
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\bin\Debug\ENTITY.dll
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\bin\Debug\ENTITY.pdb
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.csproj.Up2Date
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.dll
+C:\AppEiker\.Net\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.pdb
