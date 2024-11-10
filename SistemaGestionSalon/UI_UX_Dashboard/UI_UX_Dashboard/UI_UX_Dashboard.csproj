@@ -72,6 +72,12 @@
     <Compile Include="UI\ClientesForm.Designer.cs">
       <DependentUpon>ClientesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ComprasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ComprasForm.Designer.cs">
+      <DependentUpon>ComprasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dasboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,9 +134,13 @@
     <Compile Include="UI\RegistroUsuario.Designer.cs">
       <DependentUpon>RegistroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\ProductoServiciosInventariosViewModel.cs" />
     <EmbeddedResource Include="UI\ClientesForm.resx">
       <DependentUpon>ClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ComprasForm.resx">
+      <DependentUpon>ComprasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dasboard.resx">
       <DependentUpon>Dasboard.cs</DependentUpon>
