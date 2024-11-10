@@ -47,6 +47,8 @@ namespace UI_UX_Dashboard_P1.UI
             maskedTextBox_correo.Text = string.Empty;
             maskedTextBox_telefono.Text = string.Empty;
             textBox_direccion.Text = string.Empty;
+            txtLimiteCredito.Text = "0.00";
+            txtDiasCancelacion.Text = "0";
         }
 
         private void ProveedorForm_Load(object sender, EventArgs e)
@@ -81,6 +83,9 @@ namespace UI_UX_Dashboard_P1.UI
                 TelefonoProveedor = maskedTextBox_telefono.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
                 DireccionProveedor = textBox_direccion.Text,
                 EmailProveedor = maskedTextBox_correo.Text,
+                LimiteCredito = decimal.Parse(txtLimiteCredito.Text),
+                DiasCancelacion = int.Parse(txtDiasCancelacion.Text)
+
             };
             try
             {
@@ -122,6 +127,9 @@ namespace UI_UX_Dashboard_P1.UI
                         maskedTextBox_correo.Text = fila.Cells["EmailProveedor"].Value.ToString();
                         maskedTextBox_telefono.Text = fila.Cells["TelefonoProveedor"].Value.ToString();
                         textBox_direccion.Text = fila.Cells["DireccionProveedor"].Value.ToString();
+                        txtLimiteCredito.Text = fila.Cells["LimiteCredito"].Value.ToString();
+                        txtDiasCancelacion.Text = fila.Cells["DiasCancelacion"].Value.ToString();
+
 
                         break;
 
@@ -141,6 +149,36 @@ namespace UI_UX_Dashboard_P1.UI
                         }
                         break;
                 }
+            }
+        }
+
+        private void txtDiasCancelacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números, un punto decimal, y control de retroceso (Backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo un punto decimal
+            if (e.KeyChar == '.' && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtliitecredito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números, un punto decimal, y control de retroceso (Backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo un punto decimal
+            if (e.KeyChar == '.' && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
     }

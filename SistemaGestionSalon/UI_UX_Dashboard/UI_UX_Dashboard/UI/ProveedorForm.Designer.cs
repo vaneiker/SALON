@@ -52,6 +52,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_cantidad_registro = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bindingSource_Proveedor = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtBuscador = new System.Windows.Forms.TextBox();
@@ -60,7 +61,10 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.bindingSource_Proveedor = new System.Windows.Forms.BindingSource(this.components);
+            this.txtLimiteCredito = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtDiasCancelacion = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,13 +74,15 @@
             this.TelefonoProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmailProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DireccionProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LimiteCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiasCancelacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Proveedor)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Proveedor)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,12 +92,16 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(23, 120);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(243, 515);
+            this.panel1.Size = new System.Drawing.Size(243, 562);
             this.panel1.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.txtDiasCancelacion);
+            this.panel4.Controls.Add(this.label14);
+            this.panel4.Controls.Add(this.txtLimiteCredito);
+            this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.textBox_direccion);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.maskedTextBox_cedula);
@@ -110,16 +120,16 @@
             this.panel4.Controls.Add(this.label5);
             this.panel4.Location = new System.Drawing.Point(3, 45);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(230, 418);
+            this.panel4.Size = new System.Drawing.Size(230, 479);
             this.panel4.TabIndex = 2;
             // 
             // textBox_direccion
             // 
             this.textBox_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_direccion.Location = new System.Drawing.Point(23, 257);
+            this.textBox_direccion.Location = new System.Drawing.Point(15, 346);
             this.textBox_direccion.Multiline = true;
             this.textBox_direccion.Name = "textBox_direccion";
-            this.textBox_direccion.Size = new System.Drawing.Size(201, 61);
+            this.textBox_direccion.Size = new System.Drawing.Size(201, 37);
             this.textBox_direccion.TabIndex = 21;
             // 
             // label7
@@ -127,7 +137,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label7.Location = new System.Drawing.Point(25, 238);
+            this.label7.Location = new System.Drawing.Point(16, 327);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 16);
             this.label7.TabIndex = 20;
@@ -157,7 +167,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(124, 366);
+            this.btnCancelar.Location = new System.Drawing.Point(116, 431);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 33);
             this.btnCancelar.TabIndex = 17;
@@ -170,7 +180,7 @@
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(22, 366);
+            this.btnGuardar.Location = new System.Drawing.Point(14, 431);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(96, 33);
             this.btnGuardar.TabIndex = 16;
@@ -180,7 +190,7 @@
             // 
             // maskedTextBox_correo
             // 
-            this.maskedTextBox_correo.Location = new System.Drawing.Point(24, 340);
+            this.maskedTextBox_correo.Location = new System.Drawing.Point(16, 405);
             this.maskedTextBox_correo.Name = "maskedTextBox_correo";
             this.maskedTextBox_correo.Size = new System.Drawing.Size(198, 20);
             this.maskedTextBox_correo.TabIndex = 15;
@@ -190,7 +200,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label11.Location = new System.Drawing.Point(24, 321);
+            this.label11.Location = new System.Drawing.Point(16, 386);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(128, 16);
             this.label11.TabIndex = 14;
@@ -299,7 +309,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(272, 120);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(431, 515);
+            this.panel2.Size = new System.Drawing.Size(431, 562);
             this.panel2.TabIndex = 1;
             // 
             // label_cantidad_registro
@@ -307,7 +317,7 @@
             this.label_cantidad_registro.AutoSize = true;
             this.label_cantidad_registro.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_cantidad_registro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(150)))), ((int)(((byte)(202)))));
-            this.label_cantidad_registro.Location = new System.Drawing.Point(16, 479);
+            this.label_cantidad_registro.Location = new System.Drawing.Point(15, 504);
             this.label_cantidad_registro.Name = "label_cantidad_registro";
             this.label_cantidad_registro.Size = new System.Drawing.Size(19, 20);
             this.label_cantidad_registro.TabIndex = 13;
@@ -329,7 +339,9 @@
             this.CelularProveedor,
             this.TelefonoProveedor,
             this.EmailProveedor,
-            this.DireccionProveedor});
+            this.DireccionProveedor,
+            this.LimiteCredito,
+            this.DiasCancelacion});
             this.dataGridView1.DataSource = this.bindingSource_Proveedor;
             this.dataGridView1.Location = new System.Drawing.Point(7, 45);
             this.dataGridView1.Name = "dataGridView1";
@@ -426,6 +438,50 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "Proveedor";
             // 
+            // txtLimiteCredito
+            // 
+            this.txtLimiteCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLimiteCredito.Location = new System.Drawing.Point(15, 252);
+            this.txtLimiteCredito.Name = "txtLimiteCredito";
+            this.txtLimiteCredito.Size = new System.Drawing.Size(207, 22);
+            this.txtLimiteCredito.TabIndex = 23;
+            this.txtLimiteCredito.Text = "0.00";
+            this.txtLimiteCredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtLimiteCredito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtliitecredito_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label8.Location = new System.Drawing.Point(19, 234);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 16);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Límite de crédito";
+            // 
+            // txtDiasCancelacion
+            // 
+            this.txtDiasCancelacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiasCancelacion.Location = new System.Drawing.Point(14, 302);
+            this.txtDiasCancelacion.Name = "txtDiasCancelacion";
+            this.txtDiasCancelacion.Size = new System.Drawing.Size(208, 22);
+            this.txtDiasCancelacion.TabIndex = 25;
+            this.txtDiasCancelacion.Text = "0";
+            this.txtDiasCancelacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDiasCancelacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiasCancelacion_KeyPress);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label14.Location = new System.Drawing.Point(18, 284);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(138, 16);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Días de cancelación";
+            // 
             // btnEditar
             // 
             this.btnEditar.HeaderText = "Editar";
@@ -501,6 +557,22 @@
             this.DireccionProveedor.ReadOnly = true;
             this.DireccionProveedor.Visible = false;
             // 
+            // LimiteCredito
+            // 
+            this.LimiteCredito.DataPropertyName = "LimiteCredito";
+            this.LimiteCredito.HeaderText = "LimiteCredito";
+            this.LimiteCredito.Name = "LimiteCredito";
+            this.LimiteCredito.ReadOnly = true;
+            this.LimiteCredito.Visible = false;
+            // 
+            // DiasCancelacion
+            // 
+            this.DiasCancelacion.DataPropertyName = "DiasCancelacion";
+            this.DiasCancelacion.HeaderText = "DiasCancelacion";
+            this.DiasCancelacion.Name = "DiasCancelacion";
+            this.DiasCancelacion.ReadOnly = true;
+            this.DiasCancelacion.Visible = false;
+            // 
             // ProveedorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -524,11 +596,11 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Proveedor)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_Proveedor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -574,6 +646,10 @@
         private System.Windows.Forms.TextBox textBox_direccion;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.BindingSource bindingSource_Proveedor;
+        private System.Windows.Forms.TextBox txtDiasCancelacion;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtLimiteCredito;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
         private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProveedorID;
@@ -583,5 +659,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefonoProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn DireccionProveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LimiteCredito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiasCancelacion;
     }
 }

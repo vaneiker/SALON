@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj": {}
+    "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj": {
+    "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj",
+        "projectPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\pveneiker\\.nuget\\packages\\",
-        "outputPath": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\DAL\\obj\\",
+        "outputPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -31,8 +31,8 @@
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj": {
-                "projectPath": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj"
+              "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj": {
+                "projectPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj"
               }
             }
           }
@@ -68,11 +68,11 @@
         }
       }
     },
-    "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj": {
+    "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj",
+        "projectUniqueName": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj",
         "projectName": "ENTITY",
-        "projectPath": "C:\\AppEiker\\.Net\\Git\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj",
+        "projectPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}

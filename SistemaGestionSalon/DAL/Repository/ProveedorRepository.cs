@@ -27,14 +27,19 @@ namespace DAL.Repository
         {
             using (var dbo = new salon_connection())
             {
-                IEnumerable<Clientes> RetornarValue = dbo.Database.SqlQuery<Clientes>("EXEC [Salon].[SP_SET_INSERT_UPDATE_PROVEEDORES]@ProveedorID,@Nombre,@Cedula,@Telefono,@Celular,@Email,@Direccion",
+                IEnumerable<Clientes> RetornarValue = dbo.Database.SqlQuery<Clientes>("EXEC [Salon].[SP_SET_INSERT_UPDATE_PROVEEDORES]@ProveedorID,@Nombre,@Cedula,@Telefono,@Celular,@Email,@Direccion,@LimiteCredito,@DiasCancelacion",
                   new SqlParameter("@ProveedorID", c.ProveedorID),
                   new SqlParameter("@Nombre", c.NombreProveedor),
                   new SqlParameter("@Cedula", c.CedulaProveedor),
                   new SqlParameter("@Telefono", c.TelefonoProveedor),
                   new SqlParameter("@Celular", c.CelularProveedor),
                   new SqlParameter("@Email", c.EmailProveedor),
-                  new SqlParameter("@Direccion", c.DireccionProveedor)).ToList();
+                  new SqlParameter("@Direccion", c.DireccionProveedor),
+                  new SqlParameter("@LimiteCredito", c.LimiteCredito),
+                  new SqlParameter("@DiasCancelacion", c.DiasCancelacion)
+
+
+                  ).ToList();
             }
         }
         public void InactivarProveedores(int? ProveedorID = 0)
@@ -46,4 +51,4 @@ namespace DAL.Repository
             }
         }
     }
-}
+} 

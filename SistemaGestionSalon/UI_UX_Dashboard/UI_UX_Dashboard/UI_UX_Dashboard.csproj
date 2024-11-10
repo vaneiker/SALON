@@ -135,7 +135,9 @@
       <DependentUpon>RegistroUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CompraViewModel.cs" />
     <Compile Include="ViewModel\ProductoServiciosInventariosViewModel.cs" />
+    <Compile Include="ViewModel\ProveedoresViewModel.cs" />
     <EmbeddedResource Include="UI\ClientesForm.resx">
       <DependentUpon>ClientesForm.cs</DependentUpon>
     </EmbeddedResource>

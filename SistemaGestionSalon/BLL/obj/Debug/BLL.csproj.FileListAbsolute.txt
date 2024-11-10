@@ -37,3 +37,16 @@ C:\AppEiker\.Net\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.CoreCompileI
 C:\AppEiker\.Net\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.Up2Date
 C:\AppEiker\.Net\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.dll
 C:\AppEiker\.Net\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.pdb
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\BLL.dll
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\BLL.pdb
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\DAL.dll
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\ENTITY.dll
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\EntityFramework.dll
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\DAL.pdb
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\DAL.dll.config
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\ENTITY.pdb
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.Up2Date
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.dll
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.pdb

@@ -39,6 +39,12 @@ namespace UI_UX_Dashboard_P1.Custom
         }
 
         // Método para mostrar mensajes de advertencia
+
+
+        public static void ShowTypeError(string message,string type)
+        {
+            MessageBox.Show(message, type, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
         public static void ShowWarning(string message)
         {
             MessageBox.Show(message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);

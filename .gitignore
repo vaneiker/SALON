@@ -1,0 +1,43 @@
+# Archivos de configuración de Visual Studio
+.vs/
+.vscode/
+
+# Archivos de solución y proyecto
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Archivos binarios de compilación
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]Release/
+[Dd]ReleasePublic/
+x64/
+x86/
+x64_Debug/
+x86_Debug/
+
+# Archivos de caché y temporales
+.vs2019/
+.vs2017/
+.vs2015/
+.idea/
+.vscode/
+
+# Paquetes de NuGet
+*.nupkg
+
+# Otros archivos temporales de Visual Studio
+*.tlog
+*.vsix
+*.dbmdl
+
+# Archivos de configuración de Entorno y Contenedor
+*.dockerfile
+*.dockerignore
+
+# Archivos de Backup
+# Estos pueden ser creados por editores de código, como Visual Studio Code, pero no deberían ser rastreados
+*.bak
+*.swp

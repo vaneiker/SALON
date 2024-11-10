@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\ClienteAdmin.cs" />
+    <Compile Include="Admin\ComprasAdmin.cs" />
     <Compile Include="Admin\DropDownListAdmin.cs" />
     <Compile Include="Admin\ProductoServiciosInventariosAdmin.cs" />
     <Compile Include="Admin\ProveedoresAdmin.cs" />
