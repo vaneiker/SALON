@@ -142,71 +142,73 @@ namespace UI_UX_Dashboard_P1.UI
             double importe = 0.00;
             double impuestos = 0.00;
             double neto = 0.00;
-            if (!radioButton_credito.Checked && !radioButton_contado.Checked)
+            //if (!radioButton_credito.Checked && !radioButton_contado.Checked)
+            //{
+            //    MessageBox.Show($"Selecione el tipo de pago de la factura (Crédito o Al Contado) ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    //CargarPorcentaje();
+            //    return;
+            //}
+
+            //if (string.IsNullOrWhiteSpace(txtCantidad.Text) || string.IsNullOrWhiteSpace(txtPrecioCosto.Text))
+            //{
+            //    Helpers.ShowValidacion("Cantidad y Precios");
+            //    return;
+            //}
+            //if (comboBox_forma_pago.SelectedIndex == 0)
+            //{
+            //    Helpers.ShowValidacion("Forma de pago");
+            //    return;
+            //}
+
+            //if (string.IsNullOrWhiteSpace(txtnombre.Text))
+            //{
+            //    Helpers.ShowWarning("Seleccione un Producto para continuar...");
+            //    return;
+            //}
+
+            //if (label_Proveedor.Text == "N/A")
+            //{
+            //    Helpers.ShowWarning("Seleccione un proveedor para continuar...");
+            //    return;
+            //}
+
+            //if (comboBox_forma_pago.SelectedIndex == 0)
+            //{
+            //    Helpers.ShowValidacion("Forma de pago");
+            //    return;
+            //}
+
+            if (ValidarFormulario())
             {
-                MessageBox.Show($"Selecione el tipo de pago de la factura (Crédito o Al Contado) ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //CargarPorcentaje();
-                return;
+                importe = double.Parse(txt_importe.Text.Replace("RD$", ""));
+                impuestos = double.Parse(txt_impuesto.Text.Replace("RD$", ""));
+                neto = double.Parse(txt_neto.Text.Replace("RD$", ""));
+                AddCompraViewModels(new CompraViewModel()
+                {
+                    IdProducto = this._Producto_ID,
+                    IdProveedor = this._Proveedor_ID,
+                    PrecioCosto = double.Parse(txtPrecioCosto.Text),
+                    Nombre = txtnombre.Text,
+                    TipoPago = radioButton_contado.Checked == true ? "AL CONTADO" : "CRÉDITO",
+                    MedioPago = comboBox_forma_pago.Text,
+                    Cantidad = int.Parse(txtCantidad.Text),
+                    Importe = importe,
+                    Impuesto = impuestos,
+                    SubTotal = neto,
+                    CodigoBarra = txtCodigoBarra.Text,
+                });
+
+
+                txt_importe.Text = "RD$ 0.00";
+                txt_impuesto.Text = "RD$ 0.00";
+                txt_neto.Text = "RD$ 0.00";
+                txtPrecioCosto.Text = "0.00";
+                txtCantidad.Text = "0";
+                this._Producto_ID = 0;
+                txtCodigoBarra.Text = string.Empty;
+                txtnombre.Text = string.Empty;
+                txtCodigoBarra.Text = string.Empty;
             }
-
-            if (string.IsNullOrWhiteSpace(txtCantidad.Text) || string.IsNullOrWhiteSpace(txtPrecioCosto.Text))
-            {
-                Helpers.ShowValidacion("Cantidad y Precios");
-                return;
-            }
-            if (comboBox_forma_pago.SelectedIndex == 0)
-            {
-                Helpers.ShowValidacion("Forma de pago");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtnombre.Text))
-            {
-                Helpers.ShowWarning("Seleccione un Producto para continuar...");
-                return;
-            }
-
-            if (label_Proveedor.Text == "N/A")
-            {
-                Helpers.ShowWarning("Seleccione un proveedor para continuar...");
-                return;
-            }
-
-            if (comboBox_forma_pago.SelectedIndex == 0)
-            {
-                Helpers.ShowValidacion("Forma de pago");
-                return;
-            }
-
-
-            importe = double.Parse(txt_importe.Text.Replace("RD$", ""));
-            impuestos = double.Parse(txt_impuesto.Text.Replace("RD$", ""));
-            neto = double.Parse(txt_neto.Text.Replace("RD$", ""));
-            AddCompraViewModels(new CompraViewModel()
-            {
-                IdProducto = this._Producto_ID,
-                IdProveedor = this._Proveedor_ID,
-                PrecioCosto = double.Parse(txtPrecioCosto.Text),
-                Nombre = txtnombre.Text,
-                TipoPago = radioButton_contado.Checked == true ? "AL CONTADO" : "CRÉDITO",
-                MedioPago = comboBox_forma_pago.Text,
-                Cantidad = int.Parse(txtCantidad.Text),
-                Importe = importe,
-                Impuesto = impuestos,
-                SubTotal = neto,
-                CodigoBarra = txtCodigoBarra.Text,
-            });
-
-
-            txt_importe.Text = "RD$ 0.00";
-            txt_impuesto.Text = "RD$ 0.00";
-            txt_neto.Text = "RD$ 0.00";
-            txtPrecioCosto.Text = "0.00";
-            txtCantidad.Text = "0";
-            this._Producto_ID = 0;
-            txtCodigoBarra.Text = string.Empty;
-            txtnombre.Text = string.Empty;
-            txtCodigoBarra.Text = string.Empty;
         }
 
 
@@ -261,7 +263,6 @@ namespace UI_UX_Dashboard_P1.UI
 
             try
             {
-
                 if (string.IsNullOrWhiteSpace(txtCantidad.Text))
                 {
 
@@ -468,48 +469,127 @@ namespace UI_UX_Dashboard_P1.UI
 
         private void BtnEntrada_Click(object sender, EventArgs e)
         {
-
             decimal? _SubtotalCompra = 0.00m;
             decimal? _ImpuestoCompra = 0.00m;
             decimal? _TotalCompra = 0.00m;
 
-
-            if (compraViewModels.Any())
+            // Validaciones previas
+            if (comboBox_forma_pago.SelectedIndex == 0)
             {
-                _SubtotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Importe).Value);
-                _ImpuestoCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Impuesto).Value);
-                _TotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.SubTotal).Value);
-
-                var compraheader = new Compras.FacturacionCompra()
-                {
-                    IdCompra = 0,
-                    IdProveedor = _Proveedor_ID,
-                    TipoPago = radioButton_contado.Checked == true ? "AL CONTADO" : "CRÉDITO",
-                    MetodoPago = comboBox_forma_pago.Text,
-                    SubtotalCompra = _SubtotalCompra,
-                    Descuento = 0,
-                    Impuesto = _ImpuestoCompra,
-                    TotalNeto = _TotalCompra
-                };
-                var result = comprasAdmin.GuardarCompra(compraheader);
-
-                foreach (var i in compraViewModels)
-                {
-                    comprasAdmin.GuardarCompraDetallesCompra(new Compras.DetallesFacturacionCompra() {
-                        IdCompra = int.Parse(result.CODE),
-                        IdProducto = i.IdProducto,
-                        PrecioUnitario = decimal.Parse(i.PrecioCosto.ToString()),
-                        Cantidad = i.Cantidad,
-                        Impuesto = decimal.Parse(i.Impuesto.ToString()),
-                        Total = decimal.Parse(i.SubTotal.ToString())
-                    });
-                } 
-            }
-            else
-            {
-                Helpers.ShowValidacion("No existe producto en el listado.");
+                MessageBox.Show("Seleccione una Forma de pago.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            } 
+            }
+
+            if (!compraViewModels.Any())
+            {
+                MessageBox.Show("No existe producto en el listado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Calcular totales
+            _SubtotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Importe).Value);
+            _ImpuestoCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Impuesto).Value);
+            _TotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.SubTotal).Value);
+
+
+            _SubtotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Importe).Value);
+            _ImpuestoCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Impuesto).Value);
+            _TotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.SubTotal).Value);
+
+            var compraheader = new Compras.FacturacionCompra()
+            {
+                IdCompra = 0,
+                IdProveedor = _Proveedor_ID,
+                TipoPago = radioButton_contado.Checked == true ? "AL CONTADO" : "CRÉDITO",
+                MetodoPago = comboBox_forma_pago.Text,
+                SubtotalCompra = _SubtotalCompra,
+                Descuento = 0,
+                Impuesto = _ImpuestoCompra,
+                TotalNeto = _TotalCompra
+            };
+            var result = comprasAdmin.GuardarCompra(compraheader);
+
+            foreach (var i in compraViewModels)
+            {
+                comprasAdmin.GuardarCompraDetallesCompra(new Compras.DetallesFacturacionCompra()
+                {
+                    IdCompra = int.Parse(result.CODE),
+                    IdProducto = i.IdProducto,
+                    PrecioUnitario = decimal.Parse(i.PrecioCosto.ToString()),
+                    Cantidad = i.Cantidad,
+                    Impuesto = decimal.Parse(i.Impuesto.ToString()),
+                    Total = decimal.Parse(i.SubTotal.ToString())
+                });
+            }
+
+
+        }
+
+
+
+        public bool ValidarFormulario()
+        {
+            bool result = true;
+            StringBuilder mensajeError = new StringBuilder();
+
+            if (!radioButton_credito.Checked && !radioButton_contado.Checked)
+            {
+                mensajeError.AppendLine("\nSeleccione el tipo de pago de la factura (Crédito o Al Contado).");
+                result = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtCantidad.Text) || string.IsNullOrWhiteSpace(txtPrecioCosto.Text))
+            {
+                mensajeError.AppendLine("\nComplete los campos de Cantidad y Precio.");
+                result = false;
+            }
+
+            if (txtPrecioCosto.Text == "0.00")
+            {
+                mensajeError.AppendLine("\nEl costo debe ser superior a 0.00.");
+                result = false;
+            }
+
+            if (txtCantidad.Text == "0")
+            {
+                mensajeError.AppendLine("\nLa cantidad debe ser superior a 0.");
+                result = false;
+            }
+
+            if (comboBox_forma_pago.SelectedIndex == 0)
+            {
+                mensajeError.AppendLine("\nSeleccione una Forma de pago.");
+                result = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtnombre.Text))
+            {
+                mensajeError.AppendLine("\nSeleccione un Producto para continuar.");
+                result = false;
+            }
+
+            if (label_Proveedor.Text == "N/A")
+            {
+                mensajeError.AppendLine("\nSeleccione un proveedor para continuar.");
+                result = false;
+            }
+
+            // Si hubo algún error, mostrar el mensaje acumulado
+            if (mensajeError.Length > 0)
+            {
+                MessageBox.Show(mensajeError.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return result;
+        }
+
+
+        private void txtPrecioCosto_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPrecioCosto.Text))
+            {
+                txtPrecioCosto.Text = "0.00";
+            }
         }
     }
 }

@@ -818,8 +818,9 @@
             this.txtPrecioCosto.Name = "txtPrecioCosto";
             this.txtPrecioCosto.Size = new System.Drawing.Size(146, 35);
             this.txtPrecioCosto.TabIndex = 21;
-            this.txtPrecioCosto.Text = "00.00";
+            this.txtPrecioCosto.Text = "0.00";
             this.txtPrecioCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPrecioCosto.TextChanged += new System.EventHandler(this.txtPrecioCosto_TextChanged);
             this.txtPrecioCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCosto_KeyPress);
             // 
             // label7

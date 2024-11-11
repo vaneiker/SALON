@@ -363,6 +363,7 @@
     <Content Include="icon\user.png" />
     <Content Include="icon\whatsapp.png" />
     <Content Include="icon\youtube.png" />
+    <Content Include="Templeat\Compras\ComprobanteCompra.html" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
