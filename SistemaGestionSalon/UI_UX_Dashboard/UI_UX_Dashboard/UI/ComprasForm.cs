@@ -1,9 +1,11 @@
 ﻿using BLL.Admin;
+using ENTITY.Entitis;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,8 +23,11 @@ namespace UI_UX_Dashboard_P1.UI
         private ProductoServiciosInventariosAdmin dbpro = new ProductoServiciosInventariosAdmin();
         private DropDownListAdmin drop = new DropDownListAdmin();
         private List<CompraViewModel> compraViewModels = new List<CompraViewModel>();
-        private int _Proveedor_ID { get; set; } = 0;
-        private int _Producto_ID { get; set; } = 0;
+        private ComprasAdmin comprasAdmin = new ComprasAdmin();
+
+
+        private int? _Proveedor_ID { get; set; } = 0;
+        private int? _Producto_ID { get; set; } = 0;
         private decimal? _LimiteCredito { get; set; } = 0.00m;
         private int? _DiasCancelacion { get; set; } = 0;
 
@@ -189,7 +194,7 @@ namespace UI_UX_Dashboard_P1.UI
                 Importe = importe,
                 Impuesto = impuestos,
                 SubTotal = neto,
-                CodigoBarra=txtCodigoBarra.Text,
+                CodigoBarra = txtCodigoBarra.Text,
             });
 
 
@@ -201,29 +206,51 @@ namespace UI_UX_Dashboard_P1.UI
             this._Producto_ID = 0;
             txtCodigoBarra.Text = string.Empty;
             txtnombre.Text = string.Empty;
-            txtCodigoBarra.Text= string.Empty;
+            txtCodigoBarra.Text = string.Empty;
         }
 
 
         private void AddCompraViewModels(CompraViewModel model)
         {
-            bindingSource_listado_producto_nuevos.DataSource = null; // Establecer en null para limpiar
-
-            // Agregar el modelo a la lista de compra
-            compraViewModels.Add(model);
-
-            // Forzar la actualización del origen de datos            
-            bindingSource_listado_producto_nuevos.DataSource = compraViewModels; // Reasignar la lista actualizada
+            try
+            {
+                bindingSource_listado_producto_nuevos.DataSource = null; // Establecer en null para limpiar
 
 
+                // Verifica si existe un objeto con el mismo CodigoBarra
+                if (compraViewModels.Any(x => x.CodigoBarra == model.CodigoBarra))
+                {
+                    // Encuentra el índice del objeto en la lista
+                    int index = compraViewModels.FindIndex(x => x.IdProducto == model.IdProducto);
 
+                    // Si el objeto fue encontrado, elimina el elemento en el índice encontrado
+                    if (index != -1)
+                    {
+                        compraViewModels.RemoveAt(index);
+                        compraViewModels.Insert(index, model);
+                    }
+                }
+                else
+                {
+                    // Agregar el modelo a la lista de compra
+                    compraViewModels.Add(model);
+                }
 
-            // Calcular el total a pagar asegurando que no sea nulo y formatearlo con dos decimales
-            double total_a_pagar = compraViewModels.Sum(x => x.SubTotal) ?? 0.0;
+                // Forzar la actualización del origen de datos            
+                bindingSource_listado_producto_nuevos.DataSource = compraViewModels; // Reasignar la lista actualizada
+                                                                                     // Calcular el total a pagar asegurando que no sea nulo y formatearlo con dos decimales
+                double total_a_pagar = compraViewModels.Sum(x => x.SubTotal) ?? 0.0;
 
-            // Formatear el texto con dos decimales
-            txtTotalPagar.Text = $"RD$ {total_a_pagar:F2}";
-            ConfigureDataGridView();
+                // Formatear el texto con dos decimales
+                txtTotalPagar.Text = $"RD$ {total_a_pagar:F2}";
+                ConfigureDataGridView();
+
+            }
+            catch (Exception ex)
+            {
+
+                Helpers.ShowError("Error en el metodo AddCompraViewModels", ex);
+            }
         }
 
         private void txtCantidad_TextChanged(object sender, EventArgs e)
@@ -232,27 +259,34 @@ namespace UI_UX_Dashboard_P1.UI
             double impuestos = 0.00;
             double neto = 0.00;
 
-
-            if (string.IsNullOrWhiteSpace(txtCantidad.Text))
+            try
             {
 
-                return;
+                if (string.IsNullOrWhiteSpace(txtCantidad.Text))
+                {
+
+                    return;
+                }
+                //if (string.IsNullOrWhiteSpace(txtPrecioCosto.Text))
+                //{
+                //    Helpers.ShowValidacion("Precio");
+                //    return;
+                //}
+
+
+
+                importe = double.Parse(txtPrecioCosto.Text.ToString()) * double.Parse(txtCantidad.Text.ToString());
+                impuestos = (importe * _impuesto) / 100;
+                neto = importe + impuestos;
+
+                txt_importe.Text = string.Format($"RD$ {importe:N2}");
+                txt_impuesto.Text = string.Format($"RD$ {impuestos:N2}");
+                txt_neto.Text = string.Format($"RD$ {neto:N2}");
             }
-            //if (string.IsNullOrWhiteSpace(txtPrecioCosto.Text))
-            //{
-            //    Helpers.ShowValidacion("Precio");
-            //    return;
-            //}
-
-
-
-            importe = double.Parse(txtPrecioCosto.Text.ToString()) * double.Parse(txtCantidad.Text.ToString());
-            impuestos = (importe * _impuesto) / 100;
-            neto = importe + impuestos;
-
-            txt_importe.Text = string.Format($"RD$ {importe:N2}");
-            txt_impuesto.Text = string.Format($"RD$ {impuestos:N2}");
-            txt_neto.Text = string.Format($"RD$ {neto:N2}");
+            catch (Exception ex)
+            {
+                Helpers.ShowError("Error en el txtCantidad_TextChanged ", ex);
+            }
 
         }
 
@@ -372,8 +406,6 @@ namespace UI_UX_Dashboard_P1.UI
 
         private void dataGridView_CompraViewModels_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-
             // Verifica que el clic haya sido en una celda válida y en una columna de botón
             if (e.RowIndex >= 0 && dataGridView_CompraViewModels.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
@@ -383,8 +415,18 @@ namespace UI_UX_Dashboard_P1.UI
                 {
                     case 0:
 
-                        var algo= fila.Cells; 
-                        txtCodigoBarra.Text = fila.Cells[2].Value.ToString(); 
+
+                        txtCodigoBarra.Text = fila.Cells[2].Value.ToString();
+                        var p = dbpro.GetProductoServiciosInventarios().Where(x => x.Codigo == fila.Cells[2].Value.ToString()).FirstOrDefault();
+
+                        if (p != null)
+                        {
+                            this._Producto_ID = p.ProductoServicioID;
+                            txtnombre.Text = p.Nombre;
+                            txtPrecioCosto.Text = fila.Cells[4].Value.ToString();
+                            txtCantidad.Text = fila.Cells[5].Value.ToString();
+                        }
+
                         break;
 
                     case 1:
@@ -422,6 +464,52 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 e.Handled = true;
             }
+        }
+
+        private void BtnEntrada_Click(object sender, EventArgs e)
+        {
+
+            decimal? _SubtotalCompra = 0.00m;
+            decimal? _ImpuestoCompra = 0.00m;
+            decimal? _TotalCompra = 0.00m;
+
+
+            if (compraViewModels.Any())
+            {
+                _SubtotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Importe).Value);
+                _ImpuestoCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Impuesto).Value);
+                _TotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.SubTotal).Value);
+
+                var compraheader = new Compras.FacturacionCompra()
+                {
+                    IdCompra = 0,
+                    IdProveedor = _Proveedor_ID,
+                    TipoPago = radioButton_contado.Checked == true ? "AL CONTADO" : "CRÉDITO",
+                    MetodoPago = comboBox_forma_pago.Text,
+                    SubtotalCompra = _SubtotalCompra,
+                    Descuento = 0,
+                    Impuesto = _ImpuestoCompra,
+                    TotalNeto = _TotalCompra
+                };
+                var result = comprasAdmin.GuardarCompra(compraheader);
+
+                foreach (var i in compraViewModels)
+                {
+                    comprasAdmin.GuardarCompraDetallesCompra(new Compras.DetallesFacturacionCompra() {
+                        IdCompra = int.Parse(result.CODE),
+                        IdProducto = i.IdProducto,
+                        PrecioUnitario = decimal.Parse(i.PrecioCosto.ToString()),
+                        Cantidad = i.Cantidad,
+                        Impuesto = decimal.Parse(i.Impuesto.ToString()),
+                        Total = decimal.Parse(i.SubTotal.ToString())
+                    });
+                } 
+            }
+            else
+            {
+                Helpers.ShowValidacion("No existe producto en el listado.");
+                return;
+            } 
         }
     }
 }

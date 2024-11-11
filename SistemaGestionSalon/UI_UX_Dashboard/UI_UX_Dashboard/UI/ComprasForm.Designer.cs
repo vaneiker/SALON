@@ -41,16 +41,36 @@
             this.label13 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.dataGridView_proveedores = new System.Windows.Forms.DataGridView();
+            this.btnSelecionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Proveedor_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.limitecredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diascancelacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource_proveedor_compras = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView_CompraViewModels = new System.Windows.Forms.DataGridView();
+            this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.BtnQuitar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Id_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._PrecioCompraAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImporteAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImpuestoAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotalAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource_listado_producto_nuevos = new System.Windows.Forms.BindingSource(this.components);
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.dataGridView_Productos = new System.Windows.Forms.DataGridView();
+            this.btnSelecionarProducto = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CODE_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MSJ_PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ACTION_PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource_producto_compras = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtTotalPagar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.BtnEntrada = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -77,38 +97,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCodigoBarra = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.bindingSource_listado_producto_nuevos = new System.Windows.Forms.BindingSource(this.components);
-            this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.BtnQuitar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Id_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImporteAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImpuestoAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotalAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSelecionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Proveedor_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre_Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.limitecredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diascancelacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSelecionarProducto = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.CODE_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MSJ_PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ACTION_PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_proveedores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource_proveedor_compras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CompraViewModels)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_listado_producto_nuevos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Productos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource_producto_compras)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_listado_producto_nuevos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -263,6 +264,55 @@
             this.dataGridView_proveedores.TabIndex = 46;
             this.dataGridView_proveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_proveedores_CellContentClick);
             // 
+            // btnSelecionar
+            // 
+            this.btnSelecionar.FillWeight = 50F;
+            this.btnSelecionar.HeaderText = "Elegir";
+            this.btnSelecionar.Name = "btnSelecionar";
+            this.btnSelecionar.ReadOnly = true;
+            this.btnSelecionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSelecionar.Text = "✔️ Seleccionar";
+            this.btnSelecionar.ToolTipText = "✔️ Seleccionar";
+            this.btnSelecionar.UseColumnTextForButtonValue = true;
+            this.btnSelecionar.Width = 80;
+            // 
+            // Proveedor_ID
+            // 
+            this.Proveedor_ID.DataPropertyName = "Proveedor_ID";
+            this.Proveedor_ID.HeaderText = "Proveedor_ID";
+            this.Proveedor_ID.Name = "Proveedor_ID";
+            this.Proveedor_ID.ReadOnly = true;
+            this.Proveedor_ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Proveedor_ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Proveedor_ID.Visible = false;
+            // 
+            // Nombre_Proveedor
+            // 
+            this.Nombre_Proveedor.DataPropertyName = "Nombre_Proveedor";
+            this.Nombre_Proveedor.HeaderText = "Proveedor";
+            this.Nombre_Proveedor.Name = "Nombre_Proveedor";
+            this.Nombre_Proveedor.ReadOnly = true;
+            this.Nombre_Proveedor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Nombre_Proveedor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Nombre_Proveedor.ToolTipText = "Proveedor";
+            this.Nombre_Proveedor.Width = 150;
+            // 
+            // limitecredito
+            // 
+            this.limitecredito.DataPropertyName = "LimiteCredito";
+            this.limitecredito.HeaderText = "Límite de crédito";
+            this.limitecredito.Name = "limitecredito";
+            this.limitecredito.ReadOnly = true;
+            this.limitecredito.Width = 110;
+            // 
+            // diascancelacion
+            // 
+            this.diascancelacion.DataPropertyName = "DiasCancelacion";
+            this.diascancelacion.HeaderText = "Días de cancelación";
+            this.diascancelacion.Name = "diascancelacion";
+            this.diascancelacion.ReadOnly = true;
+            this.diascancelacion.Width = 125;
+            // 
             // dataGridView_CompraViewModels
             // 
             this.dataGridView_CompraViewModels.AllowUserToAddRows = false;
@@ -276,6 +326,7 @@
             this.Id_Producto,
             this.Id_Proveedor,
             this._Nombre,
+            this._PrecioCompraAdd,
             this.CantidadAdd,
             this.ImporteAdd,
             this.ImpuestoAdd,
@@ -287,6 +338,91 @@
             this.dataGridView_CompraViewModels.Size = new System.Drawing.Size(993, 298);
             this.dataGridView_CompraViewModels.TabIndex = 45;
             this.dataGridView_CompraViewModels.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CompraViewModels_CellContentClick);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.HeaderText = "Editar";
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.ReadOnly = true;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.ToolTipText = "Editar";
+            this.btnEditar.UseColumnTextForButtonValue = true;
+            this.btnEditar.Width = 50;
+            // 
+            // BtnQuitar
+            // 
+            this.BtnQuitar.HeaderText = "Quitar";
+            this.BtnQuitar.Name = "BtnQuitar";
+            this.BtnQuitar.ReadOnly = true;
+            this.BtnQuitar.Text = "Quitar";
+            this.BtnQuitar.ToolTipText = "Quitar";
+            this.BtnQuitar.UseColumnTextForButtonValue = true;
+            this.BtnQuitar.Width = 50;
+            // 
+            // Id_Producto
+            // 
+            this.Id_Producto.HeaderText = "id";
+            this.Id_Producto.Name = "Id_Producto";
+            this.Id_Producto.ReadOnly = true;
+            this.Id_Producto.Visible = false;
+            // 
+            // Id_Proveedor
+            // 
+            this.Id_Proveedor.HeaderText = "id";
+            this.Id_Proveedor.Name = "Id_Proveedor";
+            this.Id_Proveedor.ReadOnly = true;
+            this.Id_Proveedor.Visible = false;
+            // 
+            // _Nombre
+            // 
+            this._Nombre.DataPropertyName = "Nombre";
+            this._Nombre.HeaderText = "Nombre";
+            this._Nombre.Name = "_Nombre";
+            this._Nombre.ReadOnly = true;
+            this._Nombre.Width = 200;
+            // 
+            // _PrecioCompraAdd
+            // 
+            this._PrecioCompraAdd.DataPropertyName = "PrecioCosto";
+            this._PrecioCompraAdd.HeaderText = "Precio Compra";
+            this._PrecioCompraAdd.Name = "_PrecioCompraAdd";
+            this._PrecioCompraAdd.ReadOnly = true;
+            // 
+            // CantidadAdd
+            // 
+            this.CantidadAdd.DataPropertyName = "Cantidad";
+            this.CantidadAdd.HeaderText = "Cantidad";
+            this.CantidadAdd.Name = "CantidadAdd";
+            this.CantidadAdd.ReadOnly = true;
+            this.CantidadAdd.ToolTipText = "Cantidad";
+            this.CantidadAdd.Width = 50;
+            // 
+            // ImporteAdd
+            // 
+            this.ImporteAdd.DataPropertyName = "Importe";
+            this.ImporteAdd.HeaderText = "Importe";
+            this.ImporteAdd.Name = "ImporteAdd";
+            this.ImporteAdd.ReadOnly = true;
+            this.ImporteAdd.ToolTipText = "Importe";
+            this.ImporteAdd.Width = 80;
+            // 
+            // ImpuestoAdd
+            // 
+            this.ImpuestoAdd.DataPropertyName = "Impuesto";
+            this.ImpuestoAdd.HeaderText = "Impuestos";
+            this.ImpuestoAdd.Name = "ImpuestoAdd";
+            this.ImpuestoAdd.ReadOnly = true;
+            this.ImpuestoAdd.ToolTipText = "Impuestos";
+            this.ImpuestoAdd.Width = 80;
+            // 
+            // SubTotalAdd
+            // 
+            this.SubTotalAdd.DataPropertyName = "SubTotal";
+            this.SubTotalAdd.HeaderText = "Sut Total";
+            this.SubTotalAdd.Name = "SubTotalAdd";
+            this.SubTotalAdd.ReadOnly = true;
+            this.SubTotalAdd.ToolTipText = "Sub Total";
+            this.SubTotalAdd.Width = 150;
             // 
             // textBox7
             // 
@@ -316,6 +452,41 @@
             this.dataGridView_Productos.TabIndex = 43;
             this.dataGridView_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Productos_CellContentClick);
             // 
+            // btnSelecionarProducto
+            // 
+            this.btnSelecionarProducto.HeaderText = "Selecione";
+            this.btnSelecionarProducto.Name = "btnSelecionarProducto";
+            this.btnSelecionarProducto.ReadOnly = true;
+            this.btnSelecionarProducto.Text = "✔️ Seleccionar";
+            this.btnSelecionarProducto.ToolTipText = "✔️ Seleccionar";
+            this.btnSelecionarProducto.UseColumnTextForButtonValue = true;
+            // 
+            // CODE_Producto
+            // 
+            this.CODE_Producto.DataPropertyName = "CODE";
+            this.CODE_Producto.HeaderText = "Codigo Producto";
+            this.CODE_Producto.Name = "CODE_Producto";
+            this.CODE_Producto.ReadOnly = true;
+            this.CODE_Producto.Visible = false;
+            // 
+            // MSJ_PRODUCTO
+            // 
+            this.MSJ_PRODUCTO.DataPropertyName = "MSJ";
+            this.MSJ_PRODUCTO.HeaderText = "Codigo";
+            this.MSJ_PRODUCTO.Name = "MSJ_PRODUCTO";
+            this.MSJ_PRODUCTO.ReadOnly = true;
+            this.MSJ_PRODUCTO.ToolTipText = "Código";
+            this.MSJ_PRODUCTO.Width = 150;
+            // 
+            // ACTION_PRODUCTO
+            // 
+            this.ACTION_PRODUCTO.DataPropertyName = "ACTION";
+            this.ACTION_PRODUCTO.HeaderText = "Nombre";
+            this.ACTION_PRODUCTO.Name = "ACTION_PRODUCTO";
+            this.ACTION_PRODUCTO.ReadOnly = true;
+            this.ACTION_PRODUCTO.ToolTipText = "Nombre";
+            this.ACTION_PRODUCTO.Width = 200;
+            // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage1);
@@ -329,7 +500,7 @@
             // 
             this.tabPage1.Controls.Add(this.txtTotalPagar);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.button5);
+            this.tabPage1.Controls.Add(this.BtnEntrada);
             this.tabPage1.Controls.Add(this.button6);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -364,18 +535,19 @@
             this.label2.TabIndex = 39;
             this.label2.Text = "TOTAL A PAGAR";
             // 
-            // button5
+            // BtnEntrada
             // 
-            this.button5.BackColor = System.Drawing.Color.DimGray;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(186, 36);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(146, 35);
-            this.button5.TabIndex = 38;
-            this.button5.Text = "ENTRADA";
-            this.button5.UseVisualStyleBackColor = false;
+            this.BtnEntrada.BackColor = System.Drawing.Color.DimGray;
+            this.BtnEntrada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEntrada.ForeColor = System.Drawing.Color.White;
+            this.BtnEntrada.Location = new System.Drawing.Point(186, 36);
+            this.BtnEntrada.Name = "BtnEntrada";
+            this.BtnEntrada.Size = new System.Drawing.Size(146, 35);
+            this.BtnEntrada.TabIndex = 38;
+            this.BtnEntrada.Text = "ENTRADA";
+            this.BtnEntrada.UseVisualStyleBackColor = false;
+            this.BtnEntrada.Click += new System.EventHandler(this.BtnEntrada_Click);
             // 
             // button6
             // 
@@ -702,168 +874,6 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Código";
             // 
-            // btnEditar
-            // 
-            this.btnEditar.HeaderText = "Editar";
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.ReadOnly = true;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.ToolTipText = "Editar";
-            this.btnEditar.UseColumnTextForButtonValue = true;
-            this.btnEditar.Width = 50;
-            // 
-            // BtnQuitar
-            // 
-            this.BtnQuitar.HeaderText = "Quitar";
-            this.BtnQuitar.Name = "BtnQuitar";
-            this.BtnQuitar.ReadOnly = true;
-            this.BtnQuitar.Text = "Quitar";
-            this.BtnQuitar.ToolTipText = "Quitar";
-            this.BtnQuitar.UseColumnTextForButtonValue = true;
-            this.BtnQuitar.Width = 50;
-            // 
-            // Id_Producto
-            // 
-            this.Id_Producto.HeaderText = "id";
-            this.Id_Producto.Name = "Id_Producto";
-            this.Id_Producto.ReadOnly = true;
-            this.Id_Producto.Visible = false;
-            // 
-            // Id_Proveedor
-            // 
-            this.Id_Proveedor.HeaderText = "id";
-            this.Id_Proveedor.Name = "Id_Proveedor";
-            this.Id_Proveedor.ReadOnly = true;
-            this.Id_Proveedor.Visible = false;
-            // 
-            // _Nombre
-            // 
-            this._Nombre.DataPropertyName = "Nombre";
-            this._Nombre.HeaderText = "Nombre";
-            this._Nombre.Name = "_Nombre";
-            this._Nombre.ReadOnly = true;
-            this._Nombre.Width = 200;
-            // 
-            // CantidadAdd
-            // 
-            this.CantidadAdd.DataPropertyName = "Cantidad";
-            this.CantidadAdd.HeaderText = "Cantidad";
-            this.CantidadAdd.Name = "CantidadAdd";
-            this.CantidadAdd.ReadOnly = true;
-            this.CantidadAdd.ToolTipText = "Cantidad";
-            this.CantidadAdd.Width = 50;
-            // 
-            // ImporteAdd
-            // 
-            this.ImporteAdd.DataPropertyName = "Importe";
-            this.ImporteAdd.HeaderText = "Importe";
-            this.ImporteAdd.Name = "ImporteAdd";
-            this.ImporteAdd.ReadOnly = true;
-            this.ImporteAdd.ToolTipText = "Importe";
-            this.ImporteAdd.Width = 80;
-            // 
-            // ImpuestoAdd
-            // 
-            this.ImpuestoAdd.DataPropertyName = "Impuesto";
-            this.ImpuestoAdd.HeaderText = "Impuestos";
-            this.ImpuestoAdd.Name = "ImpuestoAdd";
-            this.ImpuestoAdd.ReadOnly = true;
-            this.ImpuestoAdd.ToolTipText = "Impuestos";
-            this.ImpuestoAdd.Width = 80;
-            // 
-            // SubTotalAdd
-            // 
-            this.SubTotalAdd.DataPropertyName = "SubTotal";
-            this.SubTotalAdd.HeaderText = "Sut Total";
-            this.SubTotalAdd.Name = "SubTotalAdd";
-            this.SubTotalAdd.ReadOnly = true;
-            this.SubTotalAdd.ToolTipText = "Sub Total";
-            this.SubTotalAdd.Width = 150;
-            // 
-            // btnSelecionar
-            // 
-            this.btnSelecionar.FillWeight = 50F;
-            this.btnSelecionar.HeaderText = "Elegir";
-            this.btnSelecionar.Name = "btnSelecionar";
-            this.btnSelecionar.ReadOnly = true;
-            this.btnSelecionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSelecionar.Text = "✔️ Seleccionar";
-            this.btnSelecionar.ToolTipText = "✔️ Seleccionar";
-            this.btnSelecionar.UseColumnTextForButtonValue = true;
-            this.btnSelecionar.Width = 80;
-            // 
-            // Proveedor_ID
-            // 
-            this.Proveedor_ID.DataPropertyName = "Proveedor_ID";
-            this.Proveedor_ID.HeaderText = "Proveedor_ID";
-            this.Proveedor_ID.Name = "Proveedor_ID";
-            this.Proveedor_ID.ReadOnly = true;
-            this.Proveedor_ID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Proveedor_ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Proveedor_ID.Visible = false;
-            // 
-            // Nombre_Proveedor
-            // 
-            this.Nombre_Proveedor.DataPropertyName = "Nombre_Proveedor";
-            this.Nombre_Proveedor.HeaderText = "Proveedor";
-            this.Nombre_Proveedor.Name = "Nombre_Proveedor";
-            this.Nombre_Proveedor.ReadOnly = true;
-            this.Nombre_Proveedor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Nombre_Proveedor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Nombre_Proveedor.ToolTipText = "Proveedor";
-            this.Nombre_Proveedor.Width = 150;
-            // 
-            // limitecredito
-            // 
-            this.limitecredito.DataPropertyName = "LimiteCredito";
-            this.limitecredito.HeaderText = "Límite de crédito";
-            this.limitecredito.Name = "limitecredito";
-            this.limitecredito.ReadOnly = true;
-            this.limitecredito.Width = 110;
-            // 
-            // diascancelacion
-            // 
-            this.diascancelacion.DataPropertyName = "DiasCancelacion";
-            this.diascancelacion.HeaderText = "Días de cancelación";
-            this.diascancelacion.Name = "diascancelacion";
-            this.diascancelacion.ReadOnly = true;
-            this.diascancelacion.Width = 125;
-            // 
-            // btnSelecionarProducto
-            // 
-            this.btnSelecionarProducto.HeaderText = "Selecione";
-            this.btnSelecionarProducto.Name = "btnSelecionarProducto";
-            this.btnSelecionarProducto.ReadOnly = true;
-            this.btnSelecionarProducto.Text = "✔️ Seleccionar";
-            this.btnSelecionarProducto.ToolTipText = "✔️ Seleccionar";
-            this.btnSelecionarProducto.UseColumnTextForButtonValue = true;
-            // 
-            // CODE_Producto
-            // 
-            this.CODE_Producto.DataPropertyName = "CODE";
-            this.CODE_Producto.HeaderText = "Codigo Producto";
-            this.CODE_Producto.Name = "CODE_Producto";
-            this.CODE_Producto.ReadOnly = true;
-            this.CODE_Producto.Visible = false;
-            // 
-            // MSJ_PRODUCTO
-            // 
-            this.MSJ_PRODUCTO.DataPropertyName = "MSJ";
-            this.MSJ_PRODUCTO.HeaderText = "Codigo";
-            this.MSJ_PRODUCTO.Name = "MSJ_PRODUCTO";
-            this.MSJ_PRODUCTO.ReadOnly = true;
-            this.MSJ_PRODUCTO.ToolTipText = "Código";
-            this.MSJ_PRODUCTO.Width = 150;
-            // 
-            // ACTION_PRODUCTO
-            // 
-            this.ACTION_PRODUCTO.DataPropertyName = "ACTION";
-            this.ACTION_PRODUCTO.HeaderText = "Nombre";
-            this.ACTION_PRODUCTO.Name = "ACTION_PRODUCTO";
-            this.ACTION_PRODUCTO.ReadOnly = true;
-            this.ACTION_PRODUCTO.ToolTipText = "Nombre";
-            this.ACTION_PRODUCTO.Width = 200;
-            // 
             // ComprasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -885,6 +895,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_proveedores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource_proveedor_compras)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CompraViewModels)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_listado_producto_nuevos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Productos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource_producto_compras)).EndInit();
             this.tabControl2.ResumeLayout(false);
@@ -893,7 +904,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_listado_producto_nuevos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -930,7 +940,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button BtnEntrada;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
@@ -958,15 +968,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.BindingSource bindingSource_listado_producto_nuevos;
-        private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
-        private System.Windows.Forms.DataGridViewButtonColumn BtnQuitar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ImporteAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ImpuestoAdd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotalAdd;
         private System.Windows.Forms.DataGridViewButtonColumn btnSelecionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_Proveedor;
@@ -976,5 +977,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CODE_Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn MSJ_PRODUCTO;
         private System.Windows.Forms.DataGridViewTextBoxColumn ACTION_PRODUCTO;
+        private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
+        private System.Windows.Forms.DataGridViewButtonColumn BtnQuitar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _PrecioCompraAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImporteAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImpuestoAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotalAdd;
     }
 }

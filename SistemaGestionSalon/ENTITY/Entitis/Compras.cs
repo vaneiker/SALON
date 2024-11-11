@@ -8,24 +8,27 @@ namespace ENTITY.Entitis
 {
     public class Compras
     {
-        public int IdCompra { get; set; }
-        public int IdProveedor { get; set; }
-        public DateTime? FechaCompra { get; set; }
-        public string TipoPago { get; set; }
-        public string MetodoPago { get; set; }
-        public decimal? SubtotalCompra { get; set; }
-        public decimal? SubtotalDetalles { get; set; }
-        public decimal? Descuento { get; set; }
-        public decimal? ImpuestoCompra { get; set; }
-        public decimal? ImpuestoDetalles { get; set; }
-        public decimal? TotalNetoCompra { get; set; }
-        public decimal? TotalNetoDetalle { get; set; }
-        public int? IdDetalleCompra { get; set; } 
-        public int? IdProducto { get; set; }
-        public int? CantidadCompras { get; set; }
-        public int? CantidadDetalles { get; set; }
-        public decimal? PrecioUnitarioDetalles { get; set; } 
-        public decimal? TotalCompra { get; set; } 
-        public decimal? TotalDetalles { get; set; } 
+        public class FacturacionCompra
+        {
+            public int? IdCompra { get; set; }
+            public int? IdProveedor { get; set; }
+            public string TipoPago { get; set; }
+            public string MetodoPago { get; set; }
+            public decimal? SubtotalCompra { get; set; }
+            public decimal? Descuento { get; set; }
+            public decimal? Impuesto { get; set; }
+            public decimal? TotalNeto { get; set; }
+        }
+
+        public class DetallesFacturacionCompra
+        {
+            public int? IdCompra { get; set; }
+            public int? IdProducto { get; set; }
+            public decimal? PrecioUnitario { get; set; }
+            public decimal? Subtotal { get; set; }
+            public int? Cantidad { get; set; }
+            public decimal? Impuesto { get; set; }
+            public decimal? Total { get; set; }
+        }
     }
 }

@@ -13,11 +13,11 @@ namespace BLL.Admin
     {
         private ComprasRepository db = new ComprasRepository();
 
-        public Base GuardarCompra(Compras c)
+        public Base GuardarCompra(Compras.FacturacionCompra c)
         {  
             return db.InsertarCompra(c);
         }
-        public void GuardarCompraDetallesCompra(Compras s)
+        public void GuardarCompraDetallesCompra(Compras.DetallesFacturacionCompra s)
         {
             db.InsertarDetallesCompra(s);
         } 
