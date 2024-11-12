@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label_Proveedor = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -39,7 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtBuscarProveedor = new System.Windows.Forms.TextBox();
             this.dataGridView_proveedores = new System.Windows.Forms.DataGridView();
             this.btnSelecionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Proveedor_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +57,7 @@
             this.ImpuestoAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotalAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource_listado_producto_nuevos = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtBuscarProducto = new System.Windows.Forms.TextBox();
             this.dataGridView_Productos = new System.Windows.Forms.DataGridView();
             this.btnSelecionarProducto = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CODE_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +69,7 @@
             this.txtTotalPagar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnEntrada = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -86,8 +84,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButton_contado = new System.Windows.Forms.RadioButton();
             this.radioButton_credito = new System.Windows.Forms.RadioButton();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BtnBorrar = new System.Windows.Forms.Button();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -97,7 +94,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCodigoBarra = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_proveedores)).BeginInit();
@@ -115,37 +111,11 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(150)))), ((int)(((byte)(202)))));
-            this.panel5.Controls.Add(this.button1);
-            this.panel5.Controls.Add(this.label12);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1442, 38);
             this.panel5.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1381, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 27);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(545, 11);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 19);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "COMPRAS";
             // 
             // panel3
             // 
@@ -200,17 +170,17 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.txtBuscarProveedor);
             this.panel1.Controls.Add(this.dataGridView_proveedores);
             this.panel1.Controls.Add(this.dataGridView_CompraViewModels);
-            this.panel1.Controls.Add(this.textBox7);
+            this.panel1.Controls.Add(this.txtBuscarProducto);
             this.panel1.Controls.Add(this.dataGridView_Productos);
             this.panel1.Controls.Add(this.tabControl2);
             this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 98);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1442, 683);
+            this.panel1.Size = new System.Drawing.Size(1442, 695);
             this.panel1.TabIndex = 7;
             // 
             // label16
@@ -235,13 +205,14 @@
             this.label13.TabIndex = 48;
             this.label13.Text = "Buscar Proveedor";
             // 
-            // textBox6
+            // txtBuscarProveedor
             // 
-            this.textBox6.Location = new System.Drawing.Point(415, 43);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(481, 34);
-            this.textBox6.TabIndex = 47;
+            this.txtBuscarProveedor.Location = new System.Drawing.Point(415, 43);
+            this.txtBuscarProveedor.Multiline = true;
+            this.txtBuscarProveedor.Name = "txtBuscarProveedor";
+            this.txtBuscarProveedor.Size = new System.Drawing.Size(481, 34);
+            this.txtBuscarProveedor.TabIndex = 47;
+            this.txtBuscarProveedor.TextChanged += new System.EventHandler(this.txtBuscarProveedor_TextChanged);
             // 
             // dataGridView_proveedores
             // 
@@ -424,13 +395,14 @@
             this.SubTotalAdd.ToolTipText = "Sub Total";
             this.SubTotalAdd.Width = 150;
             // 
-            // textBox7
+            // txtBuscarProducto
             // 
-            this.textBox7.Location = new System.Drawing.Point(902, 43);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(507, 35);
-            this.textBox7.TabIndex = 44;
+            this.txtBuscarProducto.Location = new System.Drawing.Point(902, 43);
+            this.txtBuscarProducto.Multiline = true;
+            this.txtBuscarProducto.Name = "txtBuscarProducto";
+            this.txtBuscarProducto.Size = new System.Drawing.Size(507, 35);
+            this.txtBuscarProducto.TabIndex = 44;
+            this.txtBuscarProducto.TextChanged += new System.EventHandler(this.txtBuscarProducto_TextChanged_1);
             // 
             // dataGridView_Productos
             // 
@@ -501,13 +473,12 @@
             this.tabPage1.Controls.Add(this.txtTotalPagar);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.BtnEntrada);
-            this.tabPage1.Controls.Add(this.button6);
+            this.tabPage1.Controls.Add(this.btnCancelar);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(985, 85);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // txtTotalPagar
@@ -515,7 +486,7 @@
             this.txtTotalPagar.BackColor = System.Drawing.Color.Black;
             this.txtTotalPagar.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold);
             this.txtTotalPagar.ForeColor = System.Drawing.Color.LawnGreen;
-            this.txtTotalPagar.Location = new System.Drawing.Point(727, 29);
+            this.txtTotalPagar.Location = new System.Drawing.Point(727, 23);
             this.txtTotalPagar.Multiline = true;
             this.txtTotalPagar.Name = "txtTotalPagar";
             this.txtTotalPagar.ReadOnly = true;
@@ -529,7 +500,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(454, 36);
+            this.label2.Location = new System.Drawing.Point(454, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(267, 36);
             this.label2.TabIndex = 39;
@@ -541,7 +512,7 @@
             this.BtnEntrada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEntrada.ForeColor = System.Drawing.Color.White;
-            this.BtnEntrada.Location = new System.Drawing.Point(186, 36);
+            this.BtnEntrada.Location = new System.Drawing.Point(156, 30);
             this.BtnEntrada.Name = "BtnEntrada";
             this.BtnEntrada.Size = new System.Drawing.Size(146, 35);
             this.BtnEntrada.TabIndex = 38;
@@ -549,18 +520,19 @@
             this.BtnEntrada.UseVisualStyleBackColor = false;
             this.BtnEntrada.Click += new System.EventHandler(this.BtnEntrada_Click);
             // 
-            // button6
+            // btnCancelar
             // 
-            this.button6.BackColor = System.Drawing.Color.DimGray;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(8, 36);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(172, 35);
-            this.button6.TabIndex = 37;
-            this.button6.Text = "CANCELAR TODO";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnCancelar.BackColor = System.Drawing.Color.DimGray;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(11, 30);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(139, 35);
+            this.btnCancelar.TabIndex = 37;
+            this.btnCancelar.Text = "CANCELAR TODO";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // tabControl1
             // 
@@ -586,8 +558,7 @@
             this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Controls.Add(this.radioButton_contado);
             this.tabPage2.Controls.Add(this.radioButton_credito);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.button3);
+            this.tabPage2.Controls.Add(this.BtnBorrar);
             this.tabPage2.Controls.Add(this.BtnAgregar);
             this.tabPage2.Controls.Add(this.txtCantidad);
             this.tabPage2.Controls.Add(this.label9);
@@ -748,31 +719,19 @@
             this.radioButton_credito.Visible = false;
             this.radioButton_credito.CheckedChanged += new System.EventHandler(this.radioButton_credito_CheckedChanged);
             // 
-            // button4
+            // BtnBorrar
             // 
-            this.button4.BackColor = System.Drawing.Color.DimGray;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(248, 581);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(139, 35);
-            this.button4.TabIndex = 36;
-            this.button4.Text = "CANCELAR";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.DimGray;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(138, 581);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 35);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "BORRAR";
-            this.button3.UseVisualStyleBackColor = false;
+            this.BtnBorrar.BackColor = System.Drawing.Color.DimGray;
+            this.BtnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBorrar.ForeColor = System.Drawing.Color.White;
+            this.BtnBorrar.Location = new System.Drawing.Point(195, 575);
+            this.BtnBorrar.Name = "BtnBorrar";
+            this.BtnBorrar.Size = new System.Drawing.Size(104, 35);
+            this.BtnBorrar.TabIndex = 35;
+            this.BtnBorrar.Text = "BORRAR";
+            this.BtnBorrar.UseVisualStyleBackColor = false;
+            this.BtnBorrar.Click += new System.EventHandler(this.BtnBorrar_Click);
             // 
             // BtnAgregar
             // 
@@ -780,7 +739,7 @@
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(6, 581);
+            this.BtnAgregar.Location = new System.Drawing.Point(63, 575);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(126, 35);
             this.BtnAgregar.TabIndex = 34;
@@ -879,16 +838,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1442, 781);
+            this.ClientSize = new System.Drawing.Size(1442, 770);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
             this.Name = "ComprasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ProductoServicios";
+            this.Text = "Compras";
             this.Load += new System.EventHandler(this.ComprasForm_Load);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -912,8 +869,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
@@ -938,19 +893,18 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPrecioCosto;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BtnBorrar;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Button BtnEntrada;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txtTotalPagar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtBuscarProveedor;
         private System.Windows.Forms.DataGridView dataGridView_proveedores;
         private System.Windows.Forms.DataGridView dataGridView_CompraViewModels;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtBuscarProducto;
         private System.Windows.Forms.DataGridView dataGridView_Productos;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label13;

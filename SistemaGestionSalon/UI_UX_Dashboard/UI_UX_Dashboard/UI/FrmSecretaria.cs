@@ -62,5 +62,11 @@ namespace UI_UX_Dashboard_P1.UI
             ProveedorForm form = new ProveedorForm();
             form.ShowDialog();
         }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            ComprasForm formCompras = new ComprasForm();
+            formCompras.ShowDialog();
+        }
     }
 }

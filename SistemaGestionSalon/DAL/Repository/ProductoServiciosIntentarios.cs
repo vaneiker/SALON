@@ -30,7 +30,7 @@ namespace DAL.Repository
             using (var dbo = new salon_connection())
             {
                 IEnumerable<ProductoServiciosInventarios> RetornarValue = dbo.Database.SqlQuery<ProductoServiciosInventarios>(
-                    "EXEC [Salon].[SP_SET_AGREGAR_PRODUCTO_SERVICIO] @ProductoServicioID,@Nombre,@Descripcion,@Precio,@Tipo,@Stock,@EsServicio,@ProveedoresId,@Codigo,@PrecioVentaBase,@PrecioVentaFinal,@Porciento,@Impuestos,@UsuarioId",
+                    "EXEC [Salon].[SP_SET_AGREGAR_PRODUCTO_SERVICIO] @ProductoServicioID,@Nombre,@Descripcion,@Precio,@Tipo,@Stock,@EsServicio,@ProveedoresId,@Codigo,@PrecioVentaBase,@PrecioVentaFinal,@Porciento,@Impuestos,@UsuarioId,@EsCompra",
                   new SqlParameter("@ProductoServicioID", s.ProductoServicioID),
                   new SqlParameter("@Nombre", s.Nombre),
                   new SqlParameter("@Descripcion", s.Descripcion),
@@ -44,7 +44,8 @@ namespace DAL.Repository
                   new SqlParameter("@PrecioVentaFinal", s.PrecioVentaFinal), 
                   new SqlParameter("@Porciento", s.Porciento),
                   new SqlParameter("@Impuestos", s.Impuestos),
-                  new SqlParameter("@UsuarioId", s.UsuarioId)
+                  new SqlParameter("@UsuarioId", s.UsuarioId),
+                  new SqlParameter("@EsCompra", s.EsCompra)
                   ).ToList();
             }
         } 

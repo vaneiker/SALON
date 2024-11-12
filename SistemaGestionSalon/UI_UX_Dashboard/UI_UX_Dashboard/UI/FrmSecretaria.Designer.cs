@@ -37,6 +37,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button_Proveedor = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox_dasboard = new System.Windows.Forms.PictureBox();
             this.pictureBox_salir = new System.Windows.Forms.PictureBox();
             this.btnDasboard = new System.Windows.Forms.Button();
@@ -47,7 +49,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnAdminUsers = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnCompras = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,10 +57,9 @@
             this.timer_panel = new System.Windows.Forms.Timer(this.components);
             this.LblFecha = new System.Windows.Forms.Label();
             this.LblReloj = new System.Windows.Forms.Label();
-            this.button_Proveedor = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_dasboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -66,7 +67,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -154,7 +154,7 @@
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.btnAdminUsers);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.btnCompras);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 47);
@@ -162,11 +162,37 @@
             this.panel2.Size = new System.Drawing.Size(215, 694);
             this.panel2.TabIndex = 1;
             // 
+            // button_Proveedor
+            // 
+            this.button_Proveedor.FlatAppearance.BorderSize = 0;
+            this.button_Proveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Proveedor.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.button_Proveedor.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button_Proveedor.Location = new System.Drawing.Point(42, 95);
+            this.button_Proveedor.Name = "button_Proveedor";
+            this.button_Proveedor.Size = new System.Drawing.Size(155, 24);
+            this.button_Proveedor.TabIndex = 21;
+            this.button_Proveedor.Text = "Proveedor";
+            this.button_Proveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_Proveedor.UseVisualStyleBackColor = true;
+            this.button_Proveedor.Click += new System.EventHandler(this.button_Proveedor_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 95);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
             // pictureBox_dasboard
             // 
             this.pictureBox_dasboard.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_dasboard.Image")));
             this.pictureBox_dasboard.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox_dasboard.InitialImage")));
-            this.pictureBox_dasboard.Location = new System.Drawing.Point(12, 248);
+            this.pictureBox_dasboard.Location = new System.Drawing.Point(12, 274);
             this.pictureBox_dasboard.Name = "pictureBox_dasboard";
             this.pictureBox_dasboard.Size = new System.Drawing.Size(24, 24);
             this.pictureBox_dasboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -179,7 +205,7 @@
             this.pictureBox_salir.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox_salir.ErrorImage")));
             this.pictureBox_salir.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_salir.Image")));
             this.pictureBox_salir.InitialImage = null;
-            this.pictureBox_salir.Location = new System.Drawing.Point(12, 248);
+            this.pictureBox_salir.Location = new System.Drawing.Point(12, 274);
             this.pictureBox_salir.Name = "pictureBox_salir";
             this.pictureBox_salir.Size = new System.Drawing.Size(24, 24);
             this.pictureBox_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -192,7 +218,7 @@
             this.btnDasboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDasboard.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnDasboard.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDasboard.Location = new System.Drawing.Point(42, 248);
+            this.btnDasboard.Location = new System.Drawing.Point(42, 274);
             this.btnDasboard.Name = "btnDasboard";
             this.btnDasboard.Size = new System.Drawing.Size(155, 24);
             this.btnDasboard.TabIndex = 15;
@@ -209,7 +235,7 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnLogout.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLogout.Location = new System.Drawing.Point(42, 242);
+            this.btnLogout.Location = new System.Drawing.Point(42, 268);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(155, 30);
             this.btnLogout.TabIndex = 13;
@@ -225,7 +251,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.button9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button9.Location = new System.Drawing.Point(42, 203);
+            this.button9.Location = new System.Drawing.Point(42, 229);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(155, 30);
             this.button9.TabIndex = 9;
@@ -237,7 +263,7 @@
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.InitialImage = null;
-            this.pictureBox5.Location = new System.Drawing.Point(12, 204);
+            this.pictureBox5.Location = new System.Drawing.Point(12, 230);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(24, 24);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -251,7 +277,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.button8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button8.Location = new System.Drawing.Point(42, 156);
+            this.button8.Location = new System.Drawing.Point(42, 182);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(155, 30);
             this.button8.TabIndex = 7;
@@ -263,7 +289,7 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.InitialImage = null;
-            this.pictureBox4.Location = new System.Drawing.Point(12, 160);
+            this.pictureBox4.Location = new System.Drawing.Point(12, 186);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(24, 24);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -276,7 +302,7 @@
             this.btnAdminUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdminUsers.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnAdminUsers.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAdminUsers.Location = new System.Drawing.Point(42, 111);
+            this.btnAdminUsers.Location = new System.Drawing.Point(42, 137);
             this.btnAdminUsers.Name = "btnAdminUsers";
             this.btnAdminUsers.Size = new System.Drawing.Size(155, 24);
             this.btnAdminUsers.TabIndex = 5;
@@ -289,33 +315,34 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.InitialImage = null;
-            this.pictureBox3.Location = new System.Drawing.Point(12, 111);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 137);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
-            // button6
+            // btnCompras
             // 
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button6.Location = new System.Drawing.Point(42, 12);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(155, 24);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Almacen";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnCompras.FlatAppearance.BorderSize = 0;
+            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompras.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCompras.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCompras.Location = new System.Drawing.Point(42, 38);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Size = new System.Drawing.Size(155, 42);
+            this.btnCompras.TabIndex = 3;
+            this.btnCompras.Text = "Compras";
+            this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompras.UseVisualStyleBackColor = true;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
             // 
             // pictureBox2
             // 
             this.pictureBox2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.ErrorImage")));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 47);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -382,32 +409,6 @@
             this.LblReloj.TabIndex = 15;
             this.LblReloj.Text = "2:00:00 PM";
             // 
-            // button_Proveedor
-            // 
-            this.button_Proveedor.FlatAppearance.BorderSize = 0;
-            this.button_Proveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Proveedor.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button_Proveedor.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button_Proveedor.Location = new System.Drawing.Point(42, 69);
-            this.button_Proveedor.Name = "button_Proveedor";
-            this.button_Proveedor.Size = new System.Drawing.Size(155, 24);
-            this.button_Proveedor.TabIndex = 21;
-            this.button_Proveedor.Text = "Proveedor";
-            this.button_Proveedor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Proveedor.UseVisualStyleBackColor = true;
-            this.button_Proveedor.Click += new System.EventHandler(this.button_Proveedor_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 69);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            // 
             // FrmSecretaria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,6 +430,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_dasboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -437,7 +439,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,7 +458,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnAdminUsers;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnCompras;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Timer timer_panel;
         private System.Windows.Forms.Label LblFecha;

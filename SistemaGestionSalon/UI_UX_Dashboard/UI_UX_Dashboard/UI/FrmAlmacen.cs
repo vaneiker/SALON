@@ -60,5 +60,17 @@ namespace UI_UX_Dashboard_P1.UI
             LblNombreUsuario.ForeColor = Color.Blue; // Cambia el color del texto a azul
             LblNombreUsuario.Font = new Font("Arial", 12, FontStyle.Bold); // Cambia el estilo de la fuente
         }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            ComprasForm formCompras = new ComprasForm();
+            formCompras.ShowDialog();
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            ProductoServiciosForm productoServicios = new ProductoServiciosForm();
+            productoServicios.ShowDialog();
+        }
     }
 }

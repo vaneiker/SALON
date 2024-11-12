@@ -17,7 +17,8 @@ namespace ENTITY.Entitis
             public decimal? SubtotalCompra { get; set; }
             public decimal? Descuento { get; set; }
             public decimal? Impuesto { get; set; }
-            public decimal? TotalNeto { get; set; }
+            public decimal? TotalNeto { get; set; } 
+            public int? Usuario { get; set; }
         }
 
         public class DetallesFacturacionCompra

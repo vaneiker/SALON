@@ -37,6 +37,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCompras = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox_dasboard = new System.Windows.Forms.PictureBox();
             this.pictureBox_salir = new System.Windows.Forms.PictureBox();
@@ -54,6 +56,7 @@
             this.LblNombreUsuario = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_dasboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_salir)).BeginInit();
@@ -134,6 +137,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.panel2.Controls.Add(this.btnCompras);
+            this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.pictureBox_dasboard);
             this.panel2.Controls.Add(this.pictureBox_salir);
@@ -148,11 +153,38 @@
             this.panel2.Size = new System.Drawing.Size(215, 694);
             this.panel2.TabIndex = 1;
             // 
+            // btnCompras
+            // 
+            this.btnCompras.FlatAppearance.BorderSize = 0;
+            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompras.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCompras.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCompras.Location = new System.Drawing.Point(45, 44);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Size = new System.Drawing.Size(155, 42);
+            this.btnCompras.TabIndex = 23;
+            this.btnCompras.Text = "Compras";
+            this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompras.UseVisualStyleBackColor = true;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.ErrorImage")));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(15, 53);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 22;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.InitialImage = null;
-            this.pictureBox5.Location = new System.Drawing.Point(15, 65);
+            this.pictureBox5.Location = new System.Drawing.Point(15, 140);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(24, 24);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -163,7 +195,7 @@
             // 
             this.pictureBox_dasboard.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_dasboard.Image")));
             this.pictureBox_dasboard.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox_dasboard.InitialImage")));
-            this.pictureBox_dasboard.Location = new System.Drawing.Point(15, 110);
+            this.pictureBox_dasboard.Location = new System.Drawing.Point(15, 185);
             this.pictureBox_dasboard.Name = "pictureBox_dasboard";
             this.pictureBox_dasboard.Size = new System.Drawing.Size(24, 24);
             this.pictureBox_dasboard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -176,7 +208,7 @@
             this.pictureBox_salir.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox_salir.ErrorImage")));
             this.pictureBox_salir.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_salir.Image")));
             this.pictureBox_salir.InitialImage = null;
-            this.pictureBox_salir.Location = new System.Drawing.Point(15, 110);
+            this.pictureBox_salir.Location = new System.Drawing.Point(15, 185);
             this.pictureBox_salir.Name = "pictureBox_salir";
             this.pictureBox_salir.Size = new System.Drawing.Size(24, 24);
             this.pictureBox_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -189,7 +221,7 @@
             this.btnDasboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDasboard.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnDasboard.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDasboard.Location = new System.Drawing.Point(45, 110);
+            this.btnDasboard.Location = new System.Drawing.Point(45, 185);
             this.btnDasboard.Name = "btnDasboard";
             this.btnDasboard.Size = new System.Drawing.Size(155, 24);
             this.btnDasboard.TabIndex = 15;
@@ -206,7 +238,7 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnLogout.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLogout.Location = new System.Drawing.Point(45, 104);
+            this.btnLogout.Location = new System.Drawing.Point(45, 179);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(155, 30);
             this.btnLogout.TabIndex = 13;
@@ -222,7 +254,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.button9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button9.Location = new System.Drawing.Point(45, 65);
+            this.button9.Location = new System.Drawing.Point(45, 140);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(155, 30);
             this.button9.TabIndex = 9;
@@ -237,19 +269,20 @@
             this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInventario.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnInventario.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnInventario.Location = new System.Drawing.Point(45, 18);
+            this.btnInventario.Location = new System.Drawing.Point(45, 93);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Size = new System.Drawing.Size(155, 30);
             this.btnInventario.TabIndex = 7;
             this.btnInventario.Text = "Inventarios";
             this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.InitialImage = null;
-            this.pictureBox4.Location = new System.Drawing.Point(15, 22);
+            this.pictureBox4.Location = new System.Drawing.Point(15, 97);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(24, 24);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -348,6 +381,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_dasboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_salir)).EndInit();
@@ -381,5 +415,7 @@
         private System.Windows.Forms.PictureBox pictureBox_dasboard;
         private System.Windows.Forms.PictureBox pictureBox_salir;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button btnCompras;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

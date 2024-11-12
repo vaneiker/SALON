@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtBuscador = new System.Windows.Forms.TextBox();
@@ -57,21 +56,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox_precio_manual = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.txtbeneficios = new System.Windows.Forms.TextBox();
             this.label_porcentaje_precio = new System.Windows.Forms.Label();
             this.comboBox_porcentaje_precio = new System.Windows.Forms.ComboBox();
             this.checkBox_porcentaje_precio = new System.Windows.Forms.CheckBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox_Impuesto = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox_Precio_Venta_final = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.checkBox_servicio = new System.Windows.Forms.CheckBox();
             this.textBox_Precio_costo = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox_cantidad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox_precio_base = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -82,8 +78,6 @@
             this.textBox_nombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_Codigo = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox_precio_manual = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -97,26 +91,12 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(150)))), ((int)(((byte)(202)))));
-            this.panel5.Controls.Add(this.button1);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1442, 38);
             this.panel5.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(1381, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 27);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // label12
             // 
@@ -326,6 +306,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.btnCancelar);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.textBox_precio_manual);
             this.tabPage1.Controls.Add(this.btnGuardar);
@@ -334,15 +315,9 @@
             this.tabPage1.Controls.Add(this.label_porcentaje_precio);
             this.tabPage1.Controls.Add(this.comboBox_porcentaje_precio);
             this.tabPage1.Controls.Add(this.checkBox_porcentaje_precio);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.textBox_Impuesto);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.textBox_Precio_Venta_final);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.checkBox_servicio);
             this.tabPage1.Controls.Add(this.textBox_Precio_costo);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.textBox_cantidad);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.textBox_precio_base);
             this.tabPage1.Controls.Add(this.label6);
@@ -361,11 +336,44 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Información de Producto y Servicios";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(50, 179);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(94, 34);
+            this.btnCancelar.TabIndex = 29;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Gray;
+            this.label14.Location = new System.Drawing.Point(778, 105);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(122, 20);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Precio Manual";
+            // 
+            // textBox_precio_manual
+            // 
+            this.textBox_precio_manual.Location = new System.Drawing.Point(782, 128);
+            this.textBox_precio_manual.Name = "textBox_precio_manual";
+            this.textBox_precio_manual.Size = new System.Drawing.Size(202, 26);
+            this.textBox_precio_manual.TabIndex = 27;
+            this.textBox_precio_manual.Text = "0.00";
+            this.textBox_precio_manual.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_precio_manual.TextChanged += new System.EventHandler(this.textBox_precio_manual_TextChanged);
+            this.textBox_precio_manual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_precio_manual_KeyPress);
+            // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(720, 193);
+            this.btnGuardar.Location = new System.Drawing.Point(150, 179);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 34);
+            this.btnGuardar.Size = new System.Drawing.Size(94, 34);
             this.btnGuardar.TabIndex = 26;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -377,7 +385,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Gray;
-            this.label13.Location = new System.Drawing.Point(497, 170);
+            this.label13.Location = new System.Drawing.Point(271, 160);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(93, 20);
             this.label13.TabIndex = 25;
@@ -386,7 +394,7 @@
             // txtbeneficios
             // 
             this.txtbeneficios.Enabled = false;
-            this.txtbeneficios.Location = new System.Drawing.Point(497, 193);
+            this.txtbeneficios.Location = new System.Drawing.Point(271, 183);
             this.txtbeneficios.Name = "txtbeneficios";
             this.txtbeneficios.Size = new System.Drawing.Size(205, 26);
             this.txtbeneficios.TabIndex = 24;
@@ -409,9 +417,9 @@
             // 
             this.comboBox_porcentaje_precio.Enabled = false;
             this.comboBox_porcentaje_precio.FormattingEnabled = true;
-            this.comboBox_porcentaje_precio.Location = new System.Drawing.Point(1113, 126);
+            this.comboBox_porcentaje_precio.Location = new System.Drawing.Point(1015, 126);
             this.comboBox_porcentaje_precio.Name = "comboBox_porcentaje_precio";
-            this.comboBox_porcentaje_precio.Size = new System.Drawing.Size(149, 28);
+            this.comboBox_porcentaje_precio.Size = new System.Drawing.Size(247, 28);
             this.comboBox_porcentaje_precio.TabIndex = 22;
             this.comboBox_porcentaje_precio.SelectedIndexChanged += new System.EventHandler(this.comboBox_porcentaje_precio_SelectedIndexChanged);
             // 
@@ -429,58 +437,13 @@
             this.checkBox_porcentaje_precio.UseVisualStyleBackColor = true;
             this.checkBox_porcentaje_precio.CheckedChanged += new System.EventHandler(this.checkBox_porcentaje_precio_CheckedChanged);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Gray;
-            this.label11.Location = new System.Drawing.Point(271, 170);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(115, 20);
-            this.label11.TabIndex = 19;
-            this.label11.Text = "ITBIS o I.V.A";
-            // 
-            // textBox_Impuesto
-            // 
-            this.textBox_Impuesto.Enabled = false;
-            this.textBox_Impuesto.Location = new System.Drawing.Point(271, 193);
-            this.textBox_Impuesto.Name = "textBox_Impuesto";
-            this.textBox_Impuesto.Size = new System.Drawing.Size(209, 26);
-            this.textBox_Impuesto.TabIndex = 18;
-            this.textBox_Impuesto.Text = "RD$ 0.00";
-            this.textBox_Impuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Gray;
-            this.label10.Location = new System.Drawing.Point(43, 170);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(112, 20);
-            this.label10.TabIndex = 17;
-            this.label10.Text = "Precio Venta";
-            // 
-            // textBox_Precio_Venta_final
-            // 
-            this.textBox_Precio_Venta_final.Enabled = false;
-            this.textBox_Precio_Venta_final.Location = new System.Drawing.Point(39, 193);
-            this.textBox_Precio_Venta_final.Name = "textBox_Precio_Venta_final";
-            this.textBox_Precio_Venta_final.Size = new System.Drawing.Size(205, 26);
-            this.textBox_Precio_Venta_final.TabIndex = 16;
-            this.textBox_Precio_Venta_final.Text = "RD$ 0.00";
-            this.textBox_Precio_Venta_final.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox_Precio_Venta_final.TextChanged += new System.EventHandler(this.textBox_Precio_Venta_final_TextChanged);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Gray;
-            this.label9.Location = new System.Drawing.Point(716, 105);
+            this.label9.Location = new System.Drawing.Point(602, 103);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(111, 20);
             this.label9.TabIndex = 15;
@@ -502,39 +465,15 @@
             // 
             // textBox_Precio_costo
             // 
-            this.textBox_Precio_costo.Location = new System.Drawing.Point(720, 128);
+            this.textBox_Precio_costo.Location = new System.Drawing.Point(546, 126);
             this.textBox_Precio_costo.Name = "textBox_Precio_costo";
-            this.textBox_Precio_costo.Size = new System.Drawing.Size(170, 26);
+            this.textBox_Precio_costo.Size = new System.Drawing.Size(230, 26);
             this.textBox_Precio_costo.TabIndex = 12;
             this.textBox_Precio_costo.Text = "0.00";
             this.textBox_Precio_costo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox_Precio_costo.TextChanged += new System.EventHandler(this.textBox_Precio_costo_TextChanged);
             this.textBox_Precio_costo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_Precio_costo_KeyDown);
             this.textBox_Precio_costo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Precio_costo_KeyPress);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(500, 103);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 20);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Cantidad";
-            // 
-            // textBox_cantidad
-            // 
-            this.textBox_cantidad.Location = new System.Drawing.Point(497, 128);
-            this.textBox_cantidad.Name = "textBox_cantidad";
-            this.textBox_cantidad.Size = new System.Drawing.Size(205, 26);
-            this.textBox_cantidad.TabIndex = 10;
-            this.textBox_cantidad.Text = "0";
-            this.textBox_cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox_cantidad.TextChanged += new System.EventHandler(this.textBox_cantidad_TextChanged);
-            this.textBox_cantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_cantidad_KeyDown);
-            this.textBox_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_cantidad_KeyPress);
             // 
             // label7
             // 
@@ -544,16 +483,16 @@
             this.label7.ForeColor = System.Drawing.Color.Gray;
             this.label7.Location = new System.Drawing.Point(275, 104);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(158, 20);
+            this.label7.Size = new System.Drawing.Size(232, 20);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Precio Venta Base";
+            this.label7.Text = "Precio Sin Impuestos Venta";
             // 
             // textBox_precio_base
             // 
             this.textBox_precio_base.Enabled = false;
             this.textBox_precio_base.Location = new System.Drawing.Point(271, 127);
             this.textBox_precio_base.Name = "textBox_precio_base";
-            this.textBox_precio_base.Size = new System.Drawing.Size(209, 26);
+            this.textBox_precio_base.Size = new System.Drawing.Size(269, 26);
             this.textBox_precio_base.TabIndex = 8;
             this.textBox_precio_base.Text = "RD$ 0.00";
             this.textBox_precio_base.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -613,9 +552,9 @@
             // 
             // textBox_nombre
             // 
-            this.textBox_nombre.Location = new System.Drawing.Point(275, 63);
+            this.textBox_nombre.Location = new System.Drawing.Point(271, 63);
             this.textBox_nombre.Name = "textBox_nombre";
-            this.textBox_nombre.Size = new System.Drawing.Size(205, 26);
+            this.textBox_nombre.Size = new System.Drawing.Size(209, 26);
             this.textBox_nombre.TabIndex = 2;
             // 
             // label2
@@ -637,29 +576,6 @@
             this.textBox_Codigo.Name = "textBox_Codigo";
             this.textBox_Codigo.Size = new System.Drawing.Size(205, 26);
             this.textBox_Codigo.TabIndex = 0;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.Gray;
-            this.label14.Location = new System.Drawing.Point(901, 105);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(122, 20);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "Precio Manual";
-            // 
-            // textBox_precio_manual
-            // 
-            this.textBox_precio_manual.Location = new System.Drawing.Point(905, 128);
-            this.textBox_precio_manual.Name = "textBox_precio_manual";
-            this.textBox_precio_manual.Size = new System.Drawing.Size(202, 26);
-            this.textBox_precio_manual.TabIndex = 27;
-            this.textBox_precio_manual.Text = "0.00";
-            this.textBox_precio_manual.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox_precio_manual.TextChanged += new System.EventHandler(this.textBox_precio_manual_TextChanged);
-            this.textBox_precio_manual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_precio_manual_KeyPress);
             // 
             // ProductoServiciosForm
             // 
@@ -692,7 +608,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtBuscador;
@@ -714,16 +629,8 @@
         private System.Windows.Forms.TextBox textBox_nombre;
         private System.Windows.Forms.CheckBox checkBox_servicio;
         private System.Windows.Forms.TextBox textBox_Precio_costo;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox_cantidad;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox_precio_base;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox checkBox_porcentaje_precio;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox_Impuesto;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox_Precio_Venta_final;
         private System.Windows.Forms.Label label_porcentaje_precio;
         private System.Windows.Forms.ComboBox comboBox_porcentaje_precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductoServicioID;
@@ -738,10 +645,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaActualizacion;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtbeneficios;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox_precio_manual;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtbeneficios;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox_precio_base;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

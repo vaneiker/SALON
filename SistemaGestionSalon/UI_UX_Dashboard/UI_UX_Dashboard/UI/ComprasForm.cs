@@ -18,12 +18,14 @@ namespace UI_UX_Dashboard_P1.UI
 {
     public partial class ComprasForm : Form
     {
+        Seccion seccion = Seccion.Instance;
 
         private ProveedoresAdmin dbp = new ProveedoresAdmin();
         private ProductoServiciosInventariosAdmin dbpro = new ProductoServiciosInventariosAdmin();
         private DropDownListAdmin drop = new DropDownListAdmin();
         private List<CompraViewModel> compraViewModels = new List<CompraViewModel>();
         private ComprasAdmin comprasAdmin = new ComprasAdmin();
+        private ProductoServiciosInventariosAdmin inventariosAdmin = new ProductoServiciosInventariosAdmin();
 
 
         private int? _Proveedor_ID { get; set; } = 0;
@@ -241,10 +243,12 @@ namespace UI_UX_Dashboard_P1.UI
                 // Forzar la actualización del origen de datos            
                 bindingSource_listado_producto_nuevos.DataSource = compraViewModels; // Reasignar la lista actualizada
                                                                                      // Calcular el total a pagar asegurando que no sea nulo y formatearlo con dos decimales
-                double total_a_pagar = compraViewModels.Sum(x => x.SubTotal) ?? 0.0;
+                                                                                     //double total_a_pagar = compraViewModels.Sum(x => x.SubTotal) ?? 0.0;
 
                 // Formatear el texto con dos decimales
-                txtTotalPagar.Text = $"RD$ {total_a_pagar:F2}";
+                //txtTotalPagar.Text = $"RD$ {total_a_pagar:F2}";
+
+                calcularMontoApagar();
                 ConfigureDataGridView();
 
             }
@@ -255,6 +259,11 @@ namespace UI_UX_Dashboard_P1.UI
             }
         }
 
+        private void calcularMontoApagar()
+        {
+            double total_a_pagar = compraViewModels.Sum(x => x.SubTotal) ?? 0.0;
+            txtTotalPagar.Text = $"RD$ {total_a_pagar:F2}";
+        }
         private void txtCantidad_TextChanged(object sender, EventArgs e)
         {
             double importe = 0.00;
@@ -437,6 +446,7 @@ namespace UI_UX_Dashboard_P1.UI
                         {
                             compraViewModels.RemoveAt(e.RowIndex);
                             bindingSource_listado_producto_nuevos.ResetBindings(false);
+                            calcularMontoApagar();
                         }
                         break;
                 }
@@ -469,9 +479,15 @@ namespace UI_UX_Dashboard_P1.UI
 
         private void BtnEntrada_Click(object sender, EventArgs e)
         {
-            decimal? _SubtotalCompra = 0.00m;
-            decimal? _ImpuestoCompra = 0.00m;
-            decimal? _TotalCompra = 0.00m;
+            decimal? _SubtotalCompraHeader = 0.00m;
+            decimal? _ImpuestoCompraHeader = 0.00m;
+            decimal? _TotalCompraHeader = 0.00m;
+            double? _porciento = 0.00;
+            double? precioVentaBase = 0.00;
+            double? precioVentaFinal = 0.00;
+
+            //decimal? _preciofinalConImpuestoYTasa = 0.00m;
+
 
             // Validaciones previas
             if (comboBox_forma_pago.SelectedIndex == 0)
@@ -486,15 +502,10 @@ namespace UI_UX_Dashboard_P1.UI
                 return;
             }
 
-            // Calcular totales
-            _SubtotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Importe).Value);
-            _ImpuestoCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Impuesto).Value);
-            _TotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.SubTotal).Value);
-
-
-            _SubtotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Importe).Value);
-            _ImpuestoCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.Impuesto).Value);
-            _TotalCompra = Convert.ToDecimal(compraViewModels.Sum(x => x.SubTotal).Value);
+            //// Calcular totales
+            _SubtotalCompraHeader = Convert.ToDecimal(compraViewModels.Sum(x => x.Importe).Value);
+            _ImpuestoCompraHeader = Convert.ToDecimal(compraViewModels.Sum(x => x.Impuesto).Value);
+            _TotalCompraHeader = Convert.ToDecimal(compraViewModels.Sum(x => x.SubTotal).Value);
 
             var compraheader = new Compras.FacturacionCompra()
             {
@@ -502,10 +513,11 @@ namespace UI_UX_Dashboard_P1.UI
                 IdProveedor = _Proveedor_ID,
                 TipoPago = radioButton_contado.Checked == true ? "AL CONTADO" : "CRÉDITO",
                 MetodoPago = comboBox_forma_pago.Text,
-                SubtotalCompra = _SubtotalCompra,
+                SubtotalCompra = _SubtotalCompraHeader,
                 Descuento = 0,
-                Impuesto = _ImpuestoCompra,
-                TotalNeto = _TotalCompra
+                Impuesto = _ImpuestoCompraHeader,
+                TotalNeto = _TotalCompraHeader,
+                Usuario = seccion.UsuarioID,
             };
             var result = comprasAdmin.GuardarCompra(compraheader);
 
@@ -518,14 +530,54 @@ namespace UI_UX_Dashboard_P1.UI
                     PrecioUnitario = decimal.Parse(i.PrecioCosto.ToString()),
                     Cantidad = i.Cantidad,
                     Impuesto = decimal.Parse(i.Impuesto.ToString()),
+                    Subtotal = decimal.Parse(i.Importe.ToString()),
                     Total = decimal.Parse(i.SubTotal.ToString())
                 });
+
+
+                //_preciobase = i.PrecioCosto + i.Impuesto;
+                var tasaActualPorciento = dbpro.GetProductoServiciosInventarios().Where(x => x.ProductoServicioID == i.IdProducto).FirstOrDefault();
+
+
+                if (tasaActualPorciento != null)
+                {
+                    _porciento = tasaActualPorciento != null ? Convert.ToDouble(tasaActualPorciento.Porciento) : 0.00; 
+                }
+                else
+                {
+                    _porciento = 0.00;
+                }
+
+
+                var ProductoServicios = new ProductoServiciosInventarios()
+                {
+                    ProductoServicioID = i.IdProducto,
+                    Nombre = i.Nombre,
+                    Precio = decimal.Parse(i.PrecioCosto.ToString()),
+                    Descripcion = "",
+                    Tipo = "Producto",
+                    Stock = i.Cantidad,
+                    EsServicio = false,
+                    ProveedoresId = i.IdProveedor,
+                    Codigo = i.CodigoBarra,
+                    PrecioVentaBase = 0.00m,
+                    PrecioVentaFinal = 0.00m,
+                    Porciento = decimal.Parse(_porciento.ToString()),
+                    Impuestos = decimal.Parse(i.Impuesto.ToString()),
+                    UsuarioId = seccion.UsuarioID,
+                    EsCompra = true
+                };
+                inventariosAdmin.SetProductoServiciosInventarios(ProductoServicios);
             }
 
+            var popup = MessageBox.Show("¿Desea Imprimir el comprobante?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (popup == DialogResult.Yes)
+            {
 
+            }
+
+            CancelarEntrada("Facturacion");
         }
-
-
 
         public bool ValidarFormulario()
         {
@@ -591,7 +643,144 @@ namespace UI_UX_Dashboard_P1.UI
                 txtPrecioCosto.Text = "0.00";
             }
         }
+
+        private void txtBuscarProveedor_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var p = dbp.GetProveedor().ToList();
+
+                if (p.Count > 0)
+                {
+                    var dataResult = dbp.GetProveedor().Where(x => x.NombreProveedor.ToLower().Contains(txtBuscarProveedor.Text.ToLower())
+                    || x.CelularProveedor == txtBuscarProveedor.Text).Select(x => new ProveedoresViewModel()
+                    {
+                        Proveedor_ID = x.ProveedorID,
+                        Nombre_Proveedor = x.NombreProveedor,
+                        LimiteCredito = x.LimiteCredito,
+                        DiasCancelacion = x.DiasCancelacion,
+                    }).ToArray();
+                    if (dataResult != null)
+                    {
+
+                        bindingSource_proveedor_compras.DataSource = dataResult;
+                    }
+                    else
+                    {
+                        CargarAllList();
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show($"No existe data Proveedor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar Proveedor: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void txtBuscarProducto_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                var p = dbpro.GetProductoServiciosInventarios().ToList();
+
+                if (p.Count > 0)
+                {
+                    var dataResult = dbpro.GetProductoServiciosInventarios().Where(x => x.Tipo == "Producto" &
+                    x.Codigo.Contains(txtBuscarProducto.Text) || x.Nombre.ToLower().Contains(txtBuscarProducto.Text.ToLower())
+
+                    ).Select(x => new BaseViewModel()
+                    {
+                        ACTION = x.Nombre,
+                        CODE = x.ProductoServicioID.ToString(),
+                        MSJ = x.Codigo
+                    }).ToArray();
+
+                    //bindingSource_producto_compras.DataSource
+
+                    if (dataResult != null)
+                    {
+
+                        bindingSource_producto_compras.DataSource = dataResult;
+                    }
+                    else
+                    {
+                        CargarAllList();
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show($"No existe data Producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar Producto: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnBorrar_Click(object sender, EventArgs e)
+        {
+            txt_importe.Text = "RD$ 0.00";
+            txt_impuesto.Text = "RD$ 0.00";
+            txt_neto.Text = "RD$ 0.00";
+            txtPrecioCosto.Text = "0.00";
+            txtCantidad.Text = "0";
+            this._Producto_ID = 0;
+            txtCodigoBarra.Text = string.Empty;
+            txtnombre.Text = string.Empty;
+            txtCodigoBarra.Text = string.Empty;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            CancelarEntrada("Cancelar");
+        }
+
+        private void CancelarEntrada(string accion = "")
+        {
+
+
+            if (accion == "Cancelar")
+            {
+                var result = MessageBox.Show("¿Estás seguro de que deseas cancelar esta operación?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    compraViewModels.Clear();
+                    bindingSource_listado_producto_nuevos.Clear();
+                    label_Proveedor.Text = "N/A";
+                    txtTotalPagar.Text = "RD$ 0.00";
+                    bindingSource_listado_producto_nuevos.DataSource = null;
+                    this._DiasCancelacion = 0;
+                    this._Proveedor_ID = 0;
+                    this._Producto_ID = 0;
+                    CargarTipoPagos();
+                    CargarAllList();
+                }
+            }
+            else if (accion == "Facturacion")
+            {
+                compraViewModels.Clear();
+                bindingSource_listado_producto_nuevos.Clear();
+                label_Proveedor.Text = "N/A";
+                txtTotalPagar.Text = "RD$ 0.00";
+                bindingSource_listado_producto_nuevos.DataSource = null;
+                this._DiasCancelacion = 0;
+                this._Proveedor_ID = 0;
+                this._Producto_ID = 0;
+                CargarTipoPagos();
+                CargarAllList();
+            }
+        }
     }
 }
+
 
 

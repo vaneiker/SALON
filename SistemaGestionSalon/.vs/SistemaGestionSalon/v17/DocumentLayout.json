@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\.net\\git2\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\templeat\\compras\\comprobantecompra.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\templeat\\compras\\comprobantecompra.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\.net\\git2\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\productoserviciosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\productoserviciosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\.net\\git2\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\comprasform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\comprasform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\comprasform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\comprasform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6A460E4-0649-4371-BE04-7162A1DC6BB8}|BLL\\BLL.csproj|C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\bll\\admin\\comprasadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6A460E4-0649-4371-BE04-7162A1DC6BB8}|BLL\\BLL.csproj|solutionrelative:bll\\admin\\comprasadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\.net\\git2\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\productoserviciosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\productoserviciosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,52 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ComprobanteCompra.html",
-              "DocumentMoniker": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\Templeat\\Compras\\ComprobanteCompra.html",
-              "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\Templeat\\Compras\\ComprobanteCompra.html",
-              "ToolTip": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\Templeat\\Compras\\ComprobanteCompra.html",
-              "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\Templeat\\Compras\\ComprobanteCompra.html",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAYwGkAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-11-11T20:00:37.748Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ComprasAdmin.cs",
-              "DocumentMoniker": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\BLL\\Admin\\ComprasAdmin.cs",
-              "RelativeDocumentMoniker": "BLL\\Admin\\ComprasAdmin.cs",
-              "ToolTip": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\BLL\\Admin\\ComprasAdmin.cs",
-              "RelativeToolTip": "BLL\\Admin\\ComprasAdmin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAAkAAAAAAAAAA==",
+              "Title": "ProductoServiciosForm.cs [Design]",
+              "DocumentMoniker": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "ToolTip": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs [Design]",
+              "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T02:50:36.129Z"
+              "WhenOpened": "2024-11-12T22:26:15.72Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ComprasForm.cs",
-              "DocumentMoniker": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ComprasForm.cs",
-              "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ComprasForm.cs",
-              "ToolTip": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ComprasForm.cs",
-              "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ComprasForm.cs",
-              "ViewState": "AgIAAM8BAAAAAAAAAAAAAAsCAAAAAAAAAAAAAA==",
+              "Title": "ProductoServiciosForm.cs",
+              "DocumentMoniker": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "ToolTip": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ProductoServiciosForm.cs",
+              "ViewState": "AgIAAF8CAAAAAAAAAAAUwGUCAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T01:40:03.648Z",
+              "WhenOpened": "2024-11-12T17:17:00.911Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ComprasForm.cs [Design]",
-              "DocumentMoniker": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ComprasForm.cs",
-              "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ComprasForm.cs",
-              "ToolTip": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ComprasForm.cs [Design]",
-              "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\ComprasForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-11T01:39:56.663Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }

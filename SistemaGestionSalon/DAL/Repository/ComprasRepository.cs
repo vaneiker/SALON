@@ -19,14 +19,15 @@ namespace DAL.Repository
             using (var dbo = new salon_connection())
             {
                 IEnumerable<Base> RetornarValue = dbo.Database.SqlQuery<Base>(
-                    "EXEC [Salon].[sp_InsertarCompra]@IdProveedor,@TipoPago,@MetodoPago,@Subtotal,@Descuento,@Impuesto,@TotalNeto",
+                    "EXEC [Salon].[sp_InsertarCompra]@IdProveedor,@TipoPago,@MetodoPago,@Subtotal,@Descuento,@Impuesto,@TotalNeto,@Usuario",
                   new SqlParameter("@IdProveedor", c.IdProveedor),
                   new SqlParameter("@TipoPago", c.TipoPago),
                   new SqlParameter("@MetodoPago", c.MetodoPago),
                   new SqlParameter("@Subtotal", c.SubtotalCompra),
                   new SqlParameter("@Descuento", c.Descuento),
                   new SqlParameter("@Impuesto", c.Impuesto),
-                  new SqlParameter("@TotalNeto", c.TotalNeto)
+                  new SqlParameter("@TotalNeto", c.TotalNeto),
+                  new SqlParameter("@Usuario", c.Usuario)
                   ).ToList();
                 return RetornarValue.FirstOrDefault();
             }

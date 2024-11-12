@@ -26,7 +26,8 @@ namespace ENTITY.Entitis
         public decimal? PrecioVentaFinal { get; set; }
         public decimal? Porciento { get; set; }
         public decimal? Impuestos { get; set; }
-        public int? UsuarioId { get; set; } 
+        public int? UsuarioId { get; set; }  
+        public bool? EsCompra { get; set; } 
 
     }
 }
