@@ -74,5 +74,11 @@ namespace UI_UX_Dashboard_P1.UI
             UsuarioForm usuarioform = new UsuarioForm();
             usuarioform.ShowDialog();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            FacturacionForm facturacionform = new FacturacionForm();
+            facturacionform.ShowDialog();
+        }
     }
 }

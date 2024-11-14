@@ -188,3 +188,4 @@ C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\WkHtmlToPdfWrapperClassic.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\itextsharp.xmlworker.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.UI.UsuarioForm.resources
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.UI.FacturacionForm.resources

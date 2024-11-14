@@ -58,8 +58,17 @@ namespace UI_UX_Dashboard_P1.UI
                         var user = Admin.ObtenerUsuarioAdmin(result.MSJ).FirstOrDefault();
                         this.UserId = user.UsuarioID;
                         if (user != null)
-                        {
-
+                        { 
+                            if (user.EsBorrado == true)
+                            {
+                                Helpers.ShowTypeError("Cuenta Inactiva!", "Stop");
+                                return;
+                            }
+                            if (!user.EstaActivo == false)
+                            {
+                                Helpers.ShowTypeError("Usuario Bloqueado", "Stop");
+                                return;
+                            } 
 
                             Dasboard dasboard = new Dasboard();
 

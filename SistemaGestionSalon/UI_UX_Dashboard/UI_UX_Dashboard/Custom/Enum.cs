@@ -20,6 +20,8 @@ namespace UI_UX_Dashboard_P1.Custom
         PorcientoPrecioManual,
         Proveedores,
         Impuestos,
-        TiposPagos
+        TiposPagos,
+        Clientes,
+        ProductoServicios
     }
 }

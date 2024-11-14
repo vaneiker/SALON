@@ -21,7 +21,8 @@ namespace ENTITY.Entitis
         public DateTime? FechaCreacion { get; set; }
         public DateTime? FechaModificacion { get; set; }
         public int IntentosFallidos { get; set; }
-        public bool Bloqueado { get; set; }
+        public bool Bloqueado { get; set; } 
+        public bool EsBorrado { get; set; }
         public bool EstaActivo { get; set; }
         public DateTime? FechaRegistro { get; set; }
         public DateTime? UltimoInicioSesion { get; set; }
