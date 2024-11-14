@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj": {}
+    "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\BLL\\BLL.csproj": {}
   },
   "projects": {
     "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\BLL\\BLL.csproj": {
@@ -148,93 +148,6 @@
       },
       "frameworks": {
         "net472": {}
-      }
-    },
-    "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj",
-        "projectName": "UI UX Dashboard P1",
-        "projectPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj",
-        "packagesPath": "C:\\Users\\pveneiker\\.nuget\\packages\\",
-        "outputPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\obj\\",
-        "projectStyle": "PackageReference",
-        "skipContentFileWrite": true,
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\pveneiker\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net472"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net472": {
-            "projectReferences": {
-              "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\BLL\\BLL.csproj": {
-                "projectPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\BLL\\BLL.csproj"
-              },
-              "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj": {
-                "projectPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\ENTITY\\ENTITY.csproj"
-              }
-            }
-          }
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        }
-      },
-      "frameworks": {
-        "net472": {
-          "dependencies": {
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.5.1, )"
-            },
-            "HtmlToPdfSharp": {
-              "target": "Package",
-              "version": "[1.0.2, )"
-            },
-            "IronWord": {
-              "target": "Package",
-              "version": "[2024.11.2, )"
-            },
-            "Microsoft.Web.WebView2": {
-              "target": "Package",
-              "version": "[1.0.2849.39, )"
-            },
-            "iTextSharp": {
-              "target": "Package",
-              "version": "[5.5.13.4, )"
-            },
-            "itextsharp.xmlworker": {
-              "target": "Package",
-              "version": "[5.5.13.4, )"
-            }
-          }
-        }
-      },
-      "runtimes": {
-        "win": {
-          "#import": []
-        },
-        "win-arm64": {
-          "#import": []
-        },
-        "win-x64": {
-          "#import": []
-        },
-        "win-x86": {
-          "#import": []
-        }
       }
     }
   }

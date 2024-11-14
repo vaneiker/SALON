@@ -31,8 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp.xmlworker">
+      <HintPath>..\UI_UX_Dashboard\UI_UX_Dashboard\DLL\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Admin\ClienteAdmin.cs" />
     <Compile Include="Admin\ComprasAdmin.cs" />
+    <Compile Include="Admin\DocumentoLogAdmin.cs" />
     <Compile Include="Admin\DropDownListAdmin.cs" />
     <Compile Include="Admin\ProductoServiciosInventariosAdmin.cs" />
     <Compile Include="Admin\ProveedoresAdmin.cs" />
@@ -59,6 +64,11 @@
       <Project>{20bb4b31-1ccc-49f6-bcb5-815cf15ac1e4}</Project>
       <Name>ENTITY</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="iTextSharp">
+      <Version>5.5.13.4</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

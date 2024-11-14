@@ -59,5 +59,35 @@ namespace UI_UX_Dashboard_P1.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Factura de Compra&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        body {
+        ///            font-family: Arial, sans-serif;
+        ///            font-size: 10px;
+        ///            margin: 0;
+        ///            padding: 0;
+        ///        }
+        ///
+        ///        .container {
+        ///            width: 700px;
+        ///            margin: auto;
+        ///            border: 1px solid #000;
+        ///            padding: 10px;
+        ///        }
+        ///
+        ///        .header, .footer {
+        ///            text-align: center;
+        ///            margin-bott [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ComprobanteCompra {
+            get {
+                return ResourceManager.GetString("ComprobanteCompra", resourceCulture);
+            }
+        }
     }
 }

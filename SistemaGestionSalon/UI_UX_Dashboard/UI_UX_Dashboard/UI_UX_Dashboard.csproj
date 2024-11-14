@@ -212,8 +212,26 @@
     <PackageReference Include="EntityFramework">
       <Version>6.5.1</Version>
     </PackageReference>
+    <PackageReference Include="HtmlToPdfSharp">
+      <Version>1.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="IronWord">
+      <Version>2024.11.2</Version>
+    </PackageReference>
+    <PackageReference Include="iTextSharp">
+      <Version>5.5.13.4</Version>
+    </PackageReference>
+    <PackageReference Include="itextsharp.xmlworker">
+      <Version>5.5.13.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Web.WebView2">
+      <Version>1.0.2849.39</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DLL\itextsharp.dll" />
+    <Content Include="DLL\itextsharp.xml" />
+    <Content Include="DLL\itextsharp.xmlworker.dll" />
     <Content Include="icon\1459982766_malecostume.png" />
     <Content Include="icon\1462226097_7.png" />
     <Content Include="icon\1463613750_finance-10.png" />
@@ -363,7 +381,9 @@
     <Content Include="icon\user.png" />
     <Content Include="icon\whatsapp.png" />
     <Content Include="icon\youtube.png" />
-    <Content Include="Templeat\Compras\ComprobanteCompra.html" />
+    <Content Include="Templeat\ComprobanteCompra.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -377,5 +397,10 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="DLL\itextsharp.dll" />
+    <Analyzer Include="DLL\itextsharp.xmlworker.dll" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

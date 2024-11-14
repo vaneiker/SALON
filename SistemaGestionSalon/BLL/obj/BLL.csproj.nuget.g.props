@@ -13,12 +13,7 @@
     <SourceRoot Include="C:\Users\pveneiker\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
-  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)htmltopdfsharp\1.0.2\build\net461\HtmlToPdfSharp.props" Condition="Exists('$(NuGetPackageRoot)htmltopdfsharp\1.0.2\build\net461\HtmlToPdfSharp.props')" />
-    <Import Project="$(NuGetPackageRoot)entityframework\6.5.1\buildTransitive\EntityFramework.props" Condition="Exists('$(NuGetPackageRoot)entityframework\6.5.1\buildTransitive\EntityFramework.props')" />
-  </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgMicrosoft_Web_WebView2 Condition=" '$(PkgMicrosoft_Web_WebView2)' == '' ">C:\Users\pveneiker\.nuget\packages\microsoft.web.webview2\1.0.2849.39</PkgMicrosoft_Web_WebView2>
-    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\pveneiker\.nuget\packages\entityframework\6.5.1</PkgEntityFramework>
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\pveneiker\.nuget\packages\entityframework\6.2.0</PkgEntityFramework>
   </PropertyGroup>
 </Project>

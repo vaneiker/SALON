@@ -11,6 +11,11 @@ using System.Xml.Serialization;
 using System.Xml;
 using System.Globalization;
 using System.Reflection.Emit;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.Net.Http;
+using System.Windows.Forms;
+using iTextSharp.tool.xml;
 
 namespace BLL
 {
@@ -308,6 +313,25 @@ namespace BLL
             string fecha = DateTime.Now.ToString("yyyyMMdd"); // formato: 20241108 
             string secuencia = contadorDiario.Value.ToString("D3"); // 001, 002, etc. 
             return $"{fecha}{secuencia}";
-        } 
+        }
+
+        public static void SavePDF(SaveFileDialog savefile,string htmlContent)
+        { 
+            using (FileStream stream = new FileStream(savefile.FileName, FileMode.Create))
+            {
+
+                Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                pdfDoc.Add(new Phrase(""));
+                using (StringReader sr = new StringReader(htmlContent))
+                {
+                    XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                }
+                pdfDoc.Close();
+                stream.Close();
+            }
+        }
+
     }
 }

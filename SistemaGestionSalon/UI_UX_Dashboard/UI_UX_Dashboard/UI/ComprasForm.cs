@@ -1,32 +1,35 @@
 ﻿using BLL.Admin;
 using ENTITY.Entitis;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI_UX_Dashboard_P1.Custom;
 using UI_UX_Dashboard_P1.ViewModel;
+using Font = System.Drawing.Font;
+using iTextSharp.tool.xml;
+using BLL;
+
+
 
 namespace UI_UX_Dashboard_P1.UI
 {
     public partial class ComprasForm : Form
     {
         Seccion seccion = Seccion.Instance;
-
         private ProveedoresAdmin dbp = new ProveedoresAdmin();
         private ProductoServiciosInventariosAdmin dbpro = new ProductoServiciosInventariosAdmin();
         private DropDownListAdmin drop = new DropDownListAdmin();
         private List<CompraViewModel> compraViewModels = new List<CompraViewModel>();
         private ComprasAdmin comprasAdmin = new ComprasAdmin();
         private ProductoServiciosInventariosAdmin inventariosAdmin = new ProductoServiciosInventariosAdmin();
-
+        private DocumentoLogAdmin documentoLogAdmin = new DocumentoLogAdmin();
 
         private int? _Proveedor_ID { get; set; } = 0;
         private int? _Producto_ID { get; set; } = 0;
@@ -38,12 +41,12 @@ namespace UI_UX_Dashboard_P1.UI
         public ComprasForm()
         {
             InitializeComponent();
+
         }
 
         private void ComprasForm_Load(object sender, EventArgs e)
         {
             CargarAllList();
-
             try
             {
                 _impuesto = double.Parse(drop.DropDownList(DropDownList.Impuestos.ToString()).FirstOrDefault().CODE);
@@ -312,7 +315,7 @@ namespace UI_UX_Dashboard_P1.UI
             // Estilo de los encabezados
             dataGridView_CompraViewModels.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 45, 48);
             dataGridView_CompraViewModels.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dataGridView_CompraViewModels.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dataGridView_CompraViewModels.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10, FontStyle.Bold);
             dataGridView_CompraViewModels.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             // Color alterno para las filas
@@ -541,7 +544,7 @@ namespace UI_UX_Dashboard_P1.UI
 
                 if (tasaActualPorciento != null)
                 {
-                    _porciento = tasaActualPorciento != null ? Convert.ToDouble(tasaActualPorciento.Porciento) : 0.00; 
+                    _porciento = tasaActualPorciento != null ? Convert.ToDouble(tasaActualPorciento.Porciento) : 0.00;
                 }
                 else
                 {
@@ -569,14 +572,7 @@ namespace UI_UX_Dashboard_P1.UI
                 };
                 inventariosAdmin.SetProductoServiciosInventarios(ProductoServicios);
             }
-
-            var popup = MessageBox.Show("¿Desea Imprimir el comprobante?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (popup == DialogResult.Yes)
-            {
-
-            }
-
-            CancelarEntrada("Facturacion");
+            GenerateInvoiceHtml(result.ACTION, _SubtotalCompraHeader, _ImpuestoCompraHeader, _TotalCompraHeader, compraViewModels); 
         }
 
         public bool ValidarFormulario()
@@ -778,6 +774,78 @@ namespace UI_UX_Dashboard_P1.UI
                 CargarTipoPagos();
                 CargarAllList();
             }
+        }
+
+        private void GenerateInvoiceHtml(string comprobante, decimal? subtotal, decimal? impuesto, decimal? total, List<CompraViewModel> items)
+        { 
+            try
+            {
+                string htmlContent = Properties.Resources.ComprobanteCompra.ToString();
+
+
+                string htmlRow = "";
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+
+
+
+                SaveFileDialog savefile = new SaveFileDialog();
+
+                savefile.FileName = string.Format($"{comprobante}.pdf");
+                htmlContent = htmlContent.Replace("{{empresa}}", "Testing");
+                htmlContent = htmlContent.Replace("{{rncempresa}}", "Testing");
+                htmlContent = htmlContent.Replace("{{direccion}}", "Testing");
+                htmlContent = htmlContent.Replace("{{telefono}}", "Testing");
+                // Obtener la fecha actual en formato dd-MM-yyyy
+                string fechaFactura = DateTime.Now.ToString("dd-MM-yyyy");
+
+                // Reemplazar el marcador {{fecha_factura}} en htmlContent con la fecha actual
+                htmlContent = htmlContent.Replace("{{fecha_factura}}", fechaFactura);
+
+
+                foreach (var item in items)
+                {
+                    htmlRow = htmlRow + $@"
+                             <tr>
+                                 <td>{item.CodigoBarra}</td>
+                                 <td>{item.Nombre}</td>
+                                 <td>{item.Cantidad}</td>
+                                 <td>RD$ {item.PrecioCosto.Value.ToString("C")}</td>
+                                 <td>RD$ {item.Impuesto.Value.ToString("C")}</td> 
+                                 <td>RD$ {item.SubTotal.Value.ToString("C")}</td>
+                             </tr>";
+
+                }
+                htmlContent = htmlContent.Replace("{{<tr></tr>}}", htmlRow);
+                // Reemplazar los valores en el HTML con datos dinámicos
+                htmlContent = htmlContent.Replace("{{condicion_pago}}", items.FirstOrDefault().MedioPago);
+                htmlContent = htmlContent.Replace("{{total_bruto}}", subtotal.Value.ToString("C"));
+                htmlContent = htmlContent.Replace("{{itbis}}", impuesto.Value.ToString("C"));
+                htmlContent = htmlContent.Replace("{{total_neto}}", total.Value.ToString("C"));
+                // Puedes añadir más reemplazos aquí según el contenido de tu HTML, como el nombre del proveedor, etc. 
+
+                documentoLogAdmin.InsertarDocumentoLog(new DocumentoLog()
+                {
+                    TipoDocumento = "Comprobante de compras",
+                    HtmlDocumento = htmlContent,
+                    Usuario = seccion.UsuarioID,
+                    NumeroComprobante= comprobante
+                });
+
+
+                var popup = MessageBox.Show("¿Desea Imprimir el comprobante?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (popup == DialogResult.Yes)
+                {
+                    if (savefile.ShowDialog() == DialogResult.OK)
+                    {
+                        Tools.SavePDF(savefile, htmlContent);
+                    }
+                }
+                CancelarEntrada("Facturacion");
+            }
+            catch (Exception ex)
+            {
+                Helpers.ShowError("Error en el metodo de: GenerateInvoiceHtml ", ex);
+            }  
         }
     }
 }
