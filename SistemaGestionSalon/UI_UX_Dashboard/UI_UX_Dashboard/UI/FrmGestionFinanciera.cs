@@ -55,5 +55,11 @@ namespace UI_UX_Dashboard_P1.UI
         {
              
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            UsuarioForm usuarioform = new UsuarioForm();
+            usuarioform.ShowDialog();
+        }
     }
 }

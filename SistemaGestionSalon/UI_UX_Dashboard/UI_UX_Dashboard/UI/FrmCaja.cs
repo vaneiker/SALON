@@ -54,5 +54,11 @@ namespace UI_UX_Dashboard_P1.UI
             LblReloj.Text = DateTime.Now.ToString("h:mm:ss");
             LblFecha.Text = DateTime.Now.ToLongDateString();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            UsuarioForm usuarioform = new UsuarioForm();
+            usuarioform.ShowDialog();
+        }
     }
 }

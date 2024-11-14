@@ -44,7 +44,7 @@
             this.pictureBox_salir = new System.Windows.Forms.PictureBox();
             this.btnDasboard = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnUsuario = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -144,7 +144,7 @@
             this.panel2.Controls.Add(this.pictureBox_salir);
             this.panel2.Controls.Add(this.btnDasboard);
             this.panel2.Controls.Add(this.btnLogout);
-            this.panel2.Controls.Add(this.button9);
+            this.panel2.Controls.Add(this.btnUsuario);
             this.panel2.Controls.Add(this.btnInventario);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -247,20 +247,21 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // button9
+            // btnUsuario
             // 
-            this.button9.AutoSize = true;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button9.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button9.Location = new System.Drawing.Point(45, 140);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(155, 30);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "Info Usuario";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnUsuario.AutoSize = true;
+            this.btnUsuario.FlatAppearance.BorderSize = 0;
+            this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuario.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnUsuario.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnUsuario.Location = new System.Drawing.Point(45, 140);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Size = new System.Drawing.Size(155, 30);
+            this.btnUsuario.TabIndex = 9;
+            this.btnUsuario.Text = "Info Usuario";
+            this.btnUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuario.UseVisualStyleBackColor = true;
+            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
             // btnInventario
             // 
@@ -411,7 +412,7 @@
         private System.Windows.Forms.Label LblReloj;
         private System.Windows.Forms.Label LblNombreUsuario;
         private System.Windows.Forms.Button btnDasboard;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnUsuario;
         private System.Windows.Forms.PictureBox pictureBox_dasboard;
         private System.Windows.Forms.PictureBox pictureBox_salir;
         private System.Windows.Forms.PictureBox pictureBox5;

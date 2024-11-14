@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Collections.Specialized.BitVector32;
 using UI_UX_Dashboard_P1.Custom;
+using BLL.Admin;
 
 namespace UI_UX_Dashboard_P1.UI
 {
@@ -71,6 +72,12 @@ namespace UI_UX_Dashboard_P1.UI
         {
             ProductoServiciosForm productoServicios = new ProductoServiciosForm();
             productoServicios.ShowDialog();
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+            UsuarioForm usuarioform = new UsuarioForm();
+            usuarioform.ShowDialog();   
         }
     }
 }

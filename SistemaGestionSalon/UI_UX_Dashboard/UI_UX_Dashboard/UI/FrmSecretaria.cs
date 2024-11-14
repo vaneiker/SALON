@@ -68,5 +68,11 @@ namespace UI_UX_Dashboard_P1.UI
             ComprasForm formCompras = new ComprasForm();
             formCompras.ShowDialog();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            UsuarioForm usuarioform = new UsuarioForm();
+            usuarioform.ShowDialog();
+        }
     }
 }

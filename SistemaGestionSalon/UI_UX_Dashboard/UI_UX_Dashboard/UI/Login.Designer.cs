@@ -68,8 +68,7 @@
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label_menu);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(2, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(325, 47);
             this.panel1.TabIndex = 1;
@@ -246,7 +245,7 @@
             this.panel_cambiar_clave.Controls.Add(this.textcambiarclaverepite);
             this.panel_cambiar_clave.Location = new System.Drawing.Point(2, 50);
             this.panel_cambiar_clave.Name = "panel_cambiar_clave";
-            this.panel_cambiar_clave.Size = new System.Drawing.Size(312, 198);
+            this.panel_cambiar_clave.Size = new System.Drawing.Size(311, 198);
             this.panel_cambiar_clave.TabIndex = 28;
             // 
             // label3
@@ -358,6 +357,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
