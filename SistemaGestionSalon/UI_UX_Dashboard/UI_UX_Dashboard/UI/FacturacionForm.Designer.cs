@@ -39,9 +39,7 @@
             this.BtnBorrar = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.btnCobrar = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.label_cambio = new System.Windows.Forms.Label();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -51,8 +49,9 @@
             this.label16 = new System.Windows.Forms.Label();
             this.checkBox_venta = new System.Windows.Forms.CheckBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.bindingSource_producto_servicios_a_facturar = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label_Servicio_Producto = new System.Windows.Forms.Label();
+            this.checkBox_cambiar_precio = new System.Windows.Forms.CheckBox();
             this.lblPre = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -70,6 +69,7 @@
             this.comboBox_Producto = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -84,9 +84,11 @@
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.comboBox_Clientes = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.bindingSource_producto_servicios_a_facturar = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView_Producto_Servicio_Facturacion = new System.Windows.Forms.DataGridView();
             this.btnQuitar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdProductoAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreProductoAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantidadAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioUnitarioAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,9 +99,10 @@
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_producto_servicios_a_facturar)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_producto_servicios_a_facturar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Producto_Servicio_Facturacion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,9 +166,7 @@
             this.panel1.Controls.Add(this.BtnBorrar);
             this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.btnCobrar);
-            this.panel1.Controls.Add(this.label22);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.label_cambio);
             this.panel1.Controls.Add(this.radioButton3);
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton1);
@@ -198,11 +199,11 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label21.Location = new System.Drawing.Point(10, 272);
+            this.label21.Location = new System.Drawing.Point(15, 249);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(80, 31);
+            this.label21.Size = new System.Drawing.Size(107, 31);
             this.label21.TabIndex = 72;
-            this.label21.Text = "Saldo";
+            this.label21.Text = "Cambio";
             // 
             // btnCobrar
             // 
@@ -217,38 +218,16 @@
             this.btnCobrar.Text = "COBRAR";
             this.btnCobrar.UseVisualStyleBackColor = false;
             // 
-            // label22
+            // label_cambio
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label22.Location = new System.Drawing.Point(121, 272);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(152, 31);
-            this.label22.TabIndex = 71;
-            this.label22.Text = "RD$ 150.00";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label20.Location = new System.Drawing.Point(8, 234);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(107, 31);
-            this.label20.TabIndex = 70;
-            this.label20.Text = "Cambio";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label19.Location = new System.Drawing.Point(122, 234);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(152, 31);
-            this.label19.TabIndex = 69;
-            this.label19.Text = "RD$ 150.00";
+            this.label_cambio.AutoSize = true;
+            this.label_cambio.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cambio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_cambio.Location = new System.Drawing.Point(128, 250);
+            this.label_cambio.Name = "label_cambio";
+            this.label_cambio.Size = new System.Drawing.Size(138, 31);
+            this.label_cambio.TabIndex = 69;
+            this.label_cambio.Text = "RD$ 00.00";
             // 
             // radioButton3
             // 
@@ -299,6 +278,7 @@
             this.txtCantidadPagado.TabIndex = 65;
             this.txtCantidadPagado.Text = "0.00";
             this.txtCantidadPagado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCantidadPagado.TextChanged += new System.EventHandler(this.txtCantidadPagado_TextChanged);
             // 
             // label18
             // 
@@ -318,9 +298,9 @@
             this.LblTotalApagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.LblTotalApagar.Location = new System.Drawing.Point(142, 39);
             this.LblTotalApagar.Name = "LblTotalApagar";
-            this.LblTotalApagar.Size = new System.Drawing.Size(152, 31);
+            this.LblTotalApagar.Size = new System.Drawing.Size(138, 31);
             this.LblTotalApagar.TabIndex = 53;
-            this.LblTotalApagar.Text = "RD$ 150.00";
+            this.LblTotalApagar.Text = "RD$ 00.00";
             // 
             // label16
             // 
@@ -360,6 +340,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label_Servicio_Producto);
+            this.groupBox2.Controls.Add(this.checkBox_cambiar_precio);
             this.groupBox2.Controls.Add(this.lblPre);
             this.groupBox2.Controls.Add(this.txtPrecio);
             this.groupBox2.Controls.Add(this.label14);
@@ -384,6 +366,31 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Producto";
             // 
+            // label_Servicio_Producto
+            // 
+            this.label_Servicio_Producto.AutoSize = true;
+            this.label_Servicio_Producto.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Servicio_Producto.ForeColor = System.Drawing.Color.Orange;
+            this.label_Servicio_Producto.Location = new System.Drawing.Point(6, 123);
+            this.label_Servicio_Producto.Name = "label_Servicio_Producto";
+            this.label_Servicio_Producto.Size = new System.Drawing.Size(142, 22);
+            this.label_Servicio_Producto.TabIndex = 75;
+            this.label_Servicio_Producto.Text = "Tipo de Articulo";
+            // 
+            // checkBox_cambiar_precio
+            // 
+            this.checkBox_cambiar_precio.AutoSize = true;
+            this.checkBox_cambiar_precio.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox_cambiar_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_cambiar_precio.ForeColor = System.Drawing.Color.Tomato;
+            this.checkBox_cambiar_precio.Location = new System.Drawing.Point(10, 155);
+            this.checkBox_cambiar_precio.Name = "checkBox_cambiar_precio";
+            this.checkBox_cambiar_precio.Size = new System.Drawing.Size(229, 20);
+            this.checkBox_cambiar_precio.TabIndex = 74;
+            this.checkBox_cambiar_precio.Text = "¿Desea Cambiar el Precio%?";
+            this.checkBox_cambiar_precio.UseVisualStyleBackColor = true;
+            this.checkBox_cambiar_precio.CheckedChanged += new System.EventHandler(this.checkBox_cambiar_precio_CheckedChanged);
+            // 
             // lblPre
             // 
             this.lblPre.AutoSize = true;
@@ -406,6 +413,7 @@
             this.txtPrecio.TabIndex = 72;
             this.txtPrecio.Text = "0";
             this.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
             // label14
             // 
@@ -428,6 +436,7 @@
             this.txtCantidadAdd.TabIndex = 70;
             this.txtCantidadAdd.Text = "3";
             this.txtCantidadAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCantidadAdd.TextChanged += new System.EventHandler(this.txtCantidadAdd_TextChanged);
             // 
             // btnCancelar
             // 
@@ -562,6 +571,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
@@ -584,12 +594,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(15, 58);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(121, 106);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 63;
+            this.pictureBox1.TabStop = false;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.LightCoral;
-            this.label9.Location = new System.Drawing.Point(358, 123);
+            this.label9.Location = new System.Drawing.Point(366, 123);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(54, 16);
             this.label9.TabIndex = 62;
@@ -600,7 +621,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.LightCoral;
-            this.label8.Location = new System.Drawing.Point(235, 123);
+            this.label8.Location = new System.Drawing.Point(243, 123);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 16);
             this.label8.TabIndex = 61;
@@ -611,7 +632,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.LightCoral;
-            this.label7.Location = new System.Drawing.Point(146, 123);
+            this.label7.Location = new System.Drawing.Point(154, 123);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(56, 16);
             this.label7.TabIndex = 60;
@@ -622,7 +643,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.LightCoral;
-            this.label6.Location = new System.Drawing.Point(364, 71);
+            this.label6.Location = new System.Drawing.Point(372, 71);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 16);
             this.label6.TabIndex = 59;
@@ -633,7 +654,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.LightCoral;
-            this.label5.Location = new System.Drawing.Point(235, 71);
+            this.label5.Location = new System.Drawing.Point(243, 71);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 16);
             this.label5.TabIndex = 58;
@@ -644,7 +665,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.LightCoral;
-            this.label4.Location = new System.Drawing.Point(148, 71);
+            this.label4.Location = new System.Drawing.Point(156, 71);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 16);
             this.label4.TabIndex = 57;
@@ -654,7 +675,7 @@
             // 
             this.txtIdCliente.Enabled = false;
             this.txtIdCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCliente.Location = new System.Drawing.Point(146, 90);
+            this.txtIdCliente.Location = new System.Drawing.Point(154, 90);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Size = new System.Drawing.Size(86, 22);
             this.txtIdCliente.TabIndex = 56;
@@ -663,7 +684,7 @@
             // 
             this.txtcorreo.Enabled = false;
             this.txtcorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcorreo.Location = new System.Drawing.Point(361, 142);
+            this.txtcorreo.Location = new System.Drawing.Point(369, 142);
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(212, 22);
             this.txtcorreo.TabIndex = 55;
@@ -672,7 +693,7 @@
             // 
             this.txttelefono.Enabled = false;
             this.txttelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txttelefono.Location = new System.Drawing.Point(238, 142);
+            this.txttelefono.Location = new System.Drawing.Point(246, 142);
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(117, 22);
             this.txttelefono.TabIndex = 54;
@@ -681,7 +702,7 @@
             // 
             this.txtcelular.Enabled = false;
             this.txtcelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcelular.Location = new System.Drawing.Point(146, 142);
+            this.txtcelular.Location = new System.Drawing.Point(154, 142);
             this.txtcelular.Name = "txtcelular";
             this.txtcelular.Size = new System.Drawing.Size(86, 22);
             this.txtcelular.TabIndex = 53;
@@ -690,7 +711,7 @@
             // 
             this.txtcedula.Enabled = false;
             this.txtcedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcedula.Location = new System.Drawing.Point(361, 90);
+            this.txtcedula.Location = new System.Drawing.Point(369, 90);
             this.txtcedula.Name = "txtcedula";
             this.txtcedula.Size = new System.Drawing.Size(212, 22);
             this.txtcedula.TabIndex = 52;
@@ -699,7 +720,7 @@
             // 
             this.txtnombre.Enabled = false;
             this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombre.Location = new System.Drawing.Point(238, 90);
+            this.txtnombre.Location = new System.Drawing.Point(246, 90);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(117, 22);
             this.txtnombre.TabIndex = 51;
@@ -734,6 +755,7 @@
             this.dataGridView_Producto_Servicio_Facturacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnQuitar,
             this.IdProductoAdd,
+            this.Tipo,
             this.nombreProductoAdd,
             this.CantidadAdd,
             this.PrecioUnitarioAdd,
@@ -759,6 +781,13 @@
             this.IdProductoAdd.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.IdProductoAdd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.IdProductoAdd.Visible = false;
+            // 
+            // Tipo
+            // 
+            this.Tipo.DataPropertyName = "Tipo";
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ToolTipText = "Tipo";
             // 
             // nombreProductoAdd
             // 
@@ -815,11 +844,12 @@
             this.tabPage2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_producto_servicios_a_facturar)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource_producto_servicios_a_facturar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Producto_Servicio_Facturacion)).EndInit();
             this.ResumeLayout(false);
 
@@ -875,20 +905,22 @@
         private System.Windows.Forms.TextBox txtCantidadPagado;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label_cambio;
         private System.Windows.Forms.Button BtnBorrar;
         private System.Windows.Forms.Button btnCobrar;
         private System.Windows.Forms.BindingSource bindingSource_producto_servicios_a_facturar;
         private System.Windows.Forms.DataGridView dataGridView_Producto_Servicio_Facturacion;
+        private System.Windows.Forms.Label label_Servicio_Producto;
+        private System.Windows.Forms.CheckBox checkBox_cambiar_precio;
         private System.Windows.Forms.DataGridViewButtonColumn btnQuitar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdProductoAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantidadAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioUnitarioAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn MontoAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImpuestoAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAdd;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -38,6 +38,7 @@ namespace ENTITY.Entitis
             public decimal? Impuesto { get; set; } 
             public decimal? Total { get; set; } 
             public int? Usuario { get; set; } 
+            public string Tipo { get; set; }
         }
     }
 }

@@ -16,7 +16,7 @@ namespace UI_UX_Dashboard_P1.UI
 
         public class RoleSelector
         {
-            private static readonly string[] Roles = { "ADMIN", "CUSER", "UFINANZA", "UALMACEN", "SUSERS" };
+            private static readonly string[] Roles = { "ADMIN", "CUSER","SUSERS" };
             private static readonly Random random = new Random();
 
             public static string GetRandomRole()

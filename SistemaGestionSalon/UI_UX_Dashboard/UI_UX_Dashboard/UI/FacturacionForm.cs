@@ -1,5 +1,6 @@
 ﻿using BLL.Admin;
 using ENTITY.Entitis;
+using Org.BouncyCastle.Pqc.Crypto.Lms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +30,10 @@ namespace UI_UX_Dashboard_P1.UI
         private ClienteAdmin clienteAdmin = new ClienteAdmin();
         private FacturaViewModel model = new FacturaViewModel();
 
-
+        private decimal? _impuesto { get; set; } = 0.00m;
+        private decimal? precio_original { get; set; }
+        private decimal? precio_costo { get; set; }
+        private int stockMinimo { get; set; }
 
 
 
@@ -45,20 +49,46 @@ namespace UI_UX_Dashboard_P1.UI
 
         private void CargarAll()
         {
-            var ddClientes = drop.DropDownList(DropDownList.Clientes.ToString());
-            comboBox_Clientes.DataSource = ddClientes;
-            comboBox_Clientes.DisplayMember = "ACTION";
-            comboBox_Clientes.ValueMember = "CODE";
-            //comboBox_Clientes.AutoCompleteMode = AutoCompleteMode.Suggest;
-            comboBox_Clientes.AutoCompleteSource = AutoCompleteSource.ListItems;
+            try
+            {
+                var ddClientes = drop.DropDownList(DropDownList.Clientes.ToString());
+                comboBox_Clientes.DataSource = ddClientes;
+                comboBox_Clientes.DisplayMember = "ACTION";
+                comboBox_Clientes.ValueMember = "CODE";
+                //comboBox_Clientes.AutoCompleteMode = AutoCompleteMode.Suggest;
+                comboBox_Clientes.AutoCompleteSource = AutoCompleteSource.ListItems;
 
 
-            var ddProducto = drop.DropDownList(DropDownList.ProductoServicios.ToString());
-            comboBox_Producto.DataSource = ddProducto;
-            comboBox_Producto.DisplayMember = "ACTION";
-            comboBox_Producto.ValueMember = "CODE";
-            //comboBox_Clientes.AutoCompleteMode = AutoCompleteMode.Suggest;
-            comboBox_Producto.AutoCompleteSource = AutoCompleteSource.ListItems;
+                var ddProducto = drop.DropDownList(DropDownList.ProductoServicios.ToString());
+                comboBox_Producto.DataSource = ddProducto;
+                comboBox_Producto.DisplayMember = "ACTION";
+                comboBox_Producto.ValueMember = "CODE";
+                //comboBox_Clientes.AutoCompleteMode = AutoCompleteMode.Suggest;
+                comboBox_Producto.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+
+
+                var minimoStok = drop.DropDownList(DropDownList.Parametros.ToString(), "Parametros_Minimo_Stock").FirstOrDefault().ACTION;
+
+
+                var imp = drop.DropDownList(DropDownList.Impuestos.ToString()).FirstOrDefault().CODE;
+
+                if (imp != null)
+                {
+                    this._impuesto = decimal.Parse(imp.ToString());
+                }
+
+
+                if (minimoStok != null)
+                {
+                    this.stockMinimo = int.Parse(minimoStok);
+                }
+            }
+            catch (Exception ex)
+            {
+                Helpers.ShowError("Error en el metodo CargarAll: ", ex);
+
+            }
         }
 
         private void comboBox_Clientes_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,23 +114,56 @@ namespace UI_UX_Dashboard_P1.UI
                 txtStock.Text = producto.Stock.ToString();
                 txtProductoServicio.Text = producto.Nombre;
                 txtIdProducto.Text = producto.ProductoServicioID.ToString();
-                txtPrecio.Text = producto.Precio.ToString();
+                txtPrecio.Text = producto.PrecioVentaBase.ToString();
+                label_Servicio_Producto.Text = $"{producto.Tipo}";
+                precio_original = producto.PrecioVentaBase;
+                precio_costo = producto.Precio;
+
+                if (producto.Tipo == "Servicio")
+                {
+                    txtCantidadAdd.Text = "1";
+                    txtCantidadAdd.Enabled = false;
+                }
+                else
+                {
+                    txtCantidadAdd.Text = "0";
+                    txtCantidadAdd.Enabled = true;
+                }
             }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
-            decimal? _impuesto = 0.00m;
+            decimal? impuestoAdd = 0.00m;
             decimal? _Total = 0.00m;
             decimal? _Monto = 0.00m;
 
+            int CantidadPermitida = 0;
 
-            _Monto= (int.Parse(txtCantidadAdd.Text) * decimal.Parse(txtPrecio.Text));
 
-            _impuesto = _Monto * 1.18m;
+            CantidadPermitida = int.Parse(txtStock.Text) - stockMinimo;
 
-            _Total = _Monto + _impuesto;
+
+            if (string.IsNullOrWhiteSpace(txtCantidadAdd.Text) || txtCantidadAdd.Text == "0")
+            {
+                Helpers.ShowTypeError("Digite la cantidad", "error");
+                return;
+            }
+
+            if (label_Servicio_Producto.Text == "Producto" && (CantidadPermitida == stockMinimo))
+            {
+                Helpers.ShowTypeError("La cantidad digitada sobre pasa mi Stock", "error");
+                return;
+            }
+
+
+
+            _Monto = (int.Parse(txtCantidadAdd.Text) * decimal.Parse(txtPrecio.Text));
+
+            impuestoAdd = (_Monto * _impuesto) / 100;
+
+            _Total = _Monto + impuestoAdd;
 
             var modelo = new FacturaViewModel();
             var dfactura = new Facturacion.DetalleFactura();
@@ -114,18 +177,28 @@ namespace UI_UX_Dashboard_P1.UI
             dfactura.PrecioUnitario = decimal.Parse(txtPrecio.Text);
             dfactura.Descuento = 0;
             dfactura.Monto = _Monto;
-            dfactura.Impuesto = (_impuesto);
+            dfactura.Impuesto = impuestoAdd;
             dfactura.Total = _Total;
+            dfactura.Tipo = label_Servicio_Producto.Text;
 
             model.detalleFactura = dfactura;
+
+            if (DetalleFacturaList.Where(x => x.IdProducto == dfactura.IdProducto).Any())
+            {
+                Helpers.ShowWarning($"El artículo: {dfactura.nombreProducto} ya está registrado en la tabla de compras.\n" +
+                                   "Si deseas actualizar su cantidad, por favor utiliza la opción editar.");
+                return;
+            }
+
+
             AddFactura(model);
         }
 
 
         private void AddFactura(FacturaViewModel model)
         {
-             
-            bindingSource_producto_servicios_a_facturar.DataSource=null;
+
+            bindingSource_producto_servicios_a_facturar.DataSource = null;
 
             DetalleFacturaList.Add(new Facturacion.DetalleFactura()
             {
@@ -138,14 +211,17 @@ namespace UI_UX_Dashboard_P1.UI
                 Descuento = model.detalleFactura.Descuento,
                 Monto = model.detalleFactura.Monto,
                 Impuesto = model.detalleFactura.Impuesto,
-                Total = model.detalleFactura.Total
+                Total = model.detalleFactura.Total,
+                Tipo = model.detalleFactura.Tipo
+
             });
 
             bindingSource_producto_servicios_a_facturar.DataSource = DetalleFacturaList;
 
 
-            LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Monto):N2}";
+            LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Total):N2}";
 
+             
 
             ConfigureDataGridView();
         }
@@ -209,6 +285,16 @@ namespace UI_UX_Dashboard_P1.UI
             dataGridView_Producto_Servicio_Facturacion.Columns.Add(deleteButtonColumn);
 
             // Columnas de datos
+
+
+            dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "Tipo",
+                DataPropertyName = "Tipo",
+                Width = 100,
+                DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleLeft }
+            });
+
             dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Producto",
@@ -220,7 +306,7 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 HeaderText = "Cantidad",
                 DataPropertyName = "Cantidad",
-                Width = 200,
+                Width = 75,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleLeft }
             });
 
@@ -228,7 +314,7 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 HeaderText = "Precio Unitario",
                 DataPropertyName = "PrecioUnitario",
-                Width = 100,
+                Width = 80,
                 DefaultCellStyle = { Format = "C2", Alignment = DataGridViewContentAlignment.MiddleRight }
             });
 
@@ -244,7 +330,7 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 HeaderText = "Impuesto",
                 DataPropertyName = "Impuesto",
-                Width = 120,
+                Width = 80,
                 DefaultCellStyle = { Format = "C2", Alignment = DataGridViewContentAlignment.MiddleRight }
             });
 
@@ -252,10 +338,69 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 HeaderText = "Total",
                 DataPropertyName = "Total",
-                Width = 100,
+                Width = 80,
                 DefaultCellStyle = { Format = "C2", Alignment = DataGridViewContentAlignment.MiddleRight }
-            }); 
+            });
         }
 
+        private void checkBox_cambiar_precio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_cambiar_precio.Checked == true)
+            {
+                txtPrecio.Enabled = true;
+            }
+            else
+            {
+                txtPrecio.Text = precio_original.ToString();
+                txtPrecio.Enabled = false;
+            }
+        }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPrecio.Text != "")
+            {
+                if (label_Servicio_Producto.Text == "Producto" && (decimal.Parse(txtPrecio.Text.ToString()) <= precio_costo))
+                {
+                    Helpers.ShowTypeError("El precio digitado no puede ser menor o igual al de compra", "error");
+                    txtPrecio.Text = precio_original.Value.ToString();
+                    return;
+                }
+            }
+        }
+
+        private void txtCantidadAdd_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCantidadPagado_TextChanged(object sender, EventArgs e)
+        {
+            decimal? Total_A_Pagar = 0.00M;
+            decimal? saldoTotal = 0.00m;
+
+            if (!string.IsNullOrWhiteSpace(txtCantidadPagado.Text))
+            {
+
+                Total_A_Pagar = decimal.Parse(LblTotalApagar.Text.ToString().Replace("RD$","")); 
+                saldoTotal = Total_A_Pagar - decimal.Parse(txtCantidadPagado.Text.ToString());
+                //LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Total):N2}";
+
+                
+
+                if(decimal.Parse(txtCantidadPagado.Text.ToString())> Total_A_Pagar)
+                {
+                    label_cambio.Text = $"RD$ {saldoTotal:N2}";
+                    label_cambio.ForeColor = Color.Red;
+                }
+                else
+                {
+                    label_cambio.Text = $"RD$ {saldoTotal:N2}";
+                }
+                 
+
+                //10-9
+            }
+        }
     }
 }

@@ -22,6 +22,7 @@ namespace UI_UX_Dashboard_P1.Custom
         Impuestos,
         TiposPagos,
         Clientes,
-        ProductoServicios
+        ProductoServicios,
+        Parametros
     }
 }

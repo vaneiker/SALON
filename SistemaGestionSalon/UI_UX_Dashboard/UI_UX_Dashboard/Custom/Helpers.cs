@@ -47,7 +47,7 @@ namespace UI_UX_Dashboard_P1.Custom
         }
         public static void ShowWarning(string message)
         {
-            MessageBox.Show(message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(message, "Aviso Importante", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         // Método para mostrar mensajes de confirmación

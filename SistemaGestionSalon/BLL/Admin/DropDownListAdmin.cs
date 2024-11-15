@@ -12,9 +12,9 @@ namespace BLL.Admin
     {
         private DropDownListRepository db= new DropDownListRepository();
 
-        public List<Base> DropDownList(string filter="")
+        public List<Base> DropDownList(string filter="", string filter2 = "")
         {
-            return db.DropDownList(filter);
+            return db.DropDownList(filter, filter2);
         }
     }
 }
