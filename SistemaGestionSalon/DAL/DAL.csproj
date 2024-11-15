@@ -82,6 +82,7 @@
     <Compile Include="Repository\ComprasRepository.cs" />
     <Compile Include="Repository\DocumentoLogRepository.cs" />
     <Compile Include="Repository\DropDownListRepository.cs" />
+    <Compile Include="Repository\FacturacionRepository.cs" />
     <Compile Include="Repository\ProductoServiciosIntentarios.cs" />
     <Compile Include="Repository\ProveedorRepository.cs" />
     <Compile Include="Repository\UsuarioRepository.cs" />

@@ -46,6 +46,7 @@
     <Compile Include="Entitis\Compras.cs" />
     <Compile Include="Entitis\Configuration.cs" />
     <Compile Include="Entitis\DocumentoLog.cs" />
+    <Compile Include="Entitis\Facturacion.cs" />
     <Compile Include="Entitis\ProductoServiciosInventarios.cs" />
     <Compile Include="Entitis\Proveedores.cs" />
     <Compile Include="Entitis\Usuarios.cs" />
