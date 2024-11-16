@@ -35,6 +35,7 @@ namespace UI_UX_Dashboard_P1.UI
         private decimal? precio_costo { get; set; }
         private int stockMinimo { get; set; }
 
+        private bool? permitirActualizar { get; set; }
 
 
         public FacturacionForm()
@@ -221,7 +222,7 @@ namespace UI_UX_Dashboard_P1.UI
 
             LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Total):N2}";
 
-             
+
 
             ConfigureDataGridView();
         }
@@ -257,18 +258,18 @@ namespace UI_UX_Dashboard_P1.UI
             dataGridView_Producto_Servicio_Facturacion.Columns.Clear();
 
             // Columna para el botón de Editar
-            var editButtonColumn = new DataGridViewButtonColumn
-            {
-                HeaderText = "Editar",
-                Text = "✏️ Editar",
-                UseColumnTextForButtonValue = true,
-                Width = 70,
-                FlatStyle = FlatStyle.Flat
-            };
-            editButtonColumn.DefaultCellStyle.BackColor = Color.Green;
-            editButtonColumn.DefaultCellStyle.ForeColor = Color.White;
-            editButtonColumn.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dataGridView_Producto_Servicio_Facturacion.Columns.Add(editButtonColumn);
+            //var editButtonColumn = new DataGridViewButtonColumn
+            //{
+            //    HeaderText = "Editar",
+            //    Text = "✏️ Editar",
+            //    UseColumnTextForButtonValue = true,
+            //    Width = 80,
+            //    FlatStyle = FlatStyle.Flat
+            //};
+            //editButtonColumn.DefaultCellStyle.BackColor = Color.White;
+            //editButtonColumn.DefaultCellStyle.ForeColor = Color.Green;
+            //editButtonColumn.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            //dataGridView_Producto_Servicio_Facturacion.Columns.Add(editButtonColumn);
 
             // Columna para el botón de Borrar
             var deleteButtonColumn = new DataGridViewButtonColumn
@@ -276,15 +277,22 @@ namespace UI_UX_Dashboard_P1.UI
                 HeaderText = "Borrar",
                 Text = "🗑️ Borrar",
                 UseColumnTextForButtonValue = true,
-                Width = 70,
-                FlatStyle = FlatStyle.Flat
+                Width = 80,
+                FlatStyle = FlatStyle.Standard
             };
-            deleteButtonColumn.DefaultCellStyle.BackColor = Color.Red;
+            deleteButtonColumn.DefaultCellStyle.BackColor = Color.Indigo;
             deleteButtonColumn.DefaultCellStyle.ForeColor = Color.White;
             deleteButtonColumn.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dataGridView_Producto_Servicio_Facturacion.Columns.Add(deleteButtonColumn);
 
             // Columnas de datos
+
+            dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = "IdProducto",
+                DataPropertyName = "IdProducto",
+                Visible = false
+            });
 
 
             dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
@@ -306,7 +314,7 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 HeaderText = "Cantidad",
                 DataPropertyName = "Cantidad",
-                Width = 75,
+                Width = 100,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleLeft }
             });
 
@@ -314,7 +322,7 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 HeaderText = "Precio Unitario",
                 DataPropertyName = "PrecioUnitario",
-                Width = 80,
+                Width = 100,
                 DefaultCellStyle = { Format = "C2", Alignment = DataGridViewContentAlignment.MiddleRight }
             });
 
@@ -322,7 +330,7 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 HeaderText = "Monto",
                 DataPropertyName = "Monto",
-                Width = 80,
+                Width = 100,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
 
@@ -330,7 +338,7 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 HeaderText = "Impuesto",
                 DataPropertyName = "Impuesto",
-                Width = 80,
+                Width = 100,
                 DefaultCellStyle = { Format = "C2", Alignment = DataGridViewContentAlignment.MiddleRight }
             });
 
@@ -338,7 +346,7 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 HeaderText = "Total",
                 DataPropertyName = "Total",
-                Width = 80,
+                Width = 100,
                 DefaultCellStyle = { Format = "C2", Alignment = DataGridViewContentAlignment.MiddleRight }
             });
         }
@@ -382,13 +390,13 @@ namespace UI_UX_Dashboard_P1.UI
             if (!string.IsNullOrWhiteSpace(txtCantidadPagado.Text))
             {
 
-                Total_A_Pagar = decimal.Parse(LblTotalApagar.Text.ToString().Replace("RD$","")); 
+                Total_A_Pagar = decimal.Parse(LblTotalApagar.Text.ToString().Replace("RD$", ""));
                 saldoTotal = Total_A_Pagar - decimal.Parse(txtCantidadPagado.Text.ToString());
                 //LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Total):N2}";
 
-                
 
-                if(decimal.Parse(txtCantidadPagado.Text.ToString())> Total_A_Pagar)
+
+                if (decimal.Parse(txtCantidadPagado.Text.ToString()) > Total_A_Pagar)
                 {
                     label_cambio.Text = $"RD$ {saldoTotal:N2}";
                     label_cambio.ForeColor = Color.Red;
@@ -397,9 +405,43 @@ namespace UI_UX_Dashboard_P1.UI
                 {
                     label_cambio.Text = $"RD$ {saldoTotal:N2}";
                 }
-                 
+
 
                 //10-9
+            }
+        }
+
+        private void dataGridView_Producto_Servicio_Facturacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verifica que el clic haya sido en una celda válida y en una columna de botón
+            if (e.RowIndex >= 0 && dataGridView_Producto_Servicio_Facturacion.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            {
+                DataGridViewRow fila = dataGridView_Producto_Servicio_Facturacion.Rows[e.RowIndex];      // Fila seleccionada
+
+                switch (e.ColumnIndex)
+                {
+                    case 0:
+
+                        var result = MessageBox.Show("¿Estás seguro de que deseas eliminar este registro?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            //compraViewModels.RemoveAt(e.RowIndex);
+                            //bindingSource_listado_producto_nuevos.ResetBindings(false);
+                            //calcularMontoApagar();
+                        } 
+                        break;
+
+                    case 1:
+
+                        //var result = MessageBox.Show("¿Estás seguro de que deseas eliminar este registro?", "Confirmar eliminación", MessageBoxButtons.YesNo);
+                        //if (result == DialogResult.Yes)
+                        //{
+                        //    //compraViewModels.RemoveAt(e.RowIndex);
+                        //    //bindingSource_listado_producto_nuevos.ResetBindings(false);
+                        //    //calcularMontoApagar();
+                        //}
+                        break;
+                }
             }
         }
     }

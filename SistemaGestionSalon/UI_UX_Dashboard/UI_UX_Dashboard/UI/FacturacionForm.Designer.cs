@@ -86,7 +86,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.bindingSource_producto_servicios_a_facturar = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView_Producto_Servicio_Facturacion = new System.Windows.Forms.DataGridView();
-            this.btnQuitar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdProductoAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreProductoAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -753,7 +752,6 @@
             this.dataGridView_Producto_Servicio_Facturacion.AutoGenerateColumns = false;
             this.dataGridView_Producto_Servicio_Facturacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Producto_Servicio_Facturacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnQuitar,
             this.IdProductoAdd,
             this.Tipo,
             this.nombreProductoAdd,
@@ -767,11 +765,7 @@
             this.dataGridView_Producto_Servicio_Facturacion.Name = "dataGridView_Producto_Servicio_Facturacion";
             this.dataGridView_Producto_Servicio_Facturacion.Size = new System.Drawing.Size(954, 213);
             this.dataGridView_Producto_Servicio_Facturacion.TabIndex = 9;
-            // 
-            // btnQuitar
-            // 
-            this.btnQuitar.HeaderText = "Quitar";
-            this.btnQuitar.Name = "btnQuitar";
+            this.dataGridView_Producto_Servicio_Facturacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Producto_Servicio_Facturacion_CellContentClick);
             // 
             // IdProductoAdd
             // 
@@ -912,7 +906,7 @@
         private System.Windows.Forms.DataGridView dataGridView_Producto_Servicio_Facturacion;
         private System.Windows.Forms.Label label_Servicio_Producto;
         private System.Windows.Forms.CheckBox checkBox_cambiar_precio;
-        private System.Windows.Forms.DataGridViewButtonColumn btnQuitar;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdProductoAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreProductoAdd;
@@ -921,6 +915,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MontoAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImpuestoAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAdd;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
