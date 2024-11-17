@@ -395,7 +395,7 @@
             this.lblPre.AutoSize = true;
             this.lblPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPre.ForeColor = System.Drawing.Color.LightCoral;
-            this.lblPre.Location = new System.Drawing.Point(324, 127);
+            this.lblPre.Location = new System.Drawing.Point(255, 127);
             this.lblPre.Name = "lblPre";
             this.lblPre.Size = new System.Drawing.Size(52, 16);
             this.lblPre.TabIndex = 73;
@@ -405,14 +405,15 @@
             // 
             this.txtPrecio.Enabled = false;
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(314, 146);
+            this.txtPrecio.Location = new System.Drawing.Point(245, 146);
             this.txtPrecio.Multiline = true;
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(75, 29);
+            this.txtPrecio.Size = new System.Drawing.Size(91, 29);
             this.txtPrecio.TabIndex = 72;
             this.txtPrecio.Text = "0";
             this.txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // label14
             // 
@@ -428,14 +429,16 @@
             // txtCantidadAdd
             // 
             this.txtCantidadAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidadAdd.Location = new System.Drawing.Point(395, 146);
+            this.txtCantidadAdd.Location = new System.Drawing.Point(342, 146);
+            this.txtCantidadAdd.MaxLength = 6;
             this.txtCantidadAdd.Multiline = true;
             this.txtCantidadAdd.Name = "txtCantidadAdd";
-            this.txtCantidadAdd.Size = new System.Drawing.Size(75, 29);
+            this.txtCantidadAdd.Size = new System.Drawing.Size(128, 29);
             this.txtCantidadAdd.TabIndex = 70;
             this.txtCantidadAdd.Text = "3";
             this.txtCantidadAdd.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCantidadAdd.TextChanged += new System.EventHandler(this.txtCantidadAdd_TextChanged);
+            this.txtCantidadAdd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidadAdd_KeyDown);
             // 
             // btnCancelar
             // 

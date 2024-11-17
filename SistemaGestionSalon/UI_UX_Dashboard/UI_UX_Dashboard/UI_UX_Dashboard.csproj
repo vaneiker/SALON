@@ -117,6 +117,12 @@
     <Compile Include="UI\FrmGestionFinanciera.Designer.cs">
       <DependentUpon>FrmGestionFinanciera.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FrmTarjetaMedioPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmTarjetaMedioPago.Designer.cs">
+      <DependentUpon>FrmTarjetaMedioPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,17 +241,11 @@
     <PackageReference Include="HtmlToPdfSharp">
       <Version>1.0.2</Version>
     </PackageReference>
-    <PackageReference Include="IronWord">
-      <Version>2024.11.2</Version>
-    </PackageReference>
     <PackageReference Include="iTextSharp">
       <Version>5.5.13.4</Version>
     </PackageReference>
     <PackageReference Include="itextsharp.xmlworker">
       <Version>5.5.13.4</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Web.WebView2">
-      <Version>1.0.2849.39</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

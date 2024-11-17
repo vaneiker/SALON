@@ -148,11 +148,28 @@ namespace UI_UX_Dashboard_P1.UI
             int? cantidadMinima = stockMinimo;
             int? cantidadAComprar = 0;
 
+            
+            
+            
+            if (string.IsNullOrWhiteSpace(txtIdProducto.Text) ||  string.IsNullOrWhiteSpace(txtIdCliente.Text))
+            {
+                Helpers.ShowTypeError("Favor selecionar un producto o cliente", "error");
+                return;
+            }
+            
+            
             if (string.IsNullOrWhiteSpace(txtCantidadAdd.Text) || txtCantidadAdd.Text == "0")
             {
                 Helpers.ShowTypeError("Digite la cantidad", "error");
                 return;
             }
+
+
+
+
+
+
+
             cantidadAComprar = int.Parse(txtCantidadAdd.Text);
             stock = int.Parse(txtStock.Text);
 
@@ -229,8 +246,11 @@ namespace UI_UX_Dashboard_P1.UI
 
             var updateStock = int.Parse(txtStock.Text) - int.Parse(txtCantidadAdd.Text);
 
-            txtStock.Text = updateStock.ToString();
 
+            if (model.detalleFactura.Tipo != "Servicio")
+            {
+                txtStock.Text = updateStock.ToString();
+            } 
             ConfigureDataGridView();
         }
 
@@ -387,6 +407,21 @@ namespace UI_UX_Dashboard_P1.UI
         private void txtCantidadAdd_TextChanged(object sender, EventArgs e)
         {
 
+            TextBox textBox = sender as TextBox;
+
+            if (textBox != null && textBox.Text.Length > 0 && textBox.Text[0] == '0')
+            {
+                // Eliminar el primer carácter si es '0'
+                textBox.Text = textBox.Text.Substring(1);
+
+                // Mover el cursor al final del texto
+                textBox.SelectionStart = textBox.Text.Length;
+            }
+
+            txtCantidadAdd.Text = new string(txtCantidadAdd.Text.Where(char.IsDigit).ToArray());
+            txtCantidadAdd.SelectionStart = txtCantidadAdd.Text.Length; // Mantener el cursor al final
+
+
         }
 
         private void txtCantidadPagado_TextChanged(object sender, EventArgs e)
@@ -451,6 +486,46 @@ namespace UI_UX_Dashboard_P1.UI
                         //}
                         break;
                 }
+            }
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números, el punto decimal y la tecla de retroceso
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Bloquea cualquier otro carácter
+            }
+            else
+            {
+                // Permitir solo un punto decimal
+                if (e.KeyChar == '.' && ((TextBox)sender).Text.Contains("."))
+                {
+                    e.Handled = true; // Bloquea si ya hay un punto decimal
+                }
+            }
+        }
+
+        
+        private void txtCantidadAdd_KeyDown(object sender, KeyEventArgs e)
+        {
+            //// Permitir teclas de números (0-9) y teclas especiales como retroceso
+            //if (!char.IsDigit((char)e.KeyCode) && e.KeyCode != Keys.Back)
+            //{
+            //    // Prevenir la entrada de otras teclas
+            //    e.SuppressKeyPress = true;
+            //}
+
+            // Permitir números (teclado principal y numérico), retroceso y teclas especiales
+            if (!((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) || // Teclado numérico superior
+                  (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) || // Teclado numérico derecho
+                  e.KeyCode == Keys.Back || // Retroceso
+                  e.KeyCode == Keys.Delete || // Suprimir
+                  e.KeyCode == Keys.Left || // Flecha izquierda
+                  e.KeyCode == Keys.Right)) // Flecha derecha
+            {
+                // Prevenir la entrada de otras teclas
+                e.SuppressKeyPress = true;
             }
         }
     }

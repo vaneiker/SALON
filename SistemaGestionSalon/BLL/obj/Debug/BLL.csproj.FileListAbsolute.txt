@@ -47,10 +47,10 @@ C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\DAL.dll.config
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\ENTITY.pdb
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
-C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.Up2Date
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.pdb
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\BouncyCastle.Cryptography.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\EntityFramework.SqlServer.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\itextsharp.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\itextsharp.xmlworker.dll
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.CopyComplete
