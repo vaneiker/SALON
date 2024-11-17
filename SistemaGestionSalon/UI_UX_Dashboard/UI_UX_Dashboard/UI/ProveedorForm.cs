@@ -84,7 +84,9 @@ namespace UI_UX_Dashboard_P1.UI
                 DireccionProveedor = textBox_direccion.Text,
                 EmailProveedor = maskedTextBox_correo.Text,
                 LimiteCredito = decimal.Parse(txtLimiteCredito.Text),
-                DiasCancelacion = int.Parse(txtDiasCancelacion.Text)
+                DiasCancelacion = int.Parse(txtDiasCancelacion.Text),
+                HostName= Environment.MachineName,
+                Usuario=Seccion.Instance.UsuarioID,
 
             };
             try

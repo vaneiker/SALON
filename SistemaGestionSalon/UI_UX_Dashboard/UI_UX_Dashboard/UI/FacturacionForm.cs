@@ -1,18 +1,15 @@
 ﻿using BLL.Admin;
 using ENTITY.Entitis;
-using Org.BouncyCastle.Pqc.Crypto.Lms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 using UI_UX_Dashboard_P1.Custom;
 using UI_UX_Dashboard_P1.ViewModel;
-using static ENTITY.Entitis.Facturacion;
+
 
 namespace UI_UX_Dashboard_P1.UI
 {
@@ -32,6 +29,7 @@ namespace UI_UX_Dashboard_P1.UI
 
         private decimal? _impuesto { get; set; } = 0.00m;
         private decimal? precio_original { get; set; }
+        private int? stock_original { get; set; }
         private decimal? precio_costo { get; set; }
         private int stockMinimo { get; set; }
 
@@ -69,7 +67,7 @@ namespace UI_UX_Dashboard_P1.UI
 
 
 
-                var minimoStok = drop.DropDownList(DropDownList.Parametros.ToString(), "Parametros_Minimo_Stock").FirstOrDefault().ACTION;
+                var minStok = drop.DropDownList(DropDownList.Parametros.ToString(), "Parametros_Minimo_Stock").FirstOrDefault().ACTION;
 
 
                 var imp = drop.DropDownList(DropDownList.Impuestos.ToString()).FirstOrDefault().CODE;
@@ -78,11 +76,17 @@ namespace UI_UX_Dashboard_P1.UI
                 {
                     this._impuesto = decimal.Parse(imp.ToString());
                 }
-
-
-                if (minimoStok != null)
+                else
                 {
-                    this.stockMinimo = int.Parse(minimoStok);
+                    this._impuesto = decimal.Parse(ConfigurationManager.AppSettings["Itbis"].ToString());
+                }
+                if (minStok != null)
+                {
+                    this.stockMinimo = int.Parse(minStok);
+                }
+                else
+                {
+                    this.stockMinimo = int.Parse(ConfigurationManager.AppSettings["Minimo"].ToString());
                 }
             }
             catch (Exception ex)
@@ -119,6 +123,7 @@ namespace UI_UX_Dashboard_P1.UI
                 label_Servicio_Producto.Text = $"{producto.Tipo}";
                 precio_original = producto.PrecioVentaBase;
                 precio_costo = producto.Precio;
+                stock_original = producto.Stock;
 
                 if (producto.Tipo == "Servicio")
                 {
@@ -139,60 +144,59 @@ namespace UI_UX_Dashboard_P1.UI
             decimal? impuestoAdd = 0.00m;
             decimal? _Total = 0.00m;
             decimal? _Monto = 0.00m;
-
-            int CantidadPermitida = 0;
-
-
-            CantidadPermitida = int.Parse(txtStock.Text) - stockMinimo;
-
+            int? stock = 0;
+            int? cantidadMinima = stockMinimo;
+            int? cantidadAComprar = 0;
 
             if (string.IsNullOrWhiteSpace(txtCantidadAdd.Text) || txtCantidadAdd.Text == "0")
             {
                 Helpers.ShowTypeError("Digite la cantidad", "error");
                 return;
             }
+            cantidadAComprar = int.Parse(txtCantidadAdd.Text);
+            stock = int.Parse(txtStock.Text);
 
-            if (label_Servicio_Producto.Text == "Producto" && (CantidadPermitida == stockMinimo))
+            // Validar si es posible realizar la venta
+            if ((cantidadAComprar > stock - cantidadMinima) && label_Servicio_Producto.Text == "Producto")
             {
-                Helpers.ShowTypeError("La cantidad digitada sobre pasa mi Stock", "error");
-                return;
+                Helpers.ShowTypeError("No se puede realizar la venta. La cantidad a comprar excede el stock permitido.","error");                
             }
-
-
-
-            _Monto = (int.Parse(txtCantidadAdd.Text) * decimal.Parse(txtPrecio.Text));
-
-            impuestoAdd = (_Monto * _impuesto) / 100;
-
-            _Total = _Monto + impuestoAdd;
-
-            var modelo = new FacturaViewModel();
-            var dfactura = new Facturacion.DetalleFactura();
-            var detalleFacturasLista = new List<Facturacion.DetalleFactura>();
-
-
-            dfactura.IdFactura = 0;
-            dfactura.IdProducto = int.Parse(txtIdProducto.Text);
-            dfactura.nombreProducto = txtProductoServicio.Text;
-            dfactura.Cantidad = int.Parse(txtCantidadAdd.Text);
-            dfactura.PrecioUnitario = decimal.Parse(txtPrecio.Text);
-            dfactura.Descuento = 0;
-            dfactura.Monto = _Monto;
-            dfactura.Impuesto = impuestoAdd;
-            dfactura.Total = _Total;
-            dfactura.Tipo = label_Servicio_Producto.Text;
-
-            model.detalleFactura = dfactura;
-
-            if (DetalleFacturaList.Where(x => x.IdProducto == dfactura.IdProducto).Any())
+            else
             {
-                Helpers.ShowWarning($"El artículo: {dfactura.nombreProducto} ya está registrado en la tabla de compras.\n" +
-                                   "Si deseas actualizar su cantidad, por favor utiliza la opción editar.");
-                return;
+                // Actualizar el stock si la venta es válida
+                stock -= cantidadAComprar;
+                _Monto = (int.Parse(txtCantidadAdd.Text) * decimal.Parse(txtPrecio.Text));
+                impuestoAdd = (_Monto * _impuesto) / 100;
+
+                _Total = _Monto + impuestoAdd;
+
+                var modelo = new FacturaViewModel();
+                var dfactura = new Facturacion.DetalleFactura();
+                var detalleFacturasLista = new List<Facturacion.DetalleFactura>();
+
+
+                dfactura.IdFactura = 0;
+                dfactura.IdProducto = int.Parse(txtIdProducto.Text);
+                dfactura.nombreProducto = txtProductoServicio.Text;
+                dfactura.Cantidad = int.Parse(txtCantidadAdd.Text);
+                dfactura.PrecioUnitario = decimal.Parse(txtPrecio.Text);
+                dfactura.Descuento = 0;
+                dfactura.Monto = _Monto;
+                dfactura.Impuesto = impuestoAdd;
+                dfactura.Total = _Total;
+                dfactura.Tipo = label_Servicio_Producto.Text;
+
+                model.detalleFactura = dfactura;
+
+                if (DetalleFacturaList.Where(x => x.IdProducto == dfactura.IdProducto).Any())
+                {
+                    Helpers.ShowWarning($"El artículo: {dfactura.nombreProducto} ya está registrado en la tabla de compras.\n" +
+                                       "Si deseas actualizar su cantidad, por favor utiliza la opción editar.");
+                    return;
+                }
+                AddFactura(model);
+
             }
-
-
-            AddFactura(model);
         }
 
 
@@ -223,6 +227,9 @@ namespace UI_UX_Dashboard_P1.UI
             LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Total):N2}";
 
 
+            var updateStock = int.Parse(txtStock.Text) - int.Parse(txtCantidadAdd.Text);
+
+            txtStock.Text = updateStock.ToString();
 
             ConfigureDataGridView();
         }
@@ -366,15 +373,15 @@ namespace UI_UX_Dashboard_P1.UI
 
         private void txtPrecio_TextChanged(object sender, EventArgs e)
         {
-            if (txtPrecio.Text != "")
-            {
-                if (label_Servicio_Producto.Text == "Producto" && (decimal.Parse(txtPrecio.Text.ToString()) <= precio_costo))
-                {
-                    Helpers.ShowTypeError("El precio digitado no puede ser menor o igual al de compra", "error");
-                    txtPrecio.Text = precio_original.Value.ToString();
-                    return;
-                }
-            }
+            //if (txtPrecio.Text != "")
+            //{
+            //    if (label_Servicio_Producto.Text == "Producto" && (decimal.Parse(txtPrecio.Text.ToString()) <= precio_costo))
+            //    {
+            //        Helpers.ShowTypeError("El precio digitado no puede ser menor o igual al de compra", "error");
+            //        txtPrecio.Text = precio_original.Value.ToString();
+            //        return;
+            //    }
+            //}
         }
 
         private void txtCantidadAdd_TextChanged(object sender, EventArgs e)
@@ -425,10 +432,12 @@ namespace UI_UX_Dashboard_P1.UI
                         var result = MessageBox.Show("¿Estás seguro de que deseas eliminar este registro?", "Confirmar eliminación", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
-                            //compraViewModels.RemoveAt(e.RowIndex);
-                            //bindingSource_listado_producto_nuevos.ResetBindings(false);
-                            //calcularMontoApagar();
-                        } 
+
+                            DetalleFacturaList.RemoveAt(e.RowIndex);
+                            bindingSource_producto_servicios_a_facturar.ResetBindings(false);
+                            LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Total):N2}";
+                            txtStock.Text = stock_original.ToString();
+                        }
                         break;
 
                     case 1:

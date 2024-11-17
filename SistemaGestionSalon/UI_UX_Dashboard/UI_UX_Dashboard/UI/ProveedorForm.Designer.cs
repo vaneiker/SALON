@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtDiasCancelacion = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtLimiteCredito = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.textBox_direccion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.maskedTextBox_cedula = new System.Windows.Forms.MaskedTextBox();
@@ -52,19 +56,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_cantidad_registro = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bindingSource_Proveedor = new System.Windows.Forms.BindingSource(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.txtBuscador = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtLimiteCredito = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtDiasCancelacion = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ProveedorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +67,15 @@
             this.DireccionProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LimiteCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiasCancelacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource_Proveedor = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtBuscador = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -123,13 +123,57 @@
             this.panel4.Size = new System.Drawing.Size(230, 479);
             this.panel4.TabIndex = 2;
             // 
+            // txtDiasCancelacion
+            // 
+            this.txtDiasCancelacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiasCancelacion.Location = new System.Drawing.Point(15, 302);
+            this.txtDiasCancelacion.Name = "txtDiasCancelacion";
+            this.txtDiasCancelacion.Size = new System.Drawing.Size(207, 22);
+            this.txtDiasCancelacion.TabIndex = 25;
+            this.txtDiasCancelacion.Text = "0";
+            this.txtDiasCancelacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDiasCancelacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiasCancelacion_KeyPress);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label14.Location = new System.Drawing.Point(18, 284);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(138, 16);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Días de cancelación";
+            // 
+            // txtLimiteCredito
+            // 
+            this.txtLimiteCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLimiteCredito.Location = new System.Drawing.Point(14, 252);
+            this.txtLimiteCredito.Name = "txtLimiteCredito";
+            this.txtLimiteCredito.Size = new System.Drawing.Size(208, 22);
+            this.txtLimiteCredito.TabIndex = 23;
+            this.txtLimiteCredito.Text = "0.00";
+            this.txtLimiteCredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtLimiteCredito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtliitecredito_KeyPress);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label8.Location = new System.Drawing.Point(19, 234);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 16);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Límite de crédito";
+            // 
             // textBox_direccion
             // 
             this.textBox_direccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_direccion.Location = new System.Drawing.Point(15, 346);
             this.textBox_direccion.Multiline = true;
             this.textBox_direccion.Name = "textBox_direccion";
-            this.textBox_direccion.Size = new System.Drawing.Size(201, 37);
+            this.textBox_direccion.Size = new System.Drawing.Size(207, 37);
             this.textBox_direccion.TabIndex = 21;
             // 
             // label7
@@ -145,10 +189,10 @@
             // 
             // maskedTextBox_cedula
             // 
-            this.maskedTextBox_cedula.Location = new System.Drawing.Point(23, 119);
+            this.maskedTextBox_cedula.Location = new System.Drawing.Point(14, 119);
             this.maskedTextBox_cedula.Mask = "000-0000000-0";
             this.maskedTextBox_cedula.Name = "maskedTextBox_cedula";
-            this.maskedTextBox_cedula.Size = new System.Drawing.Size(199, 20);
+            this.maskedTextBox_cedula.Size = new System.Drawing.Size(208, 20);
             this.maskedTextBox_cedula.TabIndex = 19;
             // 
             // label13
@@ -192,7 +236,7 @@
             // 
             this.maskedTextBox_correo.Location = new System.Drawing.Point(16, 405);
             this.maskedTextBox_correo.Name = "maskedTextBox_correo";
-            this.maskedTextBox_correo.Size = new System.Drawing.Size(198, 20);
+            this.maskedTextBox_correo.Size = new System.Drawing.Size(206, 20);
             this.maskedTextBox_correo.TabIndex = 15;
             // 
             // label11
@@ -208,10 +252,10 @@
             // 
             // maskedTextBox_telefono
             // 
-            this.maskedTextBox_telefono.Location = new System.Drawing.Point(24, 209);
+            this.maskedTextBox_telefono.Location = new System.Drawing.Point(14, 209);
             this.maskedTextBox_telefono.Mask = "(000)-000-0000";
             this.maskedTextBox_telefono.Name = "maskedTextBox_telefono";
-            this.maskedTextBox_telefono.Size = new System.Drawing.Size(199, 20);
+            this.maskedTextBox_telefono.Size = new System.Drawing.Size(209, 20);
             this.maskedTextBox_telefono.TabIndex = 13;
             // 
             // label10
@@ -227,10 +271,10 @@
             // 
             // maskedTextBox_celular
             // 
-            this.maskedTextBox_celular.Location = new System.Drawing.Point(23, 162);
+            this.maskedTextBox_celular.Location = new System.Drawing.Point(14, 162);
             this.maskedTextBox_celular.Mask = "(000)-000-0000";
             this.maskedTextBox_celular.Name = "maskedTextBox_celular";
-            this.maskedTextBox_celular.Size = new System.Drawing.Size(199, 20);
+            this.maskedTextBox_celular.Size = new System.Drawing.Size(208, 20);
             this.maskedTextBox_celular.TabIndex = 11;
             // 
             // label9
@@ -247,9 +291,9 @@
             // txtnombre
             // 
             this.txtnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnombre.Location = new System.Drawing.Point(21, 70);
+            this.txtnombre.Location = new System.Drawing.Point(14, 70);
             this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(201, 22);
+            this.txtnombre.Size = new System.Drawing.Size(208, 22);
             this.txtnombre.TabIndex = 5;
             // 
             // label6
@@ -267,9 +311,9 @@
             // 
             this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(21, 27);
+            this.txtCodigo.Location = new System.Drawing.Point(14, 27);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(201, 22);
+            this.txtCodigo.Size = new System.Drawing.Size(208, 22);
             this.txtCodigo.TabIndex = 3;
             // 
             // label5
@@ -349,138 +393,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(412, 418);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(150)))), ((int)(((byte)(202)))));
-            this.label3.Location = new System.Drawing.Point(3, 11);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(202, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Listado de Proveedor";
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.txtBuscador);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(23, 70);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(680, 44);
-            this.panel3.TabIndex = 2;
-            // 
-            // txtBuscador
-            // 
-            this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscador.Location = new System.Drawing.Point(485, 9);
-            this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(188, 22);
-            this.txtBuscador.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(150)))), ((int)(((byte)(202)))));
-            this.label4.Location = new System.Drawing.Point(412, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 20);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Buscar";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(150)))), ((int)(((byte)(202)))));
-            this.label1.Location = new System.Drawing.Point(15, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Proveedor";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(150)))), ((int)(((byte)(202)))));
-            this.panel5.Controls.Add(this.button1);
-            this.panel5.Controls.Add(this.label12);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(715, 38);
-            this.panel5.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(663, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 27);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(315, 9);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 20);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Proveedor";
-            // 
-            // txtLimiteCredito
-            // 
-            this.txtLimiteCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLimiteCredito.Location = new System.Drawing.Point(15, 252);
-            this.txtLimiteCredito.Name = "txtLimiteCredito";
-            this.txtLimiteCredito.Size = new System.Drawing.Size(207, 22);
-            this.txtLimiteCredito.TabIndex = 23;
-            this.txtLimiteCredito.Text = "0.00";
-            this.txtLimiteCredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtLimiteCredito.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtliitecredito_KeyPress);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label8.Location = new System.Drawing.Point(19, 234);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 16);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Límite de crédito";
-            // 
-            // txtDiasCancelacion
-            // 
-            this.txtDiasCancelacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiasCancelacion.Location = new System.Drawing.Point(14, 302);
-            this.txtDiasCancelacion.Name = "txtDiasCancelacion";
-            this.txtDiasCancelacion.Size = new System.Drawing.Size(208, 22);
-            this.txtDiasCancelacion.TabIndex = 25;
-            this.txtDiasCancelacion.Text = "0";
-            this.txtDiasCancelacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtDiasCancelacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiasCancelacion_KeyPress);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label14.Location = new System.Drawing.Point(18, 284);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(138, 16);
-            this.label14.TabIndex = 24;
-            this.label14.Text = "Días de cancelación";
             // 
             // btnEditar
             // 
@@ -572,6 +484,94 @@
             this.DiasCancelacion.Name = "DiasCancelacion";
             this.DiasCancelacion.ReadOnly = true;
             this.DiasCancelacion.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(150)))), ((int)(((byte)(202)))));
+            this.label3.Location = new System.Drawing.Point(3, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(202, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Listado de Proveedor";
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.txtBuscador);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Location = new System.Drawing.Point(23, 70);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(680, 44);
+            this.panel3.TabIndex = 2;
+            // 
+            // txtBuscador
+            // 
+            this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscador.Location = new System.Drawing.Point(485, 9);
+            this.txtBuscador.Name = "txtBuscador";
+            this.txtBuscador.Size = new System.Drawing.Size(188, 22);
+            this.txtBuscador.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(150)))), ((int)(((byte)(202)))));
+            this.label4.Location = new System.Drawing.Point(412, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 20);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Buscar";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(150)))), ((int)(((byte)(202)))));
+            this.label1.Location = new System.Drawing.Point(15, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Proveedor";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(150)))), ((int)(((byte)(202)))));
+            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.label12);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(715, 38);
+            this.panel5.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(663, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(49, 27);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(315, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(99, 20);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Proveedor";
             // 
             // ProveedorForm
             // 

@@ -17,6 +17,8 @@ namespace ENTITY.Entitis
         public string DireccionProveedor { get; set; }  
         public DateTime? FechaRegistroProveedor { get; set; }  
         public decimal? LimiteCredito { get; set; }
-        public int? DiasCancelacion { get; set; }
+        public int? DiasCancelacion { get; set; } 
+        public string HostName { get; set; }  
+        public int? Usuario { get; set; } 
     }
 }
