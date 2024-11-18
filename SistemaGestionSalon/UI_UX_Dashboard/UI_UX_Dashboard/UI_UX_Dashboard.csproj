@@ -52,6 +52,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -404,6 +405,9 @@
     <Content Include="icon\user.png" />
     <Content Include="icon\whatsapp.png" />
     <Content Include="icon\youtube.png" />
+    <Content Include="Templeat\FacturaConsumidoFinal.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Templeat\ComprobanteCompra.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

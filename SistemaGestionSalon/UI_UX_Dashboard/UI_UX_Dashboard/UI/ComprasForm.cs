@@ -847,6 +847,7 @@ namespace UI_UX_Dashboard_P1.UI
                 Helpers.ShowError("Error en el metodo de: GenerateInvoiceHtml ", ex);
             }  
         }
+    
     }
 }
 

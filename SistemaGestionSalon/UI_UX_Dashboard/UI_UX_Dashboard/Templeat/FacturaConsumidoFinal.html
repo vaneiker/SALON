@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Factura de Compra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 700px;
+            margin: auto;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+
+        .header,
+        .footer {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .header img {
+            max-width: 100px;
+        }
+
+        .company-info {
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .section {
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 5px;
+        }
+
+        .details-table,
+        .totals-table,
+        .conditions-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .details-table th,
+        .details-table td,
+        .totals-table td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .totals-table td {
+            font-weight: bold;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .right {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <br/>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="~/icon/man.png" alt="Logo de la empresa" />
+            <div class="company-info">
+                {{empresa}}<br />
+                RNC: {{rncempresa}}<br />
+                DIRECCION {{direccion}}, REPUBLICA DOMINICANA<br />
+                Teléfono: {{telefono}}
+                <p>Fecha Facturación: {{fecha_factura}}</p>
+            </div>
+            <h2>FACTURACIÓN CONSUMIDOR FINAL</h2>
+        </div>
+        <!-- Datos del Cliente -->
+        <div class="section">
+            <div class="section-title">DATOS DEL CLIENTE</div>
+            <p><strong>Nombre:</strong> {{cliente_nombre}}</p>
+            <p><strong>Dirección:</strong> {{cliente_direccion}}</p>
+            <p><strong>Teléfono:</strong> {{cliente_telefono}}</p>
+            <p><strong>Email:</strong> {{cliente_email}}</p>
+        </div>
+
+        <!-- Detalles de productos -->
+        <div class="section">
+            <table class="details-table">
+                <thead>
+                    <tr> 
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Precio Costo</th>
+                        <th>Impuesto</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Filas de productos -->
+                    {{<tr></tr>}}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Totales -->
+        <div class="section">
+            <table class="totals-table">
+                <tr>
+                    <td class="left">Total Bruto:</td>
+                    <td class="right">RD$ {{total_bruto}}</td>
+                </tr>
+                <tr>
+                    <td class="left">ITBIS:</td>
+                    <td class="right">RD$ {{itbis}}</td>
+                </tr>
+                <tr>
+                    <td class="left">Total a Pagar:</td>
+                    <td class="right">RD$ {{total_neto}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Condición de Pago y Valor en Letras -->
+        <div class="section">
+            <p><strong>CONDICIÓN DE PAGO</strong></p>
+            <p>Pago en {{condicion_pago}}</p>
+        </div>
+
+        <!-- Observaciones -->
+        <div class="section">
+            <p><strong>OBSERVACIONES</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultricies ullamcorper turpis.
+                Integer scelerisque dolor at arcu gravida, eget consectetur nisi mollis.</p>
+        </div>
+
+        <div class="section">
+             <strong>Atendido por:</strong>
+                <p>{{usuario}}</p> 
+        </div>
+    </div>
+</body>
+
+</html>

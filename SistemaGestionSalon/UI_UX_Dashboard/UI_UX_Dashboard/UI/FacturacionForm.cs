@@ -11,26 +11,29 @@ using UI_UX_Dashboard_P1.Custom;
 using UI_UX_Dashboard_P1.ViewModel;
 using System.Text.RegularExpressions;
 using ENTITY;
+using BLL;
 
 namespace UI_UX_Dashboard_P1.UI
 {
     public partial class FacturacionForm : Form
     {
         Seccion seccion = Seccion.Instance;
-        private ProveedoresAdmin dbp = new ProveedoresAdmin();
         private ProductoServiciosInventariosAdmin dbpro = new ProductoServiciosInventariosAdmin();
         private DropDownListAdmin drop = new DropDownListAdmin();
         private List<Facturacion.DetalleFactura> DetalleFacturaList = new List<Facturacion.DetalleFactura>();
         private ClienteAdmin clienteAdmin = new ClienteAdmin();
         private FacturaViewModel model = new FacturaViewModel();
         private FacturacionAdmin dbFactura = new FacturacionAdmin();
+
+
         private decimal? _impuesto { get; set; } = 0.00m;
         private decimal? precio_original { get; set; }
         private int? stock_original { get; set; }
         private decimal? precio_costo { get; set; }
         private int stockMinimo { get; set; }
-
         private bool? permitirActualizar { get; set; }
+        string cliente_direccion { get; set; }
+
 
 
         public FacturacionForm()
@@ -104,6 +107,8 @@ namespace UI_UX_Dashboard_P1.UI
                 txttelefono.Text = cliente.Telefono;
                 txtcorreo.Text = cliente.Email;
                 txtIdCliente.Text = cliente.ClienteID.ToString();
+                cliente_direccion = cliente.Direccion;
+
             }
         }
 
@@ -121,6 +126,7 @@ namespace UI_UX_Dashboard_P1.UI
                 precio_original = producto.PrecioVentaBase;
                 precio_costo = producto.Precio;
                 stock_original = producto.Stock;
+
 
                 if (producto.Tipo == "Servicio")
                 {
@@ -152,21 +158,13 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 Helpers.ShowTypeError("Favor selecionar un producto o cliente", "error");
                 return;
-            }
-
+            } 
 
             if (string.IsNullOrWhiteSpace(txtCantidadAdd.Text) || txtCantidadAdd.Text == "0")
             {
                 Helpers.ShowTypeError("Digite la cantidad", "error");
                 return;
-            }
-
-
-
-
-
-
-
+            } 
             cantidadAComprar = int.Parse(txtCantidadAdd.Text);
             stock = int.Parse(txtStock.Text);
 
@@ -588,8 +586,10 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 Facturar();
             }
-
-
+            else
+            {
+                Helpers.ShowError("No existe producto agregado");
+            }
         }
 
         private void Facturar()
@@ -615,38 +615,181 @@ namespace UI_UX_Dashboard_P1.UI
                 foreach (var i in DetalleFacturaList)
                 {
                     dbFactura.GuardarCompraDetallesFactura(new Facturacion.DetalleFactura()
-                    { 
-                        IdDetalle=0,
-                        IdFactura=0,
-                        nombreProducto= i.nombreProducto,
-                        IdProducto= i.IdProducto,
+                    {
+                        IdDetalle = 0,
+                        IdFactura = 0,
+                        nombreProducto = i.nombreProducto,
+                        IdProducto = i.IdProducto,
                         Cantidad = i.Cantidad,
                         PrecioUnitario = i.PrecioUnitario,
-                        Descuento=0,
+                        Descuento = 0,
                         Monto = i.Monto,
                         Impuesto = i.Impuesto,
                         Total = i.Total,
                         Usuario = seccion.UsuarioID,
                         Tipo = i.Tipo
-                    }); 
-                    dbFactura.DescontarInventario(i.IdProducto, i.Cantidad,seccion.UsuarioID);
-                } 
+                    });
+                    dbFactura.DescontarInventario(i.IdProducto, i.Cantidad, seccion.UsuarioID);
+                }
+                GenerateInvoiceHtml(respuesta.ACTION, facturaHeader.Monto, facturaHeader.Impuesto, facturaHeader.Total, DetalleFacturaList);
             }
             catch (Exception ex)
             {
-                Helpers.ShowError("A ocurrido un error al guardar la factura. ",ex);
+                Helpers.ShowError("A ocurrido un error al guardar la factura. ", ex);
             }
+        }
+        private void GenerateInvoiceHtml(string Nofactura, decimal? subtotal, decimal? impuesto, decimal? total, List<Facturacion.DetalleFactura> items)
+        {
+            try
+            {
+                string htmlContent = Properties.Resources.FacturaConsumidoFinal.ToString();
+                string htmlRow = "";
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+
+
+
+                SaveFileDialog savefile = new SaveFileDialog();
+
+                savefile.FileName = string.Format($"{Nofactura}.pdf");
+                htmlContent = htmlContent.Replace("{{empresa}}", "Testing");
+                htmlContent = htmlContent.Replace("{{rncempresa}}", "Testing");
+                htmlContent = htmlContent.Replace("{{direccion}}", "Testing");
+                htmlContent = htmlContent.Replace("{{telefono}}", "Testing");
+
+                htmlContent = htmlContent.Replace("{{cliente_nombre}}", txtnombre.Text);
+                htmlContent = htmlContent.Replace("{{cliente_direccion}}", cliente_direccion);
+                htmlContent = htmlContent.Replace("{{cliente_telefono}}", txtcelular.Text);
+                htmlContent = htmlContent.Replace("{{cliente_email}}", txtcorreo.Text);
+                // Obtener la fecha actual en formato dd-MM-yyyy
+                string fechaFactura = DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss");
+
+                // Reemplazar el marcador {{fecha_factura}} en htmlContent con la fecha actual
+                htmlContent = htmlContent.Replace("{{fecha_factura}}", fechaFactura);
+
+
+                foreach (var item in items)
+                {
+                    htmlRow = htmlRow + $@"
+                             <tr> 
+                                 <td>{item.nombreProducto}</td>
+                                 <td>{item.Cantidad}</td>
+                                 <td>RD$ {item.PrecioUnitario.Value.ToString("C")}</td>
+                                 <td>RD$ {item.Impuesto.Value.ToString("C")}</td> 
+                                 <td>RD$ {item.Total.Value.ToString("C")}</td>
+                             </tr>";
+
+                }
+                htmlContent = htmlContent.Replace("{{<tr></tr>}}", htmlRow);
+                // Reemplazar los valores en el HTML con datos dinámicos
+                htmlContent = htmlContent.Replace("{{condicion_pago}}", items.FirstOrDefault().Tipo);
+                htmlContent = htmlContent.Replace("{{total_bruto}}", subtotal.Value.ToString("C"));
+                htmlContent = htmlContent.Replace("{{itbis}}", impuesto.Value.ToString("C"));
+                htmlContent = htmlContent.Replace("{{total_neto}}", total.Value.ToString("C"));
+                htmlContent = htmlContent.Replace("{{usuario}}", seccion.Nombre);
+                // Puedes añadir más reemplazos aquí según el contenido de tu HTML, como el nombre del proveedor, etc. 
+
+                //documentoLogAdmin.InsertarDocumentoLog(new DocumentoLog()
+                //{
+                //    TipoDocumento = "Comprobante de compras",
+                //    HtmlDocumento = htmlContent,
+                //    Usuario = seccion.UsuarioID,
+                //    NumeroComprobante = comprobante
+                //});
+
+
+                var popup = MessageBox.Show("¿Desea Imprimir el comprobante?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (popup == DialogResult.Yes)
+                {
+                    if (savefile.ShowDialog() == DialogResult.OK)
+                    {
+                        Tools.SavePDF(savefile, htmlContent);
+                    }
+                }
+                //CancelarEntrada("Facturacion");
+            }
+            catch (Exception ex)
+            {
+                Helpers.ShowError("Error en el metodo de: GenerateInvoiceHtml ", ex);
+            }
+        }
+
+        private void BtnBorrar_Click(object sender, EventArgs e)
+        {
+            LimpiarAll();
+        }
+
+        private void LimpiarAll()
+        { 
+            DetalleFacturaList = null;
+            _impuesto = 0;
+            precio_original = 0.00m;
+            stock_original = 0;
+            precio_costo = 0.00m;
+            stockMinimo = 0;
+            permitirActualizar = false;
+            cliente_direccion = string.Empty;
+            CargarAll(); 
+            txtProducto.Text = string.Empty;
+            txtStock.Text = string.Empty;
+            txtProductoServicio.Text = string.Empty;
+            txtIdProducto.Text = string.Empty;
+            txtPrecio.Text = string.Empty;
+            label_Servicio_Producto.Text = "Tipo de Articulo";
+            precio_original = 0.00m;
+            txtCantidadAdd.Text = "0";
+            txtCantidadAdd.Enabled = true; 
+            txtnombre.Text = string.Empty;
+            txtcedula.Text = string.Empty;
+            txtcelular.Text = string.Empty;
+            txttelefono.Text = string.Empty;
+            txtcorreo.Text = string.Empty;
+            txtIdCliente.Text = string.Empty;
+            cliente_direccion = string.Empty;
+            bindingSource_producto_servicios_a_facturar.DataSource = null;
+
+            if (checkBox_cambiar_precio.Checked == true)
+            {
+                txtCantidadAdd.Text = "1";
+                txtCantidadAdd.Enabled = false;
+            }
+            else
+            {
+                txtCantidadAdd.Text = "0";
+                txtCantidadAdd.Enabled = true;
+            }
+            LblTotalApagar.Text = "RD$ 00.00";
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            label_Servicio_Producto.Text = "Tipo de Articulo";
+            txtProducto.Text = string.Empty;
+            txtStock.Text = string.Empty;
+            txtProductoServicio.Text = string.Empty;
+            txtIdProducto.Text = string.Empty;
+            txtPrecio.Text = string.Empty; 
+            precio_original = 0.00m;
+            precio_costo = 0.00m;
+            stock_original = 0;
+            txtnombre.Text = string.Empty;
+            txtcedula.Text = string.Empty;
+            txtcelular.Text = string.Empty;
+            txttelefono.Text = string.Empty;
+            txtcorreo.Text = string.Empty;
+            txtIdCliente.Text = string.Empty;
+            cliente_direccion = string.Empty;
+            if (checkBox_cambiar_precio.Checked==true)
+            {
+                txtCantidadAdd.Text = "1";
+                txtCantidadAdd.Enabled = false;
+            }
+            else
+            {
+                txtCantidadAdd.Text = "0";
+                txtCantidadAdd.Enabled = true;
+            }
+            CargarAll();
         }
     }
 }
-/*
- public int? IdProducto { get; set; } 
-            public int? Cantidad { get; set; } 
-            public decimal? PrecioUnitario { get; set; } 
-            public decimal? Descuento { get; set; } 
-            public decimal? Monto { get; set; } 
-            public decimal? Impuesto { get; set; } 
-            public decimal? Total { get; set; } 
-            public int? Usuario { get; set; } 
-            public string Tipo { get; set; }
- */

@@ -192,6 +192,7 @@
             this.BtnBorrar.TabIndex = 37;
             this.BtnBorrar.Text = "CANCELAR";
             this.BtnBorrar.UseVisualStyleBackColor = false;
+            this.BtnBorrar.Click += new System.EventHandler(this.BtnBorrar_Click);
             // 
             // label21
             // 
@@ -456,6 +457,7 @@
             this.btnCancelar.Size = new System.Drawing.Size(53, 39);
             this.btnCancelar.TabIndex = 69;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label13
             // 
