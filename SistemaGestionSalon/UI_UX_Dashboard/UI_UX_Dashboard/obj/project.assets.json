@@ -5,14 +5,10 @@
       "BouncyCastle.Cryptography/2.4.0": {
         "type": "package",
         "compile": {
-          "lib/net461/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/BouncyCastle.Cryptography.dll": {}
         },
         "runtime": {
-          "lib/net461/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/BouncyCastle.Cryptography.dll": {}
         }
       },
       "EntityFramework/6.5.1": {
@@ -21,20 +17,12 @@
           "System.ComponentModel.DataAnnotations"
         ],
         "compile": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "runtime": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "build": {
           "buildTransitive/EntityFramework.props": {},
@@ -120,14 +108,10 @@
       "BouncyCastle.Cryptography/2.4.0": {
         "type": "package",
         "compile": {
-          "lib/net461/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/BouncyCastle.Cryptography.dll": {}
         },
         "runtime": {
-          "lib/net461/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/BouncyCastle.Cryptography.dll": {}
         }
       },
       "EntityFramework/6.5.1": {
@@ -136,135 +120,12 @@
           "System.ComponentModel.DataAnnotations"
         ],
         "compile": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "runtime": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
-        },
-        "build": {
-          "buildTransitive/EntityFramework.props": {},
-          "buildTransitive/EntityFramework.targets": {}
-        }
-      },
-      "HtmlToPdfSharp/1.0.2": {
-        "type": "package",
-        "compile": {
-          "lib/net461/HtmlToPdfSharpClassic.dll": {}
-        },
-        "runtime": {
-          "lib/net461/HtmlToPdfSharpClassic.dll": {}
-        },
-        "build": {
-          "build/net461/HtmlToPdfSharp.props": {}
-        }
-      },
-      "iTextSharp/5.5.13.4": {
-        "type": "package",
-        "dependencies": {
-          "BouncyCastle.Cryptography": "2.4.0"
-        },
-        "compile": {
-          "lib/net461/itextsharp.dll": {}
-        },
-        "runtime": {
-          "lib/net461/itextsharp.dll": {}
-        }
-      },
-      "itextsharp.xmlworker/5.5.13.4": {
-        "type": "package",
-        "dependencies": {
-          "iTextSharp": "5.5.13.4"
-        },
-        "compile": {
-          "lib/net461/itextsharp.xmlworker.dll": {}
-        },
-        "runtime": {
-          "lib/net461/itextsharp.xmlworker.dll": {}
-        }
-      },
-      "BLL/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.7.2",
-        "dependencies": {
-          "DAL": "1.0.0",
-          "ENTITY": "1.0.0",
-          "iTextSharp": "5.5.13.4"
-        },
-        "compile": {
-          "bin/placeholder/BLL.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BLL.dll": {}
-        }
-      },
-      "DAL/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.7.2",
-        "dependencies": {
-          "ENTITY": "1.0.0",
-          "EntityFramework": "6.2.0"
-        },
-        "compile": {
-          "bin/placeholder/DAL.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DAL.dll": {}
-        }
-      },
-      "ENTITY/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/ENTITY.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ENTITY.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.7.2/win-arm64": {
-      "BouncyCastle.Cryptography/2.4.0": {
-        "type": "package",
-        "compile": {
-          "lib/net461/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net461/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "EntityFramework/6.5.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.ComponentModel.DataAnnotations"
-        ],
-        "compile": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "build": {
           "buildTransitive/EntityFramework.props": {},
@@ -350,14 +211,10 @@
       "BouncyCastle.Cryptography/2.4.0": {
         "type": "package",
         "compile": {
-          "lib/net461/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/BouncyCastle.Cryptography.dll": {}
         },
         "runtime": {
-          "lib/net461/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/BouncyCastle.Cryptography.dll": {}
         }
       },
       "EntityFramework/6.5.1": {
@@ -366,20 +223,12 @@
           "System.ComponentModel.DataAnnotations"
         ],
         "compile": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "runtime": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "build": {
           "buildTransitive/EntityFramework.props": {},
@@ -465,14 +314,10 @@
       "BouncyCastle.Cryptography/2.4.0": {
         "type": "package",
         "compile": {
-          "lib/net461/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/BouncyCastle.Cryptography.dll": {}
         },
         "runtime": {
-          "lib/net461/BouncyCastle.Cryptography.dll": {
-            "related": ".xml"
-          }
+          "lib/net461/BouncyCastle.Cryptography.dll": {}
         }
       },
       "EntityFramework/6.5.1": {
@@ -481,20 +326,12 @@
           "System.ComponentModel.DataAnnotations"
         ],
         "compile": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "runtime": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "related": ".xml"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "related": ".SqlServer.xml;.xml"
-          }
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         },
         "build": {
           "buildTransitive/EntityFramework.props": {},
@@ -745,7 +582,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj",
-      "projectName": "UI UX Dashboard P1",
+      "projectName": "UI_UX_Dashboard",
       "projectPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj",
       "packagesPath": "C:\\Users\\pveneiker\\.nuget\\packages\\",
       "outputPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\obj\\",
@@ -776,11 +613,6 @@
             }
           }
         }
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -807,9 +639,6 @@
     },
     "runtimes": {
       "win": {
-        "#import": []
-      },
-      "win-arm64": {
         "#import": []
       },
       "win-x64": {

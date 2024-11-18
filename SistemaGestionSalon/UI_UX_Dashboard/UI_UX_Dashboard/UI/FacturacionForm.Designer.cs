@@ -266,6 +266,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Tarjeta Debito o Credito";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // txtCantidadPagado
             // 
@@ -384,7 +385,7 @@
             this.checkBox_cambiar_precio.ForeColor = System.Drawing.Color.Tomato;
             this.checkBox_cambiar_precio.Location = new System.Drawing.Point(10, 155);
             this.checkBox_cambiar_precio.Name = "checkBox_cambiar_precio";
-            this.checkBox_cambiar_precio.Size = new System.Drawing.Size(229, 20);
+            this.checkBox_cambiar_precio.Size = new System.Drawing.Size(230, 20);
             this.checkBox_cambiar_precio.TabIndex = 74;
             this.checkBox_cambiar_precio.Text = "¿Desea Cambiar el Precio%?";
             this.checkBox_cambiar_precio.UseVisualStyleBackColor = true;
@@ -397,7 +398,7 @@
             this.lblPre.ForeColor = System.Drawing.Color.LightCoral;
             this.lblPre.Location = new System.Drawing.Point(255, 127);
             this.lblPre.Name = "lblPre";
-            this.lblPre.Size = new System.Drawing.Size(52, 16);
+            this.lblPre.Size = new System.Drawing.Size(53, 16);
             this.lblPre.TabIndex = 73;
             this.lblPre.Text = "Precio";
             // 
@@ -422,7 +423,7 @@
             this.label14.ForeColor = System.Drawing.Color.LightCoral;
             this.label14.Location = new System.Drawing.Point(396, 127);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 16);
+            this.label14.Size = new System.Drawing.Size(70, 16);
             this.label14.TabIndex = 71;
             this.label14.Text = "Cantidad";
             // 
@@ -461,7 +462,7 @@
             this.label13.ForeColor = System.Drawing.Color.LightCoral;
             this.label13.Location = new System.Drawing.Point(8, 73);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(57, 16);
+            this.label13.Size = new System.Drawing.Size(58, 16);
             this.label13.TabIndex = 65;
             this.label13.Text = "Código";
             // 
@@ -496,7 +497,7 @@
             this.label12.ForeColor = System.Drawing.Color.LightCoral;
             this.label12.Location = new System.Drawing.Point(97, 72);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(135, 16);
+            this.label12.Size = new System.Drawing.Size(136, 16);
             this.label12.TabIndex = 63;
             this.label12.Text = "Cantidad existente";
             // 
@@ -516,7 +517,7 @@
             this.label11.ForeColor = System.Drawing.Color.LightCoral;
             this.label11.Location = new System.Drawing.Point(238, 72);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(138, 16);
+            this.label11.Size = new System.Drawing.Size(139, 16);
             this.label11.TabIndex = 61;
             this.label11.Text = "Producto Servicios";
             // 
@@ -527,7 +528,7 @@
             this.label10.ForeColor = System.Drawing.Color.LightCoral;
             this.label10.Location = new System.Drawing.Point(457, 72);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 16);
+            this.label10.Size = new System.Drawing.Size(100, 16);
             this.label10.TabIndex = 60;
             this.label10.Text = "Código Barra";
             // 
@@ -614,7 +615,7 @@
             this.label9.ForeColor = System.Drawing.Color.LightCoral;
             this.label9.Location = new System.Drawing.Point(366, 123);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 16);
+            this.label9.Size = new System.Drawing.Size(55, 16);
             this.label9.TabIndex = 62;
             this.label9.Text = "Correo";
             // 
@@ -625,7 +626,7 @@
             this.label8.ForeColor = System.Drawing.Color.LightCoral;
             this.label8.Location = new System.Drawing.Point(243, 123);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 16);
+            this.label8.Size = new System.Drawing.Size(70, 16);
             this.label8.TabIndex = 61;
             this.label8.Text = "Telefono";
             // 
@@ -636,7 +637,7 @@
             this.label7.ForeColor = System.Drawing.Color.LightCoral;
             this.label7.Location = new System.Drawing.Point(154, 123);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 16);
+            this.label7.Size = new System.Drawing.Size(57, 16);
             this.label7.TabIndex = 60;
             this.label7.Text = "Celular";
             // 
@@ -647,7 +648,7 @@
             this.label6.ForeColor = System.Drawing.Color.LightCoral;
             this.label6.Location = new System.Drawing.Point(372, 71);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 16);
+            this.label6.Size = new System.Drawing.Size(57, 16);
             this.label6.TabIndex = 59;
             this.label6.Text = "Cedula";
             // 
@@ -658,7 +659,7 @@
             this.label5.ForeColor = System.Drawing.Color.LightCoral;
             this.label5.Location = new System.Drawing.Point(243, 71);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 16);
+            this.label5.Size = new System.Drawing.Size(63, 16);
             this.label5.TabIndex = 58;
             this.label5.Text = "Nombre";
             // 
@@ -669,7 +670,7 @@
             this.label4.ForeColor = System.Drawing.Color.LightCoral;
             this.label4.Location = new System.Drawing.Point(156, 71);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 16);
+            this.label4.Size = new System.Drawing.Size(58, 16);
             this.label4.TabIndex = 57;
             this.label4.Text = "Código";
             // 

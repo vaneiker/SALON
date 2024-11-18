@@ -393,15 +393,19 @@ namespace UI_UX_Dashboard_P1.UI
 
         private void txtPrecio_TextChanged(object sender, EventArgs e)
         {
-            //if (txtPrecio.Text != "")
-            //{
-            //    if (label_Servicio_Producto.Text == "Producto" && (decimal.Parse(txtPrecio.Text.ToString()) <= precio_costo))
-            //    {
-            //        Helpers.ShowTypeError("El precio digitado no puede ser menor o igual al de compra", "error");
-            //        txtPrecio.Text = precio_original.Value.ToString();
-            //        return;
-            //    }
-            //}
+            TextBox textBox = sender as TextBox;
+
+            if (textBox != null && textBox.Text.Length > 0 && textBox.Text[0] == '0')
+            {
+                // Eliminar el primer carácter si es '0'
+                textBox.Text = textBox.Text.Substring(1);
+
+                // Mover el cursor al final del texto
+                textBox.SelectionStart = textBox.Text.Length;
+            }
+
+            //txtPrecio.Text = new string(txtPrecio.Text.Where(char.IsDigit).ToArray());
+            //txtPrecio.SelectionStart = txtPrecio.Text.Length; // Mantener el cursor al final
         }
 
         private void txtCantidadAdd_TextChanged(object sender, EventArgs e)
@@ -419,9 +423,7 @@ namespace UI_UX_Dashboard_P1.UI
             }
 
             txtCantidadAdd.Text = new string(txtCantidadAdd.Text.Where(char.IsDigit).ToArray());
-            txtCantidadAdd.SelectionStart = txtCantidadAdd.Text.Length; // Mantener el cursor al final
-
-
+            txtCantidadAdd.SelectionStart = txtCantidadAdd.Text.Length; // Mantener el cursor al final 
         }
 
         private void txtCantidadPagado_TextChanged(object sender, EventArgs e)
@@ -527,6 +529,12 @@ namespace UI_UX_Dashboard_P1.UI
                 // Prevenir la entrada de otras teclas
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            FrmTarjetaMedioPago frmTarjeta = new FrmTarjetaMedioPago();
+            frmTarjeta.ShowDialog();
         }
     }
 }

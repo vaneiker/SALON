@@ -27,14 +27,15 @@
             this.labelExpiryDate = new System.Windows.Forms.Label();
             this.labelCVV = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.checkBox_Domiciliar = new System.Windows.Forms.CheckBox();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
-
             // 
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.White;
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.Controls.Add(this.checkBox_Domiciliar);
             this.panelMain.Controls.Add(this.maskedTextBoxCardNumber);
             this.panelMain.Controls.Add(this.textBoxCardHolder);
             this.panelMain.Controls.Add(this.maskedTextBoxExpiryDate);
@@ -48,7 +49,6 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(360, 320);
             this.panelMain.TabIndex = 0;
-
             // 
             // maskedTextBoxCardNumber
             // 
@@ -58,7 +58,6 @@
             this.maskedTextBoxCardNumber.Size = new System.Drawing.Size(243, 20);
             this.maskedTextBoxCardNumber.TabIndex = 0;
             this.maskedTextBoxCardNumber.ValidatingType = typeof(int);
-
             // 
             // textBoxCardHolder
             // 
@@ -66,7 +65,6 @@
             this.textBoxCardHolder.Name = "textBoxCardHolder";
             this.textBoxCardHolder.Size = new System.Drawing.Size(243, 20);
             this.textBoxCardHolder.TabIndex = 1;
-
             // 
             // maskedTextBoxExpiryDate
             // 
@@ -75,7 +73,6 @@
             this.maskedTextBoxExpiryDate.Name = "maskedTextBoxExpiryDate";
             this.maskedTextBoxExpiryDate.Size = new System.Drawing.Size(78, 20);
             this.maskedTextBoxExpiryDate.TabIndex = 2;
-
             // 
             // maskedTextBoxCVV
             // 
@@ -84,61 +81,56 @@
             this.maskedTextBoxCVV.Name = "maskedTextBoxCVV";
             this.maskedTextBoxCVV.Size = new System.Drawing.Size(78, 20);
             this.maskedTextBoxCVV.TabIndex = 3;
-
             // 
             // labelCardNumber
             // 
             this.labelCardNumber.AutoSize = true;
-            this.labelCardNumber.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCardNumber.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelCardNumber.ForeColor = System.Drawing.Color.Gray;
             this.labelCardNumber.Location = new System.Drawing.Point(50, 40);
             this.labelCardNumber.Name = "labelCardNumber";
-            this.labelCardNumber.Size = new System.Drawing.Size(142, 19);
+            this.labelCardNumber.Size = new System.Drawing.Size(131, 19);
             this.labelCardNumber.TabIndex = 4;
             this.labelCardNumber.Text = "Número de Tarjeta *";
-
             // 
             // labelCardHolder
             // 
             this.labelCardHolder.AutoSize = true;
-            this.labelCardHolder.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCardHolder.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelCardHolder.ForeColor = System.Drawing.Color.Gray;
             this.labelCardHolder.Location = new System.Drawing.Point(50, 100);
             this.labelCardHolder.Name = "labelCardHolder";
-            this.labelCardHolder.Size = new System.Drawing.Size(115, 19);
+            this.labelCardHolder.Size = new System.Drawing.Size(123, 19);
             this.labelCardHolder.TabIndex = 5;
             this.labelCardHolder.Text = "Titular de la tarjeta";
-
             // 
             // labelExpiryDate
             // 
             this.labelExpiryDate.AutoSize = true;
-            this.labelExpiryDate.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelExpiryDate.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelExpiryDate.ForeColor = System.Drawing.Color.Gray;
             this.labelExpiryDate.Location = new System.Drawing.Point(50, 160);
             this.labelExpiryDate.Name = "labelExpiryDate";
-            this.labelExpiryDate.Size = new System.Drawing.Size(141, 19);
+            this.labelExpiryDate.Size = new System.Drawing.Size(138, 19);
             this.labelExpiryDate.TabIndex = 6;
             this.labelExpiryDate.Text = "Fecha de Expiración *";
-
             // 
             // labelCVV
             // 
             this.labelCVV.AutoSize = true;
-            this.labelCVV.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelCVV.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.labelCVV.ForeColor = System.Drawing.Color.Gray;
             this.labelCVV.Location = new System.Drawing.Point(150, 160);
             this.labelCVV.Name = "labelCVV";
-            this.labelCVV.Size = new System.Drawing.Size(39, 19);
+            this.labelCVV.Size = new System.Drawing.Size(46, 19);
             this.labelCVV.TabIndex = 7;
             this.labelCVV.Text = "CVV *";
-
             // 
             // btnSubmit
             // 
-            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(41, 121, 255);
+            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(121)))), ((int)(((byte)(255)))));
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSubmit.ForeColor = System.Drawing.Color.White;
             this.btnSubmit.Location = new System.Drawing.Point(100, 220);
             this.btnSubmit.Name = "btnSubmit";
@@ -146,8 +138,16 @@
             this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "Guardar";
             this.btnSubmit.UseVisualStyleBackColor = false;
-            
-
+            // 
+            // checkBox_Domiciliar
+            // 
+            this.checkBox_Domiciliar.AutoSize = true;
+            this.checkBox_Domiciliar.Location = new System.Drawing.Point(235, 180);
+            this.checkBox_Domiciliar.Name = "checkBox_Domiciliar";
+            this.checkBox_Domiciliar.Size = new System.Drawing.Size(76, 17);
+            this.checkBox_Domiciliar.TabIndex = 9;
+            this.checkBox_Domiciliar.Text = "Domisiliar?";
+            this.checkBox_Domiciliar.UseVisualStyleBackColor = true;
             // 
             // FrmTarjetaMedioPago
             // 
@@ -156,10 +156,12 @@
             this.ClientSize = new System.Drawing.Size(384, 361);
             this.Controls.Add(this.panelMain);
             this.Name = "FrmTarjetaMedioPago";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Captura de Tarjeta de Crédito";
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -174,5 +176,6 @@
         private System.Windows.Forms.Label labelExpiryDate;
         private System.Windows.Forms.Label labelCVV;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.CheckBox checkBox_Domiciliar;
     }
 }
