@@ -216,6 +216,7 @@
             this.btnCobrar.TabIndex = 36;
             this.btnCobrar.Text = "COBRAR";
             this.btnCobrar.UseVisualStyleBackColor = false;
+            this.btnCobrar.Click += new System.EventHandler(this.btnCobrar_Click);
             // 
             // label_cambio
             // 
@@ -276,9 +277,10 @@
             this.txtCantidadPagado.Name = "txtCantidadPagado";
             this.txtCantidadPagado.Size = new System.Drawing.Size(318, 45);
             this.txtCantidadPagado.TabIndex = 65;
-            this.txtCantidadPagado.Text = "0.00";
+            this.txtCantidadPagado.Text = "0";
             this.txtCantidadPagado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCantidadPagado.TextChanged += new System.EventHandler(this.txtCantidadPagado_TextChanged);
+            this.txtCantidadPagado.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidadPagado_KeyDown);
             // 
             // label18
             // 

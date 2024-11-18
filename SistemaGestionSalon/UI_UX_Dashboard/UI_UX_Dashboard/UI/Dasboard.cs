@@ -81,9 +81,9 @@ namespace UI_UX_Dashboard_P1
 
         private void btnCobros_Click(object sender, EventArgs e)
         {
-            FrmCaja cobros = new FrmCaja();
+            FacturacionForm facturacion = new FacturacionForm();
             this.Hide();
-            cobros.Show();
+            facturacion.ShowDialog();
         }
 
         private void btnAlmacen_Click(object sender, EventArgs e)

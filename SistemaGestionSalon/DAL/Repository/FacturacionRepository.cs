@@ -53,5 +53,18 @@ namespace DAL.Repository
             }
         }
 
+        public void DescontarInventario(int? IdProducto=0,int? Stock = 0, int? Usuario = 0)
+        {
+            using (var dbo = new salon_connection())
+            {
+                IEnumerable<Base> RetornarValue = dbo.Database.SqlQuery<Base>(
+                    "EXEC [Salon].[SP_SET_DESCONTAR_INVENTARIO]@IdProducto,@Stock,@Usuario",
+                  new SqlParameter("@IdProducto", IdProducto),
+                  new SqlParameter("@Stock", Stock), 
+                  new SqlParameter("@Usuario", Usuario)
+                  ).ToList();
+            }
+        }
+
     }
 }

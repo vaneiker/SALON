@@ -21,5 +21,9 @@ namespace BLL.Admin
         {
             db.InsertarDetallesFactura(s);
         } 
+        public void DescontarInventario(int? IdProducto = 0, int? Stock = 0, int? Usuario = 0)
+        {
+            db.DescontarInventario(IdProducto, Stock, Usuario);
+        } 
     }
 }

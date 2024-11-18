@@ -9,7 +9,8 @@ using System.Windows.Forms;
 using System.Configuration;
 using UI_UX_Dashboard_P1.Custom;
 using UI_UX_Dashboard_P1.ViewModel;
-
+using System.Text.RegularExpressions;
+using ENTITY;
 
 namespace UI_UX_Dashboard_P1.UI
 {
@@ -19,14 +20,10 @@ namespace UI_UX_Dashboard_P1.UI
         private ProveedoresAdmin dbp = new ProveedoresAdmin();
         private ProductoServiciosInventariosAdmin dbpro = new ProductoServiciosInventariosAdmin();
         private DropDownListAdmin drop = new DropDownListAdmin();
-        private List<CompraViewModel> compraViewModels = new List<CompraViewModel>();
         private List<Facturacion.DetalleFactura> DetalleFacturaList = new List<Facturacion.DetalleFactura>();
-        private ComprasAdmin comprasAdmin = new ComprasAdmin();
-        private ProductoServiciosInventariosAdmin inventariosAdmin = new ProductoServiciosInventariosAdmin();
-        private DocumentoLogAdmin documentoLogAdmin = new DocumentoLogAdmin();
         private ClienteAdmin clienteAdmin = new ClienteAdmin();
         private FacturaViewModel model = new FacturaViewModel();
-
+        private FacturacionAdmin dbFactura = new FacturacionAdmin();
         private decimal? _impuesto { get; set; } = 0.00m;
         private decimal? precio_original { get; set; }
         private int? stock_original { get; set; }
@@ -148,16 +145,16 @@ namespace UI_UX_Dashboard_P1.UI
             int? cantidadMinima = stockMinimo;
             int? cantidadAComprar = 0;
 
-            
-            
-            
-            if (string.IsNullOrWhiteSpace(txtIdProducto.Text) ||  string.IsNullOrWhiteSpace(txtIdCliente.Text))
+
+
+
+            if (string.IsNullOrWhiteSpace(txtIdProducto.Text) || string.IsNullOrWhiteSpace(txtIdCliente.Text))
             {
                 Helpers.ShowTypeError("Favor selecionar un producto o cliente", "error");
                 return;
             }
-            
-            
+
+
             if (string.IsNullOrWhiteSpace(txtCantidadAdd.Text) || txtCantidadAdd.Text == "0")
             {
                 Helpers.ShowTypeError("Digite la cantidad", "error");
@@ -176,7 +173,7 @@ namespace UI_UX_Dashboard_P1.UI
             // Validar si es posible realizar la venta
             if ((cantidadAComprar > stock - cantidadMinima) && label_Servicio_Producto.Text == "Producto")
             {
-                Helpers.ShowTypeError("No se puede realizar la venta. La cantidad a comprar excede el stock permitido.","error");                
+                Helpers.ShowTypeError("No se puede realizar la venta. La cantidad a comprar excede el stock permitido.", "error");
             }
             else
             {
@@ -250,7 +247,7 @@ namespace UI_UX_Dashboard_P1.UI
             if (model.detalleFactura.Tipo != "Servicio")
             {
                 txtStock.Text = updateStock.ToString();
-            } 
+            }
             ConfigureDataGridView();
         }
 
@@ -431,27 +428,60 @@ namespace UI_UX_Dashboard_P1.UI
             decimal? Total_A_Pagar = 0.00M;
             decimal? saldoTotal = 0.00m;
 
-            if (!string.IsNullOrWhiteSpace(txtCantidadPagado.Text))
+
+            // Validar el texto con una expresión regular que permita solo números
+            string text = txtCantidadPagado.Text;
+
+            // Reemplaza cualquier carácter que no sea un dígito
+            txtCantidadPagado.Text = Regex.Replace(text, @"[^\d]", "");
+
+            // Coloca el cursor al final del texto después de la corrección
+            txtCantidadPagado.SelectionStart = txtCantidadPagado.Text.Length;
+
+
+
+            if (DetalleFacturaList.Any())
             {
 
-                Total_A_Pagar = decimal.Parse(LblTotalApagar.Text.ToString().Replace("RD$", ""));
-                saldoTotal = Total_A_Pagar - decimal.Parse(txtCantidadPagado.Text.ToString());
-                //LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Total):N2}";
+                TextBox textBox = sender as TextBox;
 
-
-
-                if (decimal.Parse(txtCantidadPagado.Text.ToString()) > Total_A_Pagar)
+                if (textBox != null && textBox.Text.Length > 0 && textBox.Text[0] == '0')
                 {
-                    label_cambio.Text = $"RD$ {saldoTotal:N2}";
-                    label_cambio.ForeColor = Color.Red;
-                }
-                else
-                {
-                    label_cambio.Text = $"RD$ {saldoTotal:N2}";
+                    // Eliminar el primer carácter si es '0'
+                    textBox.Text = textBox.Text.Substring(1);
+
+                    // Mover el cursor al final del texto
+                    textBox.SelectionStart = textBox.Text.Length;
                 }
 
 
-                //10-9
+                if (!string.IsNullOrWhiteSpace(txtCantidadPagado.Text))
+                {
+
+                    Total_A_Pagar = decimal.Parse(LblTotalApagar.Text.ToString().Replace("RD$", ""));
+                    saldoTotal = Total_A_Pagar - decimal.Parse(txtCantidadPagado.Text.ToString());
+                    //LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Total):N2}";
+
+
+
+                    if (decimal.Parse(txtCantidadPagado.Text.ToString()) > Total_A_Pagar)
+                    {
+                        label_cambio.Text = $"RD$ {saldoTotal:N2}";
+                        label_cambio.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        label_cambio.Text = $"RD$ {saldoTotal:N2}";
+                    }
+
+
+                    //10-9
+                }
+            }
+            else
+            {
+                Helpers.ShowTypeError("No existe elemento agregado al listado de productos", "error");
+                txtCantidadPagado.Text = "0";
             }
         }
 
@@ -508,7 +538,7 @@ namespace UI_UX_Dashboard_P1.UI
             }
         }
 
-        
+
         private void txtCantidadAdd_KeyDown(object sender, KeyEventArgs e)
         {
             //// Permitir teclas de números (0-9) y teclas especiales como retroceso
@@ -536,5 +566,87 @@ namespace UI_UX_Dashboard_P1.UI
             FrmTarjetaMedioPago frmTarjeta = new FrmTarjetaMedioPago();
             frmTarjeta.ShowDialog();
         }
+
+        private void txtCantidadPagado_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) || // Teclado numérico superior
+                 (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) || // Teclado numérico derecho
+                 e.KeyCode == Keys.Back || // Retroceso
+                 e.KeyCode == Keys.Delete || // Suprimir
+                 e.KeyCode == Keys.Left || // Flecha izquierda
+                 e.KeyCode == Keys.Right)) // Flecha derecha
+            {
+                // Prevenir la entrada de otras teclas
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void btnCobrar_Click(object sender, EventArgs e)
+        {
+
+            if (DetalleFacturaList.Any())
+            {
+                Facturar();
+            }
+
+
+        }
+
+        private void Facturar()
+        {
+            Facturacion.Factura facturaHeader = new Facturacion.Factura();
+            try
+            {
+
+                facturaHeader.IdFactura = 0;
+                facturaHeader.NumeroFactura = string.Empty;
+                facturaHeader.TipoPago = "Efectivo";
+                facturaHeader.IdCliente = int.Parse(txtIdCliente.Text);
+                facturaHeader.Descuento = 0;
+                facturaHeader.Monto = DetalleFacturaList.Sum(x => x.Monto);
+                facturaHeader.Impuesto = DetalleFacturaList.Sum(x => x.Impuesto);
+                facturaHeader.Total = decimal.Parse(LblTotalApagar.Text.Replace("RD$", "").ToString());
+                facturaHeader.EsCredito = false;
+                facturaHeader.Usuario = seccion.UsuarioID;
+
+                var respuesta = dbFactura.GuardarFactura(facturaHeader);
+
+
+                foreach (var i in DetalleFacturaList)
+                {
+                    dbFactura.GuardarCompraDetallesFactura(new Facturacion.DetalleFactura()
+                    { 
+                        IdDetalle=0,
+                        IdFactura=0,
+                        nombreProducto= i.nombreProducto,
+                        IdProducto= i.IdProducto,
+                        Cantidad = i.Cantidad,
+                        PrecioUnitario = i.PrecioUnitario,
+                        Descuento=0,
+                        Monto = i.Monto,
+                        Impuesto = i.Impuesto,
+                        Total = i.Total,
+                        Usuario = seccion.UsuarioID,
+                        Tipo = i.Tipo
+                    }); 
+                    dbFactura.DescontarInventario(i.IdProducto, i.Cantidad,seccion.UsuarioID);
+                } 
+            }
+            catch (Exception ex)
+            {
+                Helpers.ShowError("A ocurrido un error al guardar la factura. ",ex);
+            }
+        }
     }
 }
+/*
+ public int? IdProducto { get; set; } 
+            public int? Cantidad { get; set; } 
+            public decimal? PrecioUnitario { get; set; } 
+            public decimal? Descuento { get; set; } 
+            public decimal? Monto { get; set; } 
+            public decimal? Impuesto { get; set; } 
+            public decimal? Total { get; set; } 
+            public int? Usuario { get; set; } 
+            public string Tipo { get; set; }
+ */

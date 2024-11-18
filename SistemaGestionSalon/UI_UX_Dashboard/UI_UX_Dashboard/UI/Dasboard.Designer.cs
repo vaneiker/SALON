@@ -269,7 +269,7 @@
             this.btnCobros.Name = "btnCobros";
             this.btnCobros.Size = new System.Drawing.Size(155, 30);
             this.btnCobros.TabIndex = 15;
-            this.btnCobros.Text = "Gestión Cobros";
+            this.btnCobros.Text = "Facturación";
             this.btnCobros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCobros.UseVisualStyleBackColor = true;
             this.btnCobros.Click += new System.EventHandler(this.btnCobros_Click);

@@ -19,8 +19,7 @@ namespace ENTITY.Entitis
             public decimal? Monto { get; set; } 
             public decimal? Impuesto { get; set; } 
             public decimal? Total { get; set; } 
-            public bool? EsCredito { get; set; } 
-            
+            public bool? EsCredito { get; set; }  
             public int? Usuario { get; set; } 
 
         }
