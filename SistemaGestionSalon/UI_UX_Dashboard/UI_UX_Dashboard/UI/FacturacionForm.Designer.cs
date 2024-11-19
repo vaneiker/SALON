@@ -40,9 +40,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.btnCobrar = new System.Windows.Forms.Button();
             this.label_cambio = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton_Otros = new System.Windows.Forms.RadioButton();
+            this.radioButton_Efectivo = new System.Windows.Forms.RadioButton();
+            this.radioButton_Tarjeta = new System.Windows.Forms.RadioButton();
             this.txtCantidadPagado = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.LblTotalApagar = new System.Windows.Forms.Label();
@@ -94,6 +94,7 @@
             this.MontoAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImpuestoAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -166,9 +167,9 @@
             this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.btnCobrar);
             this.panel1.Controls.Add(this.label_cambio);
-            this.panel1.Controls.Add(this.radioButton3);
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Controls.Add(this.radioButton_Otros);
+            this.panel1.Controls.Add(this.radioButton_Efectivo);
+            this.panel1.Controls.Add(this.radioButton_Tarjeta);
             this.panel1.Controls.Add(this.txtCantidadPagado);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.LblTotalApagar);
@@ -223,52 +224,54 @@
             // 
             this.label_cambio.AutoSize = true;
             this.label_cambio.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cambio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_cambio.ForeColor = System.Drawing.Color.Gray;
             this.label_cambio.Location = new System.Drawing.Point(128, 250);
             this.label_cambio.Name = "label_cambio";
             this.label_cambio.Size = new System.Drawing.Size(138, 31);
             this.label_cambio.TabIndex = 69;
             this.label_cambio.Text = "RD$ 00.00";
             // 
-            // radioButton3
+            // radioButton_Otros
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.ForeColor = System.Drawing.Color.Green;
-            this.radioButton3.Location = new System.Drawing.Point(117, 190);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(73, 28);
-            this.radioButton3.TabIndex = 68;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Otros";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton_Otros.AutoSize = true;
+            this.radioButton_Otros.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton_Otros.ForeColor = System.Drawing.Color.Green;
+            this.radioButton_Otros.Location = new System.Drawing.Point(117, 190);
+            this.radioButton_Otros.Name = "radioButton_Otros";
+            this.radioButton_Otros.Size = new System.Drawing.Size(73, 28);
+            this.radioButton_Otros.TabIndex = 68;
+            this.radioButton_Otros.TabStop = true;
+            this.radioButton_Otros.Text = "Otros";
+            this.radioButton_Otros.UseVisualStyleBackColor = true;
+            this.radioButton_Otros.CheckedChanged += new System.EventHandler(this.radioButton_Otros_CheckedChanged);
             // 
-            // radioButton2
+            // radioButton_Efectivo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.Color.Green;
-            this.radioButton2.Location = new System.Drawing.Point(17, 190);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(94, 28);
-            this.radioButton2.TabIndex = 67;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Efectivo";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton_Efectivo.AutoSize = true;
+            this.radioButton_Efectivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton_Efectivo.ForeColor = System.Drawing.Color.Green;
+            this.radioButton_Efectivo.Location = new System.Drawing.Point(17, 190);
+            this.radioButton_Efectivo.Name = "radioButton_Efectivo";
+            this.radioButton_Efectivo.Size = new System.Drawing.Size(94, 28);
+            this.radioButton_Efectivo.TabIndex = 67;
+            this.radioButton_Efectivo.TabStop = true;
+            this.radioButton_Efectivo.Text = "Efectivo";
+            this.radioButton_Efectivo.UseVisualStyleBackColor = true;
+            this.radioButton_Efectivo.CheckedChanged += new System.EventHandler(this.radioButton_Efectivo_CheckedChanged);
             // 
-            // radioButton1
+            // radioButton_Tarjeta
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.Color.Green;
-            this.radioButton1.Location = new System.Drawing.Point(17, 164);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(225, 28);
-            this.radioButton1.TabIndex = 66;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Tarjeta Debito o Credito";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButton_Tarjeta.AutoSize = true;
+            this.radioButton_Tarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton_Tarjeta.ForeColor = System.Drawing.Color.Green;
+            this.radioButton_Tarjeta.Location = new System.Drawing.Point(17, 164);
+            this.radioButton_Tarjeta.Name = "radioButton_Tarjeta";
+            this.radioButton_Tarjeta.Size = new System.Drawing.Size(225, 28);
+            this.radioButton_Tarjeta.TabIndex = 66;
+            this.radioButton_Tarjeta.TabStop = true;
+            this.radioButton_Tarjeta.Text = "Tarjeta Debito o Credito";
+            this.radioButton_Tarjeta.UseVisualStyleBackColor = true;
+            this.radioButton_Tarjeta.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // txtCantidadPagado
             // 
@@ -388,7 +391,7 @@
             this.checkBox_cambiar_precio.ForeColor = System.Drawing.Color.Tomato;
             this.checkBox_cambiar_precio.Location = new System.Drawing.Point(10, 155);
             this.checkBox_cambiar_precio.Name = "checkBox_cambiar_precio";
-            this.checkBox_cambiar_precio.Size = new System.Drawing.Size(230, 20);
+            this.checkBox_cambiar_precio.Size = new System.Drawing.Size(229, 20);
             this.checkBox_cambiar_precio.TabIndex = 74;
             this.checkBox_cambiar_precio.Text = "¿Desea Cambiar el Precio%?";
             this.checkBox_cambiar_precio.UseVisualStyleBackColor = true;
@@ -401,7 +404,7 @@
             this.lblPre.ForeColor = System.Drawing.Color.LightCoral;
             this.lblPre.Location = new System.Drawing.Point(255, 127);
             this.lblPre.Name = "lblPre";
-            this.lblPre.Size = new System.Drawing.Size(53, 16);
+            this.lblPre.Size = new System.Drawing.Size(52, 16);
             this.lblPre.TabIndex = 73;
             this.lblPre.Text = "Precio";
             // 
@@ -426,7 +429,7 @@
             this.label14.ForeColor = System.Drawing.Color.LightCoral;
             this.label14.Location = new System.Drawing.Point(396, 127);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(70, 16);
+            this.label14.Size = new System.Drawing.Size(69, 16);
             this.label14.TabIndex = 71;
             this.label14.Text = "Cantidad";
             // 
@@ -466,7 +469,7 @@
             this.label13.ForeColor = System.Drawing.Color.LightCoral;
             this.label13.Location = new System.Drawing.Point(8, 73);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(58, 16);
+            this.label13.Size = new System.Drawing.Size(57, 16);
             this.label13.TabIndex = 65;
             this.label13.Text = "Código";
             // 
@@ -501,7 +504,7 @@
             this.label12.ForeColor = System.Drawing.Color.LightCoral;
             this.label12.Location = new System.Drawing.Point(97, 72);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(136, 16);
+            this.label12.Size = new System.Drawing.Size(135, 16);
             this.label12.TabIndex = 63;
             this.label12.Text = "Cantidad existente";
             // 
@@ -521,7 +524,7 @@
             this.label11.ForeColor = System.Drawing.Color.LightCoral;
             this.label11.Location = new System.Drawing.Point(238, 72);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(139, 16);
+            this.label11.Size = new System.Drawing.Size(138, 16);
             this.label11.TabIndex = 61;
             this.label11.Text = "Producto Servicios";
             // 
@@ -532,7 +535,7 @@
             this.label10.ForeColor = System.Drawing.Color.LightCoral;
             this.label10.Location = new System.Drawing.Point(457, 72);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 16);
+            this.label10.Size = new System.Drawing.Size(99, 16);
             this.label10.TabIndex = 60;
             this.label10.Text = "Código Barra";
             // 
@@ -619,7 +622,7 @@
             this.label9.ForeColor = System.Drawing.Color.LightCoral;
             this.label9.Location = new System.Drawing.Point(366, 123);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 16);
+            this.label9.Size = new System.Drawing.Size(54, 16);
             this.label9.TabIndex = 62;
             this.label9.Text = "Correo";
             // 
@@ -630,7 +633,7 @@
             this.label8.ForeColor = System.Drawing.Color.LightCoral;
             this.label8.Location = new System.Drawing.Point(243, 123);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 16);
+            this.label8.Size = new System.Drawing.Size(69, 16);
             this.label8.TabIndex = 61;
             this.label8.Text = "Telefono";
             // 
@@ -641,7 +644,7 @@
             this.label7.ForeColor = System.Drawing.Color.LightCoral;
             this.label7.Location = new System.Drawing.Point(154, 123);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 16);
+            this.label7.Size = new System.Drawing.Size(56, 16);
             this.label7.TabIndex = 60;
             this.label7.Text = "Celular";
             // 
@@ -652,7 +655,7 @@
             this.label6.ForeColor = System.Drawing.Color.LightCoral;
             this.label6.Location = new System.Drawing.Point(372, 71);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 16);
+            this.label6.Size = new System.Drawing.Size(56, 16);
             this.label6.TabIndex = 59;
             this.label6.Text = "Cedula";
             // 
@@ -663,7 +666,7 @@
             this.label5.ForeColor = System.Drawing.Color.LightCoral;
             this.label5.Location = new System.Drawing.Point(243, 71);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 16);
+            this.label5.Size = new System.Drawing.Size(62, 16);
             this.label5.TabIndex = 58;
             this.label5.Text = "Nombre";
             // 
@@ -674,7 +677,7 @@
             this.label4.ForeColor = System.Drawing.Color.LightCoral;
             this.label4.Location = new System.Drawing.Point(156, 71);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 16);
+            this.label4.Size = new System.Drawing.Size(57, 16);
             this.label4.TabIndex = 57;
             this.label4.Text = "Código";
             // 
@@ -827,11 +830,23 @@
             this.TotalAdd.HeaderText = "Total";
             this.TotalAdd.Name = "TotalAdd";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Green;
+            this.label17.Location = new System.Drawing.Point(12, 561);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(191, 24);
+            this.label17.TabIndex = 76;
+            this.label17.Text = "Listado de Producto";
+            // 
             // FacturacionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 810);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.dataGridView_Producto_Servicio_Facturacion);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel3);
@@ -854,6 +869,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource_producto_servicios_a_facturar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Producto_Servicio_Facturacion)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -901,9 +917,9 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox checkBox_venta;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton_Otros;
+        private System.Windows.Forms.RadioButton radioButton_Efectivo;
+        private System.Windows.Forms.RadioButton radioButton_Tarjeta;
         private System.Windows.Forms.TextBox txtCantidadPagado;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label21;
@@ -923,5 +939,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MontoAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImpuestoAdd;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAdd;
+        private System.Windows.Forms.Label label17;
     }
 }

@@ -757,7 +757,7 @@
             this.txtCantidad.Text = "0";
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
-            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
+            this.txtCantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidad_KeyDown);
             // 
             // label9
             // 
@@ -777,10 +777,10 @@
             this.txtPrecioCosto.Name = "txtPrecioCosto";
             this.txtPrecioCosto.Size = new System.Drawing.Size(146, 35);
             this.txtPrecioCosto.TabIndex = 21;
-            this.txtPrecioCosto.Text = "0.00";
+            this.txtPrecioCosto.Text = "0";
             this.txtPrecioCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPrecioCosto.TextChanged += new System.EventHandler(this.txtPrecioCosto_TextChanged);
-            this.txtPrecioCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCosto_KeyPress);
+            this.txtPrecioCosto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPrecioCosto_KeyDown);
             // 
             // label7
             // 

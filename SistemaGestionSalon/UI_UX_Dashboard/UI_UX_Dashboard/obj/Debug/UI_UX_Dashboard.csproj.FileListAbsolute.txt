@@ -145,5 +145,6 @@ C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.UI.UsuarioForm.resources
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.UI.FacturacionForm.resources
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.UI.FrmTarjetaMedioPago.resources
-C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard.csproj.CopyComplete
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\Templeat\FacturaConsumidoFinal.html
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard.csproj.SuggestedBindingRedirects.cache
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Da.D4B73DB5.Up2Date

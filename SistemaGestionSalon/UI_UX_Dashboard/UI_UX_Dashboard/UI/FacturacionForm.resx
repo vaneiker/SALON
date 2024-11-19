@@ -121,7 +121,7 @@
   <data name="btnCancelar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw0AAAsNAe0HwCwAAAdbSURBVFhHnZZrbFRlHsaPiihF
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACwwAAAsMAT9AIsgAAAdbSURBVFhHnZZrbFRlHsaPiihF
         dkGhl+mUzlQKVIOXbFYSMWQ32d0sfvWbH1YTPq4XYpQEL5ROW0ADtkJR4mZll1XZbSKlCIil6Y1NSy/T
         YiGdoUpLZ6Yzbec+7Vw6M+W/z/O2w1p6LOhJ/pMz5/0/v+d53/OeM6Ol02ltZmYGdVO7eRMlotXW1j40
         OjpaGggEvvZ4PIf6+vqKBdc5PsNCP3Wp1GzdzmAvNdSSQRaZtxiqd5axQPzD9esvonHB4Xa7D95tAPbO
@@ -159,7 +159,7 @@
   <data name="btnAgregar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3RAAAN0QHCK9/jAAAAB3RJ
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3QAAAN0AEQbD0HAAAAB3RJ
         TUUH4wYBESAuP06xYwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJcSURBVEhL
         tZbPaxNBHMUHEzHbzCTpQSWIIogoPSgePAhCKXrwJi30UsSe7KHN7Ma2B4+eKuLFi95UvFkbQShV/BF2
         Zkgp2IuHIv4F9tZa1KLVNn3fzbaMm6VNkzTwIZM333lvdnYmu6yjaPLC06+Eq7+DDVBtEfKAlyqRNwvN
@@ -177,7 +177,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw8AAAsPAZL5A6UAABh3SURBVHhe5ZhnWBbHu8ZHTU7y
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACw0AAAsNAe0HwCwAABh3SURBVHhe5ZhnWBbHu8ZHTU7y
         TzlJjFFC70jv/aULCEiRpggoKnYBO12K2BW7qLEH7B1Fg2LBAooiCBbsxo4NBBVFc59nFvBYFmuucz74
         4XfNvs/uzu59zzMzz74MwBeNaPBLQjT4JSEa/JIQDX5JiAa/JESDXxKiwS8J0eCQPmHvZWjfnmxQ9yDm
         bWvJfB0lzL+DLQt0dWDBnVxZZwfJV25Wpn5OJgaL7A109tvqaZ2W6GqesdHXLrI11NvgZG6c5Gxlauvp
@@ -287,6 +287,30 @@
   </data>
   <metadata name="bindingSource_producto_servicios_a_facturar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
+  </metadata>
+  <metadata name="IdProductoAdd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Tipo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="nombreProductoAdd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="CantidadAdd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PrecioUnitarioAdd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="MontoAdd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ImpuestoAdd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TotalAdd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <metadata name="IdProductoAdd.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

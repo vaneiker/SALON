@@ -275,16 +275,19 @@ namespace UI_UX_Dashboard_P1.UI
 
             try
             {
-                if (string.IsNullOrWhiteSpace(txtCantidad.Text))
-                {
+                TextBox textBox = sender as TextBox;
 
-                    return;
+                if (textBox != null && textBox.Text.Length > 0 && textBox.Text[0] == '0')
+                {
+                    // Eliminar el primer carácter si es '0'
+                    textBox.Text = textBox.Text.Substring(1);
+
+                    // Mover el cursor al final del texto
+                    textBox.SelectionStart = textBox.Text.Length;
                 }
-                //if (string.IsNullOrWhiteSpace(txtPrecioCosto.Text))
-                //{
-                //    Helpers.ShowValidacion("Precio");
-                //    return;
-                //}
+
+                txtCantidad.Text = new string(txtCantidad.Text.Where(char.IsDigit).ToArray());
+                txtCantidad.SelectionStart = txtCantidad.Text.Length; // Mantener el cursor al final 
 
 
 
@@ -458,26 +461,12 @@ namespace UI_UX_Dashboard_P1.UI
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                // Si no es un dígito ni la tecla de retroceso, cancela el evento
-                e.Handled = true;
-            }
+
         }
 
         private void txtPrecioCosto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permitir solo dígitos, un punto decimal, y la tecla de retroceso
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
 
-            // Permitir solo un punto decimal en el TextBox
-            if (e.KeyChar == '.' && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
         }
 
         private void BtnEntrada_Click(object sender, EventArgs e)
@@ -634,10 +623,19 @@ namespace UI_UX_Dashboard_P1.UI
 
         private void txtPrecioCosto_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtPrecioCosto.Text))
+            TextBox textBox = sender as TextBox;
+
+            if (textBox != null && textBox.Text.Length > 0 && textBox.Text[0] == '0')
             {
-                txtPrecioCosto.Text = "0.00";
+                // Eliminar el primer carácter si es '0'
+                textBox.Text = textBox.Text.Substring(1);
+
+                // Mover el cursor al final del texto
+                textBox.SelectionStart = textBox.Text.Length;
             }
+
+            txtPrecioCosto.Text = new string(txtPrecioCosto.Text.Where(char.IsDigit).ToArray());
+            txtPrecioCosto.SelectionStart = txtPrecioCosto.Text.Length; // Mantener el cursor al final 
         }
 
         private void txtBuscarProveedor_TextChanged(object sender, EventArgs e)
@@ -727,12 +725,12 @@ namespace UI_UX_Dashboard_P1.UI
             txt_importe.Text = "RD$ 0.00";
             txt_impuesto.Text = "RD$ 0.00";
             txt_neto.Text = "RD$ 0.00";
-            txtPrecioCosto.Text = "0.00";
+            txtPrecioCosto.Text = "0";
             txtCantidad.Text = "0";
             this._Producto_ID = 0;
             txtCodigoBarra.Text = string.Empty;
             txtnombre.Text = string.Empty;
-            txtCodigoBarra.Text = string.Empty;
+            txtCodigoBarra.Text = string.Empty; 
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -847,7 +845,50 @@ namespace UI_UX_Dashboard_P1.UI
                 Helpers.ShowError("Error en el metodo de: GenerateInvoiceHtml ", ex);
             }  
         }
-    
+
+        private void txtCantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            //// Permitir teclas de números (0-9) y teclas especiales como retroceso
+            //if (!char.IsDigit((char)e.KeyCode) && e.KeyCode != Keys.Back)
+            //{
+            //    // Prevenir la entrada de otras teclas
+            //    e.SuppressKeyPress = true;
+            //}
+
+            // Permitir números (teclado principal y numérico), retroceso y teclas especiales
+            if (!((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) || // Teclado numérico superior
+                  (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) || // Teclado numérico derecho
+                  e.KeyCode == Keys.Back || // Retroceso
+                  e.KeyCode == Keys.Delete || // Suprimir
+                  e.KeyCode == Keys.Left || // Flecha izquierda
+                  e.KeyCode == Keys.Right)) // Flecha derecha
+            {
+                // Prevenir la entrada de otras teclas
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtPrecioCosto_KeyDown(object sender, KeyEventArgs e)
+        {
+            //// Permitir teclas de números (0-9) y teclas especiales como retroceso
+            //if (!char.IsDigit((char)e.KeyCode) && e.KeyCode != Keys.Back)
+            //{
+            //    // Prevenir la entrada de otras teclas
+            //    e.SuppressKeyPress = true;
+            //}
+
+            // Permitir números (teclado principal y numérico), retroceso y teclas especiales
+            if (!((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) || // Teclado numérico superior
+                  (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9) || // Teclado numérico derecho
+                  e.KeyCode == Keys.Back || // Retroceso
+                  e.KeyCode == Keys.Delete || // Suprimir
+                  e.KeyCode == Keys.Left || // Flecha izquierda
+                  e.KeyCode == Keys.Right)) // Flecha derecha
+            {
+                // Prevenir la entrada de otras teclas
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }
 

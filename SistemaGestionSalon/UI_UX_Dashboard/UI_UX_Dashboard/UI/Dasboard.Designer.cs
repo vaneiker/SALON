@@ -43,8 +43,6 @@
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.btnSecretariado = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.BtnGestionFinanciera = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnAdminUsers = new System.Windows.Forms.Button();
@@ -103,12 +101,16 @@
             this.timer_panel = new System.Windows.Forms.Timer(this.components);
             this.LblFecha = new System.Windows.Forms.Label();
             this.LblReloj = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.btnClientes = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnProveedore = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -131,6 +133,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -211,14 +215,17 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.panel2.Controls.Add(this.btnProveedore);
+            this.panel2.Controls.Add(this.pictureBox6);
+            this.panel2.Controls.Add(this.btnClientes);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Controls.Add(this.panel12);
             this.panel2.Controls.Add(this.btnAlmacen);
             this.panel2.Controls.Add(this.pictureBox19);
             this.panel2.Controls.Add(this.btnCobros);
             this.panel2.Controls.Add(this.pictureBox18);
             this.panel2.Controls.Add(this.btnLogout);
             this.panel2.Controls.Add(this.pictureBox7);
-            this.panel2.Controls.Add(this.btnSecretariado);
-            this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.BtnGestionFinanciera);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.btnAdminUsers);
@@ -238,11 +245,11 @@
             this.btnAlmacen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlmacen.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnAlmacen.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAlmacen.Location = new System.Drawing.Point(42, 138);
+            this.btnAlmacen.Location = new System.Drawing.Point(38, 209);
             this.btnAlmacen.Name = "btnAlmacen";
             this.btnAlmacen.Size = new System.Drawing.Size(155, 30);
             this.btnAlmacen.TabIndex = 17;
-            this.btnAlmacen.Text = "Gestión Almacen";
+            this.btnAlmacen.Text = "Inventario";
             this.btnAlmacen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAlmacen.UseVisualStyleBackColor = true;
             this.btnAlmacen.Click += new System.EventHandler(this.btnAlmacen_Click);
@@ -251,7 +258,7 @@
             // 
             this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
             this.pictureBox19.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox19.InitialImage")));
-            this.pictureBox19.Location = new System.Drawing.Point(12, 142);
+            this.pictureBox19.Location = new System.Drawing.Point(8, 213);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(24, 24);
             this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -265,7 +272,7 @@
             this.btnCobros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCobros.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnCobros.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCobros.Location = new System.Drawing.Point(42, 96);
+            this.btnCobros.Location = new System.Drawing.Point(38, 173);
             this.btnCobros.Name = "btnCobros";
             this.btnCobros.Size = new System.Drawing.Size(155, 30);
             this.btnCobros.TabIndex = 15;
@@ -278,7 +285,7 @@
             // 
             this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
             this.pictureBox18.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox18.InitialImage")));
-            this.pictureBox18.Location = new System.Drawing.Point(12, 100);
+            this.pictureBox18.Location = new System.Drawing.Point(8, 177);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(24, 24);
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -292,7 +299,7 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnLogout.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLogout.Location = new System.Drawing.Point(43, 260);
+            this.btnLogout.Location = new System.Drawing.Point(44, 636);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(155, 30);
             this.btnLogout.TabIndex = 13;
@@ -305,39 +312,12 @@
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.InitialImage")));
-            this.pictureBox7.Location = new System.Drawing.Point(14, 263);
+            this.pictureBox7.Location = new System.Drawing.Point(15, 639);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(24, 24);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 12;
             this.pictureBox7.TabStop = false;
-            // 
-            // btnSecretariado
-            // 
-            this.btnSecretariado.AutoSize = true;
-            this.btnSecretariado.FlatAppearance.BorderSize = 0;
-            this.btnSecretariado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSecretariado.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnSecretariado.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSecretariado.Location = new System.Drawing.Point(42, 60);
-            this.btnSecretariado.Name = "btnSecretariado";
-            this.btnSecretariado.Size = new System.Drawing.Size(157, 30);
-            this.btnSecretariado.TabIndex = 9;
-            this.btnSecretariado.Text = "Gestión Secretariado";
-            this.btnSecretariado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSecretariado.UseVisualStyleBackColor = true;
-            this.btnSecretariado.Click += new System.EventHandler(this.btnClientes_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(12, 61);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 8;
-            this.pictureBox5.TabStop = false;
             // 
             // BtnGestionFinanciera
             // 
@@ -346,7 +326,7 @@
             this.BtnGestionFinanciera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGestionFinanciera.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.BtnGestionFinanciera.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.BtnGestionFinanciera.Location = new System.Drawing.Point(42, 179);
+            this.BtnGestionFinanciera.Location = new System.Drawing.Point(40, 380);
             this.BtnGestionFinanciera.Name = "BtnGestionFinanciera";
             this.BtnGestionFinanciera.Size = new System.Drawing.Size(155, 30);
             this.BtnGestionFinanciera.TabIndex = 7;
@@ -359,7 +339,7 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(12, 183);
+            this.pictureBox4.Location = new System.Drawing.Point(10, 384);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(24, 24);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -372,7 +352,7 @@
             this.btnAdminUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdminUsers.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnAdminUsers.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAdminUsers.Location = new System.Drawing.Point(44, 224);
+            this.btnAdminUsers.Location = new System.Drawing.Point(42, 425);
             this.btnAdminUsers.Name = "btnAdminUsers";
             this.btnAdminUsers.Size = new System.Drawing.Size(155, 24);
             this.btnAdminUsers.TabIndex = 5;
@@ -385,7 +365,7 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(14, 224);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 425);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1014,6 +994,66 @@
             this.LblReloj.TabIndex = 15;
             this.LblReloj.Text = "2:00:00 PM";
             // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.Gray;
+            this.panel12.Location = new System.Drawing.Point(4, 85);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(200, 10);
+            this.panel12.TabIndex = 18;
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.AutoSize = true;
+            this.btnClientes.FlatAppearance.BorderSize = 0;
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnClientes.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClientes.Location = new System.Drawing.Point(40, 101);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(157, 30);
+            this.btnClientes.TabIndex = 20;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClientes.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(10, 102);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnProveedore
+            // 
+            this.btnProveedore.AutoSize = true;
+            this.btnProveedore.FlatAppearance.BorderSize = 0;
+            this.btnProveedore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedore.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnProveedore.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnProveedore.Location = new System.Drawing.Point(38, 137);
+            this.btnProveedore.Name = "btnProveedore";
+            this.btnProveedore.Size = new System.Drawing.Size(157, 30);
+            this.btnProveedore.TabIndex = 22;
+            this.btnProveedore.Text = "Proveedore";
+            this.btnProveedore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProveedore.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
+            this.pictureBox6.Location = new System.Drawing.Point(8, 138);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 21;
+            this.pictureBox6.TabStop = false;
+            // 
             // Dasboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1047,7 +1087,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1079,6 +1118,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1100,8 +1141,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Button btnSecretariado;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button BtnGestionFinanciera;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnAdminUsers;
@@ -1159,6 +1198,11 @@
         private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.Button btnCobros;
         private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button btnProveedore;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Button btnClientes;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

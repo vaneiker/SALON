@@ -33,7 +33,7 @@ namespace UI_UX_Dashboard_P1.UI
         private int stockMinimo { get; set; }
         private bool? permitirActualizar { get; set; }
         string cliente_direccion { get; set; }
-
+        string metodopago { get; set; }
 
 
         public FacturacionForm()
@@ -153,61 +153,71 @@ namespace UI_UX_Dashboard_P1.UI
 
 
 
-
-            if (string.IsNullOrWhiteSpace(txtIdProducto.Text) || string.IsNullOrWhiteSpace(txtIdCliente.Text))
+            try
             {
-                Helpers.ShowTypeError("Favor selecionar un producto o cliente", "error");
-                return;
-            } 
-
-            if (string.IsNullOrWhiteSpace(txtCantidadAdd.Text) || txtCantidadAdd.Text == "0")
-            {
-                Helpers.ShowTypeError("Digite la cantidad", "error");
-                return;
-            } 
-            cantidadAComprar = int.Parse(txtCantidadAdd.Text);
-            stock = int.Parse(txtStock.Text);
-
-            // Validar si es posible realizar la venta
-            if ((cantidadAComprar > stock - cantidadMinima) && label_Servicio_Producto.Text == "Producto")
-            {
-                Helpers.ShowTypeError("No se puede realizar la venta. La cantidad a comprar excede el stock permitido.", "error");
-            }
-            else
-            {
-                // Actualizar el stock si la venta es válida
-                stock -= cantidadAComprar;
-                _Monto = (int.Parse(txtCantidadAdd.Text) * decimal.Parse(txtPrecio.Text));
-                impuestoAdd = (_Monto * _impuesto) / 100;
-
-                _Total = _Monto + impuestoAdd;
-
-                var modelo = new FacturaViewModel();
-                var dfactura = new Facturacion.DetalleFactura();
-                var detalleFacturasLista = new List<Facturacion.DetalleFactura>();
-
-
-                dfactura.IdFactura = 0;
-                dfactura.IdProducto = int.Parse(txtIdProducto.Text);
-                dfactura.nombreProducto = txtProductoServicio.Text;
-                dfactura.Cantidad = int.Parse(txtCantidadAdd.Text);
-                dfactura.PrecioUnitario = decimal.Parse(txtPrecio.Text);
-                dfactura.Descuento = 0;
-                dfactura.Monto = _Monto;
-                dfactura.Impuesto = impuestoAdd;
-                dfactura.Total = _Total;
-                dfactura.Tipo = label_Servicio_Producto.Text;
-
-                model.detalleFactura = dfactura;
-
-                if (DetalleFacturaList.Where(x => x.IdProducto == dfactura.IdProducto).Any())
+                if (string.IsNullOrWhiteSpace(txtIdProducto.Text) || string.IsNullOrWhiteSpace(txtIdCliente.Text))
                 {
-                    Helpers.ShowWarning($"El artículo: {dfactura.nombreProducto} ya está registrado en la tabla de compras.\n" +
-                                       "Si deseas actualizar su cantidad, por favor utiliza la opción editar.");
+                    Helpers.ShowTypeError("Favor selecionar un producto o cliente", "error");
                     return;
                 }
-                AddFactura(model);
 
+                if (string.IsNullOrWhiteSpace(txtCantidadAdd.Text) || txtCantidadAdd.Text == "0")
+                {
+                    Helpers.ShowTypeError("Digite la cantidad", "error");
+                    return;
+                }
+                cantidadAComprar = int.Parse(txtCantidadAdd.Text);
+                stock = int.Parse(txtStock.Text);
+
+                // Validar si es posible realizar la venta
+                if ((cantidadAComprar > stock - cantidadMinima) && label_Servicio_Producto.Text == "Producto")
+                {
+                    Helpers.ShowTypeError("No se puede realizar la venta. La cantidad a comprar excede el stock permitido.", "error");
+                }
+                else
+                {
+                    // Actualizar el stock si la venta es válida
+                    stock -= cantidadAComprar;
+                    _Monto = (int.Parse(txtCantidadAdd.Text) * decimal.Parse(txtPrecio.Text));
+                    impuestoAdd = (_Monto * _impuesto) / 100;
+
+                    _Total = _Monto + impuestoAdd;
+
+                    var modelo = new FacturaViewModel();
+                    var dfactura = new Facturacion.DetalleFactura();
+                    var detalleFacturasLista = new List<Facturacion.DetalleFactura>();
+
+
+                    dfactura.IdFactura = 0;
+                    dfactura.IdProducto = int.Parse(txtIdProducto.Text);
+                    dfactura.nombreProducto = txtProductoServicio.Text;
+                    dfactura.Cantidad = int.Parse(txtCantidadAdd.Text);
+                    dfactura.PrecioUnitario = decimal.Parse(txtPrecio.Text);
+                    dfactura.Descuento = 0;
+                    dfactura.Monto = _Monto;
+                    dfactura.Impuesto = impuestoAdd;
+                    dfactura.Total = _Total;
+                    dfactura.Tipo = label_Servicio_Producto.Text;
+
+                    model.detalleFactura = dfactura;
+
+
+                    if (DetalleFacturaList.Any())
+                    {
+                        if (DetalleFacturaList.Where(x => x.IdProducto == dfactura.IdProducto).Any())
+                        {
+                            Helpers.ShowWarning($"El artículo: {dfactura.nombreProducto} ya está registrado en la tabla de compras.\n" +
+                                               "Si deseas actualizar su cantidad, por favor utiliza la opción editar.");
+                            return;
+                        } 
+                    }
+                    AddFactura(model);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Helpers.ShowError("Error en el metodo btnAgregar_Click ", ex);
             }
         }
 
@@ -216,6 +226,7 @@ namespace UI_UX_Dashboard_P1.UI
         {
 
             bindingSource_producto_servicios_a_facturar.DataSource = null;
+
 
             DetalleFacturaList.Add(new Facturacion.DetalleFactura()
             {
@@ -232,20 +243,14 @@ namespace UI_UX_Dashboard_P1.UI
                 Tipo = model.detalleFactura.Tipo
 
             });
-
             bindingSource_producto_servicios_a_facturar.DataSource = DetalleFacturaList;
-
-
             LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Total):N2}";
-
-
             var updateStock = int.Parse(txtStock.Text) - int.Parse(txtCantidadAdd.Text);
-
-
             if (model.detalleFactura.Tipo != "Servicio")
             {
                 txtStock.Text = updateStock.ToString();
             }
+
             ConfigureDataGridView();
         }
 
@@ -426,60 +431,38 @@ namespace UI_UX_Dashboard_P1.UI
             decimal? Total_A_Pagar = 0.00M;
             decimal? saldoTotal = 0.00m;
 
+            TextBox textBox = sender as TextBox;
 
-            // Validar el texto con una expresión regular que permita solo números
-            string text = txtCantidadPagado.Text;
-
-            // Reemplaza cualquier carácter que no sea un dígito
-            txtCantidadPagado.Text = Regex.Replace(text, @"[^\d]", "");
-
-            // Coloca el cursor al final del texto después de la corrección
-            txtCantidadPagado.SelectionStart = txtCantidadPagado.Text.Length;
-
-
-
-            if (DetalleFacturaList.Any())
+            if (textBox != null && textBox.Text.Length > 0 && textBox.Text[0] == '0')
             {
+                // Eliminar el primer carácter si es '0'
+                textBox.Text = textBox.Text.Substring(1);
 
-                TextBox textBox = sender as TextBox;
-
-                if (textBox != null && textBox.Text.Length > 0 && textBox.Text[0] == '0')
-                {
-                    // Eliminar el primer carácter si es '0'
-                    textBox.Text = textBox.Text.Substring(1);
-
-                    // Mover el cursor al final del texto
-                    textBox.SelectionStart = textBox.Text.Length;
-                }
-
-
-                if (!string.IsNullOrWhiteSpace(txtCantidadPagado.Text))
-                {
-
-                    Total_A_Pagar = decimal.Parse(LblTotalApagar.Text.ToString().Replace("RD$", ""));
-                    saldoTotal = Total_A_Pagar - decimal.Parse(txtCantidadPagado.Text.ToString());
-                    //LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Total):N2}";
-
-
-
-                    if (decimal.Parse(txtCantidadPagado.Text.ToString()) > Total_A_Pagar)
-                    {
-                        label_cambio.Text = $"RD$ {saldoTotal:N2}";
-                        label_cambio.ForeColor = Color.Red;
-                    }
-                    else
-                    {
-                        label_cambio.Text = $"RD$ {saldoTotal:N2}";
-                    }
-
-
-                    //10-9
-                }
+                // Mover el cursor al final del texto
+                textBox.SelectionStart = textBox.Text.Length;
             }
-            else
+            txtCantidadPagado.Text = new string(txtCantidadPagado.Text.Where(char.IsDigit).ToArray());
+            txtCantidadPagado.SelectionStart = txtCantidadPagado.Text.Length; // Mantener el cursor al final
+
+            if (!string.IsNullOrWhiteSpace(txtCantidadPagado.Text))
             {
-                Helpers.ShowTypeError("No existe elemento agregado al listado de productos", "error");
-                txtCantidadPagado.Text = "0";
+
+                Total_A_Pagar = decimal.Parse(LblTotalApagar.Text.ToString().Replace("RD$", ""));
+                saldoTotal = Total_A_Pagar - decimal.Parse(txtCantidadPagado.Text.ToString());
+                //LblTotalApagar.Text = $"RD$ {DetalleFacturaList.Sum(x => x.Total):N2}";
+
+
+
+                if (decimal.Parse(txtCantidadPagado.Text.ToString()) > Total_A_Pagar)
+                {
+                    label_cambio.Text = $"RD$ {saldoTotal:N2}";
+                    label_cambio.ForeColor = Color.Red;
+                }
+                else
+                {
+                    label_cambio.Text = $"RD$ {saldoTotal:N2}";
+                    label_cambio.ForeColor = Color.Gray;
+                }
             }
         }
 
@@ -561,8 +544,12 @@ namespace UI_UX_Dashboard_P1.UI
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            FrmTarjetaMedioPago frmTarjeta = new FrmTarjetaMedioPago();
-            frmTarjeta.ShowDialog();
+            if (radioButton_Tarjeta.Checked == true)
+            {
+                metodopago = "Tarjeta Credito/Debito";
+                FrmTarjetaMedioPago frmTarjeta = new FrmTarjetaMedioPago();
+                frmTarjeta.ShowDialog();
+            }
         }
 
         private void txtCantidadPagado_KeyDown(object sender, KeyEventArgs e)
@@ -581,14 +568,36 @@ namespace UI_UX_Dashboard_P1.UI
 
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-
-            if (DetalleFacturaList.Any())
+            var radioButtons = new[] { radioButton_Tarjeta, radioButton_Efectivo, radioButton_Otros };
+            if (radioButtons.Any(rb => rb.Checked))
             {
-                Facturar();
+                if (DetalleFacturaList.Any())
+                {
+                    if (string.IsNullOrWhiteSpace(txtCantidadPagado.Text) || txtCantidadPagado.Text == "0")
+                    {
+                        Helpers.ShowTypeError("Favor digitar el Monto A Pagar", "error");
+                        return;
+                    }
+
+
+                    if (string.IsNullOrWhiteSpace(txtCantidadPagado.Text) || txtCantidadPagado.Text == "0")
+                    {
+                        Helpers.ShowTypeError("Favor digitar el Monto A Pagar", "error");
+                        return;
+                    }
+                    Facturar();
+                }
+                else
+                {
+                    Helpers.ShowTypeError("Favor agregar producto o servicio al listado.", "error");
+                    return;
+                }
+
             }
             else
             {
-                Helpers.ShowError("No existe producto agregado");
+                Helpers.ShowTypeError("Favor indicar metodo de Pago", "error");
+                return;
             }
         }
 
@@ -600,7 +609,7 @@ namespace UI_UX_Dashboard_P1.UI
 
                 facturaHeader.IdFactura = 0;
                 facturaHeader.NumeroFactura = string.Empty;
-                facturaHeader.TipoPago = "Efectivo";
+                facturaHeader.TipoPago = metodopago;
                 facturaHeader.IdCliente = int.Parse(txtIdCliente.Text);
                 facturaHeader.Descuento = 0;
                 facturaHeader.Monto = DetalleFacturaList.Sum(x => x.Monto);
@@ -631,6 +640,7 @@ namespace UI_UX_Dashboard_P1.UI
                     });
                     dbFactura.DescontarInventario(i.IdProducto, i.Cantidad, seccion.UsuarioID);
                 }
+                Helpers.ShowInfo("Facturacion Realizada correctamente.");
                 GenerateInvoiceHtml(respuesta.ACTION, facturaHeader.Monto, facturaHeader.Impuesto, facturaHeader.Total, DetalleFacturaList);
             }
             catch (Exception ex)
@@ -681,7 +691,7 @@ namespace UI_UX_Dashboard_P1.UI
                 }
                 htmlContent = htmlContent.Replace("{{<tr></tr>}}", htmlRow);
                 // Reemplazar los valores en el HTML con datos dinámicos
-                htmlContent = htmlContent.Replace("{{condicion_pago}}", items.FirstOrDefault().Tipo);
+                htmlContent = htmlContent.Replace("{{condicion_pago}}", metodopago);
                 htmlContent = htmlContent.Replace("{{total_bruto}}", subtotal.Value.ToString("C"));
                 htmlContent = htmlContent.Replace("{{itbis}}", impuesto.Value.ToString("C"));
                 htmlContent = htmlContent.Replace("{{total_neto}}", total.Value.ToString("C"));
@@ -703,9 +713,15 @@ namespace UI_UX_Dashboard_P1.UI
                     if (savefile.ShowDialog() == DialogResult.OK)
                     {
                         Tools.SavePDF(savefile, htmlContent);
+                        LimpiarAll();
+                    }
+                    else
+                    {
+                        LimpiarAll();
                     }
                 }
                 //CancelarEntrada("Facturacion");
+                LimpiarAll();
             }
             catch (Exception ex)
             {
@@ -719,8 +735,8 @@ namespace UI_UX_Dashboard_P1.UI
         }
 
         private void LimpiarAll()
-        { 
-            DetalleFacturaList = null;
+        {
+            DetalleFacturaList.Clear();
             _impuesto = 0;
             precio_original = 0.00m;
             stock_original = 0;
@@ -728,7 +744,7 @@ namespace UI_UX_Dashboard_P1.UI
             stockMinimo = 0;
             permitirActualizar = false;
             cliente_direccion = string.Empty;
-            CargarAll(); 
+            CargarAll();
             txtProducto.Text = string.Empty;
             txtStock.Text = string.Empty;
             txtProductoServicio.Text = string.Empty;
@@ -737,7 +753,7 @@ namespace UI_UX_Dashboard_P1.UI
             label_Servicio_Producto.Text = "Tipo de Articulo";
             precio_original = 0.00m;
             txtCantidadAdd.Text = "0";
-            txtCantidadAdd.Enabled = true; 
+            txtCantidadAdd.Enabled = true;
             txtnombre.Text = string.Empty;
             txtcedula.Text = string.Empty;
             txtcelular.Text = string.Empty;
@@ -746,7 +762,12 @@ namespace UI_UX_Dashboard_P1.UI
             txtIdCliente.Text = string.Empty;
             cliente_direccion = string.Empty;
             bindingSource_producto_servicios_a_facturar.DataSource = null;
+            txtCantidadPagado.Text = "0";
+            metodopago = string.Empty;
 
+
+            label_cambio.Text = "RD$ 00.00";
+            label_cambio.ForeColor = Color.Gray;
             if (checkBox_cambiar_precio.Checked == true)
             {
                 txtCantidadAdd.Text = "1";
@@ -768,7 +789,7 @@ namespace UI_UX_Dashboard_P1.UI
             txtStock.Text = string.Empty;
             txtProductoServicio.Text = string.Empty;
             txtIdProducto.Text = string.Empty;
-            txtPrecio.Text = string.Empty; 
+            txtPrecio.Text = string.Empty;
             precio_original = 0.00m;
             precio_costo = 0.00m;
             stock_original = 0;
@@ -779,7 +800,7 @@ namespace UI_UX_Dashboard_P1.UI
             txtcorreo.Text = string.Empty;
             txtIdCliente.Text = string.Empty;
             cliente_direccion = string.Empty;
-            if (checkBox_cambiar_precio.Checked==true)
+            if (checkBox_cambiar_precio.Checked == true)
             {
                 txtCantidadAdd.Text = "1";
                 txtCantidadAdd.Enabled = false;
@@ -790,6 +811,22 @@ namespace UI_UX_Dashboard_P1.UI
                 txtCantidadAdd.Enabled = true;
             }
             CargarAll();
+        }
+
+        private void radioButton_Efectivo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton_Efectivo.Checked == true)
+            {
+                metodopago = "Efectivo";
+            }
+        }
+
+        private void radioButton_Otros_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton_Otros.Checked == true)
+            {
+                metodopago = "Otro Metodo";
+            }
         }
     }
 }
