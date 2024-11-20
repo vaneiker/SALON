@@ -97,5 +97,17 @@ namespace UI_UX_Dashboard_P1
             VentasReportes ventas = new VentasReportes();
             ventas.ShowDialog();
         }
+
+        private void btnClientes_Click_1(object sender, EventArgs e)
+        {
+            ClientesForm clientes = new ClientesForm();
+            clientes.ShowDialog();
+        }
+
+        private void btnProveedore_Click(object sender, EventArgs e)
+        {
+            ProveedorForm proveedor = new ProveedorForm();
+            proveedor.ShowDialog();
+        }
     }
 }

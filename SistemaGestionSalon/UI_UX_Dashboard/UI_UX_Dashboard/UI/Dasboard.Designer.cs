@@ -37,6 +37,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button_Ingreso_Egresos = new System.Windows.Forms.Button();
+            this.panel13 = new System.Windows.Forms.Panel();
             this.btnProveedore = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnClientes = new System.Windows.Forms.Button();
@@ -106,8 +108,6 @@
             this.timer_panel = new System.Windows.Forms.Timer(this.components);
             this.LblFecha = new System.Windows.Forms.Label();
             this.LblReloj = new System.Windows.Forms.Label();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.button_Ingreso_Egresos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -242,6 +242,30 @@
             this.panel2.Size = new System.Drawing.Size(215, 694);
             this.panel2.TabIndex = 1;
             // 
+            // button_Ingreso_Egresos
+            // 
+            this.button_Ingreso_Egresos.AutoSize = true;
+            this.button_Ingreso_Egresos.FlatAppearance.BorderSize = 0;
+            this.button_Ingreso_Egresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Ingreso_Egresos.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.button_Ingreso_Egresos.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button_Ingreso_Egresos.Location = new System.Drawing.Point(8, 276);
+            this.button_Ingreso_Egresos.Name = "button_Ingreso_Egresos";
+            this.button_Ingreso_Egresos.Size = new System.Drawing.Size(203, 30);
+            this.button_Ingreso_Egresos.TabIndex = 25;
+            this.button_Ingreso_Egresos.Text = "Reportes Ingresos y Egresos";
+            this.button_Ingreso_Egresos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_Ingreso_Egresos.UseVisualStyleBackColor = true;
+            this.button_Ingreso_Egresos.Click += new System.EventHandler(this.button_Ingreso_Egresos_Click);
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.Gray;
+            this.panel13.Location = new System.Drawing.Point(4, 246);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(200, 10);
+            this.panel13.TabIndex = 23;
+            // 
             // btnProveedore
             // 
             this.btnProveedore.AutoSize = true;
@@ -256,6 +280,7 @@
             this.btnProveedore.Text = "Proveedore";
             this.btnProveedore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProveedore.UseVisualStyleBackColor = true;
+            this.btnProveedore.Click += new System.EventHandler(this.btnProveedore_Click);
             // 
             // pictureBox6
             // 
@@ -282,6 +307,7 @@
             this.btnClientes.Text = "Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click_1);
             // 
             // pictureBox2
             // 
@@ -1057,30 +1083,6 @@
             this.LblReloj.Size = new System.Drawing.Size(80, 20);
             this.LblReloj.TabIndex = 15;
             this.LblReloj.Text = "2:00:00 PM";
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.Gray;
-            this.panel13.Location = new System.Drawing.Point(4, 246);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(200, 10);
-            this.panel13.TabIndex = 23;
-            // 
-            // button_Ingreso_Egresos
-            // 
-            this.button_Ingreso_Egresos.AutoSize = true;
-            this.button_Ingreso_Egresos.FlatAppearance.BorderSize = 0;
-            this.button_Ingreso_Egresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Ingreso_Egresos.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.button_Ingreso_Egresos.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button_Ingreso_Egresos.Location = new System.Drawing.Point(8, 276);
-            this.button_Ingreso_Egresos.Name = "button_Ingreso_Egresos";
-            this.button_Ingreso_Egresos.Size = new System.Drawing.Size(203, 30);
-            this.button_Ingreso_Egresos.TabIndex = 25;
-            this.button_Ingreso_Egresos.Text = "Reportes Ingresos y Egresos";
-            this.button_Ingreso_Egresos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button_Ingreso_Egresos.UseVisualStyleBackColor = true;
-            this.button_Ingreso_Egresos.Click += new System.EventHandler(this.button_Ingreso_Egresos_Click);
             // 
             // Dasboard
             // 
