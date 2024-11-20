@@ -19,7 +19,7 @@ namespace UI_UX_Dashboard_P1.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -93,6 +93,7 @@ namespace UI_UX_Dashboard_P1.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///
         ///&lt;head&gt;
         ///    &lt;title&gt;Factura de Compra&lt;/title&gt;
         ///    &lt;style&gt;
@@ -110,13 +111,46 @@ namespace UI_UX_Dashboard_P1.Properties {
         ///            padding: 10px;
         ///        }
         ///
-        ///        .header, .footer {
+        ///        .header,
+        ///        .footer {
         ///            text-align: center;
-        ///            margin-bott [rest of string was truncated]&quot;;.
+        ///             [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string FacturaConsumidoFinal {
             get {
                 return ResourceManager.GetString("FacturaConsumidoFinal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Reporte de Egresos e Ingresos&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        body {
+        ///            font-family: Arial, sans-serif;
+        ///            font-size: 10px;
+        ///            margin: 0;
+        ///            padding: 0;
+        ///        }
+        ///
+        ///        .container {
+        ///            width: 700px;
+        ///            margin: auto;
+        ///            border: 1px solid #000;
+        ///            padding: 10px;
+        ///        }
+        ///
+        ///        .header,
+        ///        .footer {
+        ///            text-align: center;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ReporteEngresoIngreso {
+            get {
+                return ResourceManager.GetString("ReporteEngresoIngreso", resourceCulture);
             }
         }
     }

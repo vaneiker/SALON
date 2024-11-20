@@ -21,3 +21,4 @@ C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\ENTITY\bin\Debug\ENTITY.pdb
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.csproj.CoreCompileInputs.cache
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.pdb
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\ENTITY\obj\Debug\ENTITY.csproj.AssemblyReference.cache

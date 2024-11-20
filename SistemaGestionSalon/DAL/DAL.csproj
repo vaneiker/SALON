@@ -85,6 +85,7 @@
     <Compile Include="Repository\FacturacionRepository.cs" />
     <Compile Include="Repository\ProductoServiciosIntentarios.cs" />
     <Compile Include="Repository\ProveedorRepository.cs" />
+    <Compile Include="Repository\ReportesRepository.cs" />
     <Compile Include="Repository\UsuarioRepository.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -53,4 +53,4 @@ C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\BouncyCastle.Crypt
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\EntityFramework.SqlServer.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\itextsharp.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\bin\Debug\itextsharp.xmlworker.dll
-C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\BLL\obj\Debug\BLL.csproj.Up2Date

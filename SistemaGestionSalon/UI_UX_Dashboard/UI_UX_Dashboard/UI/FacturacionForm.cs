@@ -24,7 +24,7 @@ namespace UI_UX_Dashboard_P1.UI
         private ClienteAdmin clienteAdmin = new ClienteAdmin();
         private FacturaViewModel model = new FacturaViewModel();
         private FacturacionAdmin dbFactura = new FacturacionAdmin();
-
+        private DocumentoLogAdmin documentoLogAdmin = new DocumentoLogAdmin();
 
         private decimal? _impuesto { get; set; } = 0.00m;
         private decimal? precio_original { get; set; }
@@ -258,31 +258,31 @@ namespace UI_UX_Dashboard_P1.UI
         private void ConfigureDataGridView()
         {
             // Configuración general del DataGridView
-            dataGridView_Producto_Servicio_Facturacion.AutoGenerateColumns = false;
-            dataGridView_Producto_Servicio_Facturacion.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView_Producto_Servicio_Facturacion.AllowUserToAddRows = false;
-            dataGridView_Producto_Servicio_Facturacion.ReadOnly = true;
-            dataGridView_Producto_Servicio_Facturacion.EnableHeadersVisualStyles = false;
+            dataGridReportes.AutoGenerateColumns = false;
+            dataGridReportes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridReportes.AllowUserToAddRows = false;
+            dataGridReportes.ReadOnly = true;
+            dataGridReportes.EnableHeadersVisualStyles = false;
 
             // Estilo de los encabezados
-            dataGridView_Producto_Servicio_Facturacion.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 45, 48);
-            dataGridView_Producto_Servicio_Facturacion.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dataGridView_Producto_Servicio_Facturacion.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10, FontStyle.Bold);
-            dataGridView_Producto_Servicio_Facturacion.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridReportes.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 45, 48);
+            dataGridReportes.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridReportes.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10, FontStyle.Bold);
+            dataGridReportes.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             // Color alterno para las filas
-            dataGridView_Producto_Servicio_Facturacion.RowsDefaultCellStyle.BackColor = Color.White;
-            dataGridView_Producto_Servicio_Facturacion.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
-            dataGridView_Producto_Servicio_Facturacion.DefaultCellStyle.SelectionBackColor = Color.FromArgb(51, 153, 255);
-            dataGridView_Producto_Servicio_Facturacion.DefaultCellStyle.SelectionForeColor = Color.White;
-            dataGridView_Producto_Servicio_Facturacion.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dataGridReportes.RowsDefaultCellStyle.BackColor = Color.White;
+            dataGridReportes.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+            dataGridReportes.DefaultCellStyle.SelectionBackColor = Color.FromArgb(51, 153, 255);
+            dataGridReportes.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridReportes.DefaultCellStyle.Font = new Font("Segoe UI", 10);
 
             // Bordes invisibles para un diseño más limpio
-            dataGridView_Producto_Servicio_Facturacion.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridView_Producto_Servicio_Facturacion.GridColor = Color.FromArgb(224, 224, 224);
+            dataGridReportes.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridReportes.GridColor = Color.FromArgb(224, 224, 224);
 
             // Limpiar columnas anteriores
-            dataGridView_Producto_Servicio_Facturacion.Columns.Clear();
+            dataGridReportes.Columns.Clear();
 
             // Columna para el botón de Editar
             //var editButtonColumn = new DataGridViewButtonColumn
@@ -296,7 +296,7 @@ namespace UI_UX_Dashboard_P1.UI
             //editButtonColumn.DefaultCellStyle.BackColor = Color.White;
             //editButtonColumn.DefaultCellStyle.ForeColor = Color.Green;
             //editButtonColumn.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            //dataGridView_Producto_Servicio_Facturacion.Columns.Add(editButtonColumn);
+            //dataGridReportes.Columns.Add(editButtonColumn);
 
             // Columna para el botón de Borrar
             var deleteButtonColumn = new DataGridViewButtonColumn
@@ -310,11 +310,11 @@ namespace UI_UX_Dashboard_P1.UI
             deleteButtonColumn.DefaultCellStyle.BackColor = Color.Indigo;
             deleteButtonColumn.DefaultCellStyle.ForeColor = Color.White;
             deleteButtonColumn.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dataGridView_Producto_Servicio_Facturacion.Columns.Add(deleteButtonColumn);
+            dataGridReportes.Columns.Add(deleteButtonColumn);
 
             // Columnas de datos
 
-            dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridReportes.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "IdProducto",
                 DataPropertyName = "IdProducto",
@@ -322,7 +322,7 @@ namespace UI_UX_Dashboard_P1.UI
             });
 
 
-            dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridReportes.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Tipo",
                 DataPropertyName = "Tipo",
@@ -330,14 +330,14 @@ namespace UI_UX_Dashboard_P1.UI
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleLeft }
             });
 
-            dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridReportes.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Producto",
                 DataPropertyName = "nombreProducto",
                 Width = 200,
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleLeft }
             });
-            dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridReportes.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Cantidad",
                 DataPropertyName = "Cantidad",
@@ -345,7 +345,7 @@ namespace UI_UX_Dashboard_P1.UI
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleLeft }
             });
 
-            dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridReportes.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Precio Unitario",
                 DataPropertyName = "PrecioUnitario",
@@ -353,7 +353,7 @@ namespace UI_UX_Dashboard_P1.UI
                 DefaultCellStyle = { Format = "C2", Alignment = DataGridViewContentAlignment.MiddleRight }
             });
 
-            dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridReportes.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Monto",
                 DataPropertyName = "Monto",
@@ -361,7 +361,7 @@ namespace UI_UX_Dashboard_P1.UI
                 DefaultCellStyle = { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
 
-            dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridReportes.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Impuesto",
                 DataPropertyName = "Impuesto",
@@ -369,7 +369,7 @@ namespace UI_UX_Dashboard_P1.UI
                 DefaultCellStyle = { Format = "C2", Alignment = DataGridViewContentAlignment.MiddleRight }
             });
 
-            dataGridView_Producto_Servicio_Facturacion.Columns.Add(new DataGridViewTextBoxColumn
+            dataGridReportes.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = "Total",
                 DataPropertyName = "Total",
@@ -466,12 +466,12 @@ namespace UI_UX_Dashboard_P1.UI
             }
         }
 
-        private void dataGridView_Producto_Servicio_Facturacion_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridReportes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verifica que el clic haya sido en una celda válida y en una columna de botón
-            if (e.RowIndex >= 0 && dataGridView_Producto_Servicio_Facturacion.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
+            if (e.RowIndex >= 0 && dataGridReportes.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
-                DataGridViewRow fila = dataGridView_Producto_Servicio_Facturacion.Rows[e.RowIndex];      // Fila seleccionada
+                DataGridViewRow fila = dataGridReportes.Rows[e.RowIndex];      // Fila seleccionada
 
                 switch (e.ColumnIndex)
                 {
@@ -698,13 +698,13 @@ namespace UI_UX_Dashboard_P1.UI
                 htmlContent = htmlContent.Replace("{{usuario}}", seccion.Nombre);
                 // Puedes añadir más reemplazos aquí según el contenido de tu HTML, como el nombre del proveedor, etc. 
 
-                //documentoLogAdmin.InsertarDocumentoLog(new DocumentoLog()
-                //{
-                //    TipoDocumento = "Comprobante de compras",
-                //    HtmlDocumento = htmlContent,
-                //    Usuario = seccion.UsuarioID,
-                //    NumeroComprobante = comprobante
-                //});
+                documentoLogAdmin.InsertarDocumentoLog(new DocumentoLog()
+                {
+                    TipoDocumento = "FACTURA",
+                    HtmlDocumento = htmlContent,
+                    Usuario = seccion.UsuarioID,
+                    NumeroComprobante = Nofactura
+                });
 
 
                 var popup = MessageBox.Show("¿Desea Imprimir el comprobante?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Information);

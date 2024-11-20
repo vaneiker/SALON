@@ -45,4 +45,4 @@ C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.csproj.Assembl
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.pdb
-C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\DAL\obj\Debug\DAL.csproj.Up2Date

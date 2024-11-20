@@ -49,6 +49,7 @@
     <Compile Include="Entitis\Facturacion.cs" />
     <Compile Include="Entitis\ProductoServiciosInventarios.cs" />
     <Compile Include="Entitis\Proveedores.cs" />
+    <Compile Include="Entitis\TipoMovimientoFinanciero.cs" />
     <Compile Include="Entitis\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

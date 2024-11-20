@@ -52,6 +52,7 @@
     <Compile Include="Admin\DropDownListAdmin.cs" />
     <Compile Include="Admin\ProductoServiciosInventariosAdmin.cs" />
     <Compile Include="Admin\ProveedoresAdmin.cs" />
+    <Compile Include="Admin\ReporteAdmin.cs" />
     <Compile Include="Admin\UsuarioAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools.cs" />

@@ -37,6 +37,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnProveedore = new System.Windows.Forms.Button();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.btnClientes = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.btnAlmacen = new System.Windows.Forms.Button();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.btnCobros = new System.Windows.Forms.Button();
@@ -101,13 +106,12 @@
             this.timer_panel = new System.Windows.Forms.Timer(this.components);
             this.LblFecha = new System.Windows.Forms.Label();
             this.LblReloj = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.btnClientes = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnProveedore = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.button_Ingreso_Egresos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -133,8 +137,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -215,6 +217,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.panel2.Controls.Add(this.button_Ingreso_Egresos);
+            this.panel2.Controls.Add(this.panel13);
             this.panel2.Controls.Add(this.btnProveedore);
             this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.btnClientes);
@@ -237,6 +241,66 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(215, 694);
             this.panel2.TabIndex = 1;
+            // 
+            // btnProveedore
+            // 
+            this.btnProveedore.AutoSize = true;
+            this.btnProveedore.FlatAppearance.BorderSize = 0;
+            this.btnProveedore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedore.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnProveedore.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnProveedore.Location = new System.Drawing.Point(38, 137);
+            this.btnProveedore.Name = "btnProveedore";
+            this.btnProveedore.Size = new System.Drawing.Size(157, 30);
+            this.btnProveedore.TabIndex = 22;
+            this.btnProveedore.Text = "Proveedore";
+            this.btnProveedore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProveedore.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
+            this.pictureBox6.Location = new System.Drawing.Point(8, 138);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 21;
+            this.pictureBox6.TabStop = false;
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.AutoSize = true;
+            this.btnClientes.FlatAppearance.BorderSize = 0;
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnClientes.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClientes.Location = new System.Drawing.Point(40, 101);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(157, 30);
+            this.btnClientes.TabIndex = 20;
+            this.btnClientes.Text = "Clientes";
+            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClientes.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(10, 102);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.Gray;
+            this.panel12.Location = new System.Drawing.Point(4, 85);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(200, 10);
+            this.panel12.TabIndex = 18;
             // 
             // btnAlmacen
             // 
@@ -994,65 +1058,29 @@
             this.LblReloj.TabIndex = 15;
             this.LblReloj.Text = "2:00:00 PM";
             // 
-            // panel12
+            // panel13
             // 
-            this.panel12.BackColor = System.Drawing.Color.Gray;
-            this.panel12.Location = new System.Drawing.Point(4, 85);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(200, 10);
-            this.panel12.TabIndex = 18;
+            this.panel13.BackColor = System.Drawing.Color.Gray;
+            this.panel13.Location = new System.Drawing.Point(4, 246);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(200, 10);
+            this.panel13.TabIndex = 23;
             // 
-            // btnClientes
+            // button_Ingreso_Egresos
             // 
-            this.btnClientes.AutoSize = true;
-            this.btnClientes.FlatAppearance.BorderSize = 0;
-            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClientes.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnClientes.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnClientes.Location = new System.Drawing.Point(40, 101);
-            this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(157, 30);
-            this.btnClientes.TabIndex = 20;
-            this.btnClientes.Text = "Clientes";
-            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(10, 102);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnProveedore
-            // 
-            this.btnProveedore.AutoSize = true;
-            this.btnProveedore.FlatAppearance.BorderSize = 0;
-            this.btnProveedore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedore.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnProveedore.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnProveedore.Location = new System.Drawing.Point(38, 137);
-            this.btnProveedore.Name = "btnProveedore";
-            this.btnProveedore.Size = new System.Drawing.Size(157, 30);
-            this.btnProveedore.TabIndex = 22;
-            this.btnProveedore.Text = "Proveedore";
-            this.btnProveedore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedore.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
-            this.pictureBox6.Location = new System.Drawing.Point(8, 138);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 21;
-            this.pictureBox6.TabStop = false;
+            this.button_Ingreso_Egresos.AutoSize = true;
+            this.button_Ingreso_Egresos.FlatAppearance.BorderSize = 0;
+            this.button_Ingreso_Egresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Ingreso_Egresos.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.button_Ingreso_Egresos.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.button_Ingreso_Egresos.Location = new System.Drawing.Point(8, 276);
+            this.button_Ingreso_Egresos.Name = "button_Ingreso_Egresos";
+            this.button_Ingreso_Egresos.Size = new System.Drawing.Size(203, 30);
+            this.button_Ingreso_Egresos.TabIndex = 25;
+            this.button_Ingreso_Egresos.Text = "Reportes Ingresos y Egresos";
+            this.button_Ingreso_Egresos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button_Ingreso_Egresos.UseVisualStyleBackColor = true;
+            this.button_Ingreso_Egresos.Click += new System.EventHandler(this.button_Ingreso_Egresos_Click);
             // 
             // Dasboard
             // 
@@ -1084,6 +1112,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -1118,8 +1148,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1203,6 +1231,8 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button_Ingreso_Egresos;
+        private System.Windows.Forms.Panel panel13;
     }
 }
 

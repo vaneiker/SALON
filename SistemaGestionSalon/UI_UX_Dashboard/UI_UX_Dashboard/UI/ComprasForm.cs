@@ -475,13 +475,8 @@ namespace UI_UX_Dashboard_P1.UI
             decimal? _ImpuestoCompraHeader = 0.00m;
             decimal? _TotalCompraHeader = 0.00m;
             double? _porciento = 0.00;
-            double? precioVentaBase = 0.00;
-            double? precioVentaFinal = 0.00;
-
-            //decimal? _preciofinalConImpuestoYTasa = 0.00m;
-
-
-            // Validaciones previas
+           
+  
             if (comboBox_forma_pago.SelectedIndex == 0)
             {
                 MessageBox.Show("Seleccione una Forma de pago.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -492,9 +487,8 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 MessageBox.Show("No existe producto en el listado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
-
-            //// Calcular totales
+            } 
+           
             _SubtotalCompraHeader = Convert.ToDecimal(compraViewModels.Sum(x => x.Importe).Value);
             _ImpuestoCompraHeader = Convert.ToDecimal(compraViewModels.Sum(x => x.Impuesto).Value);
             _TotalCompraHeader = Convert.ToDecimal(compraViewModels.Sum(x => x.SubTotal).Value);

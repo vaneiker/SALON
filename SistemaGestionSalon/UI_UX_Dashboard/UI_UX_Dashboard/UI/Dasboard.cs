@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;  
+using System.Drawing; 
 using System.Windows.Forms;
 using UI_UX_Dashboard_P1.UI;
+using UI_UX_Dashboard_P1.UI.REPORTES;
 
 namespace UI_UX_Dashboard_P1
 {
@@ -95,6 +90,12 @@ namespace UI_UX_Dashboard_P1
         private void button6_Click(object sender, EventArgs e)
         {
              
+        }
+
+        private void button_Ingreso_Egresos_Click(object sender, EventArgs e)
+        {
+            VentasReportes ventas = new VentasReportes();
+            ventas.ShowDialog();
         }
     }
 }

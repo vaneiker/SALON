@@ -85,7 +85,7 @@
             this.comboBox_Clientes = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bindingSource_producto_servicios_a_facturar = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView_Producto_Servicio_Facturacion = new System.Windows.Forms.DataGridView();
+            this.dataGridReportes = new System.Windows.Forms.DataGridView();
             this.IdProductoAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreProductoAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,7 +103,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource_producto_servicios_a_facturar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Producto_Servicio_Facturacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridReportes)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -757,12 +757,12 @@
             this.label2.TabIndex = 49;
             this.label2.Text = "Busqueda Cliente";
             // 
-            // dataGridView_Producto_Servicio_Facturacion
+            // dataGridReportes
             // 
-            this.dataGridView_Producto_Servicio_Facturacion.AllowUserToAddRows = false;
-            this.dataGridView_Producto_Servicio_Facturacion.AutoGenerateColumns = false;
-            this.dataGridView_Producto_Servicio_Facturacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Producto_Servicio_Facturacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridReportes.AllowUserToAddRows = false;
+            this.dataGridReportes.AutoGenerateColumns = false;
+            this.dataGridReportes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridReportes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdProductoAdd,
             this.Tipo,
             this.nombreProductoAdd,
@@ -771,12 +771,12 @@
             this.MontoAdd,
             this.ImpuestoAdd,
             this.TotalAdd});
-            this.dataGridView_Producto_Servicio_Facturacion.DataSource = this.bindingSource_producto_servicios_a_facturar;
-            this.dataGridView_Producto_Servicio_Facturacion.Location = new System.Drawing.Point(12, 585);
-            this.dataGridView_Producto_Servicio_Facturacion.Name = "dataGridView_Producto_Servicio_Facturacion";
-            this.dataGridView_Producto_Servicio_Facturacion.Size = new System.Drawing.Size(954, 213);
-            this.dataGridView_Producto_Servicio_Facturacion.TabIndex = 9;
-            this.dataGridView_Producto_Servicio_Facturacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Producto_Servicio_Facturacion_CellContentClick);
+            this.dataGridReportes.DataSource = this.bindingSource_producto_servicios_a_facturar;
+            this.dataGridReportes.Location = new System.Drawing.Point(12, 585);
+            this.dataGridReportes.Name = "dataGridReportes";
+            this.dataGridReportes.Size = new System.Drawing.Size(954, 213);
+            this.dataGridReportes.TabIndex = 9;
+            this.dataGridReportes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridReportes_CellContentClick);
             // 
             // IdProductoAdd
             // 
@@ -847,7 +847,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 810);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.dataGridView_Producto_Servicio_Facturacion);
+            this.Controls.Add(this.dataGridReportes);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
@@ -867,7 +867,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource_producto_servicios_a_facturar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Producto_Servicio_Facturacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridReportes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -927,7 +927,7 @@
         private System.Windows.Forms.Button BtnBorrar;
         private System.Windows.Forms.Button btnCobrar;
         private System.Windows.Forms.BindingSource bindingSource_producto_servicios_a_facturar;
-        private System.Windows.Forms.DataGridView dataGridView_Producto_Servicio_Facturacion;
+        private System.Windows.Forms.DataGridView dataGridReportes;
         private System.Windows.Forms.Label label_Servicio_Producto;
         private System.Windows.Forms.CheckBox checkBox_cambiar_precio;
         private System.Windows.Forms.PictureBox pictureBox1;
