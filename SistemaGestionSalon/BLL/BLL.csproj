@@ -50,6 +50,7 @@
     <Compile Include="Admin\ComprasAdmin.cs" />
     <Compile Include="Admin\DocumentoLogAdmin.cs" />
     <Compile Include="Admin\DropDownListAdmin.cs" />
+    <Compile Include="Admin\GastoAdmin.cs" />
     <Compile Include="Admin\ProductoServiciosInventariosAdmin.cs" />
     <Compile Include="Admin\ProveedoresAdmin.cs" />
     <Compile Include="Admin\ReporteAdmin.cs" />

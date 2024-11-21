@@ -93,5 +93,7 @@ namespace UI_UX_Dashboard_P1.Custom
             // Llamar al método que actualiza el estado de los botones, si se proporciona
             actualizarEstadoBotones?.Invoke();
         }
+
+
     }
 }

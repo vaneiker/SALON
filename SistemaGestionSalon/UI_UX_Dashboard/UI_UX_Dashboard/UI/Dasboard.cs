@@ -109,5 +109,11 @@ namespace UI_UX_Dashboard_P1
             ProveedorForm proveedor = new ProveedorForm();
             proveedor.ShowDialog();
         }
+
+        private void button_Gastos_Click(object sender, EventArgs e)
+        {
+            GastoForm gastoForm = new GastoForm();  
+            gastoForm.ShowDialog();
+        }
     }
 }

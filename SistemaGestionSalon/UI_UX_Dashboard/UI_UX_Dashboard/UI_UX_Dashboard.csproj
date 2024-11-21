@@ -67,6 +67,7 @@
     <Compile Include="Custom\AppEnun.cs" />
     <Compile Include="Custom\Enum.cs" />
     <Compile Include="Custom\Helpers.cs" />
+    <Compile Include="Custom\Utility.cs" />
     <Compile Include="Seccion.cs" />
     <Compile Include="UI\ClientesForm.cs">
       <SubType>Form</SubType>
@@ -124,6 +125,12 @@
     <Compile Include="UI\FrmTarjetaMedioPago.Designer.cs">
       <DependentUpon>FrmTarjetaMedioPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GastoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GastoForm.Designer.cs">
+      <DependentUpon>GastoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +154,12 @@
     </Compile>
     <Compile Include="UI\RegistroUsuario.Designer.cs">
       <DependentUpon>RegistroUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\REPORTES\DetalleMovimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\REPORTES\DetalleMovimiento.Designer.cs">
+      <DependentUpon>DetalleMovimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\REPORTES\VentasReportes.cs">
       <SubType>Form</SubType>
@@ -202,6 +215,9 @@
     <EmbeddedResource Include="UI\FrmTarjetaMedioPago.resx">
       <DependentUpon>FrmTarjetaMedioPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\GastoForm.resx">
+      <DependentUpon>GastoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegistroUsuario.resx">
       <DependentUpon>RegistroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\REPORTES\DetalleMovimiento.resx">
+      <DependentUpon>DetalleMovimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\REPORTES\VentasReportes.resx">
       <DependentUpon>VentasReportes.cs</DependentUpon>
@@ -440,6 +459,27 @@
     <Analyzer Include="DLL\itextsharp.dll" />
     <Analyzer Include="DLL\itextsharp.xmlworker.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Temp\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

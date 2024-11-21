@@ -14,6 +14,9 @@ namespace ENTITY.Entitis
         public string MetodoPago { get; set; }
         public decimal? Monto { get; set; }
         public int? ProveedorCliente { get; set; } 
-        public string htmlDocumento { get; set; }
+        public string htmlDocumento { get; set; } 
+        public byte[] documento { get; set; } 
+        public bool IsVARBINARY { get; set; }  
+
     }
 }

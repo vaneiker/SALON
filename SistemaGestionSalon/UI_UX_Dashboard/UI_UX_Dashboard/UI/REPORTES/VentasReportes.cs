@@ -50,25 +50,22 @@ namespace UI_UX_Dashboard_P1.UI.REPORTES
             if (e.RowIndex >= 0 && dataGridReportes.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
             {
                 DataGridViewRow fila = dataGridReportes.Rows[e.RowIndex];      // Fila seleccionada
+                var doc = tipoMovimientos.Where(x => x.NumeroDocumento == fila.Cells[3].Value.ToString()).FirstOrDefault();
 
                 switch (e.ColumnIndex)
                 {
                     case 0:
 
-                        //var result = MessageBox.Show("¿Estás seguro de que deseas eliminar este registro?", "Confirmar eliminación", MessageBoxButtons.YesNo);
-                        //if (result == DialogResult.Yes)
-                        //{
-
-                        //}
+                        if (doc.IsVARBINARY)
+                        {
+                            DetalleMovimiento detalle = new DetalleMovimiento(doc);
+                            detalle.ShowDialog();
+                        }
                         break;
 
                     case 1:
-
-
-                        var doc = tipoMovimientos.Where(x => x.NumeroDocumento == fila.Cells[3].Value.ToString()).FirstOrDefault();
+                        tipoMovimientos.Where(x => x.NumeroDocumento == fila.Cells[3].Value.ToString()).FirstOrDefault();
                         GenerateDocumento(doc);
-
-
                         break;
                 }
             }
