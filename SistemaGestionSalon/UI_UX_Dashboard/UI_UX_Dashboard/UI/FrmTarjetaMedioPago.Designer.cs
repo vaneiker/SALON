@@ -18,6 +18,7 @@
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.Panel();
+            this.checkBox_Domiciliar = new System.Windows.Forms.CheckBox();
             this.maskedTextBoxCardNumber = new System.Windows.Forms.MaskedTextBox();
             this.textBoxCardHolder = new System.Windows.Forms.TextBox();
             this.maskedTextBoxExpiryDate = new System.Windows.Forms.MaskedTextBox();
@@ -27,7 +28,7 @@
             this.labelExpiryDate = new System.Windows.Forms.Label();
             this.labelCVV = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.checkBox_Domiciliar = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -35,6 +36,7 @@
             // 
             this.panelMain.BackColor = System.Drawing.Color.White;
             this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMain.Controls.Add(this.label1);
             this.panelMain.Controls.Add(this.checkBox_Domiciliar);
             this.panelMain.Controls.Add(this.maskedTextBoxCardNumber);
             this.panelMain.Controls.Add(this.textBoxCardHolder);
@@ -49,6 +51,16 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(360, 320);
             this.panelMain.TabIndex = 0;
+            // 
+            // checkBox_Domiciliar
+            // 
+            this.checkBox_Domiciliar.AutoSize = true;
+            this.checkBox_Domiciliar.Location = new System.Drawing.Point(217, 204);
+            this.checkBox_Domiciliar.Name = "checkBox_Domiciliar";
+            this.checkBox_Domiciliar.Size = new System.Drawing.Size(76, 17);
+            this.checkBox_Domiciliar.TabIndex = 9;
+            this.checkBox_Domiciliar.Text = "Domisiliar?";
+            this.checkBox_Domiciliar.UseVisualStyleBackColor = true;
             // 
             // maskedTextBoxCardNumber
             // 
@@ -68,7 +80,7 @@
             // 
             // maskedTextBoxExpiryDate
             // 
-            this.maskedTextBoxExpiryDate.Location = new System.Drawing.Point(50, 180);
+            this.maskedTextBoxExpiryDate.Location = new System.Drawing.Point(50, 204);
             this.maskedTextBoxExpiryDate.Mask = "00/00";
             this.maskedTextBoxExpiryDate.Name = "maskedTextBoxExpiryDate";
             this.maskedTextBoxExpiryDate.Size = new System.Drawing.Size(78, 20);
@@ -76,7 +88,7 @@
             // 
             // maskedTextBoxCVV
             // 
-            this.maskedTextBoxCVV.Location = new System.Drawing.Point(150, 180);
+            this.maskedTextBoxCVV.Location = new System.Drawing.Point(132, 204);
             this.maskedTextBoxCVV.Mask = "000";
             this.maskedTextBoxCVV.Name = "maskedTextBoxCVV";
             this.maskedTextBoxCVV.Size = new System.Drawing.Size(78, 20);
@@ -132,22 +144,24 @@
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.Location = new System.Drawing.Point(100, 220);
+            this.btnSubmit.Location = new System.Drawing.Point(85, 275);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(143, 40);
             this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "Guardar";
             this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // checkBox_Domiciliar
+            // label1
             // 
-            this.checkBox_Domiciliar.AutoSize = true;
-            this.checkBox_Domiciliar.Location = new System.Drawing.Point(235, 180);
-            this.checkBox_Domiciliar.Name = "checkBox_Domiciliar";
-            this.checkBox_Domiciliar.Size = new System.Drawing.Size(76, 17);
-            this.checkBox_Domiciliar.TabIndex = 9;
-            this.checkBox_Domiciliar.Text = "Domisiliar?";
-            this.checkBox_Domiciliar.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(57, 182);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 19);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Mes/Año";
             // 
             // FrmTarjetaMedioPago
             // 
@@ -158,6 +172,7 @@
             this.Name = "FrmTarjetaMedioPago";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Captura de Tarjeta de Crédito";
+            this.Load += new System.EventHandler(this.FrmTarjetaMedioPago_Load);
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
             this.ResumeLayout(false);
@@ -177,5 +192,6 @@
         private System.Windows.Forms.Label labelCVV;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.CheckBox checkBox_Domiciliar;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -209,7 +209,7 @@ namespace UI_UX_Dashboard_P1.UI
                             Helpers.ShowWarning($"El artículo: {dfactura.nombreProducto} ya está registrado en la tabla de compras.\n" +
                                                "Si deseas actualizar su cantidad, por favor utiliza la opción editar.");
                             return;
-                        } 
+                        }
                     }
                     AddFactura(model);
                 }
@@ -546,8 +546,16 @@ namespace UI_UX_Dashboard_P1.UI
         {
             if (radioButton_Tarjeta.Checked == true)
             {
+                if (string.IsNullOrWhiteSpace(txtIdCliente.Text))
+                {
+                    Helpers.ShowError(
+                     "No se puede registrar la tarjeta del cliente.\n" +
+                     " Seleccione un cliente válido distinto a 'Venta Directa'.");
+                    comboBox_Clientes.Focus();
+                    return;
+                }
                 metodopago = "Tarjeta Credito/Debito";
-                FrmTarjetaMedioPago frmTarjeta = new FrmTarjetaMedioPago();
+                FrmTarjetaMedioPago frmTarjeta = new FrmTarjetaMedioPago(int.Parse(txtIdCliente.Text));
                 frmTarjeta.ShowDialog();
             }
         }
@@ -827,6 +835,145 @@ namespace UI_UX_Dashboard_P1.UI
             {
                 metodopago = "Otro Metodo";
             }
+        }
+        private void button_Buscar_Cliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clientes cliente = null;
+                string telefono = maskedTextBox_Buscar_Por_Celular.Text.Replace("-", "").Trim();
+                string cedula = maskedTextBox_Cedula.Text.Replace("-", "").Trim();
+                string nombre = string.IsNullOrWhiteSpace(textBox_Nombre.Text) ? "N/A" : textBox_Nombre.Text.Trim();
+
+                // Validar que al menos uno de los campos de búsqueda esté lleno
+                if (string.IsNullOrWhiteSpace(telefono) && string.IsNullOrWhiteSpace(cedula) && nombre == "N/A")
+                {
+                    Helpers.ShowTypeError("Por favor, complete al menos un campo para realizar la búsqueda.", "Campos Vacíos");
+                    return;
+                }
+
+                // Obtener la lista de clientes una sola vez para optimizar rendimiento
+                var clientes = clienteAdmin.GetClientes();
+
+                // Buscar cliente por los criterios disponibles
+                cliente = clientes.FirstOrDefault(x =>
+                    (!string.IsNullOrWhiteSpace(cedula) && x.Cedula == cedula) ||
+                    (!string.IsNullOrWhiteSpace(telefono) && x.Celular == telefono) ||
+                    (nombre != "N/A" && x.Nombre.ToUpper().Contains(nombre.ToUpper()))
+                );
+
+                if (cliente != null)
+                {
+                    // Mostrar los datos del cliente encontrado
+                    txtnombre.Text = cliente.Nombre;
+                    txtcedula.Text = cliente.Cedula;
+                    txtcelular.Text = cliente.Celular;
+                    txttelefono.Text = cliente.Telefono;
+                    txtcorreo.Text = cliente.Email;
+                    txtIdCliente.Text = cliente.ClienteID.ToString();
+                    cliente_direccion = cliente.Direccion;
+
+                    // Limpiar los campos de búsqueda
+                    maskedTextBox_Buscar_Por_Celular.Clear();
+                    maskedTextBox_Cedula.Clear();
+                    textBox_Nombre.Clear();
+                }
+                else
+                {
+                    // Mostrar mensaje de cliente no encontrado
+                    Helpers.ShowTypeError("No se encontró ningún cliente con los datos proporcionados.", "Cliente No Encontrado");
+                }
+            }
+            catch (InvalidOperationException)
+            {
+                // Manejo específico de errores cuando hay múltiples coincidencias
+                Helpers.ShowError("Se encontraron múltiples clientes con los datos proporcionados. Refinar la búsqueda.");
+            }
+            catch (Exception ex)
+            {
+                // Manejo general de errores
+                Helpers.ShowError($"Ocurrió un error al buscar el cliente: {ex.Message}", ex);
+            }
+        }
+
+        private void button_Buscar_Producto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Base producto_Servicio = null;
+                string pServicio = string.IsNullOrWhiteSpace(textBox_Producto_Nombre.Text) ? "N/A" : textBox_Producto_Nombre.Text.Trim();
+                string pServicioCodigoBarra = string.IsNullOrWhiteSpace(textBox_Buscar_codigo_barra.Text) ? "N/A" : textBox_Buscar_codigo_barra.Text.Trim();
+
+                // Validar que al menos uno de los campos de búsqueda esté lleno
+                if (string.IsNullOrWhiteSpace(pServicio) && string.IsNullOrWhiteSpace(textBox_Buscar_codigo_barra.Text))
+                {
+                    Helpers.ShowTypeError("Por favor, complete al menos un campo para realizar la búsqueda de Producto o servicio.", "Campos Vacíos");
+                    return;
+                }
+
+                // Obtener la lista de productos una sola vez para optimizar rendimiento
+                var ps = drop.DropDownList(DropDownList.ProductoServicios.ToString());
+                // Buscar cliente por los criterios disponibles
+                producto_Servicio = ps.FirstOrDefault(x =>
+                    (!string.IsNullOrWhiteSpace(pServicioCodigoBarra) && x.MSJ == pServicioCodigoBarra) ||
+                    (pServicio != "N/A" && x.ACTION.ToUpper().Contains(pServicio.ToUpper()))
+                );
+
+                if (producto_Servicio != null)
+                {
+                    var producto = dbpro.GetProductoServiciosInventarios().Where(x => x.ProductoServicioID == int.Parse(producto_Servicio.CODE)).FirstOrDefault();
+                    txtProducto.Text = producto.Codigo;
+                    txtStock.Text = producto.Stock.ToString();
+                    txtProductoServicio.Text = producto.Nombre;
+                    txtIdProducto.Text = producto.ProductoServicioID.ToString();
+                    txtPrecio.Text = producto.PrecioVentaBase.ToString();
+                    label_Servicio_Producto.Text = $"{producto.Tipo}";
+                    precio_original = producto.PrecioVentaBase;
+                    precio_costo = producto.Precio;
+                    stock_original = producto.Stock;
+
+                    textBox_Producto_Nombre.Clear();
+                    textBox_Buscar_codigo_barra.Clear();
+
+                    if (producto.Tipo == "Servicio")
+                    {
+                        txtCantidadAdd.Text = "1";
+                        txtCantidadAdd.Enabled = false;
+                    }
+                    else
+                    {
+                        txtCantidadAdd.Text = "0";
+                        txtCantidadAdd.Enabled = true;
+                    }
+                }
+                else
+                {
+                    // Mostrar mensaje de cliente no encontrado
+                    Helpers.ShowTypeError("No se encontró ningún cliente con los datos proporcionados.", "Cliente No Encontrado");
+                }
+            }
+            catch (InvalidOperationException)
+            {
+                // Manejo específico de errores cuando hay múltiples coincidencias
+                Helpers.ShowError("Se encontraron múltiples clientes con los datos proporcionados. Refinar la búsqueda.");
+            }
+            catch (Exception ex)
+            {
+                // Manejo general de errores
+                Helpers.ShowError($"Ocurrió un error al buscar el cliente: {ex.Message}", ex);
+            }
+        }
+
+        private void textBox_Buscar_codigo_barra_KeyUp(object sender, KeyEventArgs e)
+        {
+            button_Buscar_Producto_Click(sender, e);
+
+
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    // Llamar al método de búsqueda con el código de barras
+            //    button_Buscar_Producto_Click(sender, e);
+            //}
         }
     }
 }

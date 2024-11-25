@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Base.cs" />
     <Compile Include="Entitis\Clientes.cs" />
+    <Compile Include="Entitis\ClienteTarjeta.cs" />
     <Compile Include="Entitis\Compras.cs" />
     <Compile Include="Entitis\Configuration.cs" />
     <Compile Include="Entitis\DocumentoLog.cs" />
