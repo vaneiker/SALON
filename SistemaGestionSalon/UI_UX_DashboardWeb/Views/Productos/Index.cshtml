@@ -1,0 +1,126 @@
+﻿@model IEnumerable<UI_UX_DashboardWeb.Models.Producto>
+
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<!-- Formulario de Productos -->
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="fas fa-box-open me-2"></i> Gestión de Productos</h5>
+        <button class="btn btn-light btn-sm" id="toggleForm" title="Mostrar/Ocultar Formulario">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
+    <div class="card-body" id="formContainer">
+        <form id="productoForm">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre del producto" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="categoria" class="form-label">Categoría</label>
+                    <select id="categoria" name="categoria" class="form-control" required>
+                        <option value="" disabled selected>Seleccione una categoría</option>
+                        <option value="Categoria1">Categoría 1</option>
+                        <option value="Categoria2">Categoría 2</option>
+                        <option value="Categoria3">Categoría 3</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="cantidad" class="form-label">Cantidad Disponible</label>
+                    <input type="number" id="cantidad" name="cantidad" class="form-control" placeholder="0" min="0" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="precioCompra" class="form-label">Precio de Compra</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                        <input type="number" id="precioCompra" name="precioCompra" class="form-control" placeholder="0.00" step="0.01" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="precioVenta" class="form-label">Precio de Venta</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                        <input type="number" id="precioVenta" name="precioVenta" class="form-control" placeholder="0.00" step="0.01" required>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end mt-3">
+                <button type="reset" class="btn btn-secondary"><i class="fas fa-eraser"></i> Limpiar</button>
+                <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Tabla de Productos -->
+<div class="card shadow-sm">
+    <div class="card-header bg-secondary text-white">
+        <h5 class="mb-0"><i class="fas fa-list me-2"></i> Listado de Productos</h5>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table id="productosTable" class="table table-striped table-hover align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col" class="text-center">Cantidad Disponible</th>
+                        <th scope="col" class="text-end">Precio de Compra</th>
+                        <th scope="col" class="text-end">Precio de Venta</th>
+                        <th scope="col" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Nombre</td>
+                            <td>@item.Categoria</td>
+                            <td class="text-center">@item.CantidadDisponible</td>
+                            <td class="text-end">@item.PrecioCompra.ToString("C")</td>
+                            <td class="text-end">@item.PrecioVenta.ToString("C")</td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Edit", "Productos", new { id = item.ProductoID })" class="btn btn-outline-warning btn-sm d-inline-flex align-items-center" title="Editar">
+                                    <i class="fas fa-edit me-1"></i> Editar
+                                </a>
+                                <a href="@Url.Action("Delete", "Productos", new { id = item.ProductoID })" class="btn btn-outline-danger btn-sm d-inline-flex align-items-center" title="Eliminar">
+                                    <i class="fas fa-trash-alt me-1"></i> Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Inicialización de DataTables
+    $(document).ready(function () {
+        $('#productosTable').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
+            },
+            "paging": true,
+            "searching": true,
+            "info": false,
+            "ordering": true
+        });
+
+        // Mostrar/Ocultar el formulario
+        $('#toggleForm').click(function () {
+            $('#formContainer').slideToggle();
+            $(this).find('i').toggleClass('fa-chevron-up fa-chevron-down');
+        });
+
+        // Procesar formulario
+        $('#productoForm').on('submit', function (e) {
+            e.preventDefault();
+            alert('Formulario enviado. Procesar aquí la lógica de guardado.');
+        });
+    });
+</script>
+

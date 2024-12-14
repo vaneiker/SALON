@@ -3,15 +3,19 @@
   "WorkspaceRootPath": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{64B3B93A-C907-4146-91AD-ADD6FA2676FC}|DAL\\DAL.csproj|c:\\appeiker\\.net\\git2\\salon\\sistemagestionsalon\\dal\\repository\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64B3B93A-C907-4146-91AD-ADD6FA2676FC}|DAL\\DAL.csproj|solutionrelative:dal\\repository\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\.net\\git2\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\seccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\seccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\.net\\git2\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\facturacionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\facturacionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\facturacionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|c:\\appeiker\\.net\\git2\\salon\\sistemagestionsalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\facturacionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\ui_ux_dashboard\\ui_ux_dashboard\\ui\\facturacionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7B03FFB1-8550-437D-BA67-3AA850E7B854}|UI_UX_Dashboard\\UI_UX_Dashboard\\UI_UX_Dashboard.csproj|solutionrelative:ui_ux_dashboard\\ui_ux_dashboard\\ui\\facturacionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -27,6 +31,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ClienteRepository.cs",
+              "DocumentMoniker": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\DAL\\Repository\\ClienteRepository.cs",
+              "RelativeDocumentMoniker": "DAL\\Repository\\ClienteRepository.cs",
+              "ToolTip": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\DAL\\Repository\\ClienteRepository.cs",
+              "RelativeToolTip": "DAL\\Repository\\ClienteRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T13:18:03.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Seccion.cs",
               "DocumentMoniker": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\Seccion.cs",
               "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\Seccion.cs",
@@ -39,7 +56,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "FacturacionForm.cs",
               "DocumentMoniker": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\FacturacionForm.cs",
               "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\FacturacionForm.cs",
@@ -47,20 +64,18 @@
               "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\FacturacionForm.cs",
               "ViewState": "AgIAAMABAAAAAAAAAAAowPUBAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:49:25.739Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-01T14:49:25.739Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FacturacionForm.cs [Design]",
               "DocumentMoniker": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\FacturacionForm.cs",
               "RelativeDocumentMoniker": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\FacturacionForm.cs",
               "ToolTip": "C:\\AppEiker\\.Net\\Git2\\SALON\\SistemaGestionSalon\\UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\FacturacionForm.cs [Design]",
               "RelativeToolTip": "UI_UX_Dashboard\\UI_UX_Dashboard\\UI\\FacturacionForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T14:49:17.456Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-01T14:49:17.456Z"
             }
           ]
         }

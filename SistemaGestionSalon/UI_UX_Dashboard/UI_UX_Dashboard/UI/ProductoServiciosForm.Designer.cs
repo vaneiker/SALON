@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -62,9 +62,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.txtbeneficios = new System.Windows.Forms.TextBox();
-            this.label_porcentaje_precio = new System.Windows.Forms.Label();
-            this.comboBox_porcentaje_precio = new System.Windows.Forms.ComboBox();
-            this.checkBox_porcentaje_precio = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.checkBox_servicio = new System.Windows.Forms.CheckBox();
             this.textBox_Precio_costo = new System.Windows.Forms.TextBox();
@@ -232,8 +229,8 @@
             // NombreProducto
             // 
             this.NombreProducto.DataPropertyName = "NombreProducto";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.NombreProducto.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.NombreProducto.DefaultCellStyle = dataGridViewCellStyle4;
             this.NombreProducto.HeaderText = "Nombre Producto";
             this.NombreProducto.Name = "NombreProducto";
             this.NombreProducto.ToolTipText = "Nombre Producto";
@@ -242,8 +239,8 @@
             // Descripcion
             // 
             this.Descripcion.DataPropertyName = "Descripcion";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.Descripcion.DefaultCellStyle = dataGridViewCellStyle5;
             this.Descripcion.HeaderText = "Descripción";
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ToolTipText = "Descripción";
@@ -252,8 +249,8 @@
             // Precio
             // 
             this.Precio.DataPropertyName = "Precio";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.Precio.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.Precio.DefaultCellStyle = dataGridViewCellStyle6;
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
             this.Precio.ToolTipText = "Precio";
@@ -312,9 +309,6 @@
             this.tabPage1.Controls.Add(this.btnGuardar);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.txtbeneficios);
-            this.tabPage1.Controls.Add(this.label_porcentaje_precio);
-            this.tabPage1.Controls.Add(this.comboBox_porcentaje_precio);
-            this.tabPage1.Controls.Add(this.checkBox_porcentaje_precio);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.checkBox_servicio);
             this.tabPage1.Controls.Add(this.textBox_Precio_costo);
@@ -401,42 +395,6 @@
             this.txtbeneficios.Text = "RD$ 0.00";
             this.txtbeneficios.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label_porcentaje_precio
-            // 
-            this.label_porcentaje_precio.AutoSize = true;
-            this.label_porcentaje_precio.BackColor = System.Drawing.Color.Transparent;
-            this.label_porcentaje_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_porcentaje_precio.ForeColor = System.Drawing.Color.Gray;
-            this.label_porcentaje_precio.Location = new System.Drawing.Point(1183, 103);
-            this.label_porcentaje_precio.Name = "label_porcentaje_precio";
-            this.label_porcentaje_precio.Size = new System.Drawing.Size(79, 20);
-            this.label_porcentaje_precio.TabIndex = 23;
-            this.label_porcentaje_precio.Text = "Precio %";
-            // 
-            // comboBox_porcentaje_precio
-            // 
-            this.comboBox_porcentaje_precio.Enabled = false;
-            this.comboBox_porcentaje_precio.FormattingEnabled = true;
-            this.comboBox_porcentaje_precio.Location = new System.Drawing.Point(1015, 126);
-            this.comboBox_porcentaje_precio.Name = "comboBox_porcentaje_precio";
-            this.comboBox_porcentaje_precio.Size = new System.Drawing.Size(247, 28);
-            this.comboBox_porcentaje_precio.TabIndex = 22;
-            this.comboBox_porcentaje_precio.SelectedIndexChanged += new System.EventHandler(this.comboBox_porcentaje_precio_SelectedIndexChanged);
-            // 
-            // checkBox_porcentaje_precio
-            // 
-            this.checkBox_porcentaje_precio.AutoSize = true;
-            this.checkBox_porcentaje_precio.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox_porcentaje_precio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_porcentaje_precio.ForeColor = System.Drawing.Color.Tomato;
-            this.checkBox_porcentaje_precio.Location = new System.Drawing.Point(1113, 6);
-            this.checkBox_porcentaje_precio.Name = "checkBox_porcentaje_precio";
-            this.checkBox_porcentaje_precio.Size = new System.Drawing.Size(291, 24);
-            this.checkBox_porcentaje_precio.TabIndex = 21;
-            this.checkBox_porcentaje_precio.Text = "¿Desea calcular el precio por %?";
-            this.checkBox_porcentaje_precio.UseVisualStyleBackColor = true;
-            this.checkBox_porcentaje_precio.CheckedChanged += new System.EventHandler(this.checkBox_porcentaje_precio_CheckedChanged);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -457,9 +415,9 @@
             this.checkBox_servicio.ForeColor = System.Drawing.SystemColors.GrayText;
             this.checkBox_servicio.Location = new System.Drawing.Point(39, 130);
             this.checkBox_servicio.Name = "checkBox_servicio";
-            this.checkBox_servicio.Size = new System.Drawing.Size(171, 24);
+            this.checkBox_servicio.Size = new System.Drawing.Size(200, 24);
             this.checkBox_servicio.TabIndex = 14;
-            this.checkBox_servicio.Text = "¿Es un Servicios?";
+            this.checkBox_servicio.Text = "¿Producto Consumo?";
             this.checkBox_servicio.UseVisualStyleBackColor = true;
             this.checkBox_servicio.CheckedChanged += new System.EventHandler(this.checkBox_servicio_CheckedChanged);
             // 
@@ -630,9 +588,6 @@
         private System.Windows.Forms.CheckBox checkBox_servicio;
         private System.Windows.Forms.TextBox textBox_Precio_costo;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.CheckBox checkBox_porcentaje_precio;
-        private System.Windows.Forms.Label label_porcentaje_precio;
-        private System.Windows.Forms.ComboBox comboBox_porcentaje_precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductoServicioID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVentaBase;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVentaFinal;

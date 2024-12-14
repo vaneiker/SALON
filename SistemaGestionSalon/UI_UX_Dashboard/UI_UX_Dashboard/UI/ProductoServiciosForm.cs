@@ -102,7 +102,7 @@ namespace UI_UX_Dashboard_P1.UI
             //var Precio_Venta_final = textBox_Precio_Venta_final.Text.ToString().Replace("RD$", "").Trim();
             //var Impuesto = textBox_Impuesto.Text.ToString().Replace("RD$", "").Trim();
             var Proveedor = comboBox_Proveedor.SelectedValue.ToString();
-            var Porcentaje_precio = comboBox_porcentaje_precio.SelectedValue.ToString();
+           
             var Precio = textBox_Precio_costo.Text.ToString().Replace("RD$", "").Trim();
             var PrecioCosto = textBox_Precio_costo.Text.ToString();
 
@@ -111,7 +111,7 @@ namespace UI_UX_Dashboard_P1.UI
             _precio_base = decimal.Parse(Precio_base);
             //_precio_Venta_final = decimal.Parse(Precio_Venta_final);
             //_impuesto = decimal.Parse(Impuesto);
-            _porciento = decimal.Parse(Porcentaje_precio);
+            
             _proveedor = int.Parse(Proveedor);
             _precio_costo = decimal.Parse(PrecioCosto);
 
@@ -270,87 +270,13 @@ namespace UI_UX_Dashboard_P1.UI
         }
 
 
-        private void CargarPorcentaje()
-        {
-            var data = drop.DropDownList(DropDownList.PorcientoPrecioManual.ToString());
-            comboBox_porcentaje_precio.DataSource = data;
-            comboBox_porcentaje_precio.DisplayMember = "ACTION";
-            comboBox_porcentaje_precio.ValueMember = "CODE";
-
-        }
-        private void checkBox_porcentaje_precio_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox_porcentaje_precio.Checked == true)
-            {
-
-                textBox_precio_base.Text = "RD$ 0.00";
-                //textBox_Precio_Venta_final.Text = "RD$ 0.00";
-                //textBox_Impuesto.Text = "RD$ 0.00";
-                txtbeneficios.Text = string.Empty;
-                textBox_Precio_costo.Text = string.Empty;
-                textBox_precio_manual.Text = "0.00";
-
-                comboBox_porcentaje_precio.Enabled = true;
-                textBox_precio_manual.Enabled = false;
-
-                try
-                {
-                    CargarPorcentaje();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show($"Error al cargar el listado de Porcentaje Precio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-            }
-            else
-            {
-                CargarPorcentaje();
-                comboBox_porcentaje_precio.Enabled = false;
-                textBox_precio_manual.Enabled = true;
-            }
-        }
-
-        private void comboBox_porcentaje_precio_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            double precioventabase = 0.00;
-            double precioventa = 0.00;
-            double impuesto = 0.00;
-            double porcentaje = 0.00;
-            double preciocosto = 0.00;
-            int cantidad = 0;
-
-            if (comboBox_porcentaje_precio.SelectedIndex > 0)
-            {
-                if (textBox_Precio_costo.Text == "0.00")
-                {
-                    MessageBox.Show($"Para el calculo de precio venta y base se debe " +
-                        $"Llenar el campo precio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    CargarPorcentaje();
-                    return;
-                }
-                preciocosto = double.Parse(textBox_Precio_costo.Text.ToString().Replace("RD$", "").Trim());
-
-                porcentaje = double.Parse(comboBox_porcentaje_precio.SelectedValue.ToString());
-
-                precioventabase = preciocosto * porcentaje;
-                impuesto = precioventabase * 18 / 100;
-                precioventa = precioventabase + impuesto;
-
-                textBox_precio_base.Text = precioventabase.ToString("RD$ #,##0.00");
-                //textBox_Impuesto.Text = impuesto.ToString("RD$ #,##0.00");
-                //textBox_Precio_Venta_final.Text = precioventa.ToString("RD$ #,##0.00");
-                txtbeneficios.Text = (precioventabase - preciocosto).ToString("RD$ #,##0.00");
-            }
-        }
-
-
+       
+      
+       
         public void RecargarTodo()
         {
             textBox_precio_base.Text = "RD$ 0.00";
-            //textBox_Precio_Venta_final.Text = "RD$ 0.00";
-            checkBox_porcentaje_precio.Checked = false;
+            //textBox_Precio_Venta_final.Text = "RD$ 0.00"; 
             this._ProductoServicioID = 0;
             this.EsPorcentaje = false;
             this.CodigoBarra = string.Empty;
@@ -358,7 +284,7 @@ namespace UI_UX_Dashboard_P1.UI
             textBox_Descripcion.Text = string.Empty;
             //textBox_Impuesto.Text = "0.00";
             txtbeneficios.Text = string.Empty;
-
+            textBox_Codigo.Text = string.Empty;
             textBox_Precio_costo.Text = string.Empty;
             CargaInicial();
             CargarProveedor();
@@ -436,7 +362,7 @@ namespace UI_UX_Dashboard_P1.UI
                     textBox_Descripcion.Text = dt.CurrentRow.Cells["Descripcion"].Value.ToString();
 
                     checkBox_servicio.Checked = dt.CurrentRow.Cells["Tipo"].Value.ToString() == "Servicio" ? true : false;
-                    checkBox_porcentaje_precio.Checked = resultTemp.Porciento != 0.00m ? true : false;
+                 
 
                     //textBox_Impuesto.Text = resultTemp.Impuestos.Value.ToString("RD$ #,##0.00");
 
@@ -447,7 +373,7 @@ namespace UI_UX_Dashboard_P1.UI
                     textBox_Precio_costo.Text = resultTemp.Precio.Value.ToString();
                     txtbeneficios.Text = $"{beneficio.Value.ToString("RD$ #,##0.00")}";
                     comboBox_Proveedor.Text = resultTemp.NombreProveedor;
-                    comboBox_porcentaje_precio.SelectedValue = resultTemp.Porciento.Value.ToString();
+                   
 
                 }
             }
@@ -627,7 +553,7 @@ namespace UI_UX_Dashboard_P1.UI
             textBox_Codigo.Text = string.Empty; ;
             textBox_nombre.Text = string.Empty; ;
             textBox_Descripcion.Text = string.Empty; ;
-            checkBox_porcentaje_precio.Checked = false;
+             
             textBox_precio_manual.Text = "0.00";
             textBox_Precio_costo.Text = "0.00";
             textBox_precio_base.Text = "0.00";

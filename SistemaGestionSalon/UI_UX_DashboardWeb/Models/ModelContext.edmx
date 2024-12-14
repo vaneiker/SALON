@@ -1,0 +1,534 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_aaba45_coreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Compras">
+          <Key>
+            <PropertyRef Name="CompraID" />
+          </Key>
+          <Property Name="CompraID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetalleCompra">
+          <Key>
+            <PropertyRef Name="DetalleCompraID" />
+          </Key>
+          <Property Name="DetalleCompraID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompraID" Type="int" />
+          <Property Name="ProductoID" Type="int" />
+          <Property Name="Cantidad" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetalleVenta">
+          <Key>
+            <PropertyRef Name="DetalleVentaID" />
+          </Key>
+          <Property Name="DetalleVentaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VentaID" Type="int" />
+          <Property Name="ProductoID" Type="int" />
+          <Property Name="Cantidad" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gastos">
+          <Key>
+            <PropertyRef Name="GastoID" />
+          </Key>
+          <Property Name="GastoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Categoria" Type="nvarchar" MaxLength="100" />
+          <Property Name="Detalles" Type="nvarchar" MaxLength="250" />
+          <Property Name="Monto" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="ProductoID" />
+          </Key>
+          <Property Name="ProductoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Categoria" Type="nvarchar" MaxLength="100" />
+          <Property Name="CantidadDisponible" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="PrecioCompra" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="PrecioVenta" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="FechaIngreso" Type="datetime" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Receta_Producto">
+          <Key>
+            <PropertyRef Name="RecetaID" />
+            <PropertyRef Name="ProductoID" />
+          </Key>
+          <Property Name="RecetaID" Type="int" Nullable="false" />
+          <Property Name="ProductoID" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Recetas">
+          <Key>
+            <PropertyRef Name="RecetaID" />
+          </Key>
+          <Property Name="RecetaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Descripcion" Type="text" />
+          <Property Name="PrecioVenta" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="VentaID" />
+          </Key>
+          <Property Name="VentaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Cliente" Type="nvarchar" MaxLength="255" />
+          <Property Name="MetodoPago" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__DetalleCo__Compr__1CDC41A7">
+          <End Role="Compras" Type="Self.Compras" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DetalleCompra" Type="Self.DetalleCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compras">
+              <PropertyRef Name="CompraID" />
+            </Principal>
+            <Dependent Role="DetalleCompra">
+              <PropertyRef Name="CompraID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetalleCo__Produ__1DD065E0">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DetalleCompra" Type="Self.DetalleCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="ProductoID" />
+            </Principal>
+            <Dependent Role="DetalleCompra">
+              <PropertyRef Name="ProductoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetalleVe__Produ__17236851">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="ProductoID" />
+            </Principal>
+            <Dependent Role="DetalleVenta">
+              <PropertyRef Name="ProductoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetalleVe__Venta__162F4418">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="VentaID" />
+            </Principal>
+            <Dependent Role="DetalleVenta">
+              <PropertyRef Name="VentaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Receta_Pr__Produ__10766AC2">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Receta_Producto" Type="Self.Receta_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="ProductoID" />
+            </Principal>
+            <Dependent Role="Receta_Producto">
+              <PropertyRef Name="ProductoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Receta_Pr__Recet__0F824689">
+          <End Role="Recetas" Type="Self.Recetas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Receta_Producto" Type="Self.Receta_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recetas">
+              <PropertyRef Name="RecetaID" />
+            </Principal>
+            <Dependent Role="Receta_Producto">
+              <PropertyRef Name="RecetaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_aaba45_coreModelStoreContainer">
+          <EntitySet Name="Compras" EntityType="Self.Compras" Schema="Sistema" store:Type="Tables" />
+          <EntitySet Name="DetalleCompra" EntityType="Self.DetalleCompra" Schema="Sistema" store:Type="Tables" />
+          <EntitySet Name="DetalleVenta" EntityType="Self.DetalleVenta" Schema="Sistema" store:Type="Tables" />
+          <EntitySet Name="Gastos" EntityType="Self.Gastos" Schema="Sistema" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" Schema="Sistema" store:Type="Tables" />
+          <EntitySet Name="Receta_Producto" EntityType="Self.Receta_Producto" Schema="Sistema" store:Type="Tables" />
+          <EntitySet Name="Recetas" EntityType="Self.Recetas" Schema="Sistema" store:Type="Tables" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="Sistema" store:Type="Tables" />
+          <AssociationSet Name="FK__DetalleCo__Compr__1CDC41A7" Association="Self.FK__DetalleCo__Compr__1CDC41A7">
+            <End Role="Compras" EntitySet="Compras" />
+            <End Role="DetalleCompra" EntitySet="DetalleCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetalleCo__Produ__1DD065E0" Association="Self.FK__DetalleCo__Produ__1DD065E0">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetalleCompra" EntitySet="DetalleCompra" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetalleVe__Produ__17236851" Association="Self.FK__DetalleVe__Produ__17236851">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetalleVenta" EntitySet="DetalleVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetalleVe__Venta__162F4418" Association="Self.FK__DetalleVe__Venta__162F4418">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="DetalleVenta" EntitySet="DetalleVenta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Receta_Pr__Produ__10766AC2" Association="Self.FK__Receta_Pr__Produ__10766AC2">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Receta_Producto" EntitySet="Receta_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Receta_Pr__Recet__0F824689" Association="Self.FK__Receta_Pr__Recet__0F824689">
+            <End Role="Recetas" EntitySet="Recetas" />
+            <End Role="Receta_Producto" EntitySet="Receta_Producto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_aaba45_coreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Compra">
+          <Key>
+            <PropertyRef Name="CompraID" />
+          </Key>
+          <Property Name="CompraID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="DetalleCompras" Relationship="Self.FK__DetalleCo__Compr__1CDC41A7" FromRole="Compras" ToRole="DetalleCompra" />
+        </EntityType>
+        <EntityType Name="DetalleCompra">
+          <Key>
+            <PropertyRef Name="DetalleCompraID" />
+          </Key>
+          <Property Name="DetalleCompraID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompraID" Type="Int32" />
+          <Property Name="ProductoID" Type="Int32" />
+          <Property Name="Cantidad" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Compra" Relationship="Self.FK__DetalleCo__Compr__1CDC41A7" FromRole="DetalleCompra" ToRole="Compras" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__DetalleCo__Produ__1DD065E0" FromRole="DetalleCompra" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="DetalleVenta">
+          <Key>
+            <PropertyRef Name="DetalleVentaID" />
+          </Key>
+          <Property Name="DetalleVentaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VentaID" Type="Int32" />
+          <Property Name="ProductoID" Type="Int32" />
+          <Property Name="Cantidad" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__DetalleVe__Produ__17236851" FromRole="DetalleVenta" ToRole="Productos" />
+          <NavigationProperty Name="Venta" Relationship="Self.FK__DetalleVe__Venta__162F4418" FromRole="DetalleVenta" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Gasto">
+          <Key>
+            <PropertyRef Name="GastoID" />
+          </Key>
+          <Property Name="GastoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Categoria" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Detalles" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="ProductoID" />
+          </Key>
+          <Property Name="ProductoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Categoria" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CantidadDisponible" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="PrecioCompra" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="PrecioVenta" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="DetalleCompras" Relationship="Self.FK__DetalleCo__Produ__1DD065E0" FromRole="Productos" ToRole="DetalleCompra" />
+          <NavigationProperty Name="DetalleVentas" Relationship="Self.FK__DetalleVe__Produ__17236851" FromRole="Productos" ToRole="DetalleVenta" />
+          <NavigationProperty Name="Receta_Producto" Relationship="Self.FK__Receta_Pr__Produ__10766AC2" FromRole="Productos" ToRole="Receta_Producto" />
+        </EntityType>
+        <EntityType Name="Receta_Producto">
+          <Key>
+            <PropertyRef Name="RecetaID" />
+            <PropertyRef Name="ProductoID" />
+          </Key>
+          <Property Name="RecetaID" Type="Int32" Nullable="false" />
+          <Property Name="ProductoID" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Receta_Pr__Produ__10766AC2" FromRole="Receta_Producto" ToRole="Productos" />
+          <NavigationProperty Name="Receta" Relationship="Self.FK__Receta_Pr__Recet__0F824689" FromRole="Receta_Producto" ToRole="Recetas" />
+        </EntityType>
+        <EntityType Name="Receta">
+          <Key>
+            <PropertyRef Name="RecetaID" />
+          </Key>
+          <Property Name="RecetaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PrecioVenta" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Receta_Producto" Relationship="Self.FK__Receta_Pr__Recet__0F824689" FromRole="Recetas" ToRole="Receta_Producto" />
+        </EntityType>
+        <EntityType Name="Venta">
+          <Key>
+            <PropertyRef Name="VentaID" />
+          </Key>
+          <Property Name="VentaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Cliente" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MetodoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DetalleVentas" Relationship="Self.FK__DetalleVe__Venta__162F4418" FromRole="Ventas" ToRole="DetalleVenta" />
+        </EntityType>
+        <Association Name="FK__DetalleCo__Compr__1CDC41A7">
+          <End Role="Compras" Type="Self.Compra" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DetalleCompra" Type="Self.DetalleCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compras">
+              <PropertyRef Name="CompraID" />
+            </Principal>
+            <Dependent Role="DetalleCompra">
+              <PropertyRef Name="CompraID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetalleCo__Produ__1DD065E0">
+          <End Role="Productos" Type="Self.Producto" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DetalleCompra" Type="Self.DetalleCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="ProductoID" />
+            </Principal>
+            <Dependent Role="DetalleCompra">
+              <PropertyRef Name="ProductoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetalleVe__Produ__17236851">
+          <End Role="Productos" Type="Self.Producto" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="ProductoID" />
+            </Principal>
+            <Dependent Role="DetalleVenta">
+              <PropertyRef Name="ProductoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetalleVe__Venta__162F4418">
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DetalleVenta" Type="Self.DetalleVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="VentaID" />
+            </Principal>
+            <Dependent Role="DetalleVenta">
+              <PropertyRef Name="VentaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Receta_Pr__Produ__10766AC2">
+          <End Role="Productos" Type="Self.Producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Receta_Producto" Type="Self.Receta_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="ProductoID" />
+            </Principal>
+            <Dependent Role="Receta_Producto">
+              <PropertyRef Name="ProductoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Receta_Pr__Recet__0F824689">
+          <End Role="Recetas" Type="Self.Receta" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Receta_Producto" Type="Self.Receta_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recetas">
+              <PropertyRef Name="RecetaID" />
+            </Principal>
+            <Dependent Role="Receta_Producto">
+              <PropertyRef Name="RecetaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConnectionStringGuar6" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Compras" EntityType="Self.Compra" />
+          <EntitySet Name="DetalleCompras" EntityType="Self.DetalleCompra" />
+          <EntitySet Name="DetalleVentas" EntityType="Self.DetalleVenta" />
+          <EntitySet Name="Gastos" EntityType="Self.Gasto" />
+          <EntitySet Name="Productos" EntityType="Self.Producto" />
+          <EntitySet Name="Receta_Producto" EntityType="Self.Receta_Producto" />
+          <EntitySet Name="Recetas" EntityType="Self.Receta" />
+          <EntitySet Name="Ventas" EntityType="Self.Venta" />
+          <AssociationSet Name="FK__DetalleCo__Compr__1CDC41A7" Association="Self.FK__DetalleCo__Compr__1CDC41A7">
+            <End Role="Compras" EntitySet="Compras" />
+            <End Role="DetalleCompra" EntitySet="DetalleCompras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetalleCo__Produ__1DD065E0" Association="Self.FK__DetalleCo__Produ__1DD065E0">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetalleCompra" EntitySet="DetalleCompras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetalleVe__Produ__17236851" Association="Self.FK__DetalleVe__Produ__17236851">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetalleVenta" EntitySet="DetalleVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetalleVe__Venta__162F4418" Association="Self.FK__DetalleVe__Venta__162F4418">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="DetalleVenta" EntitySet="DetalleVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Receta_Pr__Produ__10766AC2" Association="Self.FK__Receta_Pr__Produ__10766AC2">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Receta_Producto" EntitySet="Receta_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Receta_Pr__Recet__0F824689" Association="Self.FK__Receta_Pr__Recet__0F824689">
+            <End Role="Recetas" EntitySet="Recetas" />
+            <End Role="Receta_Producto" EntitySet="Receta_Producto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_aaba45_coreModelStoreContainer" CdmEntityContainer="ConnectionStringGuar6">
+          <EntitySetMapping Name="Compras">
+            <EntityTypeMapping TypeName="db_aaba45_coreModel.Compra">
+              <MappingFragment StoreEntitySet="Compras">
+                <ScalarProperty Name="CompraID" ColumnName="CompraID" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleCompras">
+            <EntityTypeMapping TypeName="db_aaba45_coreModel.DetalleCompra">
+              <MappingFragment StoreEntitySet="DetalleCompra">
+                <ScalarProperty Name="DetalleCompraID" ColumnName="DetalleCompraID" />
+                <ScalarProperty Name="CompraID" ColumnName="CompraID" />
+                <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetalleVentas">
+            <EntityTypeMapping TypeName="db_aaba45_coreModel.DetalleVenta">
+              <MappingFragment StoreEntitySet="DetalleVenta">
+                <ScalarProperty Name="DetalleVentaID" ColumnName="DetalleVentaID" />
+                <ScalarProperty Name="VentaID" ColumnName="VentaID" />
+                <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gastos">
+            <EntityTypeMapping TypeName="db_aaba45_coreModel.Gasto">
+              <MappingFragment StoreEntitySet="Gastos">
+                <ScalarProperty Name="GastoID" ColumnName="GastoID" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Detalles" ColumnName="Detalles" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="db_aaba45_coreModel.Producto">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="CantidadDisponible" ColumnName="CantidadDisponible" />
+                <ScalarProperty Name="PrecioCompra" ColumnName="PrecioCompra" />
+                <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receta_Producto">
+            <EntityTypeMapping TypeName="db_aaba45_coreModel.Receta_Producto">
+              <MappingFragment StoreEntitySet="Receta_Producto">
+                <ScalarProperty Name="RecetaID" ColumnName="RecetaID" />
+                <ScalarProperty Name="ProductoID" ColumnName="ProductoID" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recetas">
+            <EntityTypeMapping TypeName="db_aaba45_coreModel.Receta">
+              <MappingFragment StoreEntitySet="Recetas">
+                <ScalarProperty Name="RecetaID" ColumnName="RecetaID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="db_aaba45_coreModel.Venta">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="VentaID" ColumnName="VentaID" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

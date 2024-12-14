@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.11.35327.3
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34902.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ENTITY", "ENTITY\ENTITY.csproj", "{20BB4B31-1CCC-49F6-BCB5-815CF15AC1E4}"
 EndProject
@@ -15,6 +15,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{64B3B93A-C907-4146-91AD-ADD6FA2676FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI_UX_Dashboard", "UI_UX_Dashboard\UI_UX_Dashboard\UI_UX_Dashboard.csproj", "{7B03FFB1-8550-437D-BA67-3AA850E7B854}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI_UX_DashboardWeb", "UI_UX_DashboardWeb\UI_UX_DashboardWeb.csproj", "{FCB620BB-7F9E-44DB-8779-413AA5C709C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{7B03FFB1-8550-437D-BA67-3AA850E7B854}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B03FFB1-8550-437D-BA67-3AA850E7B854}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B03FFB1-8550-437D-BA67-3AA850E7B854}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCB620BB-7F9E-44DB-8779-413AA5C709C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB620BB-7F9E-44DB-8779-413AA5C709C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB620BB-7F9E-44DB-8779-413AA5C709C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB620BB-7F9E-44DB-8779-413AA5C709C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

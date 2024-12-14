@@ -148,12 +148,11 @@ C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\Templeat\FacturaConsumidoFinal.html
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.UI.REPORTES.VentasReportes.resources
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\Templeat\ReporteEngresoIngreso.html
-C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard.csproj.SuggestedBindingRedirects.cache
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.UI.GastoForm.resources
-C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Da.D4B73DB5.Up2Date
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard_P1.UI.REPORTES.DetalleMovimiento.resources
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\Interop.AcroPDFLib.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\bin\Debug\AxInterop.AcroPDFLib.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\Interop.AcroPDFLib.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\AxInterop.AcroPDFLib.dll
 C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard.csproj.ResolveComReference.cache
+C:\AppEiker\.Net\Git2\SALON\SistemaGestionSalon\UI_UX_Dashboard\UI_UX_Dashboard\obj\Debug\UI_UX_Dashboard.csproj.CopyComplete
